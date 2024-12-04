@@ -10,9 +10,117 @@ There is no table of contents for this project yet as it in early developement s
 
 ---
 
+## Statistics 
+
+
+The following market research and user behavior data have been carefully selected to inform the development decisions for Forge Fitness. These statistics highlight key trends in the fitness app industry, user engagement patterns, health monitoring behaviors, and mobile design preferences. Each metric provides valuable insights that directly shape the project's features and implementation approach, ensuring the application meets real user needs while demonstrating effective full-stack development practices. The data is organized into four key areas that align with the project's core objectives and technical requirements.
+
+### User Engagement and Retention
+
+1. **High Abandonment Rates**:
+
+- **Key Statistic**: 25% of mobile app users abandon fitness apps after first use, while successful apps retain 80% of users through effective onboarding
+
+- **Visual Representation**: 
+ ![Pie Chart](assets/images/charts/piechart.png)
+
+- **Source**: [In-App Engagement Statistics & Tips for Health Apps](https://www.storyly.io/post/statistics-tips-for-health-apps-in-app-engagement)
+
+- **Relevance to Forge Fitness**:
+  - Intuitive dashboard design directly addresses user retention challenges
+  - First-time user experience optimized through clear navigation and guided setup
+  - Personalized goal-setting features engage users from day one
+  - Achievement system provides immediate value and motivation
+  - Regular progress updates keep users connected to their fitness journey
+
+--- 
+
+2. **Fitness App Market Trends**:
+
+- **Market Size**: The global fitness app market is projected to grow from USD 14.7 billion (2023) to USD 120.37 billion by 2030, with a robust CAGR of 17.6%
+
+- **Visual Representation**:
+![Graph](assets/images/charts/graphchart.png)
+
+- **Source**: [Grand View Research](https://www.grandviewresearch.com/industry-analysis/fitness-app-market)
+
+- **Relevance to Forge Fitness**:
+  - The substantial market growth validates the focus on creating a comprehensive fitness platform
+  - Rising demand for AI-driven personalization supports for smart workout planning features
+  - Increasing user expectations for digital fitness solutions align with the progress tracking and achievement systems
+  - Growing smartphone adoption rates reinforce mobile-first design approach
+   
+---
+
+3. **User Health Habits**:
+
+- **Key Statistics**: 
+  - 68% retention rate at 12 months for users who actively self-monitor vs 32% for non-monitoring users
+  - Weekly active users show 82% higher retention rates compared to sporadic users
+  - Multi-feature users demonstrate 40% higher daily usage rates
+  - Personalized reminders increase app interaction by 25%
+
+- **Visual Representation**:
+![Bar Chart](assets/images/charts/barchart.png)
+
+- **Source**: [Effect of Self-Monitoring on Fitness Adherence](https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0201166)
+
+- **Relevance to Forge Fitness**:
+  - **Comprehensive Tracking Integration**:
+    - Daily workout logging system
+    - Automated activity tracking
+    - Multi-metric monitoring (steps, calories, weight)
+    - Achievement milestones
+    - Personalized goal reminders
+   
+---
+
+4. **Mobile-First Design Importance**:
+
+- **Key Statistics**:
+
+   - **Mobile Dominance**:
+     - Over 54% of global web traffic comes from mobile devices as of 2024.
+     - *Source*: [Statista: Share of Website Traffic from Mobile Devices](https://www.statista.com/statistics/277125/share-of-website-traffic-coming-from-mobile-devices/)
+   - **User Preferences for Mobile Apps**:
+     - 85% of users prefer mobile apps over websites due to their speed, convenience, and offline capabilities.
+     - *Source*: [App Usage Statistics 2024](https://www.statista.com/topics/1002/mobile-app-usage/)
+   - **Fitness App Users are Mobile-Centric**:
+     - 92% of fitness app users access these apps via their smartphones, making mobile design crucial.
+     - *Source*: [Mobile App Usage Statistics for Fitness Apps](https://www.businessofapps.com/data/fitness-app-market/)
+   - **Responsive Design Increases Retention**:
+     - Apps with seamless mobile experiences have 30% higher retention rates compared to non-mobile-optimized platforms.
+     - *Source*: [UX Design and Retention Study](https://www.uxdesigninstitute.com/blog/app-usage-statistics/)
+
+- **Visual Representation**:
+![Horizontal Bar Chart](assets/images/charts/horizontal-barchart.png)
+
+ - **Relevance to Forge Fitness**:
+  
+   - **Design Priorities**:
+      - Clean, minimalistic interface optimized for mobile screens
+      - Touch-friendly dashboard elements for workout tracking
+      - Responsive layout that adapts seamlessly across devices
+
+   - **Feature Optimization**:
+      - Quick-access workout logging for on-the-go users
+      - Mobile-optimized progress charts and visualizations
+      - Easy-to-navigate training sections on smaller screens
+
+   - **User Experience Benefits**:
+      - Instant access to fitness data during workouts
+      - Simplified goal tracking through mobile dashboard
+      - Seamless activity logging from any device
+
+### Summary of Statistics
+
+The market research and usage data strongly support the development direction for this project. With fitness apps projected to reach $120.37 billion by 2030, the timing is ideal for creating an innovative fitness application. The statistics show that 68% of users who track their progress maintain long-term engagement, while 92% primarily access fitness apps via smartphones. These insights have directly shaped Forge Fitness's development approach, focusing on intuitive mobile-first design, comprehensive tracking features, and personalized user experiences. By incorporating these data-driven decisions into the project architecture, Forge Fitness demonstrates practical application of modern web development principles while addressing real user needs in the digital fitness space. This research-backed foundation naturally flows into the established client goals, ensuring the project delivers both technical excellence and user value.
+
+---
+
 ## Client Goals
 
-The Forge Fitness application is designed with inspiration from leading fitness brands like PureGym, Garmin, and Strava. The primary goals of this project are to:
+The Forge Fitness application combines modern development practices with proven design patterns from industry leaders like PureGym, Garmin, and Strava. This milestone project showcases full-stack development capabilities while delivering a comprehensive fitness platform. By implementing features found in successful fitness applications and adding innovative elements, Forge Fitness demonstrates both technical proficiency and user-centered design principles. The following core objectives guide the development process and feature implementation:
 
 1. **Create a User-Friendly Experience**:
    - Develop a visually appealing and intuitive interface that allows users to seamlessly navigate through features.
@@ -39,6 +147,8 @@ The Forge Fitness app aims to bridge the gap between simplicity and functionalit
 ---
 
  ## User Stories
+
+ The following user stories have been developed to guide the implementation of Forge Fitness features, ensuring each component delivers tangible value to users while meeting project requirements. Each story aligns with specific client goals and technical objectives, demonstrating both user-centered design and full-stack development capabilities. The stories are organized into core functional areas, with clear goal alignment statements showing how they support the project's primary objectives.
 
 ### Profile Management
 - **Goal Alignment**: Supports "Create a User-Friendly Experience."
@@ -69,6 +179,9 @@ The Forge Fitness app aims to bridge the gap between simplicity and functionalit
 - As a **user**, I want to customize the app's appearance, so that it matches my personal preferences (e.g., dark mode).
 - As a **privacy-conscious user**, I want to change my password, so that my account remains secure.
 - As a **user**, I want to manage my notification preferences, so that I receive only relevant updates.
+
+
+Each story maps directly to technical requirements while maintaining focus on user value, creating a balanced approach between development objectives and user needs. This structured foundation provides clear direction for feature implementation and testing phases of the project.
 
 ---
 
