@@ -211,7 +211,7 @@ The typography is yet to be decided. But I want the layout of the website to be 
 
 To create a top class fitness app, this website is being desinged with a great amount of care and attention to detail. In the Dashboard page, I have included a variety of features to help users create their own workout regimes and track their progress tailored to their fitness goals. Here are the main features down below:
 
-## Dashboard - page 
+## Dashboard page 
 
 * 🏃‍♂️ Profile section - For users to create their profile, set their goals to help them achieve their progress.
 
@@ -228,7 +228,21 @@ To create a top class fitness app, this website is being desinged with a great a
 
 ---
 
-## Sign Up Page
+## Sign Up page
+
+The sign up interface provides a streamlined onboarding experience while capturing essential user information. Key features include:
+
+### Design Elements
+- Modern, clean layout with clear visual hierarchy
+- Enticing opening message to encourage sign-up
+- Responsive form design optimized for all devices
+- Consistent brand colors using the established palette
+
+### Core Functionality
+- Required profile information fields (name, email, password)
+- Password visibility toggle for password field
+
+![alt text](assets/wireframes/signup.png)
 
 --- 
 
