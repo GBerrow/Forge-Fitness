@@ -187,7 +187,7 @@ Each story maps directly to technical requirements while maintaining focus on us
 
 ##  Initial Design
 
- The color scheme I have gone for is a combination of light colours to create a clean and modern look. The colours I have gone for are:
+The visual identity of Forge Fitness is built on a carefully selected color palette that emphasizes clarity, professionalism, and user engagement. The combination of light, complementary colors creates a modern aesthetic while ensuring optimal readability and visual hierarchy. The chosen color scheme reflects current design trends in fitness applications while maintaining distinctive brand identity:
 
 Header: BCCCDC - Light Blue
 
@@ -201,13 +201,17 @@ Footer: AAB2C1 - Dark Grey
 
 ![Colour Scheme](assets/images/colour-scheme/footer-colour.png)
 
+Links & Buttons: ECECEC - Soft Cyan-Blue
+
+![Colour Scheme](assets/images/colour-scheme/links-and-buttons-colour.png)
+
 The typography is yet to be decided. But I want the layout of the website to be designed easy to read and visually appealing, with a focus on using a font that is both readable and visually appealing. 
 
 ## User Experience (UX) and wireframes
 
 To create a top class fitness app, this website is being desinged with a great amount of care and attention to detail. In the Dashboard page, I have included a variety of features to help users create their own workout regimes and track their progress tailored to their fitness goals. Here are the main features down below:
 
-## Dashboard
+## Dashboard - page 
 
 * 🏃‍♂️ Profile section - For users to create their profile, set their goals to help them achieve their progress.
 
@@ -219,7 +223,37 @@ To create a top class fitness app, this website is being desinged with a great a
 
 * ⚙️ Settings section - For users to set their account settings, such as password and email notifications. With also app appearance settings, feedback and support
 
-![alt text](assets/wireframes/dashboard.png)
+![Dashboard](assets/wireframes/dashboard.png)
 
 
 ---
+
+## Sign Up Page
+
+--- 
+
+## Login Page
+
+The login interface implements secure authentication while maintaining an intuitive user experience. Key features include:
+
+### Design Elements
+- Clean, minimalist layout focusing on essential login components
+- Responsive form design that adapts to all screen sizes
+- Brand-consistent color scheme and typography
+
+### Core Functionality
+- Email and password authentication fields
+- Password reset capability via "Forgot Password" link
+- New user registration through prominent "Sign Up" option
+- Form validation with clear error messaging
+- Secure session management
+
+### User Experience
+- Single-click social media login options
+- Remember me functionality
+- Quick access to account recovery
+- Streamlined navigation between authentication states
+
+![Login](assets/wireframes/login.png)
+
+This login implementation follows modern security practices while delivering a frictionless entry point to the Forge Fitness platform.
