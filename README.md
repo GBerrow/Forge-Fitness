@@ -271,3 +271,47 @@ The login interface implements secure authentication while maintaining an intuit
 ![Login](assets/wireframes/login.png)
 
 This login implementation follows modern security practices while delivering a frictionless entry point to the Forge Fitness platform.
+
+
+--- 
+
+## Profile Page
+
+The profile page offers users a central hub to manage their personal information, goals, and preferences, ensuring a customized fitness experience. Key features include:
+
+### Design Elements
+- Clean, modern layout with clear section divisions for easy navigation  
+- Interactive elements like buttons and input fields for user customization  
+- Consistent color scheme and typography aligned with the Forge Fitness brand  
+- Large, user-friendly **"Upload Photo"** option for profile personalization  
+- Responsive design ensuring seamless access across devices  
+
+### Core Functionality
+- **Personal Information Management**:  
+   - Editable fields for **Preferred Name/Nickname** and **Email**  
+   - Bio/About Me section for users to add a personalized description  
+- **Fitness Preferences**:  
+   - Goal selection options: **Weight Loss, Balanced, Muscle Gain**  
+   - Customizable **Training Regularity** preferences: 1/2, 3/4, or 5+ days per week  
+   - Dynamic preference summary reflecting selected goals and routines  
+- **Photo Management**:  
+   - Upload and preview profile photo with support for image file types (e.g., PNG, JPEG)  
+   - Option to replace or remove an existing photo  
+- **Save Preferences**:  
+   - Save changes functionality to persist updated information  
+
+### User Experience
+- Simple and intuitive form fields with clear labels and helper text  
+- Real-time feedback when changes are made, e.g., *"Your preferences have been updated!"*  
+- Visual feedback for selected buttons (e.g., active highlight state for goals and training preferences)  
+- Seamless transitions between sections for a smooth navigation flow  
+- Consistent use of icons to enhance clarity and engagement (e.g., profile, goals, calendar)  
+
+### Future Enhancements
+- Integration of fitness progress visualization directly on the profile page  
+- Option to connect wearable devices (e.g., Fitbit, Apple Watch) for real-time fitness data  
+- Advanced settings for privacy preferences and notification customization  
+
+The profile page is designed to empower users with control over their fitness journey, offering a user-friendly, customizable experience while maintaining visual consistency with the Forge Fitness platform.
+
+![Profile](assets/wireframes/profile-page.png)
