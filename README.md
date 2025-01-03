@@ -315,3 +315,26 @@ The profile page offers users a central hub to manage their personal information
 The profile page is designed to empower users with control over their fitness journey, offering a user-friendly, customizable experience while maintaining visual consistency with the Forge Fitness platform.
 
 ![Profile](assets/wireframes/profile-page.png)
+
+--- 
+
+## Training Page
+
+![Training Page (Workout)](assets/wireframes/training-page-workouts.png)
+
+The training page offers users an engaging and detailed platform to enhance their fitness routines. With a focus on user-friendly navigation and a variety of workout options, this section empowers users to target specific goals and track their progress effectively.
+
+### Workout Section
+- **Body-Part Focused Workouts**:
+  - Users can select specific muscle groups such as Chest, Back, Legs, Shoulders, Arms, Core, Upper Body, Lower Body, and Full Body.
+  - Tailored exercises for each category to meet diverse fitness needs.
+
+- **Interactive Design**:
+  - Clean and modern grid layout showcasing workout options.
+
+- **Guided Sessions**:
+  - Access detailed instructions, videos, or tips for selected workouts.
+
+- **Customizable Plans**:
+  - Users can create and save personalized workout routines based on their preferences.
+  - Suggested plans for beginners, intermediates, and advanced users.
