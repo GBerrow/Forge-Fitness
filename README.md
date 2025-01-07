@@ -320,8 +320,6 @@ The profile page is designed to empower users with control over their fitness jo
 
 ## Training Page
 
-![Training Page (Workout)](assets/wireframes/training-page-workouts.png)
-
 The training page offers users an engaging and detailed platform to enhance their fitness routines. With a focus on user-friendly navigation and a variety of workout options, this section empowers users to target specific goals and track their progress effectively.
 
 ### Workout Section
@@ -338,3 +336,43 @@ The training page offers users an engaging and detailed platform to enhance thei
 - **Customizable Plans**:
   - Users can create and save personalized workout routines based on their preferences.
   - Suggested plans for beginners, intermediates, and advanced users.
+
+  ![Training Page (Workout)](assets/wireframes/training-page-workouts.png)
+
+  ---
+
+### Training Plans Section
+
+The **Training Plans Page** provides users with tailored fitness programs designed to meet their unique goals, whether they aim for weight loss, muscle gain, or overall wellness. This section integrates user-friendly navigation and a structured layout to help users select and follow comprehensive training plans with ease.
+
+
+![Training Page (Plans](<assets/wireframes/training-page-plans .png>)
+
+### Key Features
+- **Tailored Training Goals**:
+  - Users can select from six distinct categories:
+    1. **Weight Loss**: Focused on calorie-burning workouts and lifestyle adjustments.
+    2. **Muscle Gain**: Designed for strength-building and hypertrophy-focused exercises.
+    3. **Strength Training**: Routines to enhance endurance and muscular strength.
+    4. **Overall Wellness**: Balanced plans incorporating mobility, relaxation, and general fitness.
+    5. **Cardio Fitness**: High-energy exercises aimed at improving cardiovascular health.
+    6. **Beginner Friendly**: Accessible programs for those new to fitness or returning after a break.
+
+---
+
+- **Visually Engaging Layout**:
+  - Interactive buttons for each training category, ensuring clear and intuitive navigation.
+  - Consistent branding and clean design for an uncluttered, professional appearance.
+
+- **Expertly Crafted Plans**:
+  - Each training plan includes structured workouts, guidance from fitness experts, and progress tracking to keep users motivated.
+
+### Features
+- **Adaptability**:
+  - Plans are customizable to fit the user’s fitness level, time availability, and personal preferences.
+- **Support and Guidance**:
+  - Users are provided with step-by-step instructions, expert advice, and motivational tips for each plan.
+- **Seamless Navigation**:
+  - Tabs at the top of the page allow users to switch between **Workouts**, **Training Plans**, and **Classes** for a cohesive experience.
+
+The Training Plans section serves as the engine of transformation, where users convert their fitness goals into measurable results through structured, expert-designed programs.
