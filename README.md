@@ -187,6 +187,8 @@ Each story maps directly to technical requirements while maintaining focus on us
 
 ##  Initial Design
 
+![Dashboard](assets/wireframes/dashboard.png)
+
 The visual identity of Forge Fitness is built on a carefully selected color palette that emphasizes clarity, professionalism, and user engagement. The combination of light, complementary colors creates a modern aesthetic while ensuring optimal readability and visual hierarchy. The chosen color scheme reflects current design trends in fitness applications while maintaining distinctive brand identity:
 
 Header: BCCCDC - Light Blue
@@ -223,12 +225,12 @@ To create a top class fitness app, this website is being desinged with a great a
 
 * ⚙️ Settings section - For users to set their account settings, such as password and email notifications. With also app appearance settings, feedback and support
 
-![Dashboard](assets/wireframes/dashboard.png)
-
 
 ---
 
 ## Sign Up page
+
+![Sign up](assets/wireframes/signup.png)
 
 The sign up interface provides a streamlined onboarding experience while capturing essential user information. Key features include:
 
@@ -242,11 +244,11 @@ The sign up interface provides a streamlined onboarding experience while capturi
 - Required profile information fields (name, email, password)
 - Password visibility toggle for password field
 
-![alt text](assets/wireframes/signup.png)
-
 --- 
 
 ## Login Page
+
+![Login](assets/wireframes/login.png)
 
 The login interface implements secure authentication while maintaining an intuitive user experience. Key features include:
 
@@ -268,14 +270,13 @@ The login interface implements secure authentication while maintaining an intuit
 - Quick access to account recovery
 - Streamlined navigation between authentication states
 
-![Login](assets/wireframes/login.png)
-
 This login implementation follows modern security practices while delivering a frictionless entry point to the Forge Fitness platform.
-
 
 --- 
 
 ## Profile Page
+
+![Profile](assets/wireframes/profile-page.png)
 
 The profile page offers users a central hub to manage their personal information, goals, and preferences, ensuring a customized fitness experience. Key features include:
 
@@ -314,11 +315,11 @@ The profile page offers users a central hub to manage their personal information
 
 The profile page is designed to empower users with control over their fitness journey, offering a user-friendly, customizable experience while maintaining visual consistency with the Forge Fitness platform.
 
-![Profile](assets/wireframes/profile-page.png)
-
 --- 
 
 ## Training Page
+
+ ![Training Page (Workout)](assets/wireframes/training-page-workouts.png)
 
 The training page offers users an engaging and detailed platform to enhance their fitness routines. With a focus on user-friendly navigation and a variety of workout options, this section empowers users to target specific goals and track their progress effectively.
 
@@ -337,16 +338,14 @@ The training page offers users an engaging and detailed platform to enhance thei
   - Users can create and save personalized workout routines based on their preferences.
   - Suggested plans for beginners, intermediates, and advanced users.
 
-  ![Training Page (Workout)](assets/wireframes/training-page-workouts.png)
-
   ---
 
 ### Training Plans Section
 
+![Training Page (Plans](<assets/wireframes/training-page-plans .png>)
+
 The **Training Plans Page** provides users with tailored fitness programs designed to meet their unique goals, whether they aim for weight loss, muscle gain, or overall wellness. This section integrates user-friendly navigation and a structured layout to help users select and follow comprehensive training plans with ease.
 
-
-![Training Page (Plans](<assets/wireframes/training-page-plans .png>)
 
 ### Key Features
 - **Tailored Training Goals**:
@@ -376,3 +375,44 @@ The **Training Plans Page** provides users with tailored fitness programs design
   - Tabs at the top of the page allow users to switch between **Workouts**, **Training Plans**, and **Classes** for a cohesive experience.
 
 The Training Plans section serves as the engine of transformation, where users convert their fitness goals into measurable results through structured, expert-designed programs.
+
+---
+
+### Training Class Section
+
+![Training Page (classes](assets/wireframes/training-page-classes.png)
+
+The Classes page is designed to provide users with access to a variety of virtual and on-demand fitness classes that cater to diverse fitness goals and schedules. With its user-centric layout and tailored class offerings, this section empowers users to stay consistent and motivated in their fitness journey. 
+
+### Core Features
+
+Virtual and On-Demand Classes:
+A library of pre-recorded guided video sessions accessible at any time.
+
+**Categories include:**
+- Quick 15-minute energy boosts
+- Warm-down recovery sessions
+- Strength training basics
+- Beginner-friendly HIIT workouts
+- Mindfulness and meditation sessions
+
+**Flexible Access:**
+- Classes can be accessed from anywhere, at any time, allowing users to adapt their fitness routines to their schedules.
+
+**Professional Instruction:**
+- Classes are led and shown by experienced trainers, ensuring users receive expert guidance and motivation.
+
+**User Benefits**
+- Convenience:
+  - Users can work out at their own pace and on their own terms, whether at home, in the park, or while traveling.
+- Customization:
+  - Options to choose classes based on fitness goals, such as weight loss, muscle gain, or relaxation.
+- Inclusivity:
+  - Classes are designed for all fitness levels, from beginners to advanced users.
+
+**Visual Representation**
+- The Classes page includes:
+  - A Hero Image section to introduce the concept of virtual classes.
+  - Highlighted callout boxes to guide users to their preferred class types.
+  - A footer with quick navigation links to other sections of the app.
+
