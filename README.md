@@ -469,7 +469,7 @@ It emphasizes tracking key metrics that support users in achieving their fitness
 
 - Step Counter
 
-  - Real-time step tracking
+  - Daily step tracking
   - Daily goal progress
   - Weekly trend analysis
 
@@ -505,3 +505,52 @@ among individuals and depend on factors like baseline fitness levels and overall
 the consensus is clear: integrating consistent daily activity with your fitness regimen 
 significantly enhances the likelihood of reaching and maintaining your health objectives. 
 Therefore, focusing on daily movement is a practical and effective strategy to support your fitness journey.
+
+--- 
+
+### Workout Logs
+
+The Workout Logs section is designed to provide users with an intuitive way to track, review, and manage their workout routines.
+It encourages consistency, provides insights into progress, and helps users tailor their fitness journey to achieve their goals effectively.
+
+![Workout Logs](assets/wireframes/activity_page-workout_logs.png)
+
+#### Key Features
+
+1. **Custom Workouts**:
+   - Allows users to manually log their own workout routines.
+   - Includes details such as:
+     - Workout name or activity type.
+     - Duration of the workout.
+     - Intensity level for better tracking and categorization.
+
+2. **Performance Metrics**:
+   - Displays key performance indicators for users to monitor their workouts, such as:
+     - Distance covered for cardio exercises.
+     - Sets, reps, and weights for strength training.
+     - Heart rate zones and intensity levels.
+
+3. **Workout History**:
+   - Keeps a detailed log of past workout sessions.
+   - Includes:
+     - Date and time of each workout.
+     - Duration of the session.
+     - Type of workout completed.
+     - Calories burned during the workout.
+
+4. **Notes/Comments**:
+   - Provides a space for users to add personal notes or reflections for each workout.
+   - Enables users to:
+     - Record observations, challenges, or improvements.
+     - Look back at past entries to see progress and learn from their experiences.
+     - Maintain motivation through personal reflections.
+
+#### Benefits
+
+- **Flexibility**: Users can log workouts that are outside of predefined plans, ensuring comprehensive tracking.
+- **Insight**: Performance metrics help users identify strengths and areas for improvement.
+- **Motivation**: Personal notes foster accountability and allow users to reflect on their progress over time.
+
+#### Importance
+The Workout Logs section is an essential part of Forge Fitness, enabling users to stay organized and 
+focused on their fitness goals, no matter their level or preferred workout style.
