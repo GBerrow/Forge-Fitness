@@ -554,3 +554,64 @@ It encourages consistency, provides insights into progress, and helps users tail
 #### Importance
 The Workout Logs section is an essential part of Forge Fitness, enabling users to stay organized and 
 focused on their fitness goals, no matter their level or preferred workout style.
+
+---
+
+### Achievements 
+
+The Achievements section in the Activity Page offers users a motivational and rewarding 
+system to track and celebrate their fitness milestones. By incorporating a mix of visual rewards, 
+performance tracking, and consistency challenges, this section aims to keep users engaged and 
+inspired throughout their fitness journey.
+
+![Achievements](assets/wireframes/activity_page-achievement.png)
+
+### Key Features
+
+- **Badges**:
+  - Earn badges to customize your profile and showcase your accomplishments.
+  - Examples include “10,000 Steps in a Day” or “First Workout Logged.”
+  - Encourages users to strive for specific goals and provides a sense of achievement.
+
+- **Personal Records**:
+  - Track your best performance across various activities:
+    - **Steps**: Day/Week/Month tracking.
+    - **Running**: 5km, 10km, 20km milestones.
+    - **Cycling**: 10km, 20km, 30km challenges.
+    - **Strength**: Bench press, squats, deadlifts records.
+  - Keeps users motivated to improve and surpass their previous records.
+
+- **Streaks**:
+  - Track daily, weekly, and monthly streaks to encourage consistency.
+  - Builds good habits by rewarding users for staying active over time.
+  - Examples include “7-Day Active Streak” or “30 Days of 10,000 Steps.”
+
+- **Challenge Completion**:
+  - Complete predefined challenges such as:
+    - A 30-Day Fitness Challenge.
+    - Achieve a set number of hours of activity in a week.
+  - Adds excitement and short-term goals to keep users engaged.
+
+### Visual Representation
+
+Each achievement type is visually represented with distinct cards, designed for clarity and simplicity:
+- **Interactive Cards**: Highlight achievements with intuitive designs.
+- **Icons**: Easily recognizable visuals to enhance user understanding and engagement.
+- **Future Expandability**: This section is flexible for future additions, like new challenges or badges.
+
+### User Benefits
+- Encourages long-term commitment and consistency.
+- Motivates users to surpass personal records and push their limits.
+- Builds a sense of community and competition by showcasing achievements.
+
+#### Importance
+
+The Activity section brings together key tools to help users monitor their 
+daily efforts, reflect on past workouts, and celebrate meaningful milestones. 
+By offering clear insights and actionable data, it supports users in staying on track and 
+building sustainable habits over time. Whether tracking steps, reviewing workout performance, 
+or reaching personal goals, the Activity section ensures that users have the 
+information they need to stay focused and make steady progress.
+
+---
+
