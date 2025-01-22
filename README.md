@@ -615,3 +615,46 @@ information they need to stay focused and make steady progress.
 
 ---
 
+### Progression page
+
+The Progression Page provides users with a detailed and interactive platform to track their fitness journey over time.
+This page focuses on providing meaningful insights and visual representations to help users stay motivated and achieve their fitness goals.
+
+![Progression](<assets/wireframes/progression .png>)
+
+### Features and Sections
+
+#### **1. Overview**
+The Overview section offers a high-level snapshot of the user's current progress, making it easy to stay on track and see the bigger picture.
+- **Goals Snapshot**: Displays progress towards active goals, such as:
+  - *Weight Loss Goal*: "70% Complete (7kg out of 10kg lost)."
+  - *Steps Goal*: "90% Complete (45,000 out of 50,000 weekly steps)."
+- **Activity Breakdown**:
+  - Cardio: 40%.
+  - Strength Training: 35%.
+  - Stretching: 25%.
+- Highlights recent trends and achievements to keep users motivated.
+
+#### **2. Data Visualization**
+This section uses visual tools to display trends and comparisons, helping users analyze their progress effectively.
+- **Progress Graphs**: Line or bar charts illustrating metrics such as:
+  - Weight progression.
+  - Distance covered.
+  - Calories burned.
+  - Strength improvement over time.
+- **Comparison Metrics**: Allows users to compare their performance across different timeframes, such as weekly or monthly trends.
+- **Distribution Insights**: Provides a breakdown of activity types, like cardio versus strength training, to help users adjust their routines for balanced fitness.
+
+#### **3. Feedback**
+The Feedback section gives users personalized insights and actionable tips based on their performance data.
+- **Progress Milestones**:
+  - Celebrate achievements like "Halfway to goal!" or "50 workouts completed."
+- **Insights and Tips**:
+  - "You've increased your weekly activity by 15% compared to last month."
+  - "Based on your trends, consider adding more rest days for better recovery."
+- Encourages users to reflect on their progress and make informed adjustments to their fitness routines.
+
+The Progression Page is designed to empower users with a comprehensive view of their fitness journey, 
+combining actionable feedback, visual data, and a clear snapshot of their achievements. 
+By integrating meaningful insights with easy-to-understand visuals, 
+the page keeps users engaged, motivated, and on track to meet their fitness goals.
