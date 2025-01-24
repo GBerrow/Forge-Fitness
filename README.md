@@ -658,3 +658,31 @@ The Progression Page is designed to empower users with a comprehensive view of t
 combining actionable feedback, visual data, and a clear snapshot of their achievements. 
 By integrating meaningful insights with easy-to-understand visuals, 
 the page keeps users engaged, motivated, and on track to meet their fitness goals.
+
+---
+
+### Settings Page
+
+![Settings](<assets/wireframes/settings .png>)
+
+The Settings Page provides users with the flexibility to personalize their Forge Fitness experience, ensuring the app aligns with their preferences, lifestyle, and security needs.
+
+### **App Preferences**
+- **Theme Selection**: Users can toggle between light mode and dark mode to suit their visual preferences.
+- **Unit Preferences**: Choose between metric or imperial units for all fitness-related data.
+
+### **Notifications and Settings**
+- **Toggle Notifications**: Enable or disable reminders for workouts, daily goals, and progress updates.
+- **Quiet Hours**: Set specific times during which notifications are silenced.
+- **Frequency Customization**: Adjust how often notifications are sent for different activities.
+
+### **Privacy and Security**
+- **Two-Factor Authentication**: Enhance account security by enabling an extra layer of protection.
+- **Data Export**: Download all fitness-related data for personal use or analysis.
+- **Account Management**: Options to delete or deactivate the account if needed.
+
+### **Support and Feedback**
+- **Quick Solutions**: Access a knowledge base or FAQ section to solve common issues.
+- **Live Support Options**: Connect with support staff via live chat, email, or ticket submission.
+- **Improvement Suggestions**: Users can submit feedback or suggestions to enhance the app.
+
