@@ -686,3 +686,134 @@ The Settings Page provides users with the flexibility to personalize their Forge
 - **Live Support Options**: Connect with support staff via live chat, email, or ticket submission.
 - **Improvement Suggestions**: Users can submit feedback or suggestions to enhance the app.
 
+--- 
+
+## Database Structure
+
+Forge Fitness leverages a sophisticated database architecture meticulously designed to manage user data, fitness tracking, and workout programming with efficiency and precision. The scheme establishes well-defined relationships between tables, ensuring seamless data integration, integrity, and optimized query performance. This structure underpins the application’s core functionalities, including personalized user profiles, detailed workout tracking, activity monitoring, and achievement systems. By prioritizing scalability and reliability, the database provides a robust foundation for delivering a seamless and engaging fitness management experience.
+
+![Database](assets/wireframes/database-structure.png)
+
+---
+
+### 1. User Table
+**Purpose**: Stores user account details required for authentication and profile personalization.
+
+#### Key Fields:
+- **id**: Unique identifier for each user.
+- **first_name** and **last_name**: Personal information for identification.
+- **email**: Unique and used for login.
+- **password**: Stores the securely hashed password for authentication.
+- **profile_photo**: Allows users to upload a profile picture for a more personalized experience.
+- **is_active**: Indicates whether the account is active or deactivated.
+- **created_at**: Tracks when the user registered.
+
+### How It Works:
+- This table is central to the application, as all other tables are linked to it through `user_id`.
+- It ensures secure and efficient user management.
+
+---
+
+### 2. Settings Table
+**Purpose**: Stores user-specific preferences for app customization and notifications.
+
+#### Key Fields:
+- **theme_preference**: Allows users to toggle between light and dark modes.
+- **unit_preference**: Supports metric or imperial units for tracking fitness data.
+- **notification_frequency**: Configures how often users receive notifications.
+- **quiet_hours_start** and **quiet_hours_end**: Defines times to mute notifications.
+- **two_factor_enabled**: Adds an extra layer of account security.
+
+#### How It Works:
+- Linked to the **User Table** through `user_id`.
+- Provides a personalized user experience by storing their preferences.
+
+---
+
+### 3. Training Plans Table
+**Purpose**: Manages predefined and user-created training plans for different fitness goals.
+
+#### Key Fields:
+- **title** and **description**: Provide details about the training plan.
+- **created_by**: Tracks who created the plan (an admin or the user).
+- **created_at**: Tracks when the plan was created.
+
+#### How It Works:
+- Training plans are accessible by users and linked to their goals.
+- Users can choose or customize plans based on their fitness objectives.
+
+---
+
+### 4. Activity Table
+**Purpose**: Logs user activities (e.g., walking, running, strength training) for tracking progress.
+
+#### Key Fields:
+- **activity_type**: Specifies the type of activity performed.
+- **steps**, **distance**, **calories_burned**, and **duration**: Capture detailed metrics of the activity.
+- **date**: Logs when the activity took place.
+
+#### How It Works:
+- Linked to the **User Table** through `user_id`.
+- Provides insights into daily activities and supports progress tracking.
+
+---
+
+### 5. Progress Table
+**Purpose**: Tracks user goals and their progress toward achieving them.
+
+#### Key Fields:
+- **goal**: Defines the user's fitness objective (e.g., weight loss, muscle gain).
+- **progress_percentage**: Measures how much of the goal is complete.
+- **milestones**: Stores text descriptions of milestones achieved.
+- **last_updated**: Tracks the most recent update to the progress.
+
+### How It Works:
+- Linked to the **User Table** through `user_id`.
+- Enables users to monitor progress visually and adjust goals as needed.
+
+---
+
+### 6. Workout Logs Table
+**Purpose**: Records detailed information about individual workouts.
+
+#### Key Fields:
+- **workout_name**: Names the workout (e.g., "Push Day").
+- **sets**, **reps**, and **weight**: Track workout specifics.
+- **date**: Captures when the workout was performed.
+
+#### How It Works:
+- Linked to the **User Table** through `user_id`.
+- Allows users to maintain a log of their workouts for analysis and improvement.
+
+---
+
+### 7. Achievements Table
+**Purpose**: Rewards users with badges and milestones for motivation and consistency.
+
+#### Key Fields:
+- **badge**: Describes the earned achievement (e.g., "Steps Champion").
+- **date_earned**: Records when the achievement was unlocked.
+
+#### How It Works:
+- Linked to the **User Table** through `user_id`.
+- Gamifies the fitness experience to keep users motivated and engaged.
+
+---
+
+### How It All Works Together
+
+#### User-Centric Design:
+- All tables are linked via the `user_id` field, ensuring that data is scoped to individual users.
+
+#### Personalization:
+- The **Settings Table** ensures that each user has a tailored experience.
+- The **Training Plans**, **Workout Logs**, and **Achievements Tables** support customized fitness journeys.
+
+#### Progress Tracking:
+- Data from the **Activity Table** and **Progress Table** work together to give users insights into their fitness progress.
+
+#### Motivation:
+- The **Achievements Table** keeps users engaged through rewards and gamification.
+
+#### Scalability:
+- The structure is modular, allowing future features (e.g., social features, additional activity types) to be easily added.
