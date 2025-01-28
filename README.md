@@ -817,3 +817,74 @@ Forge Fitness leverages a sophisticated database architecture meticulously desig
 
 #### Scalability:
 - The structure is modular, allowing future features (e.g., social features, additional activity types) to be easily added.
+
+---
+
+## Folder Structure
+
+The Forge Fitness project follows a modular and well-structured architecture to maintain scalability, maintainability, and ease of collaboration. This structure ensures that different components such as user authentication, workout tracking, activity monitoring, and progress tracking are organized effectively. Each major functionality is contained within its own Django app, following best practices for separation of concerns.
+
+The organization of the files and directories ensures that:
+- User-related functionalities are managed in the `users/` directory.
+- Activities tracking and progress monitoring are housed in the `activities/` and `progress/` directories, respectively.
+- Training plans and workouts are structured under the `training/` directory.
+- User settings and preferences are handled within the `settings/` directory.
+- Static files, templates, and assets are kept separate to maintain clarity.
+
+![Folder Structure](assets/wireframes/folder_structure.png)
+
+### How It Works
+
+Each directory corresponds to a specific feature or functionality of the application:
+
+1. **Root Directory (`forge-fitness/`)**:
+   - Contains project-wide configuration files such as `manage.py` for running the Django server, `requirements.txt` for dependencies, and `.env` for environment variables.
+
+2. **Main Application (`forge_fitness/`)**:
+   - Houses core Django settings, URL configurations, and global templates like `base.html`, `navbar.html`, and `footer.html`.
+   - Includes static files (`static/`) used throughout the project, such as CSS, JavaScript, and images.
+
+3. **Users Module (`users/`)**:
+   - Manages user authentication and profile data.
+   - Contains models, views, forms, and templates for login, signup, and profile management.
+   - Stores user-specific static files and database migrations.
+
+4. **Activities Module (`activities/`)**:
+   - Handles logging of user activities such as step tracking, distance covered, and calories burned.
+   - Includes templates for viewing daily activity logs and achievements.
+   - Provides models that store activity-related data.
+
+5. **Training Plans (`training/`)**:
+   - Manages workout programs and training plans.
+   - Contains models for workout types, training sessions, and user-selected plans.
+   - Includes templates for viewing available training plans and scheduling workouts.
+
+6. **Progress Tracking (`progress/`)**:
+   - Tracks user goals and milestones.
+   - Includes views and templates for visualizing progress through charts and statistics.
+   - Stores database models that track progress percentages and milestones.
+
+7. **Settings (`settings/`)**:
+   - Manages user preferences such as theme selection, notification settings, and privacy controls.
+   - Contains models to store user-specific configurations.
+   - Templates allow users to adjust their preferences.
+
+8. **Assets and Wireframes (`assets/`)**:
+   - Stores UI wireframes and diagrams that help document and guide development.
+   - Includes the `database-structure.png` and `folder-structure.png` diagrams for reference.
+
+---
+
+### How It Ties Into the Database Structure
+
+Each directory within the folder structure corresponds directly to a **table in the database**, ensuring a **one-to-one mapping between the frontend logic and backend storage**. Here's how they align:
+
+- The **`users/` app** aligns with the **User Table**, managing authentication and profile data.
+- The **`activities/` app** connects with the **Activity Table**, recording workout times, steps, and calories burned.
+- The **`training/` app** is linked to the **Training Plans Table**, ensuring users can access structured workouts.
+- The **`progress/` app** stores user milestones and goal achievements, directly mapping to the **Progress Table**.
+- The **`settings/` app** works with the **Settings Table**, allowing users to customize their app experience.
+
+By maintaining this structured relationship, this project follows a smooth flow of data between the backend database and the frontend interface. The database structure is fully integrated with the project’s folder organization, making it easy to manage, scale, and extend in future development.
+
+---
