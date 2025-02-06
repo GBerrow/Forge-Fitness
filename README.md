@@ -201,21 +201,15 @@ Each story maps directly to technical requirements while maintaining focus on us
 
 The visual identity of Forge Fitness is built on a carefully selected color palette that emphasizes clarity, professionalism, and user engagement. The combination of light, complementary colors creates a modern aesthetic while ensuring optimal readability and visual hierarchy. The chosen color scheme reflects current design trends in fitness applications while maintaining distinctive brand identity:
 
-Header: BCCCDC - Light Blue
+![Colour Scheme](<assets/images/colour-scheme/forge_fitness-colour scheme.png>)
 
-![Colour Scheme](<assets/images/colour-scheme/header-colour .png>)
+#66B2FD - Argentinian Blue - Navigation bar
 
-Body: ECECEC - Light Grey
+#ECECEC - Anti-flash White - Body 
 
-![Colour Scheme](assets/images/colour-scheme/body-colour.png)
+#8CBCCA - Sky blue - Button/Page/Section 
 
-Footer: AAB2C1 - Dark Grey
-
-![Colour Scheme](assets/images/colour-scheme/footer-colour.png)
-
-Links & Buttons: ECECEC - Soft Cyan-Blue
-
-![Colour Scheme](assets/images/colour-scheme/links-and-buttons-colour.png)
+#1853AB -  Sapphire Blue - Footer 
 
 The typography is yet to be decided. But I want the layout of the website to be designed easy to read and visually appealing, with a focus on using a font that is both readable and visually appealing.
 
