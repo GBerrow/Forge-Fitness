@@ -331,120 +331,70 @@ The profile page is designed to empower users with control over their fitness jo
 
 ## Training Page
 
-![Training Page (Workout)](assets/wireframes/training-page-workouts.png)
+![Training Page](<assets/wireframes/training section.png>)
 
-The training page offers users an engaging and detailed platform to enhance their fitness routines. With a focus on user-friendly navigation and a variety of workout options, this section empowers users to target specific goals and track their progress effectively.
+The **Training Page** serves as a central hub for users to explore structured workout guidance and how personalized fitness plans work. This section is designed to provide clear, actionable insights, making it easier for users to understand their training options and track progress efficiently.
 
-### Workout Section
+### **Introduction**
 
-- **Body-Part Focused Workouts**:
+The **Introduction** section provides users with a foundational understanding of the training program. It explains the core principles behind structured fitness routines and highlights the importance of consistency, form, and goal setting. Whether users are beginners or experienced athletes, this section offers essential guidance on how to approach their fitness journey effectively.
 
-  - Users can select specific muscle groups such as Chest, Back, Legs, Shoulders, Arms, Core, Upper Body, Lower Body, and Full Body.
-  - Tailored exercises for each category to meet diverse fitness needs.
+### **Workouts**
 
-- **Interactive Design**:
+The **Workouts** section is dedicated to helping users understand the role of different muscle groups and the exercises that target them effectively. 
 
-  - Clean and modern grid layout showcasing workout options.
+- **Muscle Group Breakdown:**
+  - Users can explore all the workout categories based on different body areas, ensuring a balanced workout approach.
+  - Includes guidance on exercises for major muscle groups such as:
+    - Chest
+    - Back
+    - Legs
+    - Shoulders
+    - Arms
+    - Core
+    - Full Body Workouts
 
-- **Guided Sessions**:
+- **Exercise Demonstrations:**
+  - Each workout category provides information on the most effective exercises for that muscle group.
+  - Users can follow step-by-step instructions or access additional resources to ensure proper form and injury prevention.
 
-  - Access detailed instructions, videos, or tips for selected workouts.
+- **Training Techniques:**
+  - Guidance on how to integrate progressive overload, rest periods, and rep schemes into their routine for optimal results.
 
-- **Customizable Plans**:
+### **Training Plans**
 
-  - Users can create and save personalized workout routines based on their preferences.
-  - Suggested plans for beginners, intermediates, and advanced users.
+The **Training Plans** section provides structured workout programs tailored to different fitness goals. Whether users are looking to **lose weight, build muscle, or enhance endurance**, this section offers a variety of programs to suit their needs.
 
-  ***
+- **Structured Programs:**
+  - Users can follow pre-designed training plans or customize their own based on their fitness level and goals.
+  - Each plan outlines:
+    - Recommended workout frequency
+    - Exercise selection
+    - Progress tracking strategies
 
-### Training Plans Section
+- **Goal-Based Training Plans:**
+  - **Weight Loss:** Focused on high-intensity workouts, calorie burning, and metabolic conditioning.
+  - **Muscle Gain:** Strength-building exercises, hypertrophy-focused routines, and recovery strategies.
+  - **Endurance Training:** Plans designed to improve stamina, cardiovascular health, and athletic performance.
 
-![Training Page (Plans)](<assets/wireframes/training-page-plans .png>)
+- **Progress Tracking:**
+  - Encourages users to log their workouts and adjust their plans based on improvements and feedback.
 
-The **Training Plans Page** provides users with tailored fitness programs designed to meet their unique goals, whether they aim for weight loss, muscle gain, or overall wellness. This section integrates user-friendly navigation and a structured layout to help users select and follow comprehensive training plans with ease.
+### **Summary**
 
-### Key Features
+The **Summary** section ties together key takeaways from the **Introduction, Workouts, and Training Plans**. This section reinforces how users can apply the provided information to their fitness journey, ensuring they make informed decisions that align with their personal health goals.
 
-- **Tailored Training Goals**:
-  - Users can select from six distinct categories:
-    1. **Weight Loss**: Focused on calorie-burning workouts and lifestyle adjustments.
-    2. **Muscle Gain**: Designed for strength-building and hypertrophy-focused exercises.
-    3. **Strength Training**: Routines to enhance endurance and muscular strength.
-    4. **Overall Wellness**: Balanced plans incorporating mobility, relaxation, and general fitness.
-    5. **Cardio Fitness**: High-energy exercises aimed at improving cardiovascular health.
-    6. **Beginner Friendly**: Accessible programs for those new to fitness or returning after a break.
+- **Why This Matters:**
+  - Highlights how structured training enhances results.
+  - Emphasizes the importance of tracking progress and making adjustments.
 
----
+- **Next Steps:**
+  - Encourages users to explore different training plans, experiment with workout variations, and stay consistent in their routines.
+  - Provides recommendations for further learning and improvement.
 
-- **Visually Engaging Layout**:
+### **Training Page Conclusion**
 
-  - Interactive buttons for each training category, ensuring clear and intuitive navigation.
-  - Consistent branding and clean design for an uncluttered, professional appearance.
-
-- **Expertly Crafted Plans**:
-  - Each training plan includes structured workouts, guidance from fitness experts, and progress tracking to keep users motivated.
-
-### Features
-
-- **Adaptability**:
-  - Plans are customizable to fit the user’s fitness level, time availability, and personal preferences.
-- **Support and Guidance**:
-  - Users are provided with step-by-step instructions, expert advice, and motivational tips for each plan.
-- **Seamless Navigation**:
-  - Tabs at the top of the page allow users to switch between **Workouts**, **Training Plans**, and **Classes** for a cohesive experience.
-
-The Training Plans section serves as the engine of transformation, where users convert their fitness goals into measurable results through structured, expert-designed programs.
-
----
-
-### Training Class Section
-
-![Training Page (classes)](assets/wireframes/training-page-classes.png)
-
-The Classes page is designed to provide users with access to a variety of virtual and on-demand fitness classes that cater to diverse fitness goals and schedules. With its user-centric layout and tailored class offerings, this section empowers users to stay consistent and motivated in their fitness journey.
-
-### Core Features
-
-Virtual and On-Demand Classes:
-A library of pre-recorded guided video sessions accessible at any time.
-
-**Categories include:**
-
-- Quick 15-minute energy boosts
-- Warm-down recovery sessions
-- Strength training basics
-- Beginner-friendly HIIT workouts
-- Mindfulness and meditation sessions
-
-**Flexible Access:**
-
-- Classes can be accessed from anywhere, at any time, allowing users to adapt their fitness routines to their schedules.
-
-**Professional Instruction:**
-
-- Classes are led and shown by experienced trainers, ensuring users receive expert guidance and motivation.
-
-**User Benefits**
-
-- Convenience:
-  - Users can work out at their own pace and on their own terms, whether at home, in the park, or while traveling.
-- Customization:
-  - Options to choose classes based on fitness goals, such as weight loss, muscle gain, or relaxation.
-- Inclusivity:
-  - Classes are designed for all fitness levels, from beginners to advanced users.
-
-**Visual Representation**
-
-- The Classes page includes:
-  - A Hero Image section to introduce the concept of virtual classes.
-  - Highlighted callout boxes to guide users to their preferred class types.
-  - A footer with quick navigation links to other sections of the app.
-
-### Training Page Summary
-
-The Training section of Forge Fitness offers a well-rounded fitness experience, seamlessly integrating **Workouts**, **Training Plans**, and **Classes** to cater to every user’s unique fitness journey.
-Whether it’s targeting specific muscle groups, following a structured plan, or exploring diverse virtual classes,
-Forge Fitness ensures users have all the tools they need to achieve their goals and stay motivated every step of the way.
+The Training section of the platform is designed to offer a **comprehensive, structured, and user-friendly** approach to fitness. By combining key insights from **Introduction, Workouts, Training Plans, and Summary**, users are empowered with the knowledge and resources they need to take control of their fitness journey. Whether they are starting out or refining their routine, this section provides the **guidance, structure, and motivation** needed to achieve long-term success.
 
 ---
 
