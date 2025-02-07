@@ -468,47 +468,71 @@ The **Activity Page** is a streamlined solution for users who want **clear, orga
 
 ## Progression page
 
-The Progression Page provides users with a detailed and interactive platform to track their fitness journey over time.
-This page focuses on providing meaningful insights and visual representations to help users stay motivated and achieve their fitness goals.
+The **Progression Page** provides users with a structured and intuitive platform to **track their fitness journey** over time. By focusing on **goal setting, performance tracking, and personalized feedback**, this page helps users learn how to stay motivated, recognize progress, and make informed adjustments to their fitness routines.  
 
 ![Progression](<assets/wireframes/progression .png>)
 
-### Features and Sections
+---
 
-#### **1. Overview**
-The Overview section offers a high-level snapshot of the user's current progress, making it easy to stay on track and see the bigger picture.
-- **Goals Snapshot**: Displays progress towards active goals, such as:
-  - *Weight Loss Goal*: "70% Complete (7kg out of 10kg lost)."
-  - *Steps Goal*: "90% Complete (45,000 out of 50,000 weekly steps)."
-- **Activity Breakdown**:
-  - Cardio: 40%.
-  - Strength Training: 35%.
-  - Stretching: 25%.
-- Highlights recent trends and achievements to keep users motivated.
+## **Features and Sections**  
 
-#### **2. Data Visualization**
-This section uses visual tools to display trends and comparisons, helping users analyze their progress effectively.
-- **Progress Graphs**: Line or bar charts illustrating metrics such as:
-  - Weight progression.
-  - Distance covered.
-  - Calories burned.
-  - Strength improvement over time.
-- **Comparison Metrics**: Allows users to compare their performance across different timeframes, such as weekly or monthly trends.
-- **Distribution Insights**: Provides a breakdown of activity types, like cardio versus strength training, to help users adjust their routines for balanced fitness.
+### **1. Goal Setting / Milestones**  
+**Define your fitness goals and stay on track**  
 
-#### **3. Feedback**
-The Feedback section gives users personalized insights and actionable tips based on their performance data.
-- **Progress Milestones**:
-  - Celebrate achievements like "Halfway to goal!" or "50 workouts completed."
-- **Insights and Tips**:
-  - "You've increased your weekly activity by 15% compared to last month."
-  - "Based on your trends, consider adding more rest days for better recovery."
-- Encourages users to reflect on their progress and make informed adjustments to their fitness routines.
+This section helps users how to establish **short-term and long-term fitness goals** while tracking their progress toward meaningful milestones.  
 
-The Progression Page is designed to empower users with a comprehensive view of their fitness journey, 
-combining actionable feedback, visual data, and a clear snapshot of their achievements. 
-By integrating meaningful insights with easy-to-understand visuals, 
-the page keeps users engaged, motivated, and on track to meet their fitness goals.
+- Set **personalized goals** based on your fitness objectives (e.g., weight loss, muscle gain, endurance improvement).  
+- Monitor your **goal completion percentage**, giving you a clear sense of progress.  
+- Celebrate **milestones and achievements**, such as reaching a strength PR, improving running speed, or completing a workout streak.  
+
+📌 **How to Use This Section Effectively:**  
+✔ Clearly define measurable goals (e.g., "Lose 5kg in 3 months" or "Run 10km without stopping").  
+✔ Regularly check your milestone progress to stay motivated.  
+✔ Adjust goals as needed to **continue pushing toward new challenges**.  
+
+---
+
+### **2. Performance Tracking**  
+**Analyze your trends and measure real progress**  
+
+Tracking **performance metrics** over time helps users understand their **strengths, weaknesses, and areas for improvement**.  
+
+- View **progress summaries** that reflect workout consistency, strength development, endurance gains, and more.  
+- Identify **patterns in fitness habits** through structured data representation.  
+- Compare past and present performance to **track improvements** and optimize training.  
+
+📌 **How to Use This Section Effectively:**  
+✔ Regularly review your progress summaries to assess improvements.  
+✔ Use historical performance data to adjust workout intensity and frequency.  
+✔ Identify trends that may indicate the need for recovery or workout variations.  
+
+---
+
+### **3. Feedback and Insights**  
+**Refine your training with meaningful insights**  
+
+This section provides **personalized guidance** based on user activity and progression trends, helping users stay engaged and make strategic adjustments.  
+
+- Gain **data-driven insights** into your progress and performance consistency.  
+- Receive **motivational feedback**, such as reminders to stay consistent, recovery recommendations, or milestone celebrations.  
+- Learn how to **optimize workouts** based on training data, ensuring **continuous improvement**.  
+
+📌 **How to Use This Section Effectively:**  
+✔ Reflect on feedback to make **targeted adjustments** to training plans.  
+✔ Use progress insights to **fine-tune your workout intensity, recovery schedule, and goal-setting approach**.  
+✔ Stay motivated by celebrating milestones and acknowledging improvements in strength, endurance, and consistency.  
+
+---
+
+## **Why the Progression Page is Essential**  
+
+The **Progression Page** serves as a **central hub** for tracking progress, celebrating achievements, and making strategic adjustments to training plans. By combining **goal tracking, performance analysis, and feedback-driven improvements**, users can ensure **consistent growth and long-term success** in their fitness journey.  
+
+✔ **Set clear goals and track milestone achievements.**  
+✔ **Analyze performance trends to optimize training.**  
+✔ **Use feedback to make data-driven adjustments for continuous progress.**  
+
+By regularly engaging with this page, users will gain the knowledge to **stay accountable, make informed training decisions, and maintain long-term motivation** toward achieving their fitness goals. 🚀  
 
 ---
 
