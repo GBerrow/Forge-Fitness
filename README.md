@@ -286,7 +286,7 @@ This login implementation follows modern security practices while delivering a f
 
 ![Profile](assets/wireframes/profile-page.png)
 
-The profile page offers users a central hub to manage their personal information, goals, and preferences, ensuring a customized fitness experience. Key features include:
+The **Profile Page** allows users to personalize their fitness experience by managing their profile details. With a clean and structured layout, users can easily update their information, add a profile photo, and provide a short bio.  
 
 ### Design Elements
 
@@ -296,36 +296,39 @@ The profile page offers users a central hub to manage their personal information
 - Large, user-friendly **"Upload Photo"** option for profile personalization
 - Responsive design ensuring seamless access across devices
 
-### Core Functionality
+### **Design Elements**  
 
-- **Personal Information Management**:
-  - Editable fields for **Preferred Name/Nickname** and **Email**
-  - Bio/About Me section for users to add a personalized description
-- **Fitness Preferences**:
-  - Goal selection options: **Weight Loss, Balanced, Muscle Gain**
-  - Customizable **Training Regularity** preferences: 1/2, 3/4, or 5+ days per week
-  - Dynamic preference summary reflecting selected goals and routines
-- **Photo Management**:
-  - Upload and preview profile photo with support for image file types (e.g., PNG, JPEG)
-  - Option to replace or remove an existing photo
-- **Save Preferences**:
-  - Save changes functionality to persist updated information
+- **Minimalist and intuitive layout** for easy profile customization.  
+- **User-friendly input fields** for quick data entry and updates.  
+- **Consistent color scheme and typography** aligned with Forge Fitness branding.  
+- **Large and accessible "Upload Photo" button** for seamless profile personalization.  
+- **Fully responsive design**, ensuring accessibility across different devices.  
 
-### User Experience
+---
 
-- Simple and intuitive form fields with clear labels and helper text
-- Real-time feedback when changes are made, e.g., _"Your preferences have been updated!"_
-- Visual feedback for selected buttons (e.g., active highlight state for goals and training preferences)
-- Seamless transitions between sections for a smooth navigation flow
-- Consistent use of icons to enhance clarity and engagement (e.g., profile, goals, calendar)
+### **Core Functionality**  
 
-### Future Enhancements
+- **Profile Customization**  
+  - Users can enter a **preferred name** to personalize their profile.  
+  - A **bio/about me section** lets users add a short description about themselves.  
 
-- Integration of fitness progress visualization directly on the profile page
-- Option to connect wearable devices (e.g., Fitbit, Apple Watch) for real-time fitness data
-- Advanced settings for privacy preferences and notification customization
+- **Photo Management**  
+  - Upload a **profile photo** to personalize the user profile.  
+  - Supports common image formats such as **PNG and JPEG**.  
+  - Option to **update or remove the profile picture** if needed.  
 
-The profile page is designed to empower users with control over their fitness journey, offering a user-friendly, customizable experience while maintaining visual consistency with the Forge Fitness platform.
+- **Save Changes**  
+  - Users can **save profile updates** to ensure all modifications are stored.  
+  - A simple **confirmation process** ensures that changes are reflected instantly.  
+
+---
+
+### **User Experience**  
+
+- **Simple and intuitive input fields** for quick profile updates.  
+- **Seamless user interactions**, ensuring effortless navigation.  
+- **Visual feedback** when changes are successfully saved.  
+- **Responsive layout**, allowing smooth access on different screen sizes.  
 
 ---
 
