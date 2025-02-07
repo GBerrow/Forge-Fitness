@@ -400,166 +400,73 @@ The Training section of the platform is designed to offer a **comprehensive, str
 
 ## Activity Page
 
-The Activity Page provides users with an intuitive and comprehensive platform to monitor their daily movement, workout routines, and fitness achievements.
-It emphasizes tracking key metrics that support users in achieving their fitness goals and maintaining an active lifestyle.
+The **Activity Page** provides users with a centralized space to learn about their **daily movement, workout progress, and fitness milestones**. Designed with a structured layout, it ensures that users can quickly access key fitness insights on a **single page** without navigating through multiple sections. This streamlined approach enhances usability, making it easier to stay engaged and track progress effectively.
 
-### Daily Activity
-
-![Activity Page (Daily Activity)](assets/wireframes/activity_page-daily_activity.png)
-
-### Core Metrics
-
-**Movement Analytics**
-
-- Step Counter
-
-  - Daily step tracking
-  - Daily goal progress
-  - Weekly trend analysis
-
-- Elevation Tracking
-
-  - Vertical gain monitoring
-  - Stair-climbing metrics
-  - Terrain difficulty scoring
-
-- Distance Measurement
-
-  - Daily mileage tracking
-  - Route mapping
-  - Achievement milestones
-
-- Active Time
-  - Intensity zone tracking
-  - Movement quality scoring
-  - Rest/activity balance
-
-**Importance**
-
-Maintaining daily physical activity is crucial for achieving fitness goals and overall health. 
-Regular movement, such as walking, climbing stairs, or engaging in light exercises, complements 
-structured workouts by enhancing cardiovascular health, 
-improving endurance, and aiding in weight management. 
-According to the World Health Organization (WHO), regular physical activity contributes to the prevention 
-and management of noncommunicable diseases like cardiovascular diseases, cancer, and diabetes, 
-and also reduces symptoms of depression and anxiety.
-
-While specific percentages on accelerated goal achievement due to daily activity vary 
-among individuals and depend on factors like baseline fitness levels and overall lifestyle, 
-the consensus is clear: integrating consistent daily activity with your fitness regimen 
-significantly enhances the likelihood of reaching and maintaining your health objectives. 
-Therefore, focusing on daily movement is a practical and effective strategy to support your fitness journey.
-
---- 
-
-### Workout Logs
-
-The Workout Logs section is designed to provide users with an intuitive way to track, review, and manage their workout routines.
-It encourages consistency, provides insights into progress, and helps users tailor their fitness journey to achieve their goals effectively.
-
-![Workout Logs](assets/wireframes/activity_page-workout_logs.png)
-
-#### Key Features
-
-1. **Custom Workouts**:
-   - Allows users to manually log their own workout routines.
-   - Includes details such as:
-     - Workout name or activity type.
-     - Duration of the workout.
-     - Intensity level for better tracking and categorization.
-
-2. **Performance Metrics**:
-   - Displays key performance indicators for users to monitor their workouts, such as:
-     - Distance covered for cardio exercises.
-     - Sets, reps, and weights for strength training.
-     - Heart rate zones and intensity levels.
-
-3. **Workout History**:
-   - Keeps a detailed log of past workout sessions.
-   - Includes:
-     - Date and time of each workout.
-     - Duration of the session.
-     - Type of workout completed.
-     - Calories burned during the workout.
-
-4. **Notes/Comments**:
-   - Provides a space for users to add personal notes or reflections for each workout.
-   - Enables users to:
-     - Record observations, challenges, or improvements.
-     - Look back at past entries to see progress and learn from their experiences.
-     - Maintain motivation through personal reflections.
-
-#### Benefits
-
-- **Flexibility**: Users can log workouts that are outside of predefined plans, ensuring comprehensive tracking.
-- **Insight**: Performance metrics help users identify strengths and areas for improvement.
-- **Motivation**: Personal notes foster accountability and allow users to reflect on their progress over time.
-
-#### Importance
-The Workout Logs section is an essential part of Forge Fitness, enabling users to stay organized and 
-focused on their fitness goals, no matter their level or preferred workout style.
+![Activity Page](assets/wireframes/activity-section.png)
 
 ---
 
-### Achievements 
+## **Page Structure and Purpose**
 
-The Achievements section in the Activity Page offers users a motivational and rewarding 
-system to track and celebrate their fitness milestones. By incorporating a mix of visual rewards, 
-performance tracking, and consistency challenges, this section aims to keep users engaged and 
-inspired throughout their fitness journey.
+The Activity Page is structured into four main sections, each focusing on a different aspect of fitness tracking. These sections work together to provide a **comprehensive snapshot** of the user’s understanding about daily and long-term activity.
 
-![Achievements](assets/wireframes/activity_page-achievement.png)
-
-### Key Features
-
-- **Badges**:
-  - Earn badges to customize your profile and showcase your accomplishments.
-  - Examples include “10,000 Steps in a Day” or “First Workout Logged.”
-  - Encourages users to strive for specific goals and provides a sense of achievement.
-
-- **Personal Records**:
-  - Track your best performance across various activities:
-    - **Steps**: Day/Week/Month tracking.
-    - **Running**: 5km, 10km, 20km milestones.
-    - **Cycling**: 10km, 20km, 30km challenges.
-    - **Strength**: Bench press, squats, deadlifts records.
-  - Keeps users motivated to improve and surpass their previous records.
-
-- **Streaks**:
-  - Track daily, weekly, and monthly streaks to encourage consistency.
-  - Builds good habits by rewarding users for staying active over time.
-  - Examples include “7-Day Active Streak” or “30 Days of 10,000 Steps.”
-
-- **Challenge Completion**:
-  - Complete predefined challenges such as:
-    - A 30-Day Fitness Challenge.
-    - Achieve a set number of hours of activity in a week.
-  - Adds excitement and short-term goals to keep users engaged.
-
-### Visual Representation
-
-Each achievement type is visually represented with distinct cards, designed for clarity and simplicity:
-- **Interactive Cards**: Highlight achievements with intuitive designs.
-- **Icons**: Easily recognizable visuals to enhance user understanding and engagement.
-- **Future Expandability**: This section is flexible for future additions, like new challenges or badges.
-
-### User Benefits
-- Encourages long-term commitment and consistency.
-- Motivates users to surpass personal records and push their limits.
-- Builds a sense of community and competition by showcasing achievements.
-
-#### Importance
-
-The Activity section brings together key tools to help users monitor their 
-daily efforts, reflect on past workouts, and celebrate meaningful milestones. 
-By offering clear insights and actionable data, it supports users in staying on track and 
-building sustainable habits over time. Whether tracking steps, reviewing workout performance, 
-or reaching personal goals, the Activity section ensures that users have the 
-information they need to stay focused and make steady progress.
+### **Introduction**  
+The **Introduction** section sets the foundation for understanding activity tracking. It highlights the significance of **monitoring both daily movement and structured workouts**, emphasizing how an active lifestyle contributes to overall fitness goals.  
+- Encourages users to view movement beyond workouts, incorporating **everyday activity** as part of their progress.  
+- Reinforces the importance of tracking **steps, calories burned, and overall consistency** to build long-term fitness habits.  
 
 ---
 
-### Progression page
+### **Daily Activity**  
+The **Daily Activity** section provides users with a summary of their movement patterns throughout the day, giving them insight into how **active or inactive** they have been.  
+- Displays **steps taken, active vs. inactive calorie burn, and general activity trends** in an easy-to-read format.  
+- Helps users recognize patterns in their daily routine, allowing them to make **healthier lifestyle adjustments**.  
+- Encourages consistency by showing users how **small daily movements contribute to their bigger fitness goals**.  
+
+This section is designed for users who want to **stay mindful of their daily habits**, ensuring that they maintain steady progress even outside of structured workouts.
+
+---
+
+### **Workout Tracking**  
+The **Workout Tracking** section focuses on users completed workouts, serving as a quick reference point for reviewing their fitness journey.  
+- Summarizes the **type, frequency, and duration** of recent workouts.  
+- Provides an **overview of workout patterns** to help users assess consistency and performance.  
+- Encourages users to **reflect on their training routines** and stay committed to their goals.  
+
+By having **workout data available at a glance**, users can **stay accountable** and ensure that they are following a balanced training plan.
+
+---
+
+### **Achievements**  
+The **Achievements** section highlights key fitness milestones and accomplishments, reinforcing motivation and long-term engagement.  
+- Recognizes **streaks, personal bests, and consistency milestones** to celebrate user progress.  
+- Encourages a **sense of accomplishment** by visually showcasing fitness achievements.  
+- Helps users **set new goals** based on past performance.  
+
+By rewarding progress, this section provides users with **a continuous source of motivation** to push further and maintain their fitness routine.
+
+---
+
+### **Key Benefits of the Activity Page**
+
+The **Activity Page** is designed to enhance user engagement by providing a **structured and accessible** way to monitor fitness progress.  
+
+### **Why This Page Matters:**
+✔ **Single-Page Overview:** Eliminates unnecessary navigation, making fitness tracking more intuitive.  
+✔ **Data-Driven Insights:** Helps users make informed decisions about their activity levels and workout habits.  
+✔ **Consistency & Motivation:** Encourages ongoing progress by reinforcing positive behavior and achievements.  
+✔ **Improved Accountability:** Allows users to track their own patterns, adjust their routines, and stay committed to their fitness goals.  
+
+---
+
+### **Activity Page Summary**  
+
+The **Activity Page** is a streamlined solution for users who want **clear, organized, and accessible fitness tracking** in one place. By integrating **Daily Activity, Workout Tracking, and Achievements**, this page empowers users to **stay consistent, celebrate their progress, and build sustainable fitness habits** over time.
+
+---
+
+
+## Progression page
 
 The Progression Page provides users with a detailed and interactive platform to track their fitness journey over time.
 This page focuses on providing meaningful insights and visual representations to help users stay motivated and achieve their fitness goals.
