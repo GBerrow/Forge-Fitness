@@ -255,30 +255,50 @@ The sign up interface provides a streamlined onboarding experience while capturi
 
 ![Login](assets/wireframes/login.png)
 
-The login interface implements secure authentication while maintaining an intuitive user experience. Key features include:
+The **Login Page** provides users with a simple and secure authentication interface, ensuring quick and easy access to the Forge Fitness platform. The design prioritizes usability and accessibility while maintaining a clean, minimalist layout.  
 
-### Design Elements
+---
 
-- Clean, minimalist layout focusing on essential login components
-- Responsive form design that adapts to all screen sizes
-- Brand-consistent color scheme and typography
+### **Design Elements**  
 
-### Core Functionality
+- **Minimalist layout** focusing on essential login components.  
+- **Responsive form design** that adapts to all screen sizes.  
+- **Brand-consistent typography and colors**, ensuring visual coherence.  
+- **Clear and accessible form fields** for easy user interaction.  
 
-- Email and password authentication fields
-- Password reset capability via "Forgot Password" link
-- New user registration through prominent "Sign Up" option
-- Form validation with clear error messaging
-- Secure session management
+---
 
-### User Experience
+### **Core Functionality**  
 
-- Single-click social media login options
-- Remember me functionality
-- Quick access to account recovery
-- Streamlined navigation between authentication states
+- **Email or Username Authentication**  
+  - Users can log in using their **registered email or username**.  
 
-This login implementation follows modern security practices while delivering a frictionless entry point to the Forge Fitness platform.
+- **Password Input with Toggle Visibility**  
+  - A **"Show Password"** option allows users to toggle password visibility for ease of entry.  
+
+- **Persistent Login Option**  
+  - The **"Keep me logged in"** checkbox enables users to stay signed in across sessions.  
+
+- **Forgot Password Recovery**  
+  - A **"Forgot password?"** link provides users with a direct way to reset their credentials.  
+
+- **New Account Registration Link**  
+  - A **"Create an account"** link encourages new users to sign up seamlessly.  
+
+---
+
+### **User Experience**  
+
+- **Simple, intuitive input fields** for easy login.  
+- **Streamlined navigation** with clear sign-up and password recovery options.  
+- **Secure session handling** to protect user credentials.  
+- **Mobile-friendly layout**, ensuring accessibility across all devices.  
+
+---
+
+### **Why This Page Matters**  
+
+The **Login Page** serves as the gateway to the Forge Fitness platform, offering a **seamless and user-friendly authentication experience**. By maintaining **strong security measures and a clean, intuitive layout**, it ensures a **smooth onboarding process** for both new and returning users.  
 
 ---
 
