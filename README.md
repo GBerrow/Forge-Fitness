@@ -540,28 +540,17 @@ By regularly engaging with this page, users will gain the knowledge to **stay ac
 
 ![Settings](<assets/wireframes/settings .png>)
 
-The Settings Page provides users with the flexibility to personalize their Forge Fitness experience, ensuring the app aligns with their preferences, lifestyle, and security needs.
+The **Settings Page** provides users with a simple yet essential option to manage their account. This page ensures users have full control over their presence on the platform by offering a straightforward way to remove their account if needed.  
 
-### **App Preferences**
-- **Theme Selection**: Users can toggle between light mode and dark mode to suit their visual preferences.
-- **Unit Preferences**: Choose between metric or imperial units for all fitness-related data.
+### **Delete Account**  
+Users who wish to permanently remove their account can do so from this section.  
+- **Irreversible Action:** Deleting an account will erase all associated data and cannot be undone.  
+- **User Control:** Ensures users have complete authority over their data and app presence.  
+- **Final Confirmation:** Before proceeding, users are encouraged to carefully consider their decision.  
 
-### **Notifications and Settings**
-- **Toggle Notifications**: Enable or disable reminders for workouts, daily goals, and progress updates.
-- **Quiet Hours**: Set specific times during which notifications are silenced.
-- **Frequency Customization**: Adjust how often notifications are sent for different activities.
+By keeping the **Settings Page minimal**, the app maintains a **clean and straightforward experience**, allowing users to focus on their fitness journey without unnecessary complexity.  
 
-### **Privacy and Security**
-- **Two-Factor Authentication**: Enhance account security by enabling an extra layer of protection.
-- **Data Export**: Download all fitness-related data for personal use or analysis.
-- **Account Management**: Options to delete or deactivate the account if needed.
-
-### **Support and Feedback**
-- **Quick Solutions**: Access a knowledge base or FAQ section to solve common issues.
-- **Live Support Options**: Connect with support staff via live chat, email, or ticket submission.
-- **Improvement Suggestions**: Users can submit feedback or suggestions to enhance the app.
-
---- 
+---
 
 ## Database Structure
 
