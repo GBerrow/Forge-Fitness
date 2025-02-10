@@ -124,31 +124,38 @@ The market research and usage data strongly support the development direction fo
 
 The Forge Fitness application combines modern development practices with proven design patterns from industry leaders like PureGym, Garmin, and Strava. This milestone project showcases full-stack development capabilities while delivering a comprehensive fitness platform. By implementing features found in successful fitness applications and adding innovative elements, Forge Fitness demonstrates both technical proficiency and user-centered design principles. The following core objectives guide the development process and feature implementation:
 
-1. **Create a User-Friendly Experience**:
+### **1. User-Friendly and Intuitive Navigation**
+- The **Dashboard** serves as a central hub, allowing users to quickly access key sections such as **Profile, Training, Activity, Progress, and Settings**.
+- Each section is designed with a minimalistic layout, making navigation effortless while ensuring all features remain accessible.
+- Responsive UI elements ensure an optimal experience across different devices.
 
-   - Develop a visually appealing and intuitive interface that allows users to seamlessly navigate through features.
-   - Ensure accessibility for users of all fitness levels, from beginners to experienced athletes.
+### **2. Personalization and User Control**
+- The **Profile Page** allows users to personalize their experience by setting their **preferred name and bio**, as well as uploading a profile picture.
+- The **Settings Page** includes essential options such as **Feedback, Support, and Account Deletion**, ensuring users can manage their preferences effectively.
+- Users can track their fitness progress in the **Progression Page**, which focuses on **Goal Setting, Performance Tracking, and Personalized Feedback**.
 
-2. **Support Personalization**:
+### **3. Structured Training Guidance**
+- The **Training Section** provides users with a well-organized framework for fitness improvement.
+  - **Introduction:** Guides users on how to use the training section effectively.
+  - **Workouts:** Covers different muscle groups and recommended exercises.
+  - **Training Plans:** Helps users structure their fitness routine.
+  - **Summary:** Highlights key takeaways to keep users engaged and informed.
 
-   - Enable users to set personalized fitness goals and create tailored workout plans to suit their needs and preferences.
-   - Provide flexible tracking tools that adapt to individual progress and routines.
+### **4. Motivation through Progress Tracking**
+- The **Activity Page** enables users to help monitor their daily activity, ensuring they stay consistent with their fitness goals.
+  - **Daily Activity:** Summarizes movement trends.
+  - **Workout Tracking:** Encourages users to log and analyze their workouts.
+  - **Achievements:** Recognizes and celebrates fitness milestones.
 
-3. **Enhance Motivation and Engagement**:
+### **5. Secure and Accessible Authentication**
+- The **Login Page** provides a secure authentication system, allowing users to log in effortlessly.
+- The **Sign-Up Page** ensures a smooth onboarding process, with clear input fields and guided registration to enhance user experience.
 
-   - Deliver meaningful insights through progress tracking and activity visualization to keep users motivated.
-   - Incorporate features like achievements and milestones to celebrate fitness successes.
+### **6. Feedback and Continuous Engagement**
+- The **Settings Page** integrates feedback and support options, enabling users to report issues, request assistance, and suggest improvements.
+- The platform encourages ongoing engagement through motivational elements like **progress tracking and achievements**.
 
-4. **Offer Comprehensive Fitness Management**:
-
-   - Combine multiple fitness needs in one platform, including workout tracking, calorie logging, and goal-setting.
-   - Provide tools that empower users to manage and monitor their wellness journey efficiently.
-
-5. **Prioritize Modern Design Standards**:
-   - Emphasize clean, minimalistic design principles inspired by modern fitness platforms.
-   - Ensure a mobile-responsive layout for a seamless experience across devices.
-
-The Forge Fitness app aims to bridge the gap between simplicity and functionality, empowering users to take control of their fitness journey with a professional-grade toolset tailored to their unique goals.
+The **Forge Fitness** application balances functionality and simplicity, ensuring that users can efficiently **track their workouts, manage their profile, stay motivated, and personalize their experience**.
 
 ---
 
