@@ -164,39 +164,46 @@ The **Forge Fitness** application balances functionality and simplicity, ensurin
 The following user stories have been developed to guide the implementation of Forge Fitness features, ensuring each component delivers tangible value to users while meeting project requirements. Each story aligns with specific client goals and technical objectives, demonstrating both user-centered design and full-stack development capabilities. The stories are organized into core functional areas, with clear goal alignment statements showing how they support the project's primary objectives.
 
 ### Profile Management
+**Goal Alignment: Supports "Create a User-Friendly Experience."**
 
-- **Goal Alignment**: Supports "Create a User-Friendly Experience."
-- As a **new user**, I want to create an account, so that I can save my fitness data and track my progress.
-- As a **registered user**, I want to edit my profile details, so that my information remains up-to-date.
-- As a **returning user**, I want to log in securely, so that I can access my personalized fitness data.
+- As a **new user**, I want to create an account so that I can save my fitness data and track my progress.
+- As a **returning user**, I want to log in securely so that I can access my personalized fitness data.
+- As a **registered user**, I want to edit my profile details, including my preferred name and bio, so that my information remains up to date.
+- As a **visual user**, I want to upload a profile picture so that my account feels more personalized.
+- As a **self-motivated user**, I want to add a short bio about myself so that I can document my fitness journey.
 
 ### Training Section
+**Goal Alignment: Supports "Support Personalization."**
 
-- **Goal Alignment**: Supports "Support Personalization."
-- As a **user**, I want to explore different workout plans, so that I can find a routine that matches my fitness goals.
-- As a **beginner**, I want access to instructional videos or guides, so that I can perform exercises safely and correctly.
-- As an **advanced user**, I want to customize a training plan, so that I can focus on specific fitness objectives.
+- As a **user**, I want to explore different workout plans so that I can find a routine that matches my fitness goals.
+- As a **beginner**, I want a simple introduction to workouts so that I can learn the fundamentals before diving into specific plans.
+- As an **advanced user**, I want to understand how different muscle groups work so that I can improve my training efficiency.
+- As a **goal-oriented user**, I want structured training plans so that I can follow a guided fitness program based on my needs.
+- As a **data-driven user**, I want to see an overview of my workout plans so that I can track my fitness routine at a glance.
 
 ### Activity Tracking
+**Goal Alignment: Supports "Enhance Motivation and Engagement."**
 
-- **Goal Alignment**: Supports "Enhance Motivation and Engagement."
-- As a **user**, I want to log my daily workouts, so that I can keep a detailed history of my fitness activities.
-- As a **health-conscious individual**, I want to track my calorie intake and steps, so that I can monitor my overall health.
-- As a **busy professional**, I want to receive reminders to log my activities, so that I can stay consistent with my fitness journey.
+- As a **user**, I want to track my daily activity, such as steps and movement, so that I can monitor my overall fitness levels.
+- As a **motivated individual**, I want to log my completed workouts so that I can track my consistency over time.
+- As a **progress-focused user**, I want to review my past activities so that I can see how I’m improving.
+- As an **achievement-driven user**, I want to earn milestones and badges so that I stay motivated to reach new fitness goals.
+- As a **self-reflecting user**, I want to compare my active and inactive days so that I can improve my consistency.
 
 ### Progress and Insights
+**Goal Alignment: Supports "Offer Comprehensive Fitness Management."**
 
-- **Goal Alignment**: Supports "Comprehensive Fitness Management."
-- As a **goal-oriented user**, I want to set fitness goals, so that I can work toward specific milestones.
-- As a **data-driven user**, I want to view charts and graphs of my progress, so that I can analyze trends over time.
-- As a **motivated user**, I want to receive notifications when I achieve a goal, so that I stay inspired to continue.
+- As a **goal-oriented user**, I want to set short-term and long-term fitness goals so that I can stay motivated and measure my progress.
+- As a **self-improving user**, I want to track my performance trends over time so that I can see my strengths and areas for improvement.
+- As an **analytical user**, I want to review feedback and insights based on my fitness habits so that I can make better training decisions.
+- As a **results-driven user**, I want to receive clear visual data about my progress so that I can recognize patterns and plan my next steps.
+- As a **self-aware user**, I want to receive performance insights and recommendations so that I can make meaningful adjustments to my fitness routine.
 
 ### Settings
+**Goal Alignment: Supports "Prioritize Modern Design Standards."**
 
-- **Goal Alignment**: Supports "Prioritize Modern Design Standards."
-- As a **user**, I want to customize the app's appearance, so that it matches my personal preferences (e.g., dark mode).
-- As a **privacy-conscious user**, I want to change my password, so that my account remains secure.
-- As a **user**, I want to manage my notification preferences, so that I receive only relevant updates.
+- As a **privacy-conscious user**, I want to permanently delete my account so that I have control over my data.
+- As a **user**, I want to manage my fitness preferences and settings so that the app feels tailored to my personal experience.
 
 Each story maps directly to technical requirements while maintaining focus on user value, creating a balanced approach between development objectives and user needs. This structured foundation provides clear direction for feature implementation and testing phases of the project.
 
