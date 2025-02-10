@@ -211,21 +211,24 @@ Each story maps directly to technical requirements while maintaining focus on us
 
 ## Initial Design
 
-![Dashboard](assets/wireframes/dashboard.png)
+The visual identity of Forge Fitness is built on a carefully selected **color palette** that emphasizes clarity, professionalism, and user engagement. The combination of light and complementary colors creates a **modern aesthetic** that enhances readability while maintaining a strong visual hierarchy.
 
-The visual identity of Forge Fitness is built on a carefully selected color palette that emphasizes clarity, professionalism, and user engagement. The combination of light, complementary colors creates a modern aesthetic while ensuring optimal readability and visual hierarchy. The chosen color scheme reflects current design trends in fitness applications while maintaining distinctive brand identity:
+### Color Scheme
 
 ![Colour Scheme](<assets/images/colour-scheme/forge_fitness-colour scheme.png>)
 
-#66B2FD - Argentinian Blue - Navigation bar
+| Color  | Name                  | Usage |
+|--------|-----------------------|-------------------------------|
+| `#66A3FD` | **Argentinian Blue** | Navigation bar |
+| `#ECECEC` | **Anti-Flash White** | Body background |
+| `#8CBCCA` | **Sky Blue**         | Buttons, Sections |
+| `#1853AB` | **Sapphire Blue**    | Footer |
 
-#ECECEC - Anti-flash White - Body 
-
-#8CBCCA - Sky blue - Button/Page/Section 
-
-#1853AB -  Sapphire Blue - Footer 
+---
 
 The typography is yet to be decided. But I want the layout of the website to be designed easy to read and visually appealing, with a focus on using a font that is both readable and visually appealing.
+
+---
 
 ## User Experience (UX) and wireframes
 
@@ -233,15 +236,37 @@ To create a top class fitness app, this website is being desinged with a great a
 
 ## Dashboard page
 
-- 🏃‍♂️ Profile section - For users to create their profile, set their goals to help them achieve their progress.
+![Dashboard](assets/wireframes/dashboard.png)
 
-- 💪 Training section - For users to select a workout of any type, create traning plans to help achieve specific goals and instructor led digital classes.
+### 📌 Dashboard Overview
 
-- 📊 Activity section - For users to track their physical activity, workout time, log their steps and monitor calories burnt.
+The **Dashboard Page** serves as the central hub for navigation, providing users with quick access to key sections of the Forge Fitness app. It ensures a **clean and intuitive layout**, making it easy for users to interact with various features.
 
-- 📈 Progress section - For users to set goals and track their progress and achievements.
+---
 
-- ⚙️ Settings section - For users to set their account settings, such as password and email notifications. With also app appearance settings, feedback and support
+### 🏠 **Navigation Bar**
+- **Logout Button**: Securely sign out of the application at any time.
+
+---
+
+### 📂 **Main Sections**
+
+- 👤 **Profile Section** - Allows users to **view and edit** their profile, update their **preferred name**, and add a **personalized bio** to tailor their fitness experience.
+
+- 🏋️ **Training Section** - Provides access to **structured workouts and training plans**, helping users follow a fitness routine aligned with their **goals and fitness levels**.
+
+- 🏃‍♂️ **Activity Section** - Enables users to **track daily activity**, including **workouts, logs, and achievements**, ensuring they can monitor their progress and stay motivated.
+
+- 📈 **Progress Section** - Focuses on **self-review, feedback, and insights**, helping users analyze **performance trends, goal tracking, and long-term fitness improvements**.
+
+- ⚙️ **Settings Section** - Grants access to **account management**, including **feedback submission, support options, and account deletion**, ensuring a user-controlled experience.
+
+---
+
+### 🔻 **Footer Features**
+- 🌐 **Social Media Links**: Quick access to **Facebook, Instagram, Twitter, and YouTube** for fitness-related content and community engagement.
+- 🔗 **Footer Navigation**: Provides persistent **access to key sections**, ensuring seamless user experience across the app.
+
 
 ---
 
