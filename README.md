@@ -1,6 +1,16 @@
 # Forge Fitness - Fitness Application
 
-Forge Fitness is a comprehensive fitness companion designed to transform your wellness journey. This dynamic application empowers users to track workouts, set personalized goals, and achieve measurable results through an intuitive dashboard system. Whether you're a beginner starting your fitness journey or an experienced athlete looking to optimize your performance, Forge Fitness provides the tools and motivation needed to forge your path to better health.
+
+Forge Fitness is a **fitness guidance platform** designed to help users structure and manage their personal fitness journeys. Unlike traditional fitness tracking applications, Forge Fitness **does not track real-time workout data** but instead serves as an **educational and organizational tool** for users to **learn how to set goals, manage progress, and personalize their fitness experience**.
+
+This application offers a **user-friendly dashboard** where individuals can:
+- **Create and manage their profile** with a preferred name and bio.
+- **Set fitness-related goals** and structure their personal fitness journey.
+- **Access structured guidance on workouts and fitness routines**.
+- **Monitor their progress through milestones and achievements**.
+- **Manage their account settings**, including profile updates and account deletion.
+
+Whether you’re a **beginner** looking for structured guidance or an **experienced fitness enthusiast** aiming to organize your training, **Forge Fitness provides a simplified and intuitive experience tailored to your fitness aspirations.**
 
 ---
 
