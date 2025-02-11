@@ -747,14 +747,15 @@ By keeping the database **minimal and efficient**, Forge Fitness remains **focus
 
 ## Folder Structure
 
-The Forge Fitness project follows a modular and well-structured architecture to maintain scalability, maintainability, and ease of collaboration. This structure ensures that different components such as user authentication, workout tracking, activity monitoring, and progress tracking are organized effectively. Each major functionality is contained within its own Django app, following best practices for separation of concerns.
+The Forge Fitness project follows a modular and structured approach to maintain scalability, clarity, and maintainability. This refactored structure ensures that user authentication, profile management, and settings are well-organized while keeping the core Django project structure intact.
 
-The organization of the files and directories ensures that:
-- User-related functionalities are managed in the `users/` directory.
-- Activities tracking and progress monitoring are housed in the `activities/` and `progress/` directories, respectively.
-- Training plans and workouts are structured under the `training/` directory.
-- User settings and preferences are handled within the `settings/` directory.
-- Static files, templates, and assets are kept separate to maintain clarity.
+### 🔹 How It’s Organized  
+
+✔ **User authentication & profile management** are handled in the `users/` directory.  
+✔ **User settings & account preferences** are managed in the `settings/` directory.  
+✔ **Core Django settings, static assets, and templates** are stored in the `forge_fitness/` directory.  
+✔ **Project-wide assets**, including wireframes and diagrams, are contained in the `assets/` directory.  
+
 
 ![Folder Structure](assets/wireframes/folder_structure.png)
 
@@ -762,54 +763,58 @@ The organization of the files and directories ensures that:
 
 Each directory corresponds to a specific feature or functionality of the application:
 
-1. **Root Directory (`forge-fitness/`)**:
-   - Contains project-wide configuration files such as `manage.py` for running the Django server, `requirements.txt` for dependencies, and `.env` for environment variables.
+1. **Root Directory (`forge-fitness/`)**  
+   - Contains project-wide configurations such as:  
+     - `manage.py` – Django project management script.  
+     - `requirements.txt` – Dependencies and package requirements.  
+     - `.env` – Environment variables for database credentials and secrets.  
 
-2. **Main Application (`forge_fitness/`)**:
-   - Houses core Django settings, URL configurations, and global templates like `base.html`, `navbar.html`, and `footer.html`.
-   - Includes static files (`static/`) used throughout the project, such as CSS, JavaScript, and images.
+2. **Main Application (`forge_fitness/`)**  
+   - Manages the core Django project settings, including:  
+     - `settings.py` – Configuration for installed apps, middleware, database settings.  
+     - `urls.py` – Central URL routing for the project.  
+     - `wsgi.py` & `asgi.py` – Deployment configurations.  
+   - Contains **static files (`static/`)** used across the entire project.  
+   - Stores **global templates (`templates/`)**, including:  
+     - `base.html` – Layout foundation for all pages.  
+     - `navbar.html` – Shared navigation bar.  
+     - `footer.html` – Common footer section.  
 
-3. **Users Module (`users/`)**:
-   - Manages user authentication and profile data.
-   - Contains models, views, forms, and templates for login, signup, and profile management.
-   - Stores user-specific static files and database migrations.
+3. **User Module (`users/`)**  
+   - Handles **user authentication and profile management**.  
+   - Contains:  
+     - `models.py` – User database schema (storing login credentials, profile details).  
+     - `views.py` – Handles authentication workflows (signup, login, profile updates).  
+     - `forms.py` – Form handling for user authentication.  
+   - Templates include:  
+     - `signup.html` – User registration page.  
+     - `login.html` – Login interface.  
+     - `profile.html` – User profile settings.  
 
-4. **Activities Module (`activities/`)**:
-   - Handles logging of user activities such as step tracking, distance covered, and calories burned.
-   - Includes templates for viewing daily activity logs and achievements.
-   - Provides models that store activity-related data.
+4. **Settings Module (`settings/`)**  
+   - Manages **user account preferences and status settings**.  
+   - Contains:  
+     - `models.py` – Stores user preferences (e.g., account status).  
+     - `views.py` – Manages user settings adjustments.  
+     - `urls.py` – Routing for settings-related actions.  
+   - Templates include:  
+     - `preferences.html` – UI for modifying user settings.  
+     - `notifications.html` – Page for adjusting notification preferences.  
 
-5. **Training Plans (`training/`)**:
-   - Manages workout programs and training plans.
-   - Contains models for workout types, training sessions, and user-selected plans.
-   - Includes templates for viewing available training plans and scheduling workouts.
-
-6. **Progress Tracking (`progress/`)**:
-   - Tracks user goals and milestones.
-   - Includes views and templates for visualizing progress through charts and statistics.
-   - Stores database models that track progress percentages and milestones.
-
-7. **Settings (`settings/`)**:
-   - Manages user preferences such as theme selection, notification settings, and privacy controls.
-   - Contains models to store user-specific configurations.
-   - Templates allow users to adjust their preferences.
-
-8. **Assets and Wireframes (`assets/`)**:
-   - Stores UI wireframes and diagrams that help document and guide development.
-   - Includes the `database-structure.png` and `folder-structure.png` diagrams for reference.
+5. **Assets & Wireframes (`assets/`)**  
+   - Stores project documentation and design references, including:  
+     - `wireframes/` – Screenshots of UI wireframes.  
+     - `diagrams/` – Visual representations of the database and folder structure.  
 
 ---
 
-### How It Ties Into the Database Structure
+### 🔹 How It Ties Into the Database  
 
-Each directory within the folder structure corresponds directly to a **table in the database**, ensuring a **one-to-one mapping between the frontend logic and backend storage**. Here's how they align:
+The **folder structure** directly reflects the **database schema**, ensuring a **one-to-one mapping between functionalities and data storage**:
 
-- The **`users/` app** aligns with the **User Table**, managing authentication and profile data.
-- The **`activities/` app** connects with the **Activity Table**, recording workout times, steps, and calories burned.
-- The **`training/` app** is linked to the **Training Plans Table**, ensuring users can access structured workouts.
-- The **`progress/` app** stores user milestones and goal achievements, directly mapping to the **Progress Table**.
-- The **`settings/` app** works with the **Settings Table**, allowing users to customize their app experience.
+- The **`users/` app** aligns with the **User Table**, managing authentication and profile data.  
+- The **`settings/` app** links to the **Settings Table**, handling user preferences.  
 
-By maintaining this structured relationship, this project follows a smooth flow of data between the backend database and the frontend interface. The database structure is fully integrated with the project’s folder organization, making it easy to manage, scale, and extend in future development.
+By **maintaining this structured relationship**, the project ensures a **seamless flow of data** between the backend and frontend, making it easier to **scale and manage future enhancements**.  
 
 ---
