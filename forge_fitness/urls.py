@@ -1,8 +1,8 @@
 from django.contrib import admin
-from django.urls import path
-from . import views  # Ensure views.py exists
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),  # Add this line for a homepage route
+    path('users/', include('users.urls')), 
+    path('settings/', include('settings.urls')),  
 ]
