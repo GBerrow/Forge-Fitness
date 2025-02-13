@@ -39,3 +39,6 @@ yarn.lock
 # Ignore System-Specific Files 
 .DS_Store
 Thumbs.db
+
+# ignore Forge Fitness Settings
+forge_fitness/settings.py
