@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Forge Fitness{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body style="background-color: #e5e5e5;">
+    <!-- Header Section -->
+    <header style="background-color: #89cff0; padding: 10px;">
+        <h1><a href="{% url 'dashboard' %}" class="home-icon">🏠</a></h1>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="logout-btn">Log Out</a>
+        {% else %}
+            <a href="{% url 'log-in' %}" class="login-btn">Log In</a>
+        {% endif %}
+    </header>
+
+    <!-- 💾 Page-Specific Content Block -->
+    <main>
+        {% block content %}
+        <!-- Individual page content will be inserted here -->
+        {% endblock %}
+    </main>
+
+    <!-- Footer Section -->
+    <footer style="background-color: #003f88; color: white; padding: 10px;">
+        <p>© 2025 Forge Fitness</p>
+        <div class="social-icons">
+            🌐 📸 🐦 🎥
+        </div>
+    </footer>
+</body>
+</html>
+
