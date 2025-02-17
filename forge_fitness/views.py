@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from django.contrib.auth import logout
+from django.shortcuts import redirect
 
+# Page Views 
 def dashboard(request):
     return render(request, 'dashboard.html')
 
@@ -23,3 +26,8 @@ def signup(request):
 
 def login(request):
     return render(request, 'login.html')
+
+# Authentication Views
+def custom_logout(request):
+    logout(request)
+    return redirect('dashboard')  
