@@ -17,3 +17,11 @@ class SignupForm(UserCreationForm):
 class LoginForm(AuthenticationForm):
     # Add optional remember me checkbox
     remember_me = forms.BooleanField(required=False)
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['profile_picture', 'bio']
+        widgets = {
+            'bio': forms.Textarea(attrs={'rows': 4}),
+        }
