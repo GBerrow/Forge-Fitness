@@ -1,1 +1,2 @@
-web: gunicorn --chdir forge_fitness forge_fitness.wsgi:application
+web: gunicorn forge_fitness.wsgi:application
+release: python manage.py migrate
