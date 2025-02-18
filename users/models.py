@@ -1,31 +1,59 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-# UserProfile extends the base Django user to add custom fields
 class UserProfile(AbstractUser):
-    # Store user profile pictures in 'profile_pics' directory
+    """
+    Custom user model that extends Django's built-in AbstractUser.
+    Provides additional fields and functionality for user profiles.
+    """
+    # Profile picture field - stores user uploaded images
     profile_picture = models.ImageField(upload_to='profile_pics/', null=True, blank=True)
-    # Text field for user's personal description
+    
+    # Bio field - allows users to write about themselves
     bio = models.TextField(null=True, blank=True)
-    # Automatically set when user account is created
+    
+    # Timestamp for account creation
     created_at = models.DateTimeField(auto_now_add=True)
 
-    # Display username when UserProfile object is printed
+    # Group relationships - manages user group memberships
+    groups = models.ManyToManyField(
+        'auth.Group',
+        related_name='userprofile_set',
+        blank=True,
+        verbose_name='groups',
+        help_text='The groups this user belongs to.'
+    )
+    
+    # User permissions - manages specific user permissions
+    user_permissions = models.ManyToManyField(
+        'auth.Permission',
+        related_name='userprofile_set',
+        blank=True,
+        verbose_name='user permissions',
+        help_text='Specific permissions for this user.'
+    )
+
     def __str__(self):
+        """Returns username for string representation of the model"""
         return self.username
 
-# Settings for user account management
 class UserSettings(models.Model):
-    # Define possible account status choices
+    """
+    Manages user account settings and preferences.
+    Stores account status and other user-specific settings.
+    """
+    # Define possible account statuses
     ACCOUNT_STATUS = [
         ('active', 'Active'),
         ('deactivated', 'Deactivated'),
     ]
-    # Link settings to a specific user (one-to-one relationship)
+
+    # One-to-one relationship with UserProfile
     user = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
-    # Track whether account is active or deactivated
+    
+    # Current status of the user account
     account_status = models.CharField(max_length=15, choices=ACCOUNT_STATUS, default='active')
 
-    # Display format: "username - status"
     def __str__(self):
+        """Returns formatted string with username and account status"""
         return f"{self.user.username} - {self.account_status}"
