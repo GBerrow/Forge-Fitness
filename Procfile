@@ -1,1 +1,1 @@
-web: cd forge_fitness && gunicorn forge_fitness.wsgi:application
+web: gunicorn --chdir forge_fitness forge_fitness.wsgi:application
