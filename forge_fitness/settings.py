@@ -22,9 +22,11 @@ if not allowed_hosts_env:
     raise ValueError("❌ Missing ALLOWED_HOSTS environment variable")
 ALLOWED_HOSTS = allowed_hosts_env.split(",")
 
-# Database configuration
+# Use Heroku DATABASE_URL if available, otherwise use local settings
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL', 'postgres://forge_user:password@127.0.0.1:5432/forge_fitness')
+    )
 }
 
 # Installed Django apps

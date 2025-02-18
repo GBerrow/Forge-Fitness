@@ -1,2 +1,2 @@
-web: PYTHONPATH=/app gunicorn forge_fitness.wsgi:application
-release: PYTHONPATH=/app python manage.py migrate
+web: gunicorn forge_fitness.wsgi
+release: python manage.py migrate
