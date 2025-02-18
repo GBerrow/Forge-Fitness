@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="signup-container">
+    <h1>Sign Up</h1>
+    <p>Welcome to Forge Fitness! Your path to a healthier, stronger, and more confident you begins here.</p>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        <label for="first_name">First Name</label>
+        <input type="text" name="first_name" placeholder="First Name" required>
+
+        <label for="last_name">Last Name</label>
+        <input type="text" name="last_name" placeholder="Last Name" required>
+
+        <label for="email">Email</label>
+        <input type="email" name="email" placeholder="Email" required>
+
+        <label for="password1">Password</label>
+        <input type="password" name="password1" placeholder="Password" required>
+
+        <label for="password2">Confirm Password</label>
+        <input type="password" name="password2" placeholder="Confirm Password" required>
+
+        <button type="submit" class="btn-primary">Create Account</button>
+    </form>
+</div>
+{% endblock %}
