@@ -1,7 +1,7 @@
+# forge_fitness/views.py
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
 
-# Page Views
 def dashboard(request):
     return render(request, 'dashboard.html')
 
@@ -20,13 +20,7 @@ def settings(request):
 def profile(request):
     return render(request, 'profile.html')
 
-# Authentication Views
-def login(request):
-    return render(request, 'users/log-in.html')
-
-def signup(request):
-    return render(request, 'users/sign-up.html')
-
 def custom_logout(request):
     logout(request)
-    return redirect('dashboard')  
+    return redirect('dashboard')
+ 
