@@ -1,0 +1,55 @@
+/* Modern clean layout */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #e5e5e5;
+}
+
+header {
+    background-color: #89cff0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-icon {
+    text-decoration: none;
+    font-size: 28px;
+}
+
+.login-btn, .logout-btn {
+    background-color: #003f88;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover, .logout-btn:hover {
+    background-color: #002855;
+}
+
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+footer {
+    background-color: #003f88;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.social-icons {
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+
