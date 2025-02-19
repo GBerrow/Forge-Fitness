@@ -29,6 +29,9 @@ DATABASES = {
     )
 }
 
+ROOT_URLCONF = 'forge_fitness.urls'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 # Installed Django apps
 INSTALLED_APPS = [
     'django.contrib.admin',
