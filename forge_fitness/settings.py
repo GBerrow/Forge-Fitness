@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 import dj_database_url
+from pathlib import Path
 
 # Load .env file
 load_dotenv()
@@ -81,11 +82,10 @@ SESSION_COOKIE_SECURE = os.getenv('SESSION_COOKIE_SECURE', 'True') == 'True'
 CSRF_COOKIE_SECURE = os.getenv('CSRF_COOKIE_SECURE', 'True') == 'True'
 
 # Static file settings
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'forge_fitness', 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 # Authentication
 LOGIN_URL = '/login/'  
 LOGIN_REDIRECT_URL = '/dashboard/'  
