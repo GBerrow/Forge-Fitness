@@ -1,59 +1,93 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.utils import timezone
 
 class UserProfile(AbstractUser):
     """
-    Custom user model that extends Django's built-in AbstractUser.
-    Provides additional fields and functionality for user profiles.
+    Extended User model for the educational fitness dashboard
+    WHY: Adds bio and profile picture for personalization
     """
-    # Profile picture field - stores user uploaded images
-    profile_picture = models.ImageField(upload_to='profile_pics/', null=True, blank=True)
+    bio = models.TextField(max_length=500, blank=True, null=True, help_text="Tell us about your fitness journey")
+    profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
+    created_at = models.DateTimeField(default=timezone.now)
     
-    # Bio field - allows users to write about themselves
-    bio = models.TextField(null=True, blank=True)
+    class Meta:
+        verbose_name = "User Profile"
+        verbose_name_plural = "User Profiles"
     
-    # Timestamp for account creation
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    # Group relationships - manages user group memberships
-    groups = models.ManyToManyField(
-        'auth.Group',
-        related_name='userprofile_set',
-        blank=True,
-        verbose_name='groups',
-        help_text='The groups this user belongs to.'
-    )
-    
-    # User permissions - manages specific user permissions
-    user_permissions = models.ManyToManyField(
-        'auth.Permission',
-        related_name='userprofile_set',
-        blank=True,
-        verbose_name='user permissions',
-        help_text='Specific permissions for this user.'
-    )
-
     def __str__(self):
-        """Returns username for string representation of the model"""
         return self.username
 
 class UserSettings(models.Model):
     """
-    Manages user account settings and preferences.
-    Stores account status and other user-specific settings.
+    User account settings and preferences
+    WHY: Allows users to manage their account status
     """
-    # Define possible account statuses
-    ACCOUNT_STATUS = [
+    ACCOUNT_STATUS_CHOICES = [
         ('active', 'Active'),
-        ('deactivated', 'Deactivated'),
+        ('inactive', 'Inactive'),
+        ('private', 'Private'),
     ]
-
-    # One-to-one relationship with UserProfile
-    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
     
-    # Current status of the user account
-    account_status = models.CharField(max_length=15, choices=ACCOUNT_STATUS, default='active')
-
+    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
+    account_status = models.CharField(max_length=20, choices=ACCOUNT_STATUS_CHOICES, default='active')
+    email_notifications = models.BooleanField(default=True)
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        verbose_name = "User Settings"
+        verbose_name_plural = "User Settings"
+    
     def __str__(self):
-        """Returns formatted string with username and account status"""
-        return f"{self.user.username} - {self.account_status}"
+        return f"{self.user.username}'s Settings"
+
+class PracticeNote(models.Model):
+    """
+    User's personal notes on fitness concepts (MAIN CRUD FEATURE)
+    WHY: Page-specific practice areas for educational engagement
+    """
+    PAGE_CHOICES = [
+        ('training', 'Training'),
+        ('activity', 'Activity'), 
+        ('progression', 'Progression'),
+    ]
+    
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    page = models.CharField(max_length=20, choices=PAGE_CHOICES)
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = "Practice Note"
+        verbose_name_plural = "Practice Notes"
+    
+    def __str__(self):
+        return f"{self.user.username} - {self.page} - {self.title}"
+    
+    def get_page_context(self):
+        """Return page-specific context for prompts and guidance"""
+        contexts = {
+            'training': {
+                'prompt_title': '📝 Plan Your Training Approach',
+                'prompt_text': "Based on what you've just read, outline a simple weekly training plan or focus area you want to work on.",
+                'placeholder': 'e.g., "3-day split: Push, Pull, Legs" or "Focus on progressive overload"',
+                'icon': '🏋️'
+            },
+            'activity': {
+                'prompt_title': '🏃 Practice Logging Your Daily Activity',
+                'prompt_text': "List some activities or movement goals you'd like to include in your day. These could be workouts, steps, or just staying active.",
+                'placeholder': 'e.g., "20-minute walk every morning" or "Stretch routine in the evening"',
+                'icon': '🏃'
+            },
+            'progression': {
+                'prompt_title': '🎯 Set Your Short and Long-Term Goals',
+                'prompt_text': "Reflect on your goals based on what you've learned. What's your short-term goal? What bigger milestone are you aiming for?",
+                'placeholder': 'e.g., "Run 5K non-stop in 3 weeks" or "Lose 5kg over 3 months"',
+                'icon': '🎯'
+            }
+        }
+        return contexts.get(self.page, {})
