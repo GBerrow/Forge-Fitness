@@ -15,3 +15,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),  # Built-in auth
     path('', include('users.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+# Add media file serving for development
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,41 +1,81 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Settings - Forge Fitness{% endblock %}
-
-{% block page_title %}Settings{% endblock %}
+{% block title %}Account Settings - Forge Fitness{% endblock %}
+{% block page_title %}Account Settings{% endblock %}
 
 {% block content %}
-<section class="settings-section">
-    <h2>Delete Account</h2>
-    <p>
-        Allows users to remove their account permanently.<br>
-        This action will erase all associate data and cannot be undone,<br>
-        so users are encouraged to consider their decision carefully before proceeding.
-    </p>
-    
-    <button type="button" class="delete-btn" onclick="showDeleteConfirmation()">Delete Account</button>
-
-    <!-- Delete Account Modal -->
-    <div id="deleteModal" class="modal">
-        <div class="modal-content">
-            <h3>Delete Account</h3>
-            <p>Are you sure you want to delete your account? This action cannot be undone.</p>
-            <form method="post" action="{% url 'delete_account' %}">
-                {% csrf_token %}
-                <button type="submit" class="confirm-delete">Yes, Delete</button>
-                <button type="button" class="cancel-delete" onclick="hideDeleteConfirmation()">Cancel</button>
-            </form>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2>⚙️ Account Settings</h2>
+            
+            <!-- Profile Settings -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5>Profile Settings</h5>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        <!-- Profile Picture -->
+                        <div class="mb-3">
+                            <label for="id_profile_picture" class="form-label">Profile Picture</label>
+                            <input type="file" class="form-control" id="id_profile_picture" name="profile_picture" accept="image/*">
+                            {% if user.profile_picture %}
+                                <div class="mt-2">
+                                    <img src="{{ user.profile_picture.url }}" alt="Current Profile" class="rounded" width="80" height="80">
+                                    <small class="text-muted">Current picture</small>
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <!-- Bio -->
+                        <div class="mb-3">
+                            <label for="id_bio" class="form-label">Bio</label>
+                            <textarea class="form-control" id="id_bio" name="bio" rows="3" placeholder="Tell us about your fitness journey...">{{ user.bio|default:"" }}</textarea>
+                        </div>
+                        
+                        <button type="submit" name="update_profile" class="btn btn-primary">Update Profile</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Delete Account -->
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h5>🚨 Delete Account</h5>
+                </div>
+                <div class="card-body">
+                    <h6>Permanently Delete Your Account</h6>
+                    <p class="text-muted">Once you delete your account, there is no going back. All your data, including notes and progress, will be permanently removed.</p>
+                    
+                    <form method="post" action="{% url 'account_delete' %}">
+                        {% csrf_token %}
+                        
+                        <!-- Email Notification Option -->
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="id_email_notifications" name="email_notifications" {% if user.usersettings.email_notifications %}checked{% endif %}>
+                                <label class="form-check-label" for="id_email_notifications">
+                                    Send confirmation email when account is deleted
+                                </label>
+                            </div>
+                            <div class="form-text">You'll receive a final email confirming your account deletion</div>
+                        </div>
+                        
+                        <!-- Confirmation Input -->
+                        <div class="mb-3">
+                            <label for="confirmation" class="form-label">Type "DELETE" to confirm</label>
+                            <input type="text" class="form-control" id="confirmation" name="confirmation" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-danger">Delete Account</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-</section>
-
-<script>
-function showDeleteConfirmation() {
-    document.getElementById('deleteModal').style.display = 'block';
-}
-
-function hideDeleteConfirmation() {
-    document.getElementById('deleteModal').style.display = 'none';
-}
-</script>
+</div>
 {% endblock %}
