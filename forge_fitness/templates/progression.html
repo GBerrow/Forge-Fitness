@@ -32,4 +32,36 @@
         </p>
     </div>
 </section>
+<!-- Practice Notes Section -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5>🎯 Your Progression Notes</h5>
+                    <a href="{% url 'create_note' 'progression' %}" class="btn btn-sm btn-primary">Add Note</a>
+                </div>
+                <div class="card-body">
+                    {% for note in user.practicenote_set.all %}
+                        {% if note.page == 'progression' %}
+                            <div class="card mb-2">
+                                <div class="card-body p-2">
+                                    <h6>{{ note.title }}</h6>
+                                    <p class="text-muted small">{{ note.content|truncatewords:15 }}</p>
+                                    <div class="d-flex justify-content-between">
+                                        <small class="text-muted">{{ note.created_at|date:"M d" }}</small>
+                                        <div>
+                                            <a href="{% url 'edit_note' note.id %}" class="btn btn-sm btn-outline-primary">Edit</a>
+                                            <a href="{% url 'delete_note' note.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% empty %}
+                        <p class="text-muted">No progression notes yet. <a href="{% url 'create_note' 'progression' %}">Add your first note!</a></p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

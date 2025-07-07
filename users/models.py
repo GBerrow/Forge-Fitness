@@ -11,10 +11,6 @@ class UserProfile(AbstractUser):
     profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
     created_at = models.DateTimeField(default=timezone.now)
     
-    class Meta:
-        verbose_name = "User Profile"
-        verbose_name_plural = "User Profiles"
-    
     def __str__(self):
         return self.username
 
@@ -68,7 +64,8 @@ class PracticeNote(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.page} - {self.title}"
     
-    def get_page_context(self):
+    @staticmethod
+    def get_page_context(page):
         """Return page-specific context for prompts and guidance"""
         contexts = {
             'training': {
@@ -90,4 +87,8 @@ class PracticeNote(models.Model):
                 'icon': '🎯'
             }
         }
-        return contexts.get(self.page, {})
+        return contexts.get(page, {})
+    
+    def get_page_context_for_instance(self):
+        """Return page-specific context for this note's page"""
+        return self.get_page_context(self.page)
