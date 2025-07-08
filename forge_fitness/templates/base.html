@@ -88,48 +88,33 @@
     
    <!-- Natural scrolling header with custom styling -->
    <header class="header-custom shadow-sm">
-       <div class="container-fluid px-4 py-2 d-flex justify-content-between align-items-center">
-            
-           <!-- ===================================================================
-                5.1. CENTERED LOGO/TITLE SECTION
-                ===================================================================
-                 
-                Centered brand title with home icon and link to dashboard.
-                Uses flex-grow-1 to center the title between left and right
-                elements. Includes hover effects and accessibility features.
-                ================================================================= -->
-            
-           <div class="text-center flex-grow-1">
-               <h1 class="text-dark fw-bold mb-0">
-                   <!-- Home link with icon and brand name -->
-                   <a href="{% url 'dashboard' %}" class="text-decoration-none text-dark">
-                       <i class="bi bi-house-fill me-2"></i>Forge Fitness
-                   </a>
-               </h1>
+       <div class="container-fluid px-4 py-2">
+           <div class="row align-items-center">
+               <!-- Left spacer (hidden on mobile) -->
+               <div class="col-2 d-none d-md-block"></div>
+               
+               <!-- Centered title -->
+               <div class="col-12 col-md-8 text-center">
+                   <h1 class="text-dark fw-bold mb-0">
+                       <a href="{% url 'dashboard' %}" class="text-decoration-none text-dark">
+                           <i class="bi bi-house-fill me-2"></i>Forge Fitness
+                       </a>
+                   </h1>
+               </div>
+               
+               <!-- Right side auth button -->
+               <div class="col-12 col-md-2 text-center text-md-end mt-2 mt-md-0">
+                   {% if user.is_authenticated %}
+                       <a href="{% url 'logout' %}" class="btn btn-outline-secondary btn-sm">
+                           <i class="bi bi-box-arrow-right me-1"></i>Log Out
+                       </a>
+                   {% else %}
+                       <a href="{% url 'login' %}" class="btn btn-outline-secondary btn-sm">
+                           <i class="bi bi-box-arrow-in-right me-1"></i>Log In
+                       </a>
+                   {% endif %}
+               </div>
            </div>
-            
-           <!-- ===================================================================
-                5.2. DYNAMIC AUTHENTICATION BUTTONS
-                ===================================================================
-                 
-                Conditional rendering of login/logout buttons based on
-                user authentication status. Uses Django template tags
-                to check if user is authenticated and display appropriate
-                action button with Bootstrap styling.
-                ================================================================= -->
-            
-           <!-- Authentication status check and appropriate button display -->
-           {% if user.is_authenticated %}
-               <!-- Logout button for authenticated users -->
-               <a href="{% url 'logout' %}" class="btn btn-outline-secondary btn-sm">
-                   <i class="bi bi-box-arrow-right me-1"></i>Log Out
-               </a>
-           {% else %}
-               <!-- Login button for unauthenticated users -->
-               <a href="{% url 'login' %}" class="btn btn-outline-secondary btn-sm">
-                   <i class="bi bi-box-arrow-in-right me-1"></i>Log In
-               </a>
-           {% endif %}
        </div>
    </header>
 

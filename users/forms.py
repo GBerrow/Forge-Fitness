@@ -136,28 +136,33 @@ class UserProfileForm(forms.ModelForm):
         picture = self.cleaned_data.get('profile_picture')
         
         if picture:
-            # Check file size (5MB max)
-            if picture.size > 5 * 1024 * 1024:
-                raise ValidationError('Image file too large. Maximum size is 5MB.')
+            # Check if it's a new upload (has content_type) or existing file
+            if hasattr(picture, 'content_type'):
+                # It's a new upload, validate it
+                # Check file size (5MB max)
+                if picture.size > 5 * 1024 * 1024:
+                    raise ValidationError('Image file too large. Maximum size is 5MB.')
+                
+                # Check file type
+                if not picture.content_type.startswith('image/'):
+                    raise ValidationError('File must be an image.')
+                
+                # Validate file extension
+                valid_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp']
+                file_extension = os.path.splitext(picture.name)[1].lower()
+                if file_extension not in valid_extensions:
+                    raise ValidationError('Invalid file type. Please use: JPG, JPEG, PNG, GIF, or WebP.')
+                
+                # Optional: Check image dimensions using PIL
+                try:
+                    image = Image.open(picture)
+                    # Check if image is too large (e.g., max 2048x2048)
+                    if image.width > 2048 or image.height > 2048:
+                        raise ValidationError('Image dimensions too large. Maximum size is 2048x2048 pixels.')
+                except Exception:
+                    raise ValidationError('Invalid image file.')
             
-            # Check file type
-            if not picture.content_type.startswith('image/'):
-                raise ValidationError('File must be an image.')
-            
-            # Validate file extension
-            valid_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp']
-            file_extension = os.path.splitext(picture.name)[1].lower()
-            if file_extension not in valid_extensions:
-                raise ValidationError('Invalid file type. Please use: JPG, JPEG, PNG, GIF, or WebP.')
-            
-            # Optional: Check image dimensions using PIL
-            try:
-                image = Image.open(picture)
-                # Check if image is too large (e.g., max 2048x2048)
-                if image.width > 2048 or image.height > 2048:
-                    raise ValidationError('Image dimensions too large. Maximum size is 2048x2048 pixels.')
-            except Exception:
-                raise ValidationError('Invalid image file.')
+            # If it's an existing file (no content_type), just return it
         
         return picture
     
