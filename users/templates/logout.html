@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Logged Out - Forge Fitness{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg rounded-3">
+                <div class="card-body text-center py-5">
+                    <i class="bi bi-check-circle-fill fs-1 text-success mb-3"></i>
+                    <h2 class="text-dark mb-3">Successfully Logged Out</h2>
+                    <p class="text-muted mb-4">Thank you for using Forge Fitness! You have been securely logged out.</p>
+                    
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="{% url 'login' %}" class="btn btn-primary">
+                            <i class="bi bi-box-arrow-in-right me-2"></i>Log In Again
+                        </a>
+                        <a href="{% url 'signup' %}" class="btn btn-outline-primary">
+                            <i class="bi bi-person-plus me-2"></i>Create Account
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

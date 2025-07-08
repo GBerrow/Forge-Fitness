@@ -12,7 +12,6 @@ urlpatterns = [
     path('progression/', views.progression, name='progression'),
     path('settings/', views.settings, name='settings'),
     path('profile/', views.profile, name='profile'),
-    path('accounts/', include('django.contrib.auth.urls')),  # Built-in auth
     path('', include('users.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
