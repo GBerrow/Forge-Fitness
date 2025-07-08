@@ -1,55 +1,337 @@
-/* Modern clean layout */
-body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #e5e5e5;
-}
+/* ===================================================================
+   FORGE FITNESS - BASE STYLESHEET
+   ===================================================================
+   
+   This stylesheet provides the core styling for the Forge Fitness
+   application, including header/footer design, card components,
+   responsive layouts, and custom color schemes.
+   
+/* ===================================================================
+   1. HEADER & FOOTER STYLES
+   ===================================================================
+   
+   Creates depth and visual hierarchy with gradient backgrounds,
+   borders, and shadow effects. Uses natural scrolling behavior
+   without fixed positioning for better user experience.
+   ================================================================= */
 
-header {
-    background-color: #89cff0;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+  /* Header with depth - Natural scrolling behavior */
+  .header-custom {
+      background: linear-gradient(135deg, #89cff0 0%, #66b3e6 100%);
+      border-bottom: 3px solid #000000;
+      box-shadow: 0 2px 10px rgba(0, 63, 136, 0.3);
+  }
 
-.home-icon {
-    text-decoration: none;
-    font-size: 28px;
-}
+  /* Header title styling for brand recognition */
+  .header-custom h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+  }
 
-.login-btn, .logout-btn {
-    background-color: #003f88;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
+  /* Footer with complementary dark gradient */
+  .footer-custom {
+      background: linear-gradient(135deg, #003f88 0%, #002855 100%);
+      border-top: 3px solid #000000;
+      box-shadow: 0 -2px 10px rgba(0, 63, 136, 0.3);
+  }
 
-.login-btn:hover, .logout-btn:hover {
-    background-color: #002855;
-}
+/* ===================================================================
+   2. SOCIAL MEDIA ICONS
+   ===================================================================
+   
+   Interactive social media icons with hover effects and proper
+   spacing for footer display. Includes smooth transitions and
+   scaling animations.
+   ================================================================= */
 
-main {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 0 20px;
-}
+  /* Social icons hover effect with better spacing */
+  .social-icon {
+      transition: transform 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+  }
 
-footer {
-    background-color: #003f88;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
+  /* Hover state with scale animation and color change */
+  .social-icon:hover {
+      transform: scale(1.2);
+      color: #89cff0 !important;
+  }
 
-.social-icons {
-    margin-top: 10px;
-    font-size: 24px;
-}
+/* ===================================================================
+   3. WELCOME CARD COMPONENT
+   ===================================================================
+   
+   Hero-style welcome card with animated shimmer effect and
+   high-contrast text for accessibility. Features gradient
+   background and rotating animation overlay.
+   ================================================================= */
 
+  /* Enhanced Welcome Card - Natural spacing */
+  .welcome-card {
+      background: linear-gradient(135deg, #003f88 0%, #0056b3 50%, #89cff0 100%);
+      border: 2px solid #e0e0e0;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 63, 136, 0.15);
+      margin-top: 3rem;
+  }
 
+  /* Animated shimmer overlay effect */
+  .welcome-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: shimmer 10s infinite;
+  }
+
+  /* Welcome card text - fully black for maximum contrast */
+  .welcome-card .text-black {
+      color: #000000 !important;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
+      font-weight: 600;
+  }
+
+  /* Lead text styling within welcome card */
+  .welcome-card .lead.text-black {
+      color: #000000 !important;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
+  }
+
+  /* Shimmer animation keyframes */
+  @keyframes shimmer {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+  }
+
+/* ===================================================================
+   4. ACTION CARD COMPONENTS
+   ===================================================================
+   
+   Interactive dashboard cards with hover effects, slide animations,
+   and consistent styling. Features smooth transitions and shadow
+   effects for enhanced user interaction.
+   ================================================================= */
+
+  /* Action Cards - Consistent styling with enhanced spacing */
+  .action-card {
+      background: white;
+      border: 2px solid #e0e0e0;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 63, 136, 0.15);
+  }
+
+  /* Slide effect overlay for action cards */
+  .action-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(137, 207, 240, 0.1), transparent);
+      transition: left 0.5s ease;
+  }
+
+  /* Hover state slide animation */
+  .action-card:hover::before {
+      left: 100%;
+  }
+
+  /* Hover state with lift effect and enhanced shadow */
+  .action-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(0, 63, 136, 0.25) !important;
+      border-color: #89cff0;
+  }
+
+/* ===================================================================
+   5. GENERAL BODY & LAYOUT
+   ===================================================================
+   
+   Basic body styling and smooth scrolling behavior for the
+   entire application. Removes default padding for natural
+   scrolling experience.
+   ================================================================= */
+
+  /* Body spacing for natural scrolling elements */
+  body {
+      padding-top: 0;
+      padding-bottom: 0;
+  }
+
+  /* Smooth scrolling for anchor links */
+  html {
+      scroll-behavior: smooth;
+  }
+
+/* ===================================================================
+   6. CUSTOM COLOR PALETTE
+   ===================================================================
+   
+   Defines the core color scheme for the Forge Fitness brand.
+   Overrides Bootstrap default colors with custom blue palette
+   for consistent visual identity.
+   ================================================================= */
+
+  /* Light blue for info elements */
+  .bg-info {
+      background-color: #89cff0 !important;
+  }
+
+  /* Dark blue for primary elements */
+  .bg-primary {
+      background-color: #003f88 !important;
+  }
+
+  /* Primary text color */
+  .text-primary {
+      color: #003f88 !important;
+  }
+
+  /* Primary border color */
+  .border-primary {
+      border-color: #003f88 !important;
+  }
+
+/* ===================================================================
+   7. BADGE & BUTTON ENHANCEMENTS
+   ===================================================================
+   
+   Styling for badges and button components with custom colors
+   and hover effects that align with the brand color scheme.
+   ================================================================= */
+
+  /* Badge styling with appropriate sizing */
+  .badge {
+      font-size: 0.75rem;
+      padding: 0.5em 0.75em;
+  }
+
+  /* Button enhancements with custom colors */
+  .btn-outline-secondary {
+      border-color: #003f88;
+      color: #003f88;
+  }
+
+  /* Button hover state */
+  .btn-outline-secondary:hover {
+      background-color: #003f88;
+      border-color: #003f88;
+  }
+
+/* ===================================================================
+   8. DASHBOARD LAYOUT SYSTEM
+   ===================================================================
+   
+   Responsive container system for dashboard pages with
+   optimal widths for different screen sizes. Centers content
+   and provides consistent spacing.
+   ================================================================= */
+
+  /* Enhanced responsive width container */
+  .dashboard-container {
+      width: 90%;
+      max-width: 800px;
+      margin: 0 auto;
+  }
+
+  /* Enhanced card spacing for dashboard elements */
+  .dashboard-card {
+      margin-bottom: 2rem;
+      width: 100%;
+  }
+
+  /* Consistent spacing for last card */
+  .dashboard-card:last-child {
+      margin-bottom: 2rem;
+  }
+
+/* ===================================================================
+   9. MAIN CONTENT SPACING
+   ===================================================================
+   
+   Defines spacing for main content areas to work with natural
+   scrolling layout. Provides consistent margins without
+   conflicting with fixed positioning.
+   ================================================================= */
+
+  /* Natural scrolling main content */
+  .main-content {
+      margin-top: 0;
+      margin-bottom: 2rem;
+  }
+
+/* ===================================================================
+   10. RESPONSIVE DESIGN (MOBILE-FIRST)
+   ===================================================================
+   
+   Comprehensive responsive design system with breakpoints for
+   mobile, tablet, and desktop. Adjusts typography, spacing,
+   and layout for optimal viewing across all devices.
+   ================================================================= */
+
+  /* Mobile Devices (up to 768px) */
+  @media (max-width: 768px) {
+      /* Reduce header title size for mobile */
+      .header-custom h1 {
+          font-size: 1.4rem;
+      }
+    
+      /* Adjust welcome card spacing on mobile */
+      .welcome-card {
+          margin-top: 1.5rem;
+      }
+    
+      /* Scale down welcome card heading */
+      .welcome-card .fs-3 {
+          font-size: 1.5rem !important;
+      }
+    
+      /* Scale down action card icons */
+      .action-card .fs-1 {
+          font-size: 1.8rem !important;
+      }
+
+      /* Increase dashboard container width on mobile */
+      .dashboard-container {
+          width: 95% !important;
+      }
+    
+      /* Reduce dashboard card spacing on mobile */
+      .dashboard-card {
+          margin-bottom: 1.5rem;
+      }
+    
+      /* Reduce navbar/footer height on mobile */
+      .header-custom, .footer-custom {
+          padding: 0.5rem 0 !important;
+      }
+
+      /* Adjust main content spacing for mobile */
+      .main-content {
+          margin-top: 0;
+          margin-bottom: 1.5rem;
+      }
+  }
+
+  /* Large Screens (1200px and up) */
+  @media (min-width: 1200px) {
+      /* Wider container for large screens */
+      .dashboard-container {
+          width: 70%;
+          max-width: 900px;
+      }
+  }
+
+  /* Medium Screens (768px to 1199px) */
+  @media (min-width: 768px) and (max-width: 1199px) {
+      /* Balanced width for medium screens */
+      .dashboard-container {
+          width: 85%;
+      }
+  }
