@@ -126,10 +126,9 @@
 
         <!-- Training Notes Section -->
         <div class="dashboard-container">
-            <div class="action-card shadow-sm rounded-3">
-                <div class="card-header d-flex justify-content-between align-items-center bg-transparent border-0 p-4 pb-2">
-                    <h5 class="fw-bold text-dark mb-0">📝 Your Training Notes</h5>
-                    <a href="{% url 'create_note' 'training' %}" class="btn btn-sm btn-primary">Add Note</a>
+            <div class="action-card shadow-sm rounded-3 border-top border-primary border-2">
+                <div class="card-header bg-transparent border-0 p-4 pb-2">
+                    <h5 class="fw-bold text-dark mb-0 text-center">📝 Your Training Notes</h5>
                 </div>
                 <div class="card-body p-4 pt-2">
                     {% for note in user.practicenote_set.all %}
