@@ -20,6 +20,7 @@
       background: linear-gradient(135deg, #89cff0 0%, #66b3e6 100%);
       border-bottom: 3px solid #000000;
       box-shadow: 0 2px 10px rgba(0, 63, 136, 0.3);
+      flex-shrink: 0;
   }
 
   /* Header title styling for brand recognition */
@@ -33,10 +34,42 @@
       background: linear-gradient(135deg, #003f88 0%, #002855 100%);
       border-top: 3px solid #000000;
       box-shadow: 0 -2px 10px rgba(0, 63, 136, 0.3);
+      flex-shrink: 0;
   }
 
 /* ===================================================================
-   2. SOCIAL MEDIA ICONS
+   2. FULL HEIGHT LAYOUT SYSTEM
+   ===================================================================
+   
+   Implements a full viewport height layout that works correctly
+   on all screen sizes, including ultra-wide monitors. Ensures
+   footer stays at bottom and content fills available space.
+   ================================================================= */
+
+  /* Ensure full height layout works properly */
+  html, body {
+      height: 100%;
+  }
+
+  /* Main content area with flexible height */
+  .main-content {
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+  }
+
+  /* Ensure container-fluid can grow */
+  .main-content > .container-fluid {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+  }
+
+/* ===================================================================
+   3. SOCIAL MEDIA ICONS
    ===================================================================
    
    Interactive social media icons with hover effects and proper
@@ -57,7 +90,7 @@
   }
 
 /* ===================================================================
-   3. WELCOME CARD COMPONENT
+   4. WELCOME CARD COMPONENT
    ===================================================================
    
    Hero-style welcome card with animated shimmer effect and
@@ -72,7 +105,7 @@
       position: relative;
       overflow: hidden;
       box-shadow: 0 4px 15px rgba(0, 63, 136, 0.15);
-      margin-top: 3rem;
+      margin-top: 1rem;
   }
 
   /* Animated shimmer overlay effect */
@@ -107,7 +140,7 @@
   }
 
 /* ===================================================================
-   4. ACTION CARD COMPONENTS
+   5. ACTION CARD COMPONENTS
    ===================================================================
    
    Interactive dashboard cards with hover effects, slide animations,
@@ -147,26 +180,6 @@
       transform: translateY(-8px);
       box-shadow: 0 8px 25px rgba(0, 63, 136, 0.25) !important;
       border-color: #89cff0;
-  }
-
-/* ===================================================================
-   5. GENERAL BODY & LAYOUT
-   ===================================================================
-   
-   Basic body styling and smooth scrolling behavior for the
-   entire application. Removes default padding for natural
-   scrolling experience.
-   ================================================================= */
-
-  /* Body spacing for natural scrolling elements */
-  body {
-      padding-top: 0;
-      padding-bottom: 0;
-  }
-
-  /* Smooth scrolling for anchor links */
-  html {
-      scroll-behavior: smooth;
   }
 
 /* ===================================================================
@@ -252,22 +265,7 @@
   }
 
 /* ===================================================================
-   9. MAIN CONTENT SPACING
-   ===================================================================
-   
-   Defines spacing for main content areas to work with natural
-   scrolling layout. Provides consistent margins without
-   conflicting with fixed positioning.
-   ================================================================= */
-
-  /* Natural scrolling main content */
-  .main-content {
-      margin-top: 0;
-      margin-bottom: 2rem;
-  }
-
-/* ===================================================================
-   10. RESPONSIVE DESIGN (MOBILE-FIRST)
+   9. RESPONSIVE DESIGN (MOBILE-FIRST)
    ===================================================================
    
    Comprehensive responsive design system with breakpoints for
@@ -284,7 +282,7 @@
     
       /* Adjust welcome card spacing on mobile */
       .welcome-card {
-          margin-top: 1.5rem;
+          margin-top: 1rem;
       }
     
       /* Scale down welcome card heading */
@@ -312,10 +310,10 @@
           padding: 0.5rem 0 !important;
       }
 
-      /* Adjust main content spacing for mobile */
-      .main-content {
-          margin-top: 0;
-          margin-bottom: 1.5rem;
+      /* Adjust main content padding for mobile */
+      .main-content > .container-fluid {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
       }
   }
 
@@ -328,10 +326,38 @@
       }
   }
 
+  /* Ultra-wide Screens (1920px and up) */
+  @media (min-width: 1920px) {
+      /* Optimized container for ultra-wide screens */
+      .dashboard-container {
+          width: 60%;
+          max-width: 1000px;
+      }
+      
+      /* Ensure adequate spacing on ultra-wide screens */
+      .main-content > .container-fluid {
+          padding-top: 3rem;
+          padding-bottom: 3rem;
+      }
+  }
+
   /* Medium Screens (768px to 1199px) */
   @media (min-width: 768px) and (max-width: 1199px) {
       /* Balanced width for medium screens */
       .dashboard-container {
           width: 85%;
       }
+  }
+
+/* ===================================================================
+   10. SMOOTH SCROLLING
+   ===================================================================
+   
+   Enables smooth scrolling for anchor links and maintains
+   consistent scroll behavior across the application.
+   ================================================================= */
+
+  /* Smooth scrolling for anchor links */
+  html {
+      scroll-behavior: smooth;
   }
