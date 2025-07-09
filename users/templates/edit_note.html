@@ -4,31 +4,43 @@
 {% block title %}Edit Note{% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                    <h3>{{ page_context.icon }} Edit Note</h3>
-                </div>
-                <div class="card-body">
-                    <form method="post">
-                        {% csrf_token %}
-                        <div class="mb-3">
-                            <label for="{{ form.title.id_for_label }}" class="form-label">Title</label>
-                            {{ form.title }}
-                        </div>
-                        <div class="mb-3">
-                            <label for="{{ form.content.id_for_label }}" class="form-label">Content</label>
-                            {{ form.content }}
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <a href="{% url note.page %}" class="btn btn-secondary">Cancel</a>
-                            <button type="submit" class="btn btn-primary">Update Note</button>
-                        </div>
-                    </form>
+<div class="container-fluid">
+    <div class="row justify-content-center">s
+        <div class="col-12 col-lg-8 col-xl-6">
+            
+            <!-- Welcome Section -->
+            <div class="dashboard-container">
+                <div class="welcome-card shadow-lg rounded-3 mb-4">
+                    <div class="card-body text-center py-3">
+                        <h2 class="fs-3 fw-bold text-black mb-2">{{ page_context.icon }} Edit Note</h2>
+                        <p class="text-black mb-0">Update your {{ note.page }} note</p>
+                    </div>
                 </div>
             </div>
+
+            <!-- Form Section -->
+            <div class="dashboard-container">
+                <div class="action-card shadow-sm rounded-3">
+                    <div class="card-body p-4">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="{{ form.title.id_for_label }}" class="form-label fw-bold text-dark">Title</label>
+                                {{ form.title }}
+                            </div>
+                            <div class="mb-4">
+                                <label for="{{ form.content.id_for_label }}" class="form-label fw-bold text-dark">Content</label>
+                                {{ form.content }}
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <a href="{% url note.page %}" class="btn btn-secondary btn-lg">Cancel</a>
+                                <button type="submit" class="btn btn-primary btn-lg">Update Note</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
 </div>
