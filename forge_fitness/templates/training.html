@@ -1,39 +1,147 @@
+<!-- ===================================================================
+    FORGE FITNESS - TRAINING PAGE
+    ===================================================================
+     
+    This template provides comprehensive training information in four
+    main sections: Introduction, Workouts, Training Plans, and Summary.
+    Styled to match the dashboard aesthetic with consistent spacing,
+    rounded corners, and professional typography.
+     
+    STRUCTURE:
+    1. Template Inheritance & Title Override
+    2. Training Welcome Section
+    3. Four Main Content Sections
+    4. Training Notes CRUD Section
+    ================================================================= -->
+
 {% extends 'base.html' %}
 
+<!-- ===================================================================
+    1. TEMPLATE INHERITANCE & TITLE OVERRIDE
+    ===================================================================
+     
+    Extends base.html and provides page-specific title for SEO
+    and browser tab display.
+    ================================================================= -->
+
 {% block title %}Training - Forge Fitness{% endblock %}
+
 {% block page_title %}Training{% endblock %}
+
+<!-- ===================================================================
+    2. MAIN CONTENT BLOCK
+    ===================================================================
+     
+    Uses dashboard container for consistent spacing and responsive
+    layout that matches the dashboard aesthetic.
+    ================================================================= -->
+
 {% block content %}
-<section class="training-section">
-    <h2>Introduction</h2>
-    <p>Overview of training principles.</p>
+<div class="row justify-content-center">
+    <div class="col-12">
+        
+        <!-- ===================================================================
+            3. TRAINING WELCOME SECTION
+            ===================================================================
+             
+            Hero-style welcome section that introduces the training page.
+            Features gradient background matching dashboard aesthetic.
+            ================================================================= -->
+        
+        <!-- Training Welcome Section -->
+        <div class="dashboard-container">
+            <div class="welcome-card shadow-lg rounded-3 mb-4">
+                <div class="card-body text-center py-3">
+                    <h2 class="fs-3 fw-bold text-black mb-2">🏋️ Training Guide</h2>
+                    <p class="text-black mb-0">Master the fundamentals of effective training and build lasting fitness habits</p>
+                </div>
+            </div>
+        </div>
 
-    <h2>Workouts</h2>
-    <p>Explanation of muscle groups and exercises.</p>
+        <!-- ===================================================================
+            4. FOUR MAIN CONTENT SECTIONS
+            ===================================================================
+             
+            Each section uses action-card styling for consistency with
+            dashboard design. Clean typography and proper spacing for
+            optimal readability.
+            ================================================================= -->
 
-    <h2>Training Plans</h2>
-    <p>Structured plans for fitness goals.</p>
+        <!-- Section 1: Introduction -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3 mb-4">
+                <div class="card-body p-4">
+                    <h3 class="fw-bold text-dark mb-3">📚 Introduction</h3>
+                    <p class="text-muted mb-0 lh-base">
+                        The Introduction section provides users with a foundational understanding of the training program. It explains the core principles behind structured fitness routines and highlights the importance of consistency, proper form, and goal setting. Whether users are beginners or experienced athletes, this section offers essential guidance on how to approach their fitness journey effectively.
+                    </p>
+                </div>
+            </div>
+        </div>
 
-    <h2>Summary</h2>
-    <p>Key insights and benefits.</p>
-</section>
-        <!-- Practice Notes Section -->
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5>📝 Your Training Notes</h5>
+        <!-- Section 2: Workouts -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3 mb-4">
+                <div class="card-body p-4">
+                    <h3 class="fw-bold text-dark mb-3">💪 Workouts</h3>
+                    <p class="text-muted mb-0 lh-base">
+                        This section helps users understand the role of different muscle groups and the exercises that target them effectively. Users can explore workouts categorized by major body areas such as chest, back, legs, shoulders, arms, and core. Each category includes suggested exercises and best practices to improve form and avoid injury. The section also introduces users to training principles like progressive overload, rest periods, and rep schemes — helping them build safe and effective routines.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Training Plans -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3 mb-4">
+                <div class="card-body p-4">
+                    <h3 class="fw-bold text-dark mb-3">📋 Training Plans</h3>
+                    <p class="text-muted mb-0 lh-base">
+                        The Training Plans section provides structured programs tailored to different fitness goals. Whether the goal is weight loss, muscle gain, or improved endurance, users can choose a plan that fits their level and lifestyle. Each plan outlines how often to train, what types of exercises to focus on, and how to track progress. Users can follow ready-made templates or customize their routine as they go. This section helps take the guesswork out of planning and allows for progressive improvement over time.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: Summary -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3 mb-4">
+                <div class="card-body p-4">
+                    <h3 class="fw-bold text-dark mb-3">📝 Summary</h3>
+                    <p class="text-muted mb-0 lh-base">
+                        The Summary section brings together all the key lessons from the training page. It reminds users that structure, consistency, and reflection are what lead to long-term success. By understanding how to train each muscle group and how to select the right plan, users are better equipped to stay committed and reach their goals. The section also encourages users to begin tracking their training immediately using the notes section below — the best way to turn knowledge into progress.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+            5. TRAINING NOTES CRUD SECTION
+            ===================================================================
+             
+            Existing notes functionality preserved and positioned after
+            the summary section. Maintains full CRUD functionality for
+            user training notes.
+            ================================================================= -->
+
+        <!-- Training Notes Section -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3">
+                <div class="card-header d-flex justify-content-between align-items-center bg-transparent border-0 p-4 pb-2">
+                    <h5 class="fw-bold text-dark mb-0">📝 Your Training Notes</h5>
                     <a href="{% url 'create_note' 'training' %}" class="btn btn-sm btn-primary">Add Note</a>
                 </div>
-                <div class="card-body">
+                <div class="card-body p-4 pt-2">
                     {% for note in user.practicenote_set.all %}
                         {% if note.page == 'training' %}
-                            <div class="card mb-2">
-                                <div class="card-body p-2">
-                                    <h6>{{ note.title }}</h6>
-                                    <p class="text-muted small">{{ note.content|truncatewords:15 }}</p>
-                                    <div class="d-flex justify-content-between">
-                                        <small class="text-muted">{{ note.created_at|date:"M d" }}</small>
+                            <div class="card mb-3 border-0 bg-light">
+                                <div class="card-body p-3">
+                                    <h6 class="fw-bold text-dark mb-2">{{ note.title }}</h6>
+                                    <p class="text-muted small mb-3">{{ note.content|truncatewords:15 }}</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">{{ note.created_at|date:"M d, Y" }}</small>
                                         <div>
-                                            <a href="{% url 'edit_note' note.id %}" class="btn btn-sm btn-outline-primary">Edit</a>
+                                            <a href="{% url 'edit_note' note.id %}" class="btn btn-sm btn-outline-primary me-2">Edit</a>
                                             <a href="{% url 'delete_note' note.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
                                         </div>
                                     </div>
@@ -41,11 +149,15 @@
                             </div>
                         {% endif %}
                     {% empty %}
-                        <p class="text-muted">No training notes yet. <a href="{% url 'create_note' 'training' %}">Add your first note!</a></p>
+                        <div class="text-center py-4">
+                            <p class="text-muted mb-3">No training notes yet. Start documenting your fitness journey!</p>
+                            <a href="{% url 'create_note' 'training' %}" class="btn btn-primary">Add Your First Note</a>
+                        </div>
                     {% endfor %}
                 </div>
             </div>
         </div>
+        
     </div>
 </div>
 {% endblock %}
