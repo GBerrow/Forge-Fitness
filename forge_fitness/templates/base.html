@@ -18,7 +18,7 @@
 
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 
 <!-- ===================================================================
     1. DOCUMENT HEAD & META CONFIGURATION
@@ -68,14 +68,15 @@
 </head>
 
 <!-- ===================================================================
-    4. BODY WITH BACKGROUND STYLING
+    4. BODY WITH BACKGROUND STYLING AND FULL HEIGHT
     ===================================================================
      
     Main body container with light background class from Bootstrap.
-    Provides consistent background color across all pages.
+    Provides consistent background color across all pages and
+    full viewport height layout.
     ================================================================= -->
 
-<body class="bg-light">
+<body class="bg-light h-100 d-flex flex-column">
     
    <!-- ===================================================================
         5. HEADER NAVIGATION BAR
@@ -125,11 +126,11 @@
         Primary content container that holds page-specific content.
         Uses Django template inheritance system with block tags.
         Includes fluid container for responsive layout and proper
-        spacing with natural scrolling behavior.
+        spacing with flex-grow to fill available space.
         ================================================================= -->
 
-   <!-- Main Content with natural spacing -->
-   <main class="main-content">
+   <!-- Main Content with flex-grow to fill available space -->
+   <main class="main-content flex-grow-1">
        <div class="container-fluid">
            <!-- ===================================================================
                 6.1. CONTENT BLOCK FOR CHILD TEMPLATES
@@ -153,10 +154,11 @@
         Application footer with social media icons and copyright notice.
         Features custom gradient background, shadow effects, and
         responsive layout. Uses Bootstrap Icons for social media links.
+        Now positioned at bottom with flexbox layout.
         ================================================================= -->
 
    <!-- Natural scrolling footer with shadow and custom styling -->
-   <footer class="footer-custom shadow-lg">
+   <footer class="footer-custom shadow-lg mt-auto">
        <div class="container-fluid py-2">
            <div class="d-flex justify-content-center align-items-center">
                 
