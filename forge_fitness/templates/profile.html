@@ -36,139 +36,141 @@
     ================================================================= -->
 
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-12">
-        
-        <!-- ===================================================================
-            3. PROFILE WELCOME CARD
-            ===================================================================
-             
-            Hero-style welcome card with gradient background matching
-            dashboard aesthetic. Features user greeting and profile context.
-            ================================================================= -->
-        
-        <!-- Profile Welcome Section -->
-        <div class="dashboard-container">
-            <div class="welcome-card shadow-lg rounded-3 mb-4">
-                <div class="card-body text-center py-3">
-                    <h2 class="fs-3 fw-bold text-black mb-2">👤 Your Profile</h2>
-                    <p class="text-black mb-0">Manage your personal information and preferences</p>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8 col-xl-6">
+            
+            <!-- ===================================================================
+                3. PROFILE WELCOME CARD
+                ===================================================================
+                 
+                Hero-style welcome card with gradient background matching
+                dashboard aesthetic. Features user greeting and profile context.
+                ================================================================= -->
+            
+            <!-- Profile Welcome Section -->
+            <div class="dashboard-container">
+                <div class="welcome-card shadow-lg rounded-3 mb-4">
+                    <div class="card-body text-center py-3">
+                        <h2 class="fs-3 fw-bold text-black mb-2">👤 Your Profile</h2>
+                        <p class="text-black mb-0">Manage your personal information and preferences</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- ===================================================================
-            4. PROFILE INFORMATION CARD
-            ===================================================================
-             
-            Main profile card with user information, profile picture,
-            and bio. Uses action-card styling for consistency with
-            dashboard hover effects and professional appearance.
-            ================================================================= -->
+            <!-- ===================================================================
+                4. PROFILE INFORMATION CARD
+                ===================================================================
+                 
+                Main profile card with user information, profile picture,
+                and bio. Uses action-card styling for consistency with
+                dashboard hover effects and professional appearance.
+                ================================================================= -->
 
-        <!-- Profile Information Card -->
-        <div class="dashboard-container">
-            <div class="action-card shadow-sm rounded-3 mb-4">
-                <div class="card-body text-center p-5">
-                    
-                    <!-- ===================================================================
-                        4.1. PROFILE PICTURE SECTION
-                        ===================================================================
-                         
-                        Displays user's profile picture or default avatar with
-                        consistent styling and proper sizing.
-                        ================================================================= -->
-                    
-                    <!-- Profile Picture Display -->
-                    {% if user.profile_picture %}
-                        <img src="{{ user.profile_picture.url }}" 
-                             alt="Profile Picture" 
-                             class="rounded-circle mb-4 border border-3 border-primary" 
-                             width="150" 
-                             height="150"
-                             style="object-fit: cover;">
-                    {% else %}
-                        <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center mb-4 mx-auto border border-3 border-secondary" 
-                             style="width: 150px; height: 150px;">
-                            <i class="bi bi-person-fill fa-3x text-white" style="font-size: 3rem;"></i>
-                        </div>
-                    {% endif %}
-                    
-                    <!-- ===================================================================
-                        4.2. USER INFORMATION DISPLAY
-                        ===================================================================
-                         
-                        Shows user's full name, username, and bio with
-                        professional typography and spacing.
-                        ================================================================= -->
-                    
-                    <!-- User Name and Username -->
-                    <h3 class="fw-bold text-dark mb-2">{{ user.get_full_name|default:user.username }}</h3>
-                    <p class="text-muted mb-3">@{{ user.username }}</p>
-                    
-                    <!-- User Bio -->
-                    {% if user.bio %}
-                        <div class="bg-light rounded-3 p-3 mb-4">
-                            <h6 class="text-muted mb-2">About Me</h6>
-                            <p class="text-dark mb-0">{{ user.bio }}</p>
-                        </div>
-                    {% else %}
-                        <div class="bg-light rounded-3 p-3 mb-4">
-                            <h6 class="text-muted mb-2">About Me</h6>
-                            <p class="text-muted mb-0">No bio added yet. Click "Edit Profile" to add a personal bio!</p>
-                        </div>
-                    {% endif %}
-                    
-                    <!-- ===================================================================
-                        4.3. USER INFORMATION DETAILS
-                        ===================================================================
-                         
-                        Additional user details like email and join date with
-                        clean layout and consistent styling.
-                        ================================================================= -->
-                    
-                    <!-- User Details -->
-                    <div class="row justify-content-between text-start">
-                        <div class="col-md-6 mb-3">
-                            <h6 class="text-muted mb-1">Email</h6>
-                            <p class="text-dark mb-0">{{ user.email }}</p>
-                        </div>
-                        <div class="col-md-6 mb-3 text-end">
-                            <h6 class="text-muted mb-1">Member Since</h6>
-                            <p class="text-dark mb-0">{{ user.date_joined|date:"F Y" }}</p>
+            <!-- Profile Information Card -->
+            <div class="dashboard-container">
+                <div class="action-card shadow-sm rounded-3 mb-4">
+                    <div class="card-body text-center p-5">
+                        
+                        <!-- ===================================================================
+                            4.1. PROFILE PICTURE SECTION
+                            ===================================================================
+                             
+                            Displays user's profile picture or default avatar with
+                            consistent styling and proper sizing.
+                            ================================================================= -->
+                        
+                        <!-- Profile Picture Display -->
+                        {% if user.profile_picture %}
+                            <img src="{{ user.profile_picture.url }}" 
+                                 alt="Profile Picture" 
+                                 class="rounded-circle mb-4 border border-3 border-primary" 
+                                 width="150" 
+                                 height="150"
+                                 style="object-fit: cover;">
+                        {% else %}
+                            <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center mb-4 mx-auto border border-3 border-secondary" 
+                                 style="width: 150px; height: 150px;">
+                                <i class="bi bi-person-fill fa-3x text-white" style="font-size: 3rem;"></i>
+                            </div>
+                        {% endif %}
+                        
+                        <!-- ===================================================================
+                            4.2. USER INFORMATION DISPLAY
+                            ===================================================================
+                             
+                            Shows user's full name, username, and bio with
+                            professional typography and spacing.
+                            ================================================================= -->
+                        
+                        <!-- User Name and Username -->
+                        <h3 class="fw-bold text-dark mb-2">{{ user.get_full_name|default:user.username }}</h3>
+                        <p class="text-muted mb-3">@{{ user.username }}</p>
+                        
+                        <!-- User Bio -->
+                        {% if user.bio %}
+                            <div class="bg-light rounded-3 p-3 mb-4">
+                                <h6 class="text-muted mb-2">About Me</h6>
+                                <p class="text-dark mb-0">{{ user.bio }}</p>
+                            </div>
+                        {% else %}
+                            <div class="bg-light rounded-3 p-3 mb-4">
+                                <h6 class="text-muted mb-2">About Me</h6>
+                                <p class="text-muted mb-0">No bio added yet. Click "Edit Profile" to add a personal bio!</p>
+                            </div>
+                        {% endif %}
+                        
+                        <!-- ===================================================================
+                            4.3. USER INFORMATION DETAILS
+                            ===================================================================
+                             
+                            Additional user details like email and join date with
+                            clean layout and consistent styling.
+                            ================================================================= -->
+                        
+                        <!-- User Details -->
+                        <div class="row justify-content-between text-start">
+                            <div class="col-md-6 mb-3">
+                                <h6 class="text-muted mb-1">Email</h6>
+                                <p class="text-dark mb-0">{{ user.email }}</p>
+                            </div>
+                            <div class="col-md-6 mb-3 text-end">
+                                <h6 class="text-muted mb-1">Member Since</h6>
+                                <p class="text-dark mb-0">{{ user.date_joined|date:"F Y" }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- ===================================================================
-            5. ACTION BUTTONS SECTION
-            ===================================================================
-             
-            Professional action buttons for profile editing and settings
-            with consistent styling and hover effects matching dashboard.
-            ================================================================= -->
+            <!-- ===================================================================
+                5. ACTION BUTTONS SECTION
+                ===================================================================
+                 
+                Professional action buttons for profile editing and settings
+                with consistent styling and hover effects matching dashboard.
+                ================================================================= -->
 
-        <!-- Action Buttons -->
-        <div class="dashboard-container">
-            <div class="action-card shadow-sm rounded-3">
-                <div class="card-body text-center p-4">
-                    <h5 class="fw-bold text-dark mb-3">Profile Actions</h5>
-                    
-                    <!-- Edit Profile Button -->
-                    <a href="{% url 'profile_edit' %}" class="btn btn-primary btn-lg me-3 mb-2">
-                        <i class="bi bi-pencil-fill me-2"></i>Edit Profile
-                    </a>
-                    
-                    <!-- Settings Button -->
-                    <a href="{% url 'settings' %}" class="btn btn-outline-secondary btn-lg mb-2">
-                        <i class="bi bi-gear-fill me-2"></i>Settings
-                    </a>
+            <!-- Action Buttons -->
+            <div class="dashboard-container">
+                <div class="action-card shadow-sm rounded-3">
+                    <div class="card-body text-center p-4">
+                        <h5 class="fw-bold text-dark mb-3">Profile Actions</h5>
+                        
+                        <!-- Edit Profile Button -->
+                        <a href="{% url 'profile_edit' %}" class="btn btn-primary btn-lg me-3 mb-2">
+                            <i class="bi bi-pencil-fill me-2"></i>Edit Profile
+                        </a>
+                        
+                        <!-- Settings Button -->
+                        <a href="{% url 'settings' %}" class="btn btn-outline-secondary btn-lg mb-2">
+                            <i class="bi bi-gear-fill me-2"></i>Settings
+                        </a>
+                    </div>
                 </div>
             </div>
+            
         </div>
-        
     </div>
 </div>
 {% endblock %}
