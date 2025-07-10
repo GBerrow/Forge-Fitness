@@ -56,6 +56,22 @@ class PracticeNote(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
     
+    # Training-specific fields
+    gym_days_per_week = models.IntegerField(null=True, blank=True, help_text="How many days per week do you plan to train?")
+    weekly_split = models.CharField(max_length=50, null=True, blank=True, 
+                                   choices=[
+                                       ('3day_full', '3-Day Full Body'),
+                                       ('4day_upper_lower', '4-Day Upper/Lower'),
+                                       ('5day_ppl', '5-Day Push/Pull/Legs'),
+                                       ('custom', 'Custom Split')
+                                   ])
+    
+    # Session tracking
+    session_rating = models.IntegerField(null=True, blank=True, help_text="Rate your session 1-5")
+    what_went_well = models.TextField(null=True, blank=True)
+    what_to_improve = models.TextField(null=True, blank=True)
+    exercises_completed = models.TextField(null=True, blank=True, help_text="List exercises you completed")
+    
     class Meta:
         ordering = ['-created_at']
         verbose_name = "Practice Note"
@@ -92,3 +108,6 @@ class PracticeNote(models.Model):
     def get_page_context_for_instance(self):
         """Return page-specific context for this note's page"""
         return self.get_page_context(self.page)
+    
+    def is_training_note(self):
+        return self.page == 'training'
