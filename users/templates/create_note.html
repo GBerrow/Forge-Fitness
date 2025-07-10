@@ -6,7 +6,7 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-8 col-xl-6">
+        <div class="col-12 col-lg-10 col-xl-8">
             
             <!-- Welcome Section -->
             <div class="dashboard-container">
@@ -24,15 +24,61 @@
                     <div class="card-body p-4">
                         <form method="post">
                             {% csrf_token %}
-                            <div class="mb-3">
-                                <label for="{{ form.title.id_for_label }}" class="form-label fw-bold text-dark">Title</label>
-                                {{ form.title }}
-                            </div>
-                            <div class="mb-4">
-                                <label for="{{ form.content.id_for_label }}" class="form-label fw-bold text-dark">Content</label>
-                                {{ form.content }}
-                                <div class="form-text">{{ page_context.placeholder }}</div>
-                            </div>
+                            
+                            {% if page == 'training' %}
+                                <!-- Training-specific fields -->
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="{{ form.title.id_for_label }}" class="form-label fw-bold text-dark">Training Plan Title</label>
+                                        {{ form.title }}
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label for="{{ form.gym_days_per_week.id_for_label }}" class="form-label fw-bold text-dark">Days Per Week</label>
+                                        {{ form.gym_days_per_week }}
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label for="{{ form.weekly_split.id_for_label }}" class="form-label fw-bold text-dark">Training Split</label>
+                                        {{ form.weekly_split }}
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="{{ form.content.id_for_label }}" class="form-label fw-bold text-dark">Overall Goals & Notes</label>
+                                    {{ form.content }}
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="{{ form.exercises_completed.id_for_label }}" class="form-label fw-bold text-dark">Exercises Planned/Completed</label>
+                                    {{ form.exercises_completed }}
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <label for="{{ form.session_rating.id_for_label }}" class="form-label fw-bold text-dark">Session Rating</label>
+                                        {{ form.session_rating }}
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="{{ form.what_went_well.id_for_label }}" class="form-label fw-bold text-dark">What Went Well</label>
+                                        {{ form.what_went_well }}
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="{{ form.what_to_improve.id_for_label }}" class="form-label fw-bold text-dark">What To Improve</label>
+                                        {{ form.what_to_improve }}
+                                    </div>
+                                </div>
+                            {% else %}
+                                <!-- Standard fields for other pages -->
+                                <div class="mb-3">
+                                    <label for="{{ form.title.id_for_label }}" class="form-label fw-bold text-dark">Title</label>
+                                    {{ form.title }}
+                                </div>
+                                <div class="mb-4">
+                                    <label for="{{ form.content.id_for_label }}" class="form-label fw-bold text-dark">Content</label>
+                                    {{ form.content }}
+                                    <div class="form-text">{{ page_context.placeholder }}</div>
+                                </div>
+                            {% endif %}
+                            
                             <div class="d-flex justify-content-between">
                                 <a href="{% url page %}" class="btn btn-secondary btn-lg">Cancel</a>
                                 <button type="submit" class="btn btn-primary btn-lg">Add Note</button>
