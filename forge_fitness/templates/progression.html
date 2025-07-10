@@ -1,67 +1,707 @@
+<!-- ===================================================================
+    FORGE FITNESS - PROGRESSION PAGE (GOAL-FOCUSED WITH COLLAPSIBLE SECTIONS)
+    ===================================================================
+     
+    Progressive fitness template with goal-setting and milestone tracking.
+    Each section focuses on measurable progress and achievement.
+    
+    STRUCTURE:
+    1. Template Inheritance & Title Override
+    2. Progression Welcome Section
+    3. Quick Navigation
+    4. Four Main Content Sections (Collapsible)
+    5. Progression Notes CRUD Section
+    ================================================================= -->
+
 {% extends 'base.html' %}
 
 {% block title %}Progression - Forge Fitness{% endblock %}
 {% block page_title %}Progression{% endblock %}
 
 {% block content %}
-<section class="progression-section">
-    <div class="progression-card">
-        <h2>Goal Setting / Milestones</h2>
-        <p>
-            Teaches users how to define short-term and long-term fitness goals.<br>
-            Displays progress toward specific achievements and helps users<br>
-            stay motivated and focused on measurable fitness improvements.
-        </p>
-    </div>
-    <div class="progression-card">
-        <h2>Performance Tracking</h2>
-        <p>
-            Explains to the user that understanding their performance trends<br>
-            is key to making continuous improvements.<br>
-            This section provides a visual breakdown of the fitness journey,<br>
-            helping users recognize patterns and areas for growth.
-        </p>
-    </div>
-    <div class="progression-card">
-        <h2>Feedback and Insights</h2>
-        <p>
-            Explains how understanding habits and making adjustments<br>
-            is crucial for long-term success.<br>
-            This section helps users review progress, receive personalized insights,<br>
-            and refine their approach.
-        </p>
-    </div>
-</section>
-<!-- Practice Notes Section -->
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5>🎯 Your Progression Notes</h5>
-                    <a href="{% url 'create_note' 'progression' %}" class="btn btn-sm btn-primary">Add Note</a>
+<div class="row justify-content-center">
+    <div class="col-12">
+        <!-- ===================================================================
+            PROGRESSION WELCOME SECTION
+            ===================================================================
+             
+            Goal-focused hero section that introduces progression tracking.
+            Features motivational messaging and progress-focused design.
+            ================================================================= -->
+
+        <div class="dashboard-container">
+            <div class="welcome-card shadow-lg rounded-3 mb-4">
+                <div class="card-body text-center py-3">
+                    <h2 class="fs-3 fw-bold text-black mb-2">📈 Progression & Goals</h2>
+                    <p class="text-black mb-0">Transform your fitness journey through structured goal-setting and
+                        measurable progress tracking</p>
                 </div>
-                <div class="card-body">
-                    {% for note in user.practicenote_set.all %}
-                        {% if note.page == 'progression' %}
-                            <div class="card mb-2">
-                                <div class="card-body p-2">
-                                    <h6>{{ note.title }}</h6>
-                                    <p class="text-muted small">{{ note.content|truncatewords:15 }}</p>
-                                    <div class="d-flex justify-content-between">
-                                        <small class="text-muted">{{ note.created_at|date:"M d" }}</small>
-                                        <div>
-                                            <a href="{% url 'edit_note' note.id %}" class="btn btn-sm btn-outline-primary">Edit</a>
-                                            <a href="{% url 'delete_note' note.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
+            </div>
+        </div>
+        <!-- Quick Navigation -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3 mb-4">
+                <div class="card-body p-3">
+                    <div class="row text-center">
+                        <div class="col-6 col-md-3 mb-2">
+                            <button class="btn btn-outline-primary btn-sm w-100" data-bs-toggle="collapse"
+                                data-bs-target="#section-introduction">
+                                <i class="bi bi-lightbulb me-1"></i>Foundation
+                            </button>
+                        </div>
+                        <div class="col-6 col-md-3 mb-2">
+                            <button class="btn btn-outline-success btn-sm w-100" data-bs-toggle="collapse"
+                                data-bs-target="#section-goals">
+                                <i class="bi bi-target me-1"></i>Goals
+                            </button>
+                        </div>
+                        <div class="col-6 col-md-3 mb-2">
+                            <button class="btn btn-outline-warning btn-sm w-100" data-bs-toggle="collapse"
+                                data-bs-target="#section-tracking">
+                                <i class="bi bi-graph-up me-1"></i>Tracking
+                            </button>
+                        </div>
+                        <div class="col-6 col-md-3 mb-2">
+                            <button class="btn btn-outline-info btn-sm w-100" data-bs-toggle="collapse"
+                                data-bs-target="#section-milestones">
+                                <i class="bi bi-trophy me-1"></i>Milestones
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ===================================================================
+            FOUR MAIN CONTENT SECTIONS (COLLAPSIBLE)
+            ===================================================================
+             
+            Progression-focused sections with goal-setting methodology
+            and practical tracking strategies.
+            ================================================================= -->
+
+        <!-- Section 1: Foundation (Collapsible) -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3 mb-4">
+                <div class="card-header bg-transparent border-0 p-3">
+                    <button class="btn btn-link text-decoration-none w-100 text-start p-0" data-bs-toggle="collapse"
+                        data-bs-target="#section-introduction" aria-expanded="true">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="fw-bold text-dark mb-0">💡 Foundation of Progress</h3>
+                            <i class="bi bi-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                </div>
+                <div class="collapse show" id="section-introduction">
+                    <div class="card-body p-4 pt-0">
+                        <p class="text-muted lh-base mb-3">
+                            Real progress isn't about perfection — it's about direction. Every successful fitness
+                            journey begins with understanding
+                            where you are, defining where you want to go, and creating a roadmap to get there
+                            systematically.
+                        </p>
+
+                        <p class="text-muted lh-base mb-3">
+                            This section will teach you the fundamental principles of progressive fitness: how to set
+                            meaningful goals that drive
+                            action, how to track the metrics that matter most, and how to build sustainable habits that
+                            compound over time.
+                        </p>
+
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <div class="text-center p-3 bg-light rounded-3 border-start border-primary border-3">
+                                    <i class="bi bi-compass-fill text-primary fs-4 mb-2"></i>
+                                    <h6 class="fw-bold text-dark mb-1">Direction Over Speed</h6>
+                                    <p class="text-muted small mb-0">Consistent progress beats sporadic intensity every
+                                        time</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="text-center p-3 bg-light rounded-3 border-start border-success border-3">
+                                    <i class="bi bi-graph-up-arrow text-success fs-4 mb-2"></i>
+                                    <h6 class="fw-bold text-dark mb-1">Measurable Growth</h6>
+                                    <p class="text-muted small mb-0">Track what matters to see real improvements</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="text-center p-3 bg-light rounded-3 border-start border-warning border-3">
+                                    <i class="bi bi-arrow-repeat text-warning fs-4 mb-2"></i>
+                                    <h6 class="fw-bold text-dark mb-1">Sustainable Systems</h6>
+                                    <p class="text-muted small mb-0">Build habits that last beyond motivation</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <div class="bg-gradient rounded-3 p-3 border-start border-primary border-3"
+                                style="background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);">
+                                <h6 class="fw-bold text-dark mb-2"><i class="bi bi-key-fill text-primary me-2"></i>The
+                                    Key Insight</h6>
+                                <p class="text-muted mb-0 lh-base">
+                                    Progress isn't linear — it's cyclical. You'll have breakthrough weeks and plateau
+                                    months. The difference between
+                                    those who succeed and those who quit isn't talent or genetics — it's the ability to
+                                    stay consistent through
+                                    both peaks and valleys.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Goal Setting (Collapsible) -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3 mb-4">
+                <div class="card-header bg-transparent border-0 p-3">
+                    <button class="btn btn-link text-decoration-none w-100 text-start p-0" data-bs-toggle="collapse"
+                        data-bs-target="#section-goals" aria-expanded="false">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="fw-bold text-dark mb-0">🎯 Setting Meaningful Goals</h3>
+                            <i class="bi bi-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                </div>
+                <div class="collapse" id="section-goals">
+                    <div class="card-body p-4 pt-0">
+                        <p class="text-muted lh-base mb-3">
+                            Effective goal-setting is the difference between wandering and progressing. The best fitness
+                            goals are specific,
+                            measurable, and aligned with your lifestyle and values. Here's how to create goals that
+                            actually drive results.
+                        </p>
+
+                        <!-- SMART Goals Framework -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">📋 The SMART Goals Framework</h5>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="card border-primary h-100">
+                                        <div class="card-body p-3">
+                                            <h6 class="fw-bold text-primary mb-2">🎯 Specific & Measurable</h6>
+                                            <p class="text-muted small mb-2">Instead of "get stronger" → "increase my
+                                                bench press by 20lbs"</p>
+                                            <p class="text-muted small mb-0">Instead of "lose weight" → "lose 2lbs per
+                                                month for 6 months"</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="card border-success h-100">
+                                        <div class="card-body p-3">
+                                            <h6 class="fw-bold text-success mb-2">⏰ Achievable & Time-bound</h6>
+                                            <p class="text-muted small mb-2">Set deadlines that create urgency without
+                                                overwhelming pressure</p>
+                                            <p class="text-muted small mb-0">Break large goals into smaller 30-90 day
+                                                milestones</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        {% endif %}
+                        </div>
+
+                        <!-- Goal Categories -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">🏆 Types of Fitness Goals</h5>
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <div class="text-center p-3 bg-light rounded-3 border-top border-primary border-3">
+                                        <i class="bi bi-speedometer2 text-primary fs-4 mb-2"></i>
+                                        <h6 class="fw-bold text-dark mb-1">Performance</h6>
+                                        <p class="text-muted small mb-0">Strength, speed, endurance milestones</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <div class="text-center p-3 bg-light rounded-3 border-top border-success border-3">
+                                        <i class="bi bi-person-check text-success fs-4 mb-2"></i>
+                                        <h6 class="fw-bold text-dark mb-1">Body Composition</h6>
+                                        <p class="text-muted small mb-0">Weight, muscle gain, fat loss</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <div class="text-center p-3 bg-light rounded-3 border-top border-warning border-3">
+                                        <i class="bi bi-heart-pulse text-warning fs-4 mb-2"></i>
+                                        <h6 class="fw-bold text-dark mb-1">Health Markers</h6>
+                                        <p class="text-muted small mb-0">Blood pressure, resting heart rate</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <div class="text-center p-3 bg-light rounded-3 border-top border-info border-3">
+                                        <i class="bi bi-calendar-check text-info fs-4 mb-2"></i>
+                                        <h6 class="fw-bold text-dark mb-1">Habit-Based</h6>
+                                        <p class="text-muted small mb-0">Consistency, frequency, lifestyle</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Goal Examples -->
+                        <div class="bg-light rounded-3 p-4">
+                            <h6 class="fw-bold text-dark mb-3">💡 Goal Examples That Work</h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                            <strong class="text-dark">30-Day Goals</strong>
+                                        </div>
+                                        <ul class="text-muted small mb-0">
+                                            <li>Complete 12 workouts this month</li>
+                                            <li>Increase squat weight by 10lbs</li>
+                                            <li>Walk 8,000 steps daily for 30 days</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                                            <strong class="text-dark">90-Day Goals</strong>
+                                        </div>
+                                        <ul class="text-muted small mb-0">
+                                            <li>Lose 8-12 pounds through consistent training</li>
+                                            <li>Run a 5K without stopping</li>
+                                            <li>Master 5 new exercises with proper form</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Performance Tracking (Collapsible) -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3 mb-4">
+                <div class="card-header bg-transparent border-0 p-3">
+                    <button class="btn btn-link text-decoration-none w-100 text-start p-0" data-bs-toggle="collapse"
+                        data-bs-target="#section-tracking" aria-expanded="false">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="fw-bold text-dark mb-0">📊 Performance Tracking</h3>
+                            <i class="bi bi-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                </div>
+                <div class="collapse" id="section-tracking">
+                    <div class="card-body p-4 pt-0">
+                        <p class="text-muted lh-base mb-4">
+                            Understanding your performance trends is key to making continuous improvements. This section
+                            provides a visual
+                            breakdown of your fitness journey, helping you recognize patterns and areas for growth.
+                        </p>
+
+                        <!-- Key Metrics -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">📈 Key Metrics to Track</h5>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="card border-primary h-100">
+                                        <div class="card-header bg-primary text-white text-center">
+                                            <h6 class="mb-0"><i class="bi bi-lightning-charge me-1"></i>Strength
+                                                Progress</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <ul class="text-muted small mb-0">
+                                                <li>Weight lifted per exercise</li>
+                                                <li>Total volume (sets × reps × weight)</li>
+                                                <li>Personal records (PRs)</li>
+                                                <li>Time under tension improvements</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card border-success h-100">
+                                        <div class="card-header bg-success text-white text-center">
+                                            <h6 class="mb-0"><i class="bi bi-heart-pulse me-1"></i>Endurance Gains</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <ul class="text-muted small mb-0">
+                                                <li>Cardio duration and intensity</li>
+                                                <li>Recovery heart rate</li>
+                                                <li>Distance/speed improvements</li>
+                                                <li>Workout completion rates</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card border-warning h-100">
+                                        <div class="card-header bg-warning text-white text-center">
+                                            <h6 class="mb-0"><i class="bi bi-calendar-check me-1"></i>Consistency</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <ul class="text-muted small mb-0">
+                                                <li>Weekly workout frequency</li>
+                                                <li>Monthly adherence percentage</li>
+                                                <li>Streak tracking</li>
+                                                <li>Habit completion rates</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tracking Tools -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">🛠️ Simple Tracking Methods</h5>
+                            <div class="bg-light rounded-3 p-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <h6 class="fw-bold text-dark mb-2">
+                                                <i class="bi bi-journal-text text-primary me-2"></i>Workout Log
+                                            </h6>
+                                            <p class="text-muted small mb-0">Record exercises, sets, reps, and weights
+                                                after each session. Use the notes section below to track your progress.
+                                            </p>
+                                        </div>
+                                        <div class="mb-3">
+                                            <h6 class="fw-bold text-dark mb-2">
+                                                <i class="bi bi-camera text-success me-2"></i>Progress Photos
+                                            </h6>
+                                            <p class="text-muted small mb-0">Take monthly photos from the same angles
+                                                and lighting to see visual changes over time.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <h6 class="fw-bold text-dark mb-2">
+                                                <i class="bi bi-graph-up text-warning me-2"></i>Weekly Reviews
+                                            </h6>
+                                            <p class="text-muted small mb-0">Spend 10 minutes each week reviewing your
+                                                performance and planning adjustments.</p>
+                                        </div>
+                                        <div class="mb-3">
+                                            <h6 class="fw-bold text-dark mb-2">
+                                                <i class="bi bi-stopwatch text-info me-2"></i>Time Tracking
+                                            </h6>
+                                            <p class="text-muted small mb-0">Monitor workout duration, rest periods, and
+                                                recovery time between sessions.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Performance Insights -->
+                        <div class="bg-gradient rounded-3 p-4 text-center border border-success border-2"
+                            style="background: linear-gradient(135deg, #f8f9fa 0%, #e8f5e8 100%);">
+                            <i class="bi bi-lightbulb-fill text-success fs-3 mb-3"></i>
+                            <h6 class="fw-bold text-dark mb-2">Track Smart, Not Hard</h6>
+                            <p class="text-muted mb-0 lh-base">
+                                Focus on 3-5 key metrics that align with your goals. Tracking everything leads to
+                                overwhelm, while tracking nothing leads to stagnation.
+                                <strong class="text-dark">Find your sweet spot and stay consistent.</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Section 4: Milestones & Achievements (Collapsible) -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3 mb-4">
+                <div class="card-header bg-transparent border-0 p-3">
+                    <button class="btn btn-link text-decoration-none w-100 text-start p-0" data-bs-toggle="collapse"
+                        data-bs-target="#section-milestones" aria-expanded="false">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="fw-bold text-dark mb-0">🏆 Milestones & Breakthroughs</h3>
+                            <i class="bi bi-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                </div>
+                <div class="collapse" id="section-milestones">
+                    <div class="card-body p-4 pt-0">
+                        <p class="text-muted lh-base mb-4">
+                            Understanding habits and making adjustments is crucial for long-term success. This section
+                            helps you review progress,
+                            receive personalized insights, and refine your approach to achieve breakthrough results.
+                        </p>
+                        <!-- Milestone Timeline -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">⏱️ Milestone Timeline</h5>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="card border-info h-100">
+                                        <div class="card-header bg-info text-white text-center">
+                                            <h6 class="mb-0">🎯 30-Day Milestones</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <ul class="text-muted small mb-0">
+                                                <li>Establish consistent routine</li>
+                                                <li>Master basic movement patterns</li>
+                                                <li>Complete your first full month</li>
+                                                <li>See initial strength gains</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card border-primary h-100">
+                                        <div class="card-header bg-primary text-white text-center">
+                                            <h6 class="mb-0">📈 90-Day Milestones</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <ul class="text-muted small mb-0">
+                                                <li>Noticeable body composition changes</li>
+                                                <li>Significant strength improvements</li>
+                                                <li>Increased workout capacity</li>
+                                                <li>Habit becomes automatic</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card border-success h-100">
+                                        <div class="card-header bg-success text-white text-center">
+                                            <h6 class="mb-0">🏆 1-Year Milestones</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <ul class="text-muted small mb-0">
+                                                <li>Complete body transformation</li>
+                                                <li>Advanced exercise mastery</li>
+                                                <li>Lifestyle integration</li>
+                                                <li>Inspire others to start</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Breakthrough Strategies -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">💪 Breaking Through Plateaus</h5>
+                            <div class="bg-light rounded-3 p-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <h6 class="fw-bold text-dark mb-2">🔄 Training Adjustments</h6>
+                                            <ul class="text-muted small">
+                                                <li>Increase training frequency or volume</li>
+                                                <li>Try new exercise variations</li>
+                                                <li>Adjust rest periods between sets</li>
+                                                <li>Focus on weak point training</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <h6 class="fw-bold text-dark mb-2">🎯 Mindset Shifts</h6>
+                                            <ul class="text-muted small">
+                                                <li>Embrace the plateau as part of progress</li>
+                                                <li>Focus on process over outcomes</li>
+                                                <li>Celebrate small wins consistently</li>
+                                                <li>Stay patient with long-term vision</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Success Formula -->
+                        <div class="bg-gradient rounded-3 p-4 text-center border border-warning border-2"
+                            style="background: linear-gradient(135deg, #f8f9fa 0%, #fff8e1 100%);">
+                            <i class="bi bi-trophy-fill text-warning fs-3 mb-3"></i>
+                            <h6 class="fw-bold text-dark mb-2">The Success Formula</h6>
+                            <p class="text-muted mb-3 lh-base">
+                                <strong class="text-dark">Consistency + Progressive Overload + Patience =
+                                    Transformation</strong>
+                            </p>
+                            <p class="text-muted mb-0 lh-base">
+                                Every milestone reached is proof that you're capable of more than you imagined. Trust
+                                the process, celebrate the journey, and keep pushing forward.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ===================================================================
+            PROGRESSION NOTES CRUD SECTION
+            ===================================================================
+             
+            Enhanced notes functionality for progression tracking.
+            Maintains full CRUD functionality with goal-specific features.
+            ================================================================= -->
+
+        <!-- Progression Notes Section (Always Visible) -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3 border-top border-success border-2">
+                <div class="card-header bg-transparent border-0 p-4 pb-2">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="fw-bold text-dark mb-0">📝 Your Progression Notes</h5>
+                        <a href="{% url 'create_note' 'progression' %}" class="btn btn-success btn-sm">
+                            <i class="bi bi-plus-circle me-1"></i>Add Progress Note
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body p-4 pt-2">
+                    {% for note in user.practicenote_set.all %}
+                    {% if note.page == 'progression' %}
+                    <div class="card mb-4 border-0 bg-light">
+                        <div class="card-body p-4">
+                            <!-- Header with title and basic info -->
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h6 class="fw-bold text-dark mb-1">{{ note.title }}</h6>
+                                    <small class="text-muted">{{ note.created_at|date:"M d, Y" }}</small>
+                                </div>
+                                <div class="dropdown">
+                                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
+                                        data-bs-toggle="dropdown">
+                                        Actions
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'edit_note' note.id %}">
+                                                <i class="bi bi-pencil me-2"></i>Edit
+                                            </a></li>
+                                        <li><a class="dropdown-item text-danger" href="{% url 'delete_note' note.id %}">
+                                                <i class="bi bi-trash me-2"></i>Delete
+                                            </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Content -->
+                            <div class="mb-3">
+                                <p class="text-dark mb-0">{{ note.content|truncatewords:25 }}</p>
+                            </div>
+                            <!-- Goal tracking section -->
+                            {% if note.session_rating or note.what_went_well or note.what_to_improve %}
+                            <div class="border-top pt-3">
+                                <h6 class="fw-bold text-dark mb-2">Progress Review</h6>
+                                <div class="row">
+                                    {% if note.session_rating %}
+                                    <div class="col-md-4 mb-2">
+                                        <small class="text-muted d-block">Progress Rating</small>
+                                        <div class="text-warning">
+                                            {% for i in "12345" %}
+                                            {% if forloop.counter <= note.session_rating %} <i class="bi bi-star-fill">
+                                                </i>
+                                                {% else %}
+                                                <i class="bi bi-star"></i>
+                                                {% endif %}
+                                                {% endfor %}
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% if note.what_went_well %}
+                                    <div class="col-md-4 mb-2">
+                                        <small class="text-muted d-block">Achievements</small>
+                                        <p class="text-success small mb-1">{{ note.what_went_well|truncatewords:8 }}</p>
+                                    </div>
+                                    {% endif %}
+                                    {% if note.what_to_improve %}
+                                    <div class="col-md-4 mb-2">
+                                        <small class="text-muted d-block">Next Focus</small>
+                                        <p class="text-warning small mb-0">{{ note.what_to_improve|truncatewords:8 }}
+                                        </p>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            <!-- Goal progress -->
+                            {% if note.exercises_completed %}
+                            <div class="border-top pt-3">
+                                <h6 class="fw-bold text-dark mb-2">Current Goals</h6>
+                                <div class="bg-white rounded-2 p-3 border">
+                                    <small class="text-muted">{{ note.exercises_completed|truncatewords:15 }}</small>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
                     {% empty %}
-                        <p class="text-muted">No progression notes yet. <a href="{% url 'create_note' 'progression' %}">Add your first note!</a></p>
+                    <div class="text-center py-5">
+                        <i class="bi bi-graph-up text-muted" style="font-size: 3rem;"></i>
+                        <h6 class="text-muted mt-3 mb-3">No progression notes yet</h6>
+                        <p class="text-muted mb-4">Start tracking your goals and milestones to see your fitness journey
+                            unfold!</p>
+                        <a href="{% url 'create_note' 'progression' %}" class="btn btn-success">
+                            <i class="bi bi-plus-circle me-1"></i>Add Your First Progress Note
+                        </a>
+                    </div>
                     {% endfor %}
                 </div>
             </div>
         </div>
+
+        <!-- Goal Setting Tips -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3 mb-4">
+                <div class="card-body p-4">
+                    <div class="bg-gradient rounded-3 p-4 text-center"
+                        style="background: linear-gradient(135deg, #f8f9fa 0%, #e8f5e8 100%);">
+                        <i class="bi bi-lightbulb-fill text-success fs-3 mb-3"></i>
+                        <h6 class="fw-bold text-dark mb-2">💡 Pro Tip for Progress Notes</h6>
+                        <p class="text-muted mb-3 lh-base">
+                            Use your progression notes to track specific goals, celebrate wins, and plan your next
+                            steps.
+                            Document your journey with measurable targets and honest reflections.
+                        </p>
+                        <div class="row text-start">
+                            <div class="col-md-4">
+                                <div class="mb-2">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <small class="text-muted">Set specific, measurable goals</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-2">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <small class="text-muted">Track progress weekly</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-2">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <small class="text-muted">Celebrate small wins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
+
+<!-- Custom JavaScript for collapsible sections -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Handle chevron rotation for collapsible sections
+        const collapseButtons = document.querySelectorAll('[data-bs-toggle="collapse"]');
+
+        collapseButtons.forEach(button => {
+            const target = button.getAttribute('data-bs-target');
+            const chevron = button.querySelector('.bi-chevron-down');
+
+            if (target && chevron) {
+                const collapseElement = document.querySelector(target);
+
+                if (collapseElement) {
+                    // Set initial state
+                    if (collapseElement.classList.contains('show')) {
+                        chevron.style.transform = 'rotate(180deg)';
+                    }
+
+                    // Handle collapse events
+                    collapseElement.addEventListener('show.bs.collapse', function () {
+                        chevron.style.transform = 'rotate(180deg)';
+                    });
+
+                    collapseElement.addEventListener('hide.bs.collapse', function () {
+                        chevron.style.transform = 'rotate(0deg)';
+                    });
+                }
+            }
+        });
+    });
+</script>
 {% endblock %}
