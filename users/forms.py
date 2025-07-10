@@ -42,6 +42,7 @@ class LoginForm(AuthenticationForm):
     # Add optional remember me checkbox
     remember_me = forms.BooleanField(required=False)
 
+# ORIGINAL PracticeNoteForm (keep for activity and progression pages)
 class PracticeNoteForm(forms.ModelForm):
     """Form for creating and editing practice notes with better validation"""
     
@@ -108,6 +109,78 @@ class PracticeNoteForm(forms.ModelForm):
             }
         }
         return contexts.get(self.page, {})
+
+# TrainingNoteForm (specialized for training page)
+class TrainingNoteForm(forms.ModelForm):
+    """Enhanced form for training notes with structured fields"""
+    
+    class Meta:
+        model = PracticeNote
+        fields = ['title', 'content', 'gym_days_per_week', 'weekly_split', 
+                 'session_rating', 'what_went_well', 'what_to_improve', 'exercises_completed']
+        widgets = {
+            'title': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'e.g., Week 1 Training Plan'
+            }),
+            'content': forms.Textarea(attrs={
+                'class': 'form-control',
+                'rows': 3,
+                'placeholder': 'Overall training notes and goals...'
+            }),
+            'gym_days_per_week': forms.Select(attrs={
+                'class': 'form-control'
+            }, choices=[(i, f'{i} days') for i in range(1, 8)]),
+            'weekly_split': forms.Select(attrs={
+                'class': 'form-control'
+            }),
+            'session_rating': forms.Select(attrs={
+                'class': 'form-control'
+            }, choices=[(i, f'{i} star{"s" if i != 1 else ""}') for i in range(1, 6)]),
+            'what_went_well': forms.Textarea(attrs={
+                'class': 'form-control',
+                'rows': 2,
+                'placeholder': 'What went well in this session?'
+            }),
+            'what_to_improve': forms.Textarea(attrs={
+                'class': 'form-control',
+                'rows': 2,
+                'placeholder': 'What could be improved next time?'
+            }),
+            'exercises_completed': forms.Textarea(attrs={
+                'class': 'form-control',
+                'rows': 3,
+                'placeholder': 'List exercises: Bench Press 3x8, Squats 3x10, etc.'
+            })
+        }
+    
+    def __init__(self, *args, **kwargs):
+        self.page = kwargs.pop('page', None)
+        super().__init__(*args, **kwargs)
+    
+    def clean_title(self):
+        """Validate title"""
+        title = self.cleaned_data.get('title', '').strip()
+        
+        if not title:
+            raise ValidationError('Title is required.')
+        
+        if len(title) > 200:
+            raise ValidationError('Title must be less than 200 characters.')
+        
+        return title
+    
+    def clean_content(self):
+        """Validate content"""
+        content = self.cleaned_data.get('content', '').strip()
+        
+        if not content:
+            raise ValidationError('Content is required.')
+        
+        if len(content) > 2000:
+            raise ValidationError('Content must be less than 2000 characters.')
+        
+        return content
 
 class UserProfileForm(forms.ModelForm):
     """Form for updating user profile with enhanced validation"""
