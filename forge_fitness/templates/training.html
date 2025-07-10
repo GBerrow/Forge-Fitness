@@ -1,20 +1,17 @@
 <!-- ===================================================================
-    FORGE FITNESS - TRAINING PAGE
+    FORGE FITNESS - TRAINING PAGE (ENHANCED WITH COLLAPSIBLE SECTIONS)
     ===================================================================
      
-    This template provides comprehensive training information in four
-    main sections: Introduction, Workouts, Training Plans, and Summary.
-    Styled to match the dashboard aesthetic with consistent spacing,
-    rounded corners, and professional typography.
-     
+    Updated template with collapsible sections for better UX.
+    Each section can be expanded/collapsed independently.
+    
     STRUCTURE:
     1. Template Inheritance & Title Override
     2. Training Welcome Section
-    3. Four Main Content Sections
-    4. Training Notes CRUD Section
+    3. Quick Navigation
+    4. Four Main Content Sections (Collapsible)
+    5. Training Notes CRUD Section
     ================================================================= -->
-
-{% extends 'base.html' %}
 
 <!-- ===================================================================
     1. TEMPLATE INHERITANCE & TITLE OVERRIDE
@@ -24,9 +21,12 @@
     and browser tab display.
     ================================================================= -->
 
+{% extends 'base.html' %}
+
 {% block title %}Training - Forge Fitness{% endblock %}
 
 {% block page_title %}Training{% endblock %}
+
 <!-- ===================================================================
     2. MAIN CONTENT BLOCK
     ===================================================================
@@ -38,15 +38,15 @@
 {% block content %}
 <div class="row justify-content-center">
     <div class="col-12">
-        <!-- ===================================================================
+     
+ <!-- ===================================================================
             3. TRAINING WELCOME SECTION
             ===================================================================
              
             Hero-style welcome section that introduces the training page.
             Features gradient background matching dashboard aesthetic.
             ================================================================= -->
-        
-        <!-- Training Welcome Section -->
+
         <div class="dashboard-container">
             <div class="welcome-card shadow-lg rounded-3 mb-4">
                 <div class="card-body text-center py-3">
@@ -55,284 +55,338 @@
                 </div>
             </div>
         </div>
+
+        <!-- Quick Navigation -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3 mb-4">
+                <div class="card-body p-3">
+                    <div class="row text-center">
+                        <div class="col-6 col-md-3 mb-2">
+                            <button class="btn btn-outline-primary btn-sm w-100" data-bs-toggle="collapse" data-bs-target="#section-introduction">
+                                <i class="bi bi-book me-1"></i>Introduction
+                            </button>
+                        </div>
+                        <div class="col-6 col-md-3 mb-2">
+                            <button class="btn btn-outline-success btn-sm w-100" data-bs-toggle="collapse" data-bs-target="#section-workouts">
+                                <i class="bi bi-dumbbell me-1"></i>Workouts
+                            </button>
+                        </div>
+                        <div class="col-6 col-md-3 mb-2">
+                            <button class="btn btn-outline-warning btn-sm w-100" data-bs-toggle="collapse" data-bs-target="#section-plans">
+                                <i class="bi bi-calendar-week me-1"></i>Plans
+                            </button>
+                        </div>
+                        <div class="col-6 col-md-3 mb-2">
+                            <button class="btn btn-outline-info btn-sm w-100" data-bs-toggle="collapse" data-bs-target="#section-summary">
+                                <i class="bi bi-check-circle me-1"></i>Summary
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- ===================================================================
-            4. FOUR MAIN CONTENT SECTIONS
+            4. FOUR MAIN CONTENT SECTIONS (COLLAPSIBLE)
             ===================================================================
              
             Each section uses action-card styling for consistency with
             dashboard design. Clean typography and proper spacing for
-            optimal readability.
+            optimal readability. Now with collapsible functionality.
             ================================================================= -->
 
-        <!-- Section 1: Introduction -->
+        <!-- Section 1: Introduction (Collapsible) -->
         <div class="dashboard-container">
             <div class="action-card shadow-sm rounded-3 mb-4">
-                <div class="card-body p-4">
-                    <h3 class="fw-bold text-dark mb-3">📚 Introduction</h3>
-                    
-                    <p class="text-muted lh-base mb-3">
-                        Welcome to your training guide! This is where your fitness journey takes shape — not through guesswork, but through
-                        structure, purpose, and informed action.
-                    </p>
-                    
-                    <p class="text-muted lh-base mb-3">
-                        Whether your goal is to build muscle, lose fat, improve athletic performance, or simply move with more confidence, this
-                        section will give you the knowledge and mindset to train with intent.
-                    </p>
-                    
-                    <p class="text-muted lh-base mb-3">
-                        You'll learn the foundational principles that drive progress in the gym and beyond: how to train consistently without
-                        burning out, how to set measurable goals that keep you accountable, how to master proper technique to avoid injury, and
-                        how to structure your sessions for maximum efficiency.
-                    </p>
-                    
-                    <p class="text-muted lh-base mb-0">
-                        We'll also explore what makes a routine sustainable — because long-term results don't come from quick fixes, but from
-                        systems you can stick to. Think of this as your blueprint for success — a place to learn, reset, and grow stronger in
-                        and out of the gym.
-                    </p>
+                <div class="card-header bg-transparent border-0 p-3">
+                    <button class="btn btn-link text-decoration-none w-100 text-start p-0" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#section-introduction" 
+                            aria-expanded="true">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="fw-bold text-dark mb-0">📚 Introduction</h3>
+                            <i class="bi bi-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                </div>
+                <div class="collapse show" id="section-introduction">
+                    <div class="card-body p-4 pt-0">
+                        <p class="text-muted lh-base mb-3">
+                            Welcome to your training guide! This is where your fitness journey takes shape — not through guesswork, but through
+                            structure, purpose, and informed action.
+                        </p>
+                        
+                        <p class="text-muted lh-base mb-3">
+                            Whether your goal is to build muscle, lose fat, improve athletic performance, or simply move with more confidence, this
+                            section will give you the knowledge and mindset to train with intent.
+                        </p>
+                        
+                        <p class="text-muted lh-base mb-3">
+                            You'll learn the foundational principles that drive progress in the gym and beyond: how to train consistently without
+                            burning out, how to set measurable goals that keep you accountable, how to master proper technique to avoid injury, and
+                            how to structure your sessions for maximum efficiency.
+                        </p>
+                        
+                        <p class="text-muted lh-base mb-0">
+                            We'll also explore what makes a routine sustainable — because long-term results don't come from quick fixes, but from
+                            systems you can stick to. Think of this as your blueprint for success — a place to learn, reset, and grow stronger in
+                            and out of the gym.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- Section 2: Workouts -->
+
+        <!-- Section 2: Workouts (Collapsible) -->
         <div class="dashboard-container">
             <div class="action-card shadow-sm rounded-3 mb-4">
-                <div class="card-body p-4">
-                    <h3 class="fw-bold text-dark mb-3">💪 Workouts</h3>
-                    
-                    <p class="text-muted lh-base mb-3">
-                        Ready to break a sweat? This section is your go-to resource for building effective, targeted workouts. You'll explore
-                        the key muscle groups — chest, back, legs, shoulders, arms, and core — and learn how to train each one with purpose.
-                    </p>
-                    
-                    <p class="text-muted lh-base mb-3">
-                        Whether you're following a push/pull/legs split, full-body routines, or just getting started, we've got you covered.
-                        Each category features essential exercises, tips for perfecting your form, and advice on how to avoid common mistakes
-                        that lead to injury.
-                    </p>
-                    
-                    <p class="text-muted lh-base mb-3">
-                        You'll also learn how to apply tried-and-true training principles like progressive overload, rest periods, and rep
-                        ranges — tools that turn random workouts into real results. This isn't about doing more — it's about training smarter.
-                    </p>
-                    
-                    <p class="text-muted lh-base mb-4">
-                        <strong class="text-dark">Key Muscle Groups & Exercises:</strong>
-                    </p>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <h6 class="fw-bold text-dark mb-2">🫀 Chest</h6>
-                                <p class="text-muted small mb-0">Bench press, incline dumbbell press, push-ups, chest flyes — ideal for developing upper body size and pushing strength.</p>
+                <div class="card-header bg-transparent border-0 p-3">
+                    <button class="btn btn-link text-decoration-none w-100 text-start p-0" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#section-workouts" 
+                            aria-expanded="false">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="fw-bold text-dark mb-0">💪 Workouts</h3>
+                            <i class="bi bi-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                </div>
+                <div class="collapse" id="section-workouts">
+                    <div class="card-body p-4 pt-0">
+                        <p class="text-muted lh-base mb-3">
+                            Ready to break a sweat? This section is your go-to resource for building effective, targeted workouts. You'll explore
+                            the key muscle groups — chest, back, legs, shoulders, arms, and core — and learn how to train each one with purpose.
+                        </p>
+                        
+                        <p class="text-muted lh-base mb-3">
+                            Whether you're following a push/pull/legs split, full-body routines, or just getting started, we've got you covered.
+                            Each category features essential exercises, tips for perfecting your form, and advice on how to avoid common mistakes
+                            that lead to injury.
+                        </p>
+                        
+                        <p class="text-muted lh-base mb-3">
+                            You'll also learn how to apply tried-and-true training principles like progressive overload, rest periods, and rep
+                            ranges — tools that turn random workouts into real results. This isn't about doing more — it's about training smarter.
+                        </p>
+                        
+                        <p class="text-muted lh-base mb-4">
+                            <strong class="text-dark">Key Muscle Groups & Exercises:</strong>
+                        </p>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <h6 class="fw-bold text-dark mb-2">🫀 Chest</h6>
+                                    <p class="text-muted small mb-0">Bench press, incline dumbbell press, push-ups, chest flyes — ideal for developing upper body size and pushing strength.</p>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <h6 class="fw-bold text-dark mb-2">🏋️ Shoulders</h6>
+                                    <p class="text-muted small mb-0">Overhead press, lateral raises, face pulls, rear delt flyes — for full shoulder development and posture support.</p>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <h6 class="fw-bold text-dark mb-2">🦵 Legs</h6>
+                                    <p class="text-muted small mb-0">Squats, lunges, Romanian deadlifts, leg presses, calf raises — focusing on power, mobility, and muscle balance.</p>
+                                </div>
                             </div>
                             
-                            <div class="mb-3">
-                                <h6 class="fw-bold text-dark mb-2">🏋️ Shoulders</h6>
-                                <p class="text-muted small mb-0">Overhead press, lateral raises, face pulls, rear delt flyes — for full shoulder development and posture support.</p>
-                            </div>
-                            
-                            <div class="mb-3">
-                                <h6 class="fw-bold text-dark mb-2">🦵 Legs</h6>
-                                <p class="text-muted small mb-0">Squats, lunges, Romanian deadlifts, leg presses, calf raises — focusing on power, mobility, and muscle balance.</p>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <h6 class="fw-bold text-dark mb-2">🎯 Back</h6>
+                                    <p class="text-muted small mb-0">Pull-ups, barbell rows, lat pulldowns, deadlifts — to build width, thickness, and rear-chain strength.</p>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <h6 class="fw-bold text-dark mb-2">💪 Arms</h6>
+                                    <p class="text-muted small mb-0">Bicep curls, tricep dips, hammer curls, tricep extensions — for targeted arm growth and upper-body symmetry.</p>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <h6 class="fw-bold text-dark mb-2">🔥 Core</h6>
+                                    <p class="text-muted small mb-0">Planks, Russian twists, hanging leg raises, cable crunches — to strengthen your foundation and improve total-body control.</p>
+                                </div>
                             </div>
                         </div>
-                        
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <h6 class="fw-bold text-dark mb-2">🎯 Back</h6>
-                                <p class="text-muted small mb-0">Pull-ups, barbell rows, lat pulldowns, deadlifts — to build width, thickness, and rear-chain strength.</p>
-                            </div>
+
+                        <!-- Watch & Learn Section -->
+                        <div class="mt-4">
+                            <h5 class="fw-bold text-dark mb-3">🎥 Watch & Learn: Exercise Demonstrations</h5>
                             
-                            <div class="mb-3">
-                                <h6 class="fw-bold text-dark mb-2">💪 Arms</h6>
-                                <p class="text-muted small mb-0">Bicep curls, tricep dips, hammer curls, tricep extensions — for targeted arm growth and upper-body symmetry.</p>
-                            </div>
-                            
-                            <div class="mb-3">
-                                <h6 class="fw-bold text-dark mb-2">🔥 Core</h6>
-                                <p class="text-muted small mb-0">Planks, Russian twists, hanging leg raises, cable crunches — to strengthen your foundation and improve total-body control.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Watch & Learn Section -->
-                    <div class="mt-4">
-                        <h5 class="fw-bold text-dark mb-3">🎥 Watch & Learn: Exercise Demonstrations</h5>
-                        
-                        <div class="bg-light rounded-3 p-4 border-start border-primary border-3">
-                            <p class="text-muted mb-3 small">
-                                <i class="bi bi-info-circle-fill me-2 text-primary"></i>
-                                Master proper form and technique with these expert video demonstrations from Jeff Nippard's science-based training series.
-                            </p>
-                            
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <div class="d-flex align-items-center mb-2">
-                                            <i class="bi bi-play-circle-fill text-danger me-2"></i>
-                                            <h6 class="fw-bold text-dark mb-0">Chest Training</h6>
+                            <div class="bg-light rounded-3 p-4 border-start border-primary border-3">
+                                <p class="text-muted mb-3 small">
+                                    <i class="bi bi-info-circle-fill me-2 text-primary"></i>
+                                    Master proper form and technique with these expert video demonstrations from Jeff Nippard's science-based training series.
+                                </p>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="bi bi-play-circle-fill text-danger me-2"></i>
+                                                <h6 class="fw-bold text-dark mb-0">Chest Training</h6>
+                                            </div>
+                                            <p class="text-muted small mb-1">Science-based chest development and optimal training techniques</p>
+                                            <a href="https://www.youtube.com/watch?v=fGm-ef-4PVk&list=PLp4G6oBUcv8w8ujRtP5BtvJe8PXBwiTdl&index=6" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-youtube me-1"></i>Jeff Nippard - Chest
+                                            </a>
                                         </div>
-                                        <p class="text-muted small mb-1">Science-based chest development and optimal training techniques</p>
-                                        <a href="https://www.youtube.com/watch?v=fGm-ef-4PVk&list=PLp4G6oBUcv8w8ujRtP5BtvJe8PXBwiTdl&index=6" target="_blank" class="btn btn-sm btn-outline-primary">
-                                            <i class="bi bi-youtube me-1"></i>Jeff Nippard - Chest
-                                        </a>
+                                        
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="bi bi-play-circle-fill text-danger me-2"></i>
+                                                <h6 class="fw-bold text-dark mb-0">Shoulder Development</h6>
+                                            </div>
+                                            <p class="text-muted small mb-1">Complete shoulder training guide with injury prevention tips</p>
+                                            <a href="https://www.youtube.com/watch?v=SgyUoY0IZ7A&list=PLp4G6oBUcv8w8ujRtP5BtvJe8PXBwiTdl&index=3" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-youtube me-1"></i>Jeff Nippard - Shoulders
+                                            </a>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="bi bi-play-circle-fill text-danger me-2"></i>
+                                                <h6 class="fw-bold text-dark mb-0">Back Training</h6>
+                                            </div>
+                                            <p class="text-muted small mb-1">Build a strong, wide back with proper pulling mechanics</p>
+                                            <a href="https://www.youtube.com/watch?v=jLvqKgW-_G8&list=PLp4G6oBUcv8w8ujRtP5BtvJe8PXBwiTdl&index=7" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-youtube me-1"></i>Jeff Nippard - Back
+                                            </a>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="bi bi-play-circle-fill text-danger me-2"></i>
+                                                <h6 class="fw-bold text-dark mb-0">Bicep Training</h6>
+                                            </div>
+                                            <p class="text-muted small mb-1">Maximize bicep growth with evidence-based techniques</p>
+                                            <a href="https://www.youtube.com/watch?v=GNO4OtYoCYk&list=PLp4G6oBUcv8w8ujRtP5BtvJe8PXBwiTdl&index=2" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-youtube me-1"></i>Jeff Nippard - Biceps
+                                            </a>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="bi bi-play-circle-fill text-danger me-2"></i>
+                                                <h6 class="fw-bold text-dark mb-0">Tricep Training</h6>
+                                            </div>
+                                            <p class="text-muted small mb-1">Complete tricep development for stronger, bigger arms</p>
+                                            <a href="https://www.youtube.com/watch?v=OpRMRhr0Ycc&list=PLp4G6oBUcv8w8ujRtP5BtvJe8PXBwiTdl&index=5" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-youtube me-1"></i>Jeff Nippard - Triceps
+                                            </a>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="bi bi-play-circle-fill text-danger me-2"></i>
+                                                <h6 class="fw-bold text-dark mb-0">Forearm Training</h6>
+                                            </div>
+                                            <p class="text-muted small mb-1">Build grip strength and forearm mass for complete arms</p>
+                                            <a href="https://www.youtube.com/watch?v=MfMxT_jXcPE" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-youtube me-1"></i>Jeff Nippard - Forearms
+                                            </a>
+                                        </div>
                                     </div>
                                     
-                                    <div class="mb-3">
-                                        <div class="d-flex align-items-center mb-2">
-                                            <i class="bi bi-play-circle-fill text-danger me-2"></i>
-                                            <h6 class="fw-bold text-dark mb-0">Shoulder Development</h6>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="bi bi-play-circle-fill text-danger me-2"></i>
+                                                <h6 class="fw-bold text-dark mb-0">Glute Training</h6>
+                                            </div>
+                                            <p class="text-muted small mb-1">Optimal glute development and activation techniques</p>
+                                            <a href="https://www.youtube.com/watch?v=3ryh7PNhz3E&list=PLp4G6oBUcv8w8ujRtP5BtvJe8PXBwiTdl" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-youtube me-1"></i>Jeff Nippard - Glutes
+                                            </a>
                                         </div>
-                                        <p class="text-muted small mb-1">Complete shoulder training guide with injury prevention tips</p>
-                                        <a href="https://www.youtube.com/watch?v=SgyUoY0IZ7A&list=PLp4G6oBUcv8w8ujRtP5BtvJe8PXBwiTdl&index=3" target="_blank" class="btn btn-sm btn-outline-primary">
-                                            <i class="bi bi-youtube me-1"></i>Jeff Nippard - Shoulders
-                                        </a>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <div class="d-flex align-items-center mb-2">
-                                            <i class="bi bi-play-circle-fill text-danger me-2"></i>
-                                            <h6 class="fw-bold text-dark mb-0">Back Training</h6>
+                                        
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="bi bi-play-circle-fill text-danger me-2"></i>
+                                                <h6 class="fw-bold text-dark mb-0">Quad Training</h6>
+                                            </div>
+                                            <p class="text-muted small mb-1">Build powerful quads with proper squat mechanics</p>
+                                            <a href="https://www.youtube.com/watch?v=kIXcoivzGf8&list=PLp4G6oBUcv8w8ujRtP5BtvJe8PXBwiTdl&index=4" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-youtube me-1"></i>Jeff Nippard - Quads
+                                            </a>
                                         </div>
-                                        <p class="text-muted small mb-1">Build a strong, wide back with proper pulling mechanics</p>
-                                        <a href="https://www.youtube.com/watch?v=jLvqKgW-_G8&list=PLp4G6oBUcv8w8ujRtP5BtvJe8PXBwiTdl&index=7" target="_blank" class="btn btn-sm btn-outline-primary">
-                                            <i class="bi bi-youtube me-1"></i>Jeff Nippard - Back
-                                        </a>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <div class="d-flex align-items-center mb-2">
-                                            <i class="bi bi-play-circle-fill text-danger me-2"></i>
-                                            <h6 class="fw-bold text-dark mb-0">Bicep Training</h6>
+                                        
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="bi bi-play-circle-fill text-danger me-2"></i>
+                                                <h6 class="fw-bold text-dark mb-0">Hamstring Training</h6>
+                                            </div>
+                                            <p class="text-muted small mb-1">Develop strong hamstrings for balanced leg development</p>
+                                            <a href="https://www.youtube.com/watch?v=0a_fVS2s4Ho" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-youtube me-1"></i>Jeff Nippard - Hamstrings
+                                            </a>
                                         </div>
-                                        <p class="text-muted small mb-1">Maximize bicep growth with evidence-based techniques</p>
-                                        <a href="https://www.youtube.com/watch?v=GNO4OtYoCYk&list=PLp4G6oBUcv8w8ujRtP5BtvJe8PXBwiTdl&index=2" target="_blank" class="btn btn-sm btn-outline-primary">
-                                            <i class="bi bi-youtube me-1"></i>Jeff Nippard - Biceps
-                                        </a>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <div class="d-flex align-items-center mb-2">
-                                            <i class="bi bi-play-circle-fill text-danger me-2"></i>
-                                            <h6 class="fw-bold text-dark mb-0">Tricep Training</h6>
+                                        
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="bi bi-play-circle-fill text-danger me-2"></i>
+                                                <h6 class="fw-bold text-dark mb-0">Calf Training</h6>
+                                            </div>
+                                            <p class="text-muted small mb-1">Complete calf development guide for lower leg strength</p>
+                                            <a href="https://www.youtube.com/watch?v=-qsRtp_PbVM" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-youtube me-1"></i>Jeff Nippard - Calves
+                                            </a>
                                         </div>
-                                        <p class="text-muted small mb-1">Complete tricep development for stronger, bigger arms</p>
-                                        <a href="https://www.youtube.com/watch?v=OpRMRhr0Ycc&list=PLp4G6oBUcv8w8ujRtP5BtvJe8PXBwiTdl&index=5" target="_blank" class="btn btn-sm btn-outline-primary">
-                                            <i class="bi bi-youtube me-1"></i>Jeff Nippard - Triceps
-                                        </a>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <div class="d-flex align-items-center mb-2">
-                                            <i class="bi bi-play-circle-fill text-danger me-2"></i>
-                                            <h6 class="fw-bold text-dark mb-0">Forearm Training</h6>
+                                        
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="bi bi-play-circle-fill text-danger me-2"></i>
+                                                <h6 class="fw-bold text-dark mb-0">Core & Abs</h6>
+                                            </div>
+                                            <p class="text-muted small mb-1">Build functional core strength and defined abs</p>
+                                            <a href="https://www.youtube.com/watch?v=1G0y8D5rFDc" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-youtube me-1"></i>Jeff Nippard - Core
+                                            </a>
                                         </div>
-                                        <p class="text-muted small mb-1">Build grip strength and forearm mass for complete arms</p>
-                                        <a href="https://www.youtube.com/watch?v=MfMxT_jXcPE" target="_blank" class="btn btn-sm btn-outline-primary">
-                                            <i class="bi bi-youtube me-1"></i>Jeff Nippard - Forearms
-                                        </a>
+                                        
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="bi bi-play-circle-fill text-danger me-2"></i>
+                                                <h6 class="fw-bold text-dark mb-0">Cardio Training</h6>
+                                            </div>
+                                            <p class="text-muted small mb-1">Optimize your cardiovascular training for better results</p>
+                                            <a href="https://www.youtube.com/watch?v=crPb62o-z_E" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-youtube me-1"></i>Jeff Nippard - Cardio
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                                 
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <div class="d-flex align-items-center mb-2">
-                                            <i class="bi bi-play-circle-fill text-danger me-2"></i>
-                                            <h6 class="fw-bold text-dark mb-0">Glute Training</h6>
-                                        </div>
-                                        <p class="text-muted small mb-1">Optimal glute development and activation techniques</p>
-                                        <a href="https://www.youtube.com/watch?v=3ryh7PNhz3E&list=PLp4G6oBUcv8w8ujRtP5BtvJe8PXBwiTdl" target="_blank" class="btn btn-sm btn-outline-primary">
-                                            <i class="bi bi-youtube me-1"></i>Jeff Nippard - Glutes
-                                        </a>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <div class="d-flex align-items-center mb-2">
-                                            <i class="bi bi-play-circle-fill text-danger me-2"></i>
-                                            <h6 class="fw-bold text-dark mb-0">Quad Training</h6>
-                                        </div>
-                                        <p class="text-muted small mb-1">Build powerful quads with proper squat mechanics</p>
-                                        <a href="https://www.youtube.com/watch?v=kIXcoivzGf8&list=PLp4G6oBUcv8w8ujRtP5BtvJe8PXBwiTdl&index=4" target="_blank" class="btn btn-sm btn-outline-primary">
-                                            <i class="bi bi-youtube me-1"></i>Jeff Nippard - Quads
-                                        </a>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <div class="d-flex align-items-center mb-2">
-                                            <i class="bi bi-play-circle-fill text-danger me-2"></i>
-                                            <h6 class="fw-bold text-dark mb-0">Hamstring Training</h6>
-                                        </div>
-                                        <p class="text-muted small mb-1">Develop strong hamstrings for balanced leg development</p>
-                                        <a href="https://www.youtube.com/watch?v=0a_fVS2s4Ho" target="_blank" class="btn btn-sm btn-outline-primary">
-                                            <i class="bi bi-youtube me-1"></i>Jeff Nippard - Hamstrings
-                                        </a>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <div class="d-flex align-items-center mb-2">
-                                            <i class="bi bi-play-circle-fill text-danger me-2"></i>
-                                            <h6 class="fw-bold text-dark mb-0">Calf Training</h6>
-                                        </div>
-                                        <p class="text-muted small mb-1">Complete calf development guide for lower leg strength</p>
-                                        <a href="https://www.youtube.com/watch?v=-qsRtp_PbVM" target="_blank" class="btn btn-sm btn-outline-primary">
-                                            <i class="bi bi-youtube me-1"></i>Jeff Nippard - Calves
-                                        </a>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <div class="d-flex align-items-center mb-2">
-                                            <i class="bi bi-play-circle-fill text-danger me-2"></i>
-                                            <h6 class="fw-bold text-dark mb-0">Core & Abs</h6>
-                                        </div>
-                                        <p class="text-muted small mb-1">Build functional core strength and defined abs</p>
-                                        <a href="https://www.youtube.com/watch?v=1G0y8D5rFDc" target="_blank" class="btn btn-sm btn-outline-primary">
-                                            <i class="bi bi-youtube me-1"></i>Jeff Nippard - Core
-                                        </a>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <div class="d-flex align-items-center mb-2">
-                                            <i class="bi bi-play-circle-fill text-danger me-2"></i>
-                                            <h6 class="fw-bold text-dark mb-0">Cardio Training</h6>
-                                        </div>
-                                        <p class="text-muted small mb-1">Optimize your cardiovascular training for better results</p>
-                                        <a href="https://www.youtube.com/watch?v=crPb62o-z_E" target="_blank" class="btn btn-sm btn-outline-primary">
-                                            <i class="bi bi-youtube me-1"></i>Jeff Nippard - Cardio
-                                        </a>
-                                    </div>
+                                <div class="text-center mt-3 pt-3 border-top">
+                                    <p class="text-muted small mb-2">
+                                        <i class="bi bi-star-fill text-warning me-1"></i>
+                                        Want more science-based training guidance?
+                                    </p>
+                                    <a href="https://www.youtube.com/c/JeffNippard" target="_blank" class="btn btn-sm btn-primary">
+                                        <i class="bi bi-youtube me-1"></i>Visit Jeff Nippard's Channel
+                                    </a>
                                 </div>
                             </div>
-                            
-                            <div class="text-center mt-3 pt-3 border-top">
-                                <p class="text-muted small mb-2">
-                                    <i class="bi bi-star-fill text-warning me-1"></i>
-                                    Want more science-based training guidance?
-                                </p>
-                                <a href="https://www.youtube.com/c/JeffNippard" target="_blank" class="btn btn-sm btn-primary">
-                                    <i class="bi bi-youtube me-1"></i>Visit Jeff Nippard's Channel
-                                </a>
-                            </div>
                         </div>
-                    </div>
-                    <!-- Closing Paragraph -->
-                    <div class="mt-4">
-                        <div class="bg-gradient rounded-3 p-4 border border-success border-2" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-                            <div class="d-flex align-items-start">
-                                <i class="bi bi-arrow-right-circle-fill text-success fs-4 me-3 mt-1"></i>
-                                <div>
-                                    <h6 class="fw-bold text-dark mb-2">Ready to Put It All Together?</h6>
-                                    <p class="text-muted mb-3 lh-base">
-                                        Now that you've explored how each muscle group is trained and discovered expert-led tutorials to refine your form, it's
-                                        time to take things to the next level. Understanding the exercises is just the foundation — the real transformation
-                                        comes from putting that knowledge into practice and organizing them into a consistent, well-structured routine that
-                                        aligns with your specific fitness goals.
-                                    </p>
-                                    <p class="text-muted mb-0 lh-base">
-                                        In the next section, we'll guide you through creating your own personalized training plan — whether you're training 3,
-                                        4, or 5 days per week. You'll learn how to balance intensity, recovery, and frequency so you can stay consistent, track
-                                        your progress, and keep making sustainable gains over time.
-                                        <strong class="text-success">Let's turn your knowledge into results!</strong>
-                                    </p>
+                        <!-- Closing Paragraph -->
+                        <div class="mt-4">
+                            <div class="bg-gradient rounded-3 p-4 border border-success border-2" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+                                <div class="d-flex align-items-start">
+                                    <i class="bi bi-arrow-right-circle-fill text-success fs-4 me-3 mt-1"></i>
+                                    <div>
+                                        <h6 class="fw-bold text-dark mb-2">Ready to Put It All Together?</h6>
+                                        <p class="text-muted mb-3 lh-base">
+                                            Now that you've explored how each muscle group is trained and discovered expert-led tutorials to refine your form, it's
+                                            time to take things to the next level. Understanding the exercises is just the foundation — the real transformation
+                                            comes from putting that knowledge into practice and organizing them into a consistent, well-structured routine that
+                                            aligns with your specific fitness goals.
+                                        </p>
+                                        <p class="text-muted mb-0 lh-base">
+                                            In the next section, we'll guide you through creating your own personalized training plan — whether you're training 3,
+                                            4, or 5 days per week. You'll learn how to balance intensity, recovery, and frequency so you can stay consistent, track
+                                            your progress, and keep making sustainable gains over time.
+                                            <strong class="text-success">Let's turn your knowledge into results!</strong>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -340,355 +394,378 @@
                 </div>
             </div>
         </div>
-        <!-- Section 3: Training Plans -->
+        <!-- Section 3: Training Plans (Collapsible) -->
         <div class="dashboard-container">
             <div class="action-card shadow-sm rounded-3 mb-4">
-                <div class="card-body p-4">
-                    <h3 class="fw-bold text-dark mb-3">📋 Training Plans</h3>
-                    <!-- Personal Goal-Driven Introduction -->
-                    <div class="mb-4">
-                        <p class="text-muted lh-base mb-3">
-                            Having a training plan in place is one of the most important factors in achieving real progress at the gym. Walking in
-                            without structure — just winging it — can seriously limit your potential. Whether you're lifting casually to stay
-                            healthy or pushing hard toward goals like bodybuilding or powerlifting, knowing what you want to achieve and how to get
-                            there is critical for long-term success and enjoyment.
+                <div class="card-header bg-transparent border-0 p-3">
+                    <button class="btn btn-link text-decoration-none w-100 text-start p-0" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#section-plans" 
+                            aria-expanded="false">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="fw-bold text-dark mb-0">📋 Training Plans</h3>
+                            <i class="bi bi-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                </div>
+                <div class="collapse" id="section-plans">
+                    <div class="card-body p-4 pt-0">
+                        <!-- Personal Goal-Driven Introduction -->
+                        <div class="mb-4">
+                            <p class="text-muted lh-base mb-3">
+                                Having a training plan in place is one of the most important factors in achieving real progress at the gym. Walking in
+                                without structure — just winging it — can seriously limit your potential. Whether you're lifting casually to stay
+                                healthy or pushing hard toward goals like bodybuilding or powerlifting, knowing what you want to achieve and how to get
+                                there is critical for long-term success and enjoyment.
+                                
+                                To truly reap the benefits of your training and unlock consistent gains, you need more than just knowledge of exercises
+                                — you need a routine. One that's structured, goal-driven, and fits your lifestyle. In this section, we'll show you how
+                                to turn intention into action by building a plan that works for you, down below are an examples of methods you can use
+                                and implement into your training.
+                            </p>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="text-center p-3 bg-light rounded-3 border-start border-success border-3">
+                                        <i class="bi bi-trophy-fill text-success fs-4 mb-2"></i>
+                                        <h6 class="fw-bold text-dark mb-1">Want to build muscle?</h6>
+                                        <p class="text-muted small mb-0">Focus on progressive overload with 4-5 days per week</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="text-center p-3 bg-light rounded-3 border-start border-warning border-3">
+                                        <i class="bi bi-lightning-fill text-warning fs-4 mb-2"></i>
+                                        <h6 class="fw-bold text-dark mb-1">Trying to lose fat?</h6>
+                                        <p class="text-muted small mb-0">Combine strength training with cardio 4-6 times weekly</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="text-center p-3 bg-light rounded-3 border-start border-info border-3">
+                                        <i class="bi bi-clock-fill text-info fs-4 mb-2"></i>
+                                        <h6 class="fw-bold text-dark mb-1">Short on time?</h6>
+                                        <p class="text-muted small mb-0">Maximize results with efficient 3-day full-body routines</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Training Split Options -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">🎯 Choose Your Training Split</h5>
+                            <p class="text-muted mb-3">Here are three proven approaches that work for different schedules and experience levels:</p>
                             
-                            To truly reap the benefits of your training and unlock consistent gains, you need more than just knowledge of exercises
-                            — you need a routine. One that's structured, goal-driven, and fits your lifestyle. In this section, we'll show you how
-                            to turn intention into action by building a plan that works for you, down below are an examples of methods you can use
-                            and implement into your training.
-                        </p>
-                        <div class="row">
-                            <div class="col-md-4 mb-3">
-                                <div class="text-center p-3 bg-light rounded-3 border-start border-success border-3">
-                                    <i class="bi bi-trophy-fill text-success fs-4 mb-2"></i>
-                                    <h6 class="fw-bold text-dark mb-1">Want to build muscle?</h6>
-                                    <p class="text-muted small mb-0">Focus on progressive overload with 4-5 days per week</p>
+                            <div class="row">
+                                <div class="col-lg-4 mb-3">
+                                    <div class="card border-primary h-100">
+                                        <div class="card-header bg-primary text-white text-center">
+                                            <h6 class="mb-0">🔁 3-Day Full Body Split</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <p class="text-muted small mb-2"><strong>Best for:</strong> Beginners, busy schedules, or those returning to fitness</p>
+                                            <p class="text-muted small mb-2"><strong>Frequency:</strong> Train every other day with rest days between</p>
+                                            <p class="text-muted small mb-0"><strong>Benefits:</strong> Maximum recovery, time-efficient, builds foundation</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mb-3">
+                                    <div class="card border-success h-100">
+                                        <div class="card-header bg-success text-white text-center">
+                                            <h6 class="mb-0">💪 4-Day Upper/Lower Split</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <p class="text-muted small mb-2"><strong>Best for:</strong> Intermediate lifters with consistent schedule</p>
+                                            <p class="text-muted small mb-2"><strong>Frequency:</strong> 2 upper body, 2 lower body days per week</p>
+                                            <p class="text-muted small mb-0"><strong>Benefits:</strong> Balanced development, manageable volume</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mb-3">
+                                    <div class="card border-warning h-100">
+                                        <div class="card-header bg-warning text-white text-center">
+                                            <h6 class="mb-0">🔥 5-Day Push/Pull/Legs Split</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <p class="text-muted small mb-2"><strong>Best for:</strong> Experienced lifters focused on muscle growth</p>
+                                            <p class="text-muted small mb-2"><strong>Frequency:</strong> Each muscle group trained 1-2x per week</p>
+                                            <p class="text-muted small mb-0"><strong>Benefits:</strong> High volume, specialized focus, maximum gains</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 mb-3">
-                                <div class="text-center p-3 bg-light rounded-3 border-start border-warning border-3">
-                                    <i class="bi bi-lightning-fill text-warning fs-4 mb-2"></i>
-                                    <h6 class="fw-bold text-dark mb-1">Trying to lose fat?</h6>
-                                    <p class="text-muted small mb-0">Combine strength training with cardio 4-6 times weekly</p>
+                        </div>
+                        
+                        <!-- Sample Weekly Layouts -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">🗓️ Sample Weekly Layouts</h5>
+                            
+                            <!-- 3-Day Full Body Layout -->
+                            <div class="mb-4">
+                                <h6 class="fw-bold text-primary mb-2">🔁 3-Day Full Body Plan</h6>
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-bordered">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Monday</th>
+                                                <th>Tuesday</th>
+                                                <th>Wednesday</th>
+                                                <th>Thursday</th>
+                                                <th>Friday</th>
+                                                <th>Weekend</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Full Body</strong><br><small>Compound focus</small></td>
+                                                <td class="text-muted">Rest Day</td>
+                                                <td><strong>Full Body</strong><br><small>Hypertrophy</small></td>
+                                                <td class="text-muted">Rest Day</td>
+                                                <td><strong>Full Body</strong><br><small>Accessory & Core</small></td>
+                                                <td class="text-muted">Rest & Recovery</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                            <div class="col-md-4 mb-3">
-                                <div class="text-center p-3 bg-light rounded-3 border-start border-info border-3">
-                                    <i class="bi bi-clock-fill text-info fs-4 mb-2"></i>
-                                    <h6 class="fw-bold text-dark mb-1">Short on time?</h6>
-                                    <p class="text-muted small mb-0">Maximize results with efficient 3-day full-body routines</p>
+                            
+                            <!-- 4-Day Upper/Lower Layout -->
+                            <div class="mb-4">
+                                <h6 class="fw-bold text-success mb-2">💪 4-Day Upper/Lower Split</h6>
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-bordered">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Monday</th>
+                                                <th>Tuesday</th>
+                                                <th>Wednesday</th>
+                                                <th>Thursday</th>
+                                                <th>Friday</th>
+                                                <th>Weekend</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Upper Body</strong><br><small>Push + Pull</small></td>
+                                                <td><strong>Lower Body</strong><br><small>Quads + Hamstrings</small></td>
+                                                <td class="text-muted">Rest Day</td>
+                                                <td><strong>Upper Body</strong><br><small>Volume focus</small></td>
+                                                <td class="text-muted">Rest Day</td>
+                                                <td><strong>Lower Body</strong><br><small>Posterior Chain + Core</small></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
+                            
+                            <!-- 5-Day Push/Pull/Legs Layout -->
+                            <div class="mb-4">
+                                <h6 class="fw-bold text-warning mb-2">🔥 5-Day Push/Pull/Legs Plan</h6>
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-bordered">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Monday</th>
+                                                <th>Tuesday</th>
+                                                <th>Wednesday</th>
+                                                <th>Thursday</th>
+                                                <th>Friday</th>
+                                                <th>Weekend</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Push</strong><br><small>Chest, Shoulders, Triceps</small></td>
+                                                <td><strong>Pull</strong><br><small>Back, Biceps</small></td>
+                                                <td><strong>Legs</strong><br><small>Quads, Hamstrings, Glutes</small></td>
+                                                <td class="text-muted">Rest Day</td>
+                                                <td><strong>Push</strong><br><small>Volume day</small></td>
+                                                <td><strong>Pull</strong><br><small>+ Conditioning</small></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Progress Tracking Section -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">📊 Track Your Progress</h5>
+                            
+                            <!-- Explanatory paragraph -->
+                            <div class="mb-4">
+                                <p class="text-muted lh-base">
+                                    Progress tracking is the bridge between effort and results. Without it, you're training blind — unable to see patterns,
+                                    identify what works, or know when to push harder or pull back. The good news? You don't need complex apps or
+                                    spreadsheets. Simple, consistent tracking of your workouts, weights, and how you feel will give you the data you need to
+                                    make informed decisions about your training.
+                                </p>
+                                <p class="text-muted lh-base mb-0">
+                                    Think of tracking as your fitness feedback loop. Every workout becomes a data point that helps you understand your body's response to training. Here's how to make it work for you:
+                                </p>
+                            </div>
+                            
+                            <div class="bg-light rounded-3 p-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <h6 class="fw-bold text-dark mb-2">
+                                                <i class="bi bi-journal-text text-primary me-2"></i>Use the Built-in Notes System
+                                            </h6>
+                                            <p class="text-muted small mb-0">Document your workouts, track weights, and note how you felt after each session using the notes section below.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <h6 class="fw-bold text-dark mb-2">
+                                                <i class="bi bi-graph-up text-success me-2"></i>Track Weights & Reps
+                                            </h6>
+                                            <p class="text-muted small mb-0">Record your sets, reps, and weight for each exercise. Aim to gradually increase volume or intensity weekly.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <h6 class="fw-bold text-dark mb-2">
+                                                <i class="bi bi-arrow-up-circle text-warning me-2"></i>Progressive Overload
+                                            </h6>
+                                            <p class="text-muted small mb-0">Gradually increase weight, reps, or training volume every 1-2 weeks to ensure continued progress.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <h6 class="fw-bold text-dark mb-2">
+                                                <i class="bi bi-calendar-check text-info me-2"></i>Consistency Tracking
+                                            </h6>
+                                            <p class="text-muted small mb-0">Mark your completed workouts and aim for 80% adherence to your chosen plan for optimal results.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Encouraging Call to Action -->
+                        <div class="bg-gradient rounded-3 p-4 text-center border border-primary border-2" style="background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);">
+                            <i class="bi bi-lightbulb-fill text-primary fs-3 mb-3"></i>
+                            <h6 class="fw-bold text-dark mb-2">Ready to Build Your Routine?</h6>
+                            <p class="text-muted mb-3 lh-base">
+                                Whether you follow one of these plans or create your own, the key is <strong>consistency</strong>. Combine structure with self-discipline, and you'll be well on your way to meaningful progress. 
+                            </p>
+                            <p class="text-primary fw-bold mb-0">Let's build your routine and make it work for you! 💪</p>
                         </div>
                     </div>
-                    
-                    <!-- Training Split Options -->
-                    <div class="mb-4">
-                        <h5 class="fw-bold text-dark mb-3">🎯 Choose Your Training Split</h5>
-                        <p class="text-muted mb-3">Here are three proven approaches that work for different schedules and experience levels:</p>
-                        
-                        <div class="row">
-                            <div class="col-lg-4 mb-3">
-                                <div class="card border-primary h-100">
-                                    <div class="card-header bg-primary text-white text-center">
-                                        <h6 class="mb-0">🔁 3-Day Full Body Split</h6>
-                                    </div>
-                                    <div class="card-body p-3">
-                                        <p class="text-muted small mb-2"><strong>Best for:</strong> Beginners, busy schedules, or those returning to fitness</p>
-                                        <p class="text-muted small mb-2"><strong>Frequency:</strong> Train every other day with rest days between</p>
-                                        <p class="text-muted small mb-0"><strong>Benefits:</strong> Maximum recovery, time-efficient, builds foundation</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 mb-3">
-                                <div class="card border-success h-100">
-                                    <div class="card-header bg-success text-white text-center">
-                                        <h6 class="mb-0">💪 4-Day Upper/Lower Split</h6>
-                                    </div>
-                                    <div class="card-body p-3">
-                                        <p class="text-muted small mb-2"><strong>Best for:</strong> Intermediate lifters with consistent schedule</p>
-                                        <p class="text-muted small mb-2"><strong>Frequency:</strong> 2 upper body, 2 lower body days per week</p>
-                                        <p class="text-muted small mb-0"><strong>Benefits:</strong> Balanced development, manageable volume</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 mb-3">
-                                <div class="card border-warning h-100">
-                                    <div class="card-header bg-warning text-white text-center">
-                                        <h6 class="mb-0">🔥 5-Day Push/Pull/Legs Split</h6>
-                                    </div>
-                                    <div class="card-body p-3">
-                                        <p class="text-muted small mb-2"><strong>Best for:</strong> Experienced lifters focused on muscle growth</p>
-                                        <p class="text-muted small mb-2"><strong>Frequency:</strong> Each muscle group trained 1-2x per week</p>
-                                        <p class="text-muted small mb-0"><strong>Benefits:</strong> High volume, specialized focus, maximum gains</p>
-                                    </div>
-                                </div>
-                            </div>
+                </div>
+            </div>
+        </div>
+        <!-- Section 4: Summary (Collapsible) -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3 mb-4">
+                <div class="card-header bg-transparent border-0 p-3">
+                    <button class="btn btn-link text-decoration-none w-100 text-start p-0" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#section-summary" 
+                            aria-expanded="false">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="fw-bold text-dark mb-0">📝 Summary</h3>
+                            <i class="bi bi-chevron-down transition-transform"></i>
                         </div>
-                    </div>
-                    
-                    <!-- Sample Weekly Layouts -->
-                    <div class="mb-4">
-                        <h5 class="fw-bold text-dark mb-3">🗓️ Sample Weekly Layouts</h5>
-                        
-                        <!-- 3-Day Full Body Layout -->
+                    </button>
+                </div>
+                <div class="collapse" id="section-summary">
+                    <div class="card-body p-4 pt-0">
+                        <!-- Introductory paragraph -->
                         <div class="mb-4">
-                            <h6 class="fw-bold text-primary mb-2">🔁 3-Day Full Body Plan</h6>
-                            <div class="table-responsive">
-                                <table class="table table-sm table-bordered">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th>Monday</th>
-                                            <th>Tuesday</th>
-                                            <th>Wednesday</th>
-                                            <th>Thursday</th>
-                                            <th>Friday</th>
-                                            <th>Weekend</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><strong>Full Body</strong><br><small>Compound focus</small></td>
-                                            <td class="text-muted">Rest Day</td>
-                                            <td><strong>Full Body</strong><br><small>Hypertrophy</small></td>
-                                            <td class="text-muted">Rest Day</td>
-                                            <td><strong>Full Body</strong><br><small>Accessory & Core</small></td>
-                                            <td class="text-muted">Rest & Recovery</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        
-                        <!-- 4-Day Upper/Lower Layout -->
-                        <div class="mb-4">
-                            <h6 class="fw-bold text-success mb-2">💪 4-Day Upper/Lower Split</h6>
-                            <div class="table-responsive">
-                                <table class="table table-sm table-bordered">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th>Monday</th>
-                                            <th>Tuesday</th>
-                                            <th>Wednesday</th>
-                                            <th>Thursday</th>
-                                            <th>Friday</th>
-                                            <th>Weekend</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><strong>Upper Body</strong><br><small>Push + Pull</small></td>
-                                            <td><strong>Lower Body</strong><br><small>Quads + Hamstrings</small></td>
-                                            <td class="text-muted">Rest Day</td>
-                                            <td><strong>Upper Body</strong><br><small>Volume focus</small></td>
-                                            <td class="text-muted">Rest Day</td>
-                                            <td><strong>Lower Body</strong><br><small>Posterior Chain + Core</small></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        
-                        <!-- 5-Day Push/Pull/Legs Layout -->
-                        <div class="mb-4">
-                            <h6 class="fw-bold text-warning mb-2">🔥 5-Day Push/Pull/Legs Plan</h6>
-                            <div class="table-responsive">
-                                <table class="table table-sm table-bordered">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th>Monday</th>
-                                            <th>Tuesday</th>
-                                            <th>Wednesday</th>
-                                            <th>Thursday</th>
-                                            <th>Friday</th>
-                                            <th>Weekend</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><strong>Push</strong><br><small>Chest, Shoulders, Triceps</small></td>
-                                            <td><strong>Pull</strong><br><small>Back, Biceps</small></td>
-                                            <td><strong>Legs</strong><br><small>Quads, Hamstrings, Glutes</small></td>
-                                            <td class="text-muted">Rest Day</td>
-                                            <td><strong>Push</strong><br><small>Volume day</small></td>
-                                            <td><strong>Pull</strong><br><small>+ Conditioning</small></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Progress Tracking Section -->
-                    <div class="mb-4">
-                        <h5 class="fw-bold text-dark mb-3">📊 Track Your Progress</h5>
-                        
-                        <!-- Explanatory paragraph -->
-                        <div class="mb-4">
-                            <p class="text-muted lh-base">
-                                Progress tracking is the bridge between effort and results. Without it, you're training blind — unable to see patterns,
-                                identify what works, or know when to push harder or pull back. The good news? You don't need complex apps or
-                                spreadsheets. Simple, consistent tracking of your workouts, weights, and how you feel will give you the data you need to
-                                make informed decisions about your training.
+                            <p class="text-muted lh-base mb-3">
+                                Congratulations! You've just absorbed a comprehensive guide to effective training. From understanding the fundamental
+                                principles that drive progress, to exploring detailed muscle group breakdowns with expert video guidance, to discovering
+                                structured training plans that fit your lifestyle — you now have the complete toolkit for success.
                             </p>
                             <p class="text-muted lh-base mb-0">
-                                Think of tracking as your fitness feedback loop. Every workout becomes a data point that helps you understand your body's response to training. Here's how to make it work for you:
+                                Let's consolidate the most important insights from each section, so you can focus on what matters most as you begin
+                                implementing your training routine. These key takeaways will serve as your north star as you build lasting fitness
+                                habits.
                             </p>
                         </div>
                         
-                        <div class="bg-light rounded-3 p-4">
+                        <!-- Key Takeaways Recap -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">🔑 Key Takeaways</h5>
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <h6 class="fw-bold text-dark mb-2">
-                                            <i class="bi bi-journal-text text-primary me-2"></i>Use the Built-in Notes System
-                                        </h6>
-                                        <p class="text-muted small mb-0">Document your workouts, track weights, and note how you felt after each session using the notes section below.</p>
+                                <div class="col-md-4 mb-3">
+                                    <div class="bg-light rounded-3 p-3 border-start border-primary border-3">
+                                        <h6 class="fw-bold text-primary mb-2">📚 Foundation</h6>
+                                        <p class="text-muted small mb-0">Structure, consistency, and proper form are the pillars of effective training</p>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <h6 class="fw-bold text-dark mb-2">
-                                            <i class="bi bi-graph-up text-success me-2"></i>Track Weights & Reps
-                                        </h6>
-                                        <p class="text-muted small mb-0">Record your sets, reps, and weight for each exercise. Aim to gradually increase volume or intensity weekly.</p>
+                                <div class="col-md-4 mb-3">
+                                    <div class="bg-light rounded-3 p-3 border-start border-success border-3">
+                                        <h6 class="fw-bold text-success mb-2">💪 Knowledge</h6>
+                                        <p class="text-muted small mb-0">12 muscle groups, expert videos, and science-based training principles</p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <h6 class="fw-bold text-dark mb-2">
-                                            <i class="bi bi-arrow-up-circle text-warning me-2"></i>Progressive Overload
-                                        </h6>
-                                        <p class="text-muted small mb-0">Gradually increase weight, reps, or training volume every 1-2 weeks to ensure continued progress.</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <h6 class="fw-bold text-dark mb-2">
-                                            <i class="bi bi-calendar-check text-info me-2"></i>Consistency Tracking
-                                        </h6>
-                                        <p class="text-muted small mb-0">Mark your completed workouts and aim for 80% adherence to your chosen plan for optimal results.</p>
+                                <div class="col-md-4 mb-3">
+                                    <div class="bg-light rounded-3 p-3 border-start border-warning border-3">
+                                        <h6 class="fw-bold text-warning mb-2">📋 Structure</h6>
+                                        <p class="text-muted small mb-0">3, 4, or 5-day splits with progress tracking systems</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- Encouraging Call to Action -->
-                    <div class="bg-gradient rounded-3 p-4 text-center border border-primary border-2" style="background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);">
-                        <i class="bi bi-lightbulb-fill text-primary fs-3 mb-3"></i>
-                        <h6 class="fw-bold text-dark mb-2">Ready to Build Your Routine?</h6>
-                        <p class="text-muted mb-3 lh-base">
-                            Whether you follow one of these plans or create your own, the key is <strong>consistency</strong>. Combine structure with self-discipline, and you'll be well on your way to meaningful progress. 
-                        </p>
-                        <p class="text-primary fw-bold mb-0">Let's build your routine and make it work for you! 💪</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Section 4: Summary -->
-        <div class="dashboard-container">
-            <div class="action-card shadow-sm rounded-3 mb-4">
-                <div class="card-body p-4">
-                    <h3 class="fw-bold text-dark mb-3">📝 Summary</h3>
-                    
-                    <!-- Introductory paragraph -->
-                    <div class="mb-4">
-                        <p class="text-muted lh-base mb-3">
-                            Congratulations! You've just absorbed a comprehensive guide to effective training. From understanding the fundamental
-                            principles that drive progress, to exploring detailed muscle group breakdowns with expert video guidance, to discovering
-                            structured training plans that fit your lifestyle — you now have the complete toolkit for success.
-                        </p>
-                        <p class="text-muted lh-base mb-0">
-                            Let's consolidate the most important insights from each section, so you can focus on what matters most as you begin
-                            implementing your training routine. These key takeaways will serve as your north star as you build lasting fitness
-                            habits.
-                        </p>
-                    </div>
-                    
-                    <!-- Key Takeaways Recap -->
-                    <div class="mb-4">
-                        <h5 class="fw-bold text-dark mb-3">🔑 Key Takeaways</h5>
-                        <div class="row">
-                            <div class="col-md-4 mb-3">
-                                <div class="bg-light rounded-3 p-3 border-start border-primary border-3">
-                                    <h6 class="fw-bold text-primary mb-2">📚 Foundation</h6>
-                                    <p class="text-muted small mb-0">Structure, consistency, and proper form are the pillars of effective training</p>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <div class="bg-light rounded-3 p-3 border-start border-success border-3">
-                                    <h6 class="fw-bold text-success mb-2">💪 Knowledge</h6>
-                                    <p class="text-muted small mb-0">12 muscle groups, expert videos, and science-based training principles</p>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <div class="bg-light rounded-3 p-3 border-start border-warning border-3">
-                                    <h6 class="fw-bold text-warning mb-2">📋 Structure</h6>
-                                    <p class="text-muted small mb-0">3, 4, or 5-day splits with progress tracking systems</p>
+                        
+                        <!-- Your Next Steps -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">🚀 Your Next Steps</h5>
+                            <div class="bg-gradient rounded-3 p-4" style="background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="fw-bold text-dark mb-2">🎯 This Week</h6>
+                                        <ul class="text-muted small mb-3">
+                                            <li>Choose your training split (3, 4, or 5 days)</li>
+                                            <li>Watch the muscle group videos for understanding</li>
+                                            <li>Plan your first week's schedule</li>
+                                            <li>Create your first training note below</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="fw-bold text-dark mb-2">📈 This Month</h6>
+                                        <ul class="text-muted small mb-3">
+                                            <li>Track every workout with weights and reps</li>
+                                            <li>Focus on progressive overload</li>
+                                            <li>Review and adjust your plan weekly</li>
+                                            <li>Build the habit of consistent training</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- Your Next Steps -->
-                    <div class="mb-4">
-                        <h5 class="fw-bold text-dark mb-3">🚀 Your Next Steps</h5>
-                        <div class="bg-gradient rounded-3 p-4" style="background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h6 class="fw-bold text-dark mb-2">🎯 This Week</h6>
-                                    <ul class="text-muted small mb-3">
-                                        <li>Choose your training split (3, 4, or 5 days)</li>
-                                        <li>Watch the muscle group videos for understanding</li>
-                                        <li>Plan your first week's schedule</li>
-                                        <li>Create your first training note below</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6">
-                                    <h6 class="fw-bold text-dark mb-2">📈 This Month</h6>
-                                    <ul class="text-muted small mb-3">
-                                        <li>Track every workout with weights and reps</li>
-                                        <li>Focus on progressive overload</li>
-                                        <li>Review and adjust your plan weekly</li>
-                                        <li>Build the habit of consistent training</li>
-                                    </ul>
+                        
+                        <!-- Success Mindset -->
+                        <div class="mb-4">
+                            <div class="bg-light rounded-3 p-4 border border-success border-2">
+                                <div class="d-flex align-items-start">
+                                    <i class="bi bi-lightbulb-fill text-success fs-4 me-3 mt-1"></i>
+                                    <div>
+                                        <h6 class="fw-bold text-dark mb-2">Remember: Progress Over Perfection</h6>
+                                        <p class="text-muted mb-2 lh-base">
+                                            You don't need to be perfect from day one. The goal is to start, stay consistent, and gradually improve. Every workout is a step forward, every tracked session is valuable data, and every week of consistency builds momentum.
+                                        </p>
+                                        <p class="text-muted mb-0 lh-base">
+                                            <strong class="text-dark">The best training plan is the one you'll actually follow.</strong> Choose what fits your lifestyle, start where you are, and adjust as you grow stronger.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- Success Mindset -->
-                    <div class="mb-4">
-                        <div class="bg-light rounded-3 p-4 border border-success border-2">
-                            <div class="d-flex align-items-start">
-                                <i class="bi bi-lightbulb-fill text-success fs-4 me-3 mt-1"></i>
-                                <div>
-                                    <h6 class="fw-bold text-dark mb-2">Remember: Progress Over Perfection</h6>
-                                    <p class="text-muted mb-2 lh-base">
-                                        You don't need to be perfect from day one. The goal is to start, stay consistent, and gradually improve. Every workout is a step forward, every tracked session is valuable data, and every week of consistency builds momentum.
-                                    </p>
-                                    <p class="text-muted mb-0 lh-base">
-                                        <strong class="text-dark">The best training plan is the one you'll actually follow.</strong> Choose what fits your lifestyle, start where you are, and adjust as you grow stronger.
-                                    </p>
-                                </div>
+                        
+                        <!-- Bridge to Notes Section -->
+                        <div class="text-center">
+                            <div class="bg-primary rounded-3 p-4 text-white">
+                                <i class="bi bi-journal-plus fs-3 mb-3"></i>
+                                <h6 class="fw-bold mb-2">Ready to Start Tracking?</h6>
+                                <p class="mb-3 opacity-75">
+                                    We have a dedicated notes section to help you practice tracking your workouts, weights, and how you feel after each session.
+                                    Try this out now to get familiar with the process and concepts you'll be using!
+                                </p>
+                                <p class="fw-bold mb-0">⬇️ Your fitness journey always starts with your first note ⬇️</p>
                             </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Bridge to Notes Section -->
-                    <div class="text-center">
-                        <div class="bg-primary rounded-3 p-4 text-white">
-                            <i class="bi bi-journal-plus fs-3 mb-3"></i>
-                            <h6 class="fw-bold mb-2">Ready to Start Tracking?</h6>
-                            <p class="mb-3 opacity-75">
-                                We have a dedicated notes section to help you practice tracking your workouts, weights, and how you feel after each session.
-                                Try this out now to get familiar with the process and concepts you'll be using!
-                            </p>
-                            <p class="fw-bold mb-0">⬇️ Your fitness journey always starts with your first note ⬇️</p>
                         </div>
                     </div>
                 </div>
@@ -703,7 +780,7 @@
             user training notes.
             ================================================================= -->
 
-        <!-- Training Notes Section -->
+        <!-- Training Notes Section (Always Visible) -->
         <div class="dashboard-container">
             <div class="action-card shadow-sm rounded-3 border-top border-primary border-2">
                 <div class="card-header bg-transparent border-0 p-4 pb-2">
@@ -789,7 +866,7 @@
                                                 {% if note.what_went_well %}
                                             <div class="col-md-4 mb-2">
                                                 <small class="text-muted d-block">What Went Well</small>
-                                                <p class="text-success small mb-0">{{ note.what_went_well|truncatewords:8 }}</p>
+                                                <p class="text-success small mb-1">{{ note.what_went_well|truncatewords:8 }}</p>
                                             </div>
                                         {% endif %}
                                         {% if note.what_to_improve %}
@@ -827,4 +904,37 @@
         </div>
     </div>
 </div>
+
+<!-- Custom JavaScript for collapsible sections -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle chevron rotation for collapsible sections
+    const collapseButtons = document.querySelectorAll('[data-bs-toggle="collapse"]');
+    
+    collapseButtons.forEach(button => {
+        const target = button.getAttribute('data-bs-target');
+        const chevron = button.querySelector('.bi-chevron-down');
+        
+        if (target && chevron) {
+            const collapseElement = document.querySelector(target);
+            
+            if (collapseElement) {
+                // Set initial state
+                if (collapseElement.classList.contains('show')) {
+                    chevron.style.transform = 'rotate(180deg)';
+                }
+                
+                // Handle collapse events
+                collapseElement.addEventListener('show.bs.collapse', function() {
+                    chevron.style.transform = 'rotate(180deg)';
+                });
+                
+                collapseElement.addEventListener('hide.bs.collapse', function() {
+                    chevron.style.transform = 'rotate(0deg)';
+                });
+            }
+        }
+    });
+});
+</script>
 {% endblock %}
