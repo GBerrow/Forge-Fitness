@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.views.generic import View, DetailView, UpdateView, DeleteView
 from django.contrib import messages
-from .forms import SignupForm, LoginForm, PracticeNoteForm, UserProfileForm, UserSettingsForm, AccountDeleteForm
+from .forms import SignupForm, LoginForm, PracticeNoteForm, TrainingNoteForm, UserProfileForm, UserSettingsForm, AccountDeleteForm
 from .models import UserProfile, PracticeNote, UserSettings
 
 class SignupView(View):
@@ -31,8 +31,11 @@ def create_note(request, page):
     if page not in ['training', 'activity', 'progression']:
         return redirect('dashboard')
     
+    # Use specialized form for training page
+    FormClass = TrainingNoteForm if page == 'training' else PracticeNoteForm
+    
     if request.method == 'POST':
-        form = PracticeNoteForm(request.POST, page=page)
+        form = FormClass(request.POST, page=page)
         if form.is_valid():
             note = form.save(commit=False)
             note.user = request.user
@@ -41,7 +44,7 @@ def create_note(request, page):
             messages.success(request, 'Note added successfully!')
             return redirect(page)
     else:
-        form = PracticeNoteForm(page=page)
+        form = FormClass(page=page)
     
     return render(request, 'create_note.html', {
         'form': form,
@@ -54,14 +57,17 @@ def edit_note(request, note_id):
     """Edit an existing practice note"""
     note = get_object_or_404(PracticeNote, id=note_id, user=request.user)
     
+    # Use specialized form for training page
+    FormClass = TrainingNoteForm if note.page == 'training' else PracticeNoteForm
+    
     if request.method == 'POST':
-        form = PracticeNoteForm(request.POST, instance=note, page=note.page)
+        form = FormClass(request.POST, instance=note, page=note.page)
         if form.is_valid():
             form.save()
             messages.success(request, 'Note updated successfully!')
             return redirect(note.page)
     else:
-        form = PracticeNoteForm(instance=note, page=note.page)
+        form = FormClass(instance=note, page=note.page)
     
     return render(request, 'edit_note.html', {
         'form': form,
