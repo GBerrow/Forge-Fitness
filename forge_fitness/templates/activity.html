@@ -1,52 +1,2087 @@
+<!-- ===================================================================
+    FORGE FITNESS - ACTIVITY PAGE (ENHANCED WITH HOLISTIC LIFESTYLE APPROACH)
+    ===================================================================
+     
+    Updated template with comprehensive 24-hour lifestyle focus including
+    nutrition, sleep, stress, and daily habits that impact health.
+    
+    STRUCTURE:
+    1. Template Inheritance & Title Override
+    2. Activity Welcome Section (Updated with 24-hour perspective)
+    3. Quick Navigation (Updated with nutrition/lifestyle)
+    4. Five Main Content Sections (Added 24-Hour Lifestyle)
+    5. Activity Notes CRUD Section
+    ================================================================= -->
+
+<!-- ===================================================================
+    1. TEMPLATE INHERITANCE & TITLE OVERRIDE
+    ===================================================================
+     
+    Extends base.html and provides page-specific title for SEO
+    and browser tab display.
+    ================================================================= -->
+
 {% extends 'base.html' %}
 
 {% block title %}Activity - Forge Fitness{% endblock %}
+
 {% block page_title %}Activity{% endblock %}
 
+<!-- ===================================================================
+    2. MAIN CONTENT BLOCK
+    ===================================================================
+     
+    Uses dashboard container for consistent spacing and responsive
+    layout that matches the dashboard aesthetic.
+    ================================================================= -->
+
 {% block content %}
-<section class="activity-section">
-    <h2>Introduction</h2>
-    <p>Overview of tracking system and daily habits.</p>
+<div class="row justify-content-center">
+    <div class="col-12">
+     
+ <!-- ===================================================================
+            3. ACTIVITY WELCOME SECTION (UPDATED WITH 24-HOUR PERSPECTIVE)
+            ===================================================================
+             
+            Hero-style welcome section emphasizing the holistic approach
+            to health and the importance of the full 24-hour lifestyle.
+            ================================================================= -->
 
-    <h2>Daily Activity</h2>
-    <p>Summary of movements and steps tracked.</p>
-
-    <h2>Workout Tracking</h2>
-    <p>Log, review, and analyze completed workouts.</p>
-
-    <h2>Achievements</h2>
-    <p>Milestones and accomplishments.</p>
-</section>
- <!-- Practice Notes Section -->
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5>🏃 Your Activity Notes</h5>
-                    <a href="{% url 'create_note' 'activity' %}" class="btn btn-sm btn-primary">Add Note</a>
+        <div class="dashboard-container">
+            <div class="welcome-card shadow-lg rounded-3 mb-4">
+                <div class="card-body text-center py-3">
+                    <h2 class="fs-3 fw-bold text-black mb-2">🏃 24-Hour Lifestyle Tracking</h2>
+                    <p class="text-black mb-0">Your gym time is just 4.2% of your day — master the other 95.8% for real transformation</p>
                 </div>
-                <div class="card-body">
-                    {% for note in user.practicenote_set.all %}
-                        {% if note.page == 'activity' %}
-                            <div class="card mb-2">
-                                <div class="card-body p-2">
-                                    <h6>{{ note.title }}</h6>
-                                    <p class="text-muted small">{{ note.content|truncatewords:15 }}</p>
-                                    <div class="d-flex justify-content-between">
-                                        <small class="text-muted">{{ note.created_at|date:"M d" }}</small>
-                                        <div>
-                                            <a href="{% url 'edit_note' note.id %}" class="btn btn-sm btn-outline-primary">Edit</a>
-                                            <a href="{% url 'delete_note' note.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
+            </div>
+        </div>
+
+        <!-- Quick Navigation (Updated) -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3 mb-4">
+                <div class="card-body p-3">
+                    <div class="row text-center">
+                        <div class="col-6 col-md-2 mb-2">
+                            <button class="btn btn-outline-primary btn-sm w-100" data-bs-toggle="collapse" data-bs-target="#section-introduction">
+                                <i class="bi bi-book me-1"></i>Introduction
+                            </button>
+                        </div>
+                        <div class="col-6 col-md-2 mb-2">
+                            <button class="btn btn-outline-success btn-sm w-100" data-bs-toggle="collapse" data-bs-target="#section-daily">
+                                <i class="bi bi-calendar-day me-1"></i>Daily Activity
+                            </button>
+                        </div>
+                        <div class="col-6 col-md-2 mb-2">
+                            <button class="btn btn-outline-warning btn-sm w-100" data-bs-toggle="collapse" data-bs-target="#section-nutrition">
+                                <i class="bi bi-apple me-1"></i>Nutrition
+                            </button>
+                        </div>
+                        <div class="col-6 col-md-2 mb-2">
+                            <button class="btn btn-outline-info btn-sm w-100" data-bs-toggle="collapse" data-bs-target="#section-lifestyle">
+                                <i class="bi bi-clock me-1"></i>24-Hour View
+                            </button>
+                        </div>
+                        <div class="col-6 col-md-2 mb-2">
+                            <button class="btn btn-outline-secondary btn-sm w-100" data-bs-toggle="collapse" data-bs-target="#section-tracking">
+                                <i class="bi bi-graph-up me-1"></i>Tracking
+                            </button>
+                        </div>
+                        <div class="col-6 col-md-2 mb-2">
+                            <button class="btn btn-outline-dark btn-sm w-100" data-bs-toggle="collapse" data-bs-target="#section-habits">
+                                <i class="bi bi-trophy me-1"></i>Habits
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+            4. FIVE MAIN CONTENT SECTIONS (UPDATED WITH NUTRITION & 24-HOUR VIEW)
+            ===================================================================
+             
+            Enhanced sections with holistic lifestyle approach including
+            nutrition, sleep, stress, and the 24-hour perspective.
+            ================================================================= -->
+
+        <!-- Section 1: Introduction (Updated with 24-hour perspective) -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3 mb-4">
+                <div class="card-header bg-transparent border-0 p-3">
+                    <button class="btn btn-link text-decoration-none w-100 text-start p-0" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#section-introduction" 
+                            aria-expanded="true">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="fw-bold text-dark mb-0">📚 The 24-Hour Reality</h3>
+                            <i class="bi bi-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                </div>
+                <div class="collapse show" id="section-introduction">
+                    <div class="card-body p-4 pt-0">
+                        <div class="bg-gradient rounded-3 p-4 mb-4 border border-warning border-2" style="background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);">
+                            <div class="text-center">
+                                <i class="bi bi-exclamation-triangle-fill text-warning fs-3 mb-3"></i>
+                                <h5 class="fw-bold text-dark mb-2">The Hard Truth About Fitness</h5>
+                                <p class="text-dark mb-3 lh-base">
+                                    <strong>Even if you spend 1 hour in the gym daily, that's only 4.2% of your day.</strong>
+                                    The other 95.8% of your time — what you eat, how you sleep, your stress levels, daily movement, and lifestyle choices — has a far greater impact on your health and body composition.
+                                </p>
+                                <p class="text-dark mb-0 fw-bold">You cannot out-train a bad diet or poor lifestyle habits.</p>
+                            </div>
+                        </div>
+                        
+                        <p class="text-muted lh-base mb-3">
+                            Real transformation happens when you understand that fitness isn't just about your workout — it's about optimizing your
+                            entire 24-hour cycle. This means paying attention to your nutrition, sleep quality, stress management, daily movement
+                            patterns, hydration, and recovery habits.
+                        </p>
+                        
+                        <p class="text-muted lh-base mb-3">
+                            This section will help you develop a holistic approach to health that goes far beyond exercise. You'll learn how to
+                            track and optimize the lifestyle factors that truly drive results: your eating patterns, sleep habits, stress levels,
+                            and the countless small decisions you make throughout each day.
+                        </p>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="bg-light rounded-3 p-3 border-start border-danger border-3 mb-3">
+                                    <h6 class="fw-bold text-danger mb-2">
+                                        <i class="bi bi-x-circle me-2"></i>The 4.2% Trap
+                                    </h6>
+                                    <ul class="text-muted small mb-0">
+                                        <li>Focusing only on gym performance</li>
+                                        <li>Ignoring nutrition and eating habits</li>
+                                        <li>Poor sleep and recovery practices</li>
+                                        <li>High stress and sedentary lifestyle</li>
+                                        <li>Expecting exercise alone to transform your body</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="bg-light rounded-3 p-3 border-start border-success border-3 mb-3">
+                                    <h6 class="fw-bold text-success mb-2">
+                                        <i class="bi bi-check-circle me-2"></i>The 95.8% Solution
+                                    </h6>
+                                    <ul class="text-muted small mb-0">
+                                        <li>Prioritizing nutrition and calorie balance</li>
+                                        <li>Optimizing sleep for recovery and hormones</li>
+                                        <li>Managing stress and mental health</li>
+                                        <li>Maximizing daily movement and NEAT</li>
+                                        <li>Building sustainable lifestyle habits</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Daily Activity (Existing content) -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3 mb-4">
+                <div class="card-header bg-transparent border-0 p-3">
+                    <button class="btn btn-link text-decoration-none w-100 text-start p-0" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#section-daily" 
+                            aria-expanded="false">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="fw-bold text-dark mb-0">📅 Daily Activity & Movement</h3>
+                            <i class="bi bi-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                </div>
+                <div class="collapse" id="section-daily">
+                    <div class="card-body p-4 pt-0">
+                        <p class="text-muted lh-base mb-3">
+                            Your daily activity extends far beyond formal exercise. Non-Exercise Activity Thermogenesis (NEAT) — the calories you
+                            burn through daily movement like walking, fidgeting, and maintaining posture — can account for 15-30% of your total
+                            daily energy expenditure. This often exceeds what you burn during structured workouts.
+                        </p>
+                        
+                        <div class="bg-light rounded-3 p-4 mb-4 border border-info border-2">
+                            <h6 class="fw-bold text-dark mb-2">
+                                <i class="bi bi-info-circle-fill text-info me-2"></i>NEAT vs. Exercise: The Numbers
+                            </h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="text-muted small mb-1"><strong>1-hour gym session:</strong> 300-600 calories</p>
+                                    <p class="text-muted small mb-1"><strong>Daily NEAT (active person):</strong> 400-800 calories</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="text-muted small mb-1"><strong>10,000 steps:</strong> 300-500 calories</p>
+                                    <p class="text-muted small mb-0"><strong>Sedentary vs. active lifestyle:</strong> 500+ calorie difference daily</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Activity Categories (keeping existing content but enhanced) -->
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="bg-light rounded-3 p-3 border-start border-success border-3 mb-3">
+                                    <h6 class="fw-bold text-success mb-2">
+                                        <i class="bi bi-sunrise me-2"></i>Morning Movement
+                                    </h6>
+                                    <p class="text-muted small mb-2">Kickstart metabolism and set a positive tone</p>
+                                    <ul class="text-muted small mb-0">
+                                        <li>5-10 minute morning walk (boosts NEAT)</li>
+                                        <li>Light stretching or yoga</li>
+                                        <li>Dynamic warm-up exercises</li>
+                                        <li>Morning sunlight exposure (circadian rhythm)</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-light rounded-3 p-3 border-start border-warning border-3 mb-3">
+                                    <h6 class="fw-bold text-warning mb-2">
+                                        <i class="bi bi-briefcase me-2"></i>Workday NEAT
+                                    </h6>
+                                    <p class="text-muted small mb-2">Combat sedentary work with micro-movements</p>
+                                    <ul class="text-muted small mb-0">
+                                        <li>Hourly 2-minute movement breaks</li>
+                                        <li>Standing desk or stability ball</li>
+                                        <li>Walking meetings and phone calls</li>
+                                        <li>Take stairs, park further away</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="bg-light rounded-3 p-3 border-start border-primary border-3 mb-3">
+                                    <h6 class="fw-bold text-primary mb-2">
+                                        <i class="bi bi-dumbbell me-2"></i>Structured Exercise
+                                    </h6>
+                                    <p class="text-muted small mb-2">Your focused 4.2% — make it count</p>
+                                    <ul class="text-muted small mb-0">
+                                        <li>Strength training (3-5x per week)</li>
+                                        <li>Cardio for heart health</li>
+                                        <li>Flexibility and mobility work</li>
+                                        <li>Sports and recreational activities</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-light rounded-3 p-3 border-start border-info border-3 mb-3">
+                                    <h6 class="fw-bold text-info mb-2">
+                                        <i class="bi bi-moon me-2"></i>Evening Activity
+                                    </h6>
+                                    <p class="text-muted small mb-2">Wind down while staying active</p>
+                                                                        <ul class="text-muted small mb-0">
+                                        <li>Post-dinner walk (aids digestion)</li>
+                                        <li>Gentle yoga or stretching</li>
+                                        <li>Household chores and cleaning</li>
+                                        <li>Playing with kids or pets</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Daily Activity Goals -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">🎯 Daily Activity Targets</h5>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="text-center p-3 bg-light rounded-3 border-start border-success border-3">
+                                        <i class="bi bi-footprints text-success fs-4 mb-2"></i>
+                                        <h6 class="fw-bold text-dark mb-1">8,000-12,000 Steps</h6>
+                                        <p class="text-muted small mb-0">Daily step goal for optimal NEAT</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="text-center p-3 bg-light rounded-3 border-start border-warning border-3">
+                                        <i class="bi bi-clock text-warning fs-4 mb-2"></i>
+                                        <h6 class="fw-bold text-dark mb-1">150+ Active Minutes</h6>
+                                        <p class="text-muted small mb-0">Weekly moderate-intensity activity</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="text-center p-3 bg-light rounded-3 border-start border-info border-3">
+                                        <i class="bi bi-arrow-up-circle text-info fs-4 mb-2"></i>
+                                        <h6 class="fw-bold text-dark mb-1">Hourly Movement</h6>
+                                        <p class="text-muted small mb-0">Break up sedentary time every hour</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Closing reminder -->
+                        <div class="bg-gradient rounded-3 p-4 border border-success border-2" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-lightbulb-fill text-success fs-4 me-3 mt-1"></i>
+                                <div>
+                                    <h6 class="fw-bold text-dark mb-2">Remember: Every Movement Counts</h6>
+                                    <p class="text-muted mb-0 lh-base">
+                                        Your body doesn't distinguish between "exercise" and "activity" — it just responds to movement. A 5-minute walk,
+                                        taking the stairs, or doing household chores all contribute to your daily energy expenditure and metabolic health.
+                                        <strong class="text-success">Some movement is always better than none.</strong>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Nutrition & Calorie Balance (NEW SECTION) -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3 mb-4">
+                <div class="card-header bg-transparent border-0 p-3">
+                    <button class="btn btn-link text-decoration-none w-100 text-start p-0" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#section-nutrition" 
+                            aria-expanded="false">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="fw-bold text-dark mb-0">🍎 Nutrition: The Foundation</h3>
+                            <i class="bi bi-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                </div>
+                <div class="collapse" id="section-nutrition">
+                    <div class="card-body p-4 pt-0">
+                        <!-- Core Truth About Nutrition -->
+                        <div class="bg-gradient rounded-3 p-4 mb-4 border border-danger border-2" style="background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);">
+                            <div class="text-center">
+                                <i class="bi bi-exclamation-diamond-fill text-danger fs-3 mb-3"></i>
+                                <h5 class="fw-bold text-dark mb-2">You Cannot Out-Train a Bad Diet</h5>
+                                <p class="text-dark mb-3 lh-base">
+                                    <strong>A single fast-food meal can contain 1,200+ calories — that's 2+ hours of intense exercise to burn off.</strong>
+                                    Meanwhile, simply not eating that meal requires zero time and zero effort. This is why nutrition is the foundation
+                                    of any successful fitness journey.
+                                </p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="text-dark small mb-1"><strong>Big Mac Meal:</strong> ~1,100 calories</p>
+                                        <p class="text-dark small mb-0"><strong>To burn it off:</strong> 2 hours of running</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="text-dark small mb-1"><strong>Large Pizza:</strong> ~2,400 calories</p>
+                                        <p class="text-dark small mb-0"><strong>To burn it off:</strong> 4+ hours of cycling</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-muted lh-base mb-4">
+                            Nutrition accounts for roughly 70-80% of your body composition results. Whether your goal is fat loss, muscle gain, or
+                            improved performance, what you eat and how much you eat will determine your success far more than your exercise routine.
+                            Understanding and tracking your nutrition is non-negotiable for real transformation.
+                        </p>
+                        
+                        <!-- Calorie Balance Fundamentals -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">⚖️ Calorie Balance: The Ultimate Truth</h5>
+                            
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="card border-danger h-100">
+                                        <div class="card-header bg-danger text-white text-center">
+                                            <h6 class="mb-0">📉 Fat Loss</h6>
+                                        </div>
+                                        <div class="card-body p-3 text-center">
+                                            <p class="text-muted small mb-2"><strong>Calorie Deficit Required</strong></p>
+                                            <p class="text-muted small mb-2">Eat fewer calories than you burn</p>
+                                            <div class="bg-light rounded-2 p-2">
+                                                <small class="text-dark fw-bold">Calories In < Calories Out</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card border-success h-100">
+                                        <div class="card-header bg-success text-white text-center">
+                                            <h6 class="mb-0">📈 Muscle Gain</h6>
+                                        </div>
+                                        <div class="card-body p-3 text-center">
+                                            <p class="text-muted small mb-2"><strong>Calorie Surplus Required</strong></p>
+                                            <p class="text-muted small mb-2">Eat more calories than you burn</p>
+                                            <div class="bg-light rounded-2 p-2">
+                                                <small class="text-dark fw-bold">Calories In > Calories Out</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card border-warning h-100">
+                                        <div class="card-header bg-warning text-white text-center">
+                                            <h6 class="mb-0">⚖️ Maintenance</h6>
+                                        </div>
+                                        <div class="card-body p-3 text-center">
+                                            <p class="text-muted small mb-2"><strong>Calorie Balance Required</strong></p>
+                                            <p class="text-muted small mb-2">Match calories in with calories out</p>
+                                            <div class="bg-light rounded-2 p-2">
+                                                <small class="text-dark fw-bold">Calories In = Calories Out</small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        {% endif %}
+                        </div>
+                        
+                        <!-- Nutrition Tracking Methods -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">📱 Nutrition Tracking Methods</h5>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card border-primary h-100">
+                                        <div class="card-header bg-primary text-white text-center">
+                                            <h6 class="mb-0">📊 Detailed Tracking</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <div class="mb-3">
+                                                <h6 class="fw-bold text-dark mb-2">Calorie Counting Apps</h6>
+                                                <ul class="text-muted small mb-0">
+                                                    <li><strong>MyFitnessPal:</strong> Largest food database</li>
+                                                    <li><strong>Cronometer:</strong> Most accurate micronutrients</li>
+                                                    <li><strong>Lose It!:</strong> User-friendly interface</li>
+                                                    <li><strong>FatSecret:</strong> Free with good features</li>
+                                                </ul>
+                                            </div>
+                                            <div class="mb-3">
+                                                <h6 class="fw-bold text-dark mb-2">What to Track</h6>
+                                                <ul class="text-muted small mb-0">
+                                                    <li>Total daily calories</li>
+                                                    <li>Protein, carbs, fat (macros)</li>
+                                                    <li>Fiber and micronutrients</li>
+                                                    <li>Meal timing and frequency</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card border-success h-100">
+                                        <div class="card-header bg-success text-white text-center">
+                                            <h6 class="mb-0">✋ Intuitive Methods</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <div class="mb-3">
+                                                <h6 class="fw-bold text-dark mb-2">Portion Control</h6>
+                                                <ul class="text-muted small mb-0">
+                                                    <li><strong>Protein:</strong> Palm-sized portion</li>
+                                                    <li><strong>Carbs:</strong> Cupped-hand portion</li>
+                                                    <li><strong>Fats:</strong> Thumb-sized portion</li>
+                                                    <li><strong>Vegetables:</strong> Fist-sized portion</li>
+                                                </ul>
+                                            </div>
+                                            <div class="mb-3">
+                                                <h6 class="fw-bold text-dark mb-2">Mindful Eating</h6>
+                                                <ul class="text-muted small mb-0">
+                                                    <li>Eat slowly and chew thoroughly</li>
+                                                    <li>Stop when 80% full</li>
+                                                    <li>Minimize distractions while eating</li>
+                                                    <li>Listen to hunger and satiety cues</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Nutrition Fundamentals -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">🥗 Nutrition Fundamentals</h5>
+                            
+                            <div class="bg-light rounded-3 p-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <h6 class="fw-bold text-dark mb-2">
+                                                <i class="bi bi-droplet text-primary me-2"></i>Hydration
+                                            </h6>
+                                            <ul class="text-muted small mb-0">
+                                                <li>Half your body weight in ounces daily</li>
+                                                <li>More if you exercise or live in hot climate</li>
+                                                <li>Monitor urine color (pale yellow = good)</li>
+                                                <li>Drink water before meals to aid satiety</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <h6 class="fw-bold text-dark mb-2">
+                                                <i class="bi bi-egg text-warning me-2"></i>Protein Priority
+                                            </h6>
+                                            <ul class="text-muted small mb-0">
+                                                <li>0.8-1.2g per pound of body weight</li>
+                                                <li>Higher protein = better satiety</li>
+                                                <li>Essential for muscle maintenance</li>
+                                                <li>Include protein at every meal</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <h6 class="fw-bold text-dark mb-2">
+                                                <i class="bi bi-clock-history text-success me-2"></i>Meal Timing
+                                            </h6>
+                                            <ul class="text-muted small mb-0">
+                                                <li>Eat when it fits your schedule</li>
+                                                <li>Consistency helps with hunger cues</li>
+                                                <li>Pre/post workout nutrition for performance</li>
+                                                <li>Don't eat late if it affects sleep</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <h6 class="fw-bold text-dark mb-2">
+                                                <i class="bi bi-apple text-danger me-2"></i>Food Quality
+                                            </h6>
+                                            <ul class="text-muted small mb-0">
+                                                <li>80/20 rule: 80% whole foods, 20% flexible</li>
+                                                <li>Prioritize nutrient-dense options</li>
+                                                <li>Include variety for micronutrients</li>
+                                                <li>Don't demonize any single food</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Common Nutrition Mistakes -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">⚠️ Common Nutrition Mistakes</h5>
+                            
+                            <div class="accordion" id="nutritionMistakes">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mistake1">
+                                            <strong>🍔 "I'll just work out harder to burn it off"</strong>
+                                        </button>
+                                    </h2>
+                                    <div id="mistake1" class="accordion-collapse collapse" data-bs-parent="#nutritionMistakes">
+                                        <div class="accordion-body">
+                                            <p class="text-muted small mb-2">This mindset leads to a destructive cycle of overeating and over-exercising.</p>
+                                            <p class="text-muted small mb-0"><strong>Better approach:</strong> Focus on consistent, moderate portions and sustainable exercise habits. It's much easier to not eat 500 calories than to burn 500 calories.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mistake2">
+                                            <strong>🥤 Drinking your calories</strong>
+                                        </button>
+                                    </h2>
+                                    <div id="mistake2" class="accordion-collapse collapse" data-bs-parent="#nutritionMistakes">
+                                        <div class="accordion-body">
+                                            <p class="text-muted small mb-2">Liquid calories don't provide the same satiety as solid food, leading to overconsumption.</p>
+                                            <p class="text-muted small mb-0"><strong>Watch out for:</strong> Sodas, juices, fancy coffee drinks, alcohol, protein shakes as meal replacements, and smoothies with excessive calories.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mistake3">
+                                            <strong>🍽️ Underestimating portion sizes</strong>
+                                        </button>
+                                    </h2>
+                                    <div id="mistake3" class="accordion-collapse collapse" data-bs-parent="#nutritionMistakes">
+                                        <div class="accordion-body">
+                                            <p class="text-muted small mb-2">Studies show people underestimate their calorie intake by 20-40% on average.</p>
+                                            <p class="text-muted small mb-0"><strong>Solution:</strong> Use a food scale for 2-4 weeks to calibrate your portion awareness. Track everything, including cooking oils, condiments, and "small" snacks.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Nutrition Action Steps -->
+                        <div class="bg-gradient rounded-3 p-4 border border-primary border-2" style="background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);">
+                            <div class="text-center">
+                                <i class="bi bi-clipboard-check text-primary fs-3 mb-3"></i>
+                                <h6 class="fw-bold text-dark mb-2">Start Your Nutrition Journey</h6>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="text-muted small mb-1"><strong>Week 1:</strong> Track everything you eat for awareness</p>
+                                        <p class="text-muted small mb-1"><strong>Week 2:</strong> Focus on hitting protein targets</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="text-muted small mb-1"><strong>Week 3:</strong> Add more vegetables and fiber</p>
+                                        <p class="text-muted small mb-0"><strong>Week 4:</strong> Fine-tune portions for your goals</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: 24-Hour Lifestyle View (NEW SECTION) -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3 mb-4">
+                <div class="card-header bg-transparent border-0 p-3">
+                    <button class="btn btn-link text-decoration-none w-100 text-start p-0" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#section-lifestyle" 
+                            aria-expanded="false">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="fw-bold text-dark mb-0">🕐 Your 24-Hour Health Profile</h3>
+                            <i class="bi bi-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                </div>
+                <div class="collapse" id="section-lifestyle">
+                    <div class="card-body p-4 pt-0">
+                        <p class="text-muted lh-base mb-4">
+                            Your health is determined by what happens across all 24 hours of your day, not just the 1 hour you might spend
+                            exercising. Sleep quality, stress levels, hydration, alcohol consumption, smoking, and countless small lifestyle
+                            choices compound to create your overall health profile. Let's break down the key factors that influence your
+                            well-being throughout the entire day.
+                        </p>
+                        
+                        <!-- 24-Hour Breakdown -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">⏰ The 24-Hour Breakdown</h5>
+                            
+                            <div class="bg-light rounded-3 p-4 mb-4">
+                                <div class="row text-center">
+                                    <div class="col-md-3 mb-3">
+                                        <div class="bg-white rounded-3 p-3 border">
+                                            <i class="bi bi-moon-stars text-primary fs-3 mb-2"></i>
+                                            <h6 class="fw-bold text-dark mb-1">7-9 Hours</h6>
+                                            <p class="text-muted small mb-0">Sleep & Recovery</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <div class="bg-white rounded-3 p-3 border">
+                                            <i class="bi bi-briefcase text-warning fs-3 mb-2"></i>
+                                            <h6 class="fw-bold text-dark mb-1">8-10 Hours</h6>
+                                            <p class="text-muted small mb-0">Work & Sedentary Time</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <div class="bg-white rounded-3 p-3 border">
+                                            <i class="bi bi-dumbbell text-success fs-3 mb-2"></i>
+                                            <h6 class="fw-bold text-dark mb-1">1 Hour</h6>
+                                            <p class="text-muted small mb-0">Structured Exercise</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <div class="bg-white rounded-3 p-3 border">
+                                            <i class="bi bi-house text-info fs-3 mb-2"></i>
+                                            <h6 class="fw-bold text-dark mb-1">5-7 Hours</h6>
+                                            <p class="text-muted small mb-0">Daily Life & Activities</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Key Lifestyle Factors -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">🎯 Key Lifestyle Factors</h5>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card border-primary h-100">
+                                        <div class="card-header bg-primary text-white text-center">
+                                            <h6 class="mb-0">😴 Sleep Quality</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <p class="text-muted small mb-2"><strong>Impact:</strong> Hormones, recovery, hunger, mood, performance</p>
+                                            <ul class="text-muted small mb-0">
+                                                <li><strong>Target:</strong> 7-9 hours nightly</li>
+                                                <li><strong>Consistency:</strong> Same bedtime/wake time</li>
+                                                <li><strong>Environment:</strong> Cool, dark, quiet</li>
+                                                <li><strong>Habits:</strong> No screens 1hr before bed</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card border-danger h-100">
+                                        <div class="card-header bg-danger text-white text-center">
+                                            <h6 class="mb-0">😰 Stress Management</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <p class="text-muted small mb-2"><strong>Impact:</strong> Cortisol, inflammation, eating behaviors, recovery</p>
+                                            <ul class="text-muted small mb-0">
+                                                <li><strong>Meditation:</strong> 5-10 minutes daily</li>
+                                                <li><strong>Breathing:</strong> Deep breathing exercises</li>
+                                                <li><strong>Nature:</strong> Time outdoors</li>
+                                                <li><strong>Boundaries:</strong> Work-life balance</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="card border-info h-100">
+                                        <div class="card-header bg-info text-white text-center">
+                                            <h6 class="mb-0">💧 Hydration Status</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <p class="text-muted small mb-2"><strong>Impact:</strong> Energy, performance, appetite, skin, digestion</p>
+                                            <ul class="text-muted small mb-0">
+                                                <li><strong>Target:</strong> Half body weight in ounces</li>
+                                                <li><strong>Timing:</strong> Spread throughout day</li>
+                                                <li><strong>Quality:</strong> Filtered water preferred</li>
+                                                <li><strong>Monitor:</strong> Urine color as indicator</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card border-warning h-100">
+                                        <div class="card-header bg-warning text-white text-center">
+                                            <h6 class="mb-0">🚭 Lifestyle Habits</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <p class="text-muted small mb-2"><strong>Impact:</strong> Overall health, recovery, inflammation, longevity</p>
+                                            <ul class="text-muted small mb-0">
+                                                <li><strong>Alcohol:</strong> Moderate or eliminate</li>
+                                                <li><strong>Smoking:</strong> Quit completely</li>
+                                                <li><strong>Caffeine:</strong> Time appropriately</li>
+                                                <li><strong>Screen time:</strong> Limit and schedule</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- The Compound Effect -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">📈 The Compound Effect</h5>
+                            
+                            <div class="bg-gradient rounded-3 p-4 border border-success border-2" style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="fw-bold text-dark mb-2">
+                                            <i class="bi bi-arrow-up-circle text-success me-2"></i>Positive Compound
+                                        </h6>
+                                        <ul class="text-muted small mb-0">
+                                            <li>Good sleep → Better food choices</li>
+                                            <li>Regular movement → Improved mood</li>
+                                            <li>Proper hydration → Better performance</li>
+                                            <li>Stress management → Better recovery</li>
+                                            <li>Consistent habits → Long-term results</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="fw-bold text-dark mb-2">
+                                        <i class="bi bi-arrow-down-circle text-danger me-2"></i>Negative Compound
+                                        </h6>
+                                        <ul class="text-muted small mb-0">
+                                            <li>Poor sleep → Increased hunger/cravings</li>
+                                            <li>High stress → Emotional eating</li>
+                                            <li>Dehydration → Fatigue and poor choices</li>
+                                            <li>Sedentary lifestyle → Lower energy</li>
+                                            <li>Inconsistent habits → Frustration and quit</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 24-Hour Optimization Checklist -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">✅ Daily Optimization Checklist</h5>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="bg-light rounded-3 p-3 mb-3">
+                                        <h6 class="fw-bold text-dark mb-2">🌅 Morning (6-10 AM)</h6>
+                                        <ul class="text-muted small mb-0">
+                                            <li>☐ Consistent wake time</li>
+                                            <li>☐ Hydrate immediately (16-20oz water)</li>
+                                            <li>☐ Natural light exposure</li>
+                                            <li>☐ Protein-rich breakfast</li>
+                                            <li>☐ 5-10 minutes movement</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-light rounded-3 p-3 mb-3">
+                                        <h6 class="fw-bold text-dark mb-2">🌆 Evening (6-10 PM)</h6>
+                                        <ul class="text-muted small mb-0">
+                                            <li>☐ Balanced dinner</li>
+                                            <li>☐ Limit screens 1hr before bed</li>
+                                            <li>☐ Prepare for tomorrow</li>
+                                            <li>☐ Relaxation routine</li>
+                                            <li>☐ Consistent bedtime</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="bg-light rounded-3 p-3 mb-3">
+                                        <h6 class="fw-bold text-dark mb-2">☀️ Midday (10 AM-6 PM)</h6>
+                                        <ul class="text-muted small mb-0">
+                                            <li>☐ Hourly movement breaks</li>
+                                            <li>☐ Mindful eating at meals</li>
+                                            <li>☐ Adequate water intake</li>
+                                            <li>☐ Stress management practices</li>
+                                            <li>☐ Structured exercise session</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-light rounded-3 p-3 mb-3">
+                                        <h6 class="fw-bold text-dark mb-2">🌙 Night (10 PM-6 AM)</h6>
+                                        <ul class="text-muted small mb-0">
+                                            <li>☐ Cool, dark sleep environment</li>
+                                            <li>☐ 7-9 hours quality sleep</li>
+                                            <li>☐ No late-night eating</li>
+                                            <li>☐ Phone in airplane mode</li>
+                                            <li>☐ Consistent sleep schedule</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Reality Check -->
+                        <div class="bg-gradient rounded-3 p-4 text-center border border-info border-2" style="background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);">
+                            <i class="bi bi-lightbulb-fill text-info fs-3 mb-3"></i>
+                            <h6 class="fw-bold text-dark mb-2">The 95.8% Mindset Shift</h6>
+                            <p class="text-muted mb-3 lh-base">
+                                Stop thinking about fitness as just your workout time. Start thinking about it as your entire lifestyle.
+                                Every choice you make throughout your 24-hour day either moves you closer to or further from your health goals.
+                            </p>
+                            <p class="text-info fw-bold mb-0">Master your 24 hours, master your health! 🌟</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Activity Tracking (Updated) -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3 mb-4">
+                <div class="card-header bg-transparent border-0 p-3">
+                    <button class="btn btn-link text-decoration-none w-100 text-start p-0" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#section-tracking" 
+                            aria-expanded="false">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="fw-bold text-dark mb-0">📊 Holistic Tracking Methods</h3>
+                            <i class="bi bi-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                </div>
+                <div class="collapse" id="section-tracking">
+                    <div class="card-body p-4 pt-0">
+                        <p class="text-muted lh-base mb-4">
+                            Effective tracking goes beyond just counting steps or logging workouts. To truly optimize your health, you need to
+                            monitor the key lifestyle factors that impact your well-being throughout the entire day. Here's how to track what
+                            matters most for sustainable results.
+                        </p>
+                        
+                        <!-- Comprehensive Tracking Categories -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">📋 What to Track for Maximum Impact</h5>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card border-success h-100">
+                                        <div class="card-header bg-success text-white text-center">
+                                            <h6 class="mb-0">🍎 Nutrition & Intake</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <ul class="text-muted small mb-0">
+                                                <li><strong>Calories:</strong> Daily intake vs. goals</li>
+                                                <li><strong>Macros:</strong> Protein, carbs, fats</li>
+                                                <li><strong>Hydration:</strong> Water intake throughout day</li>
+                                                <li><strong>Meal timing:</strong> When and how often you eat</li>
+                                                <li><strong>Food quality:</strong> Whole foods vs. processed</li>
+                                                <li><strong>Alcohol:</strong> Frequency and quantity</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card border-primary h-100">
+                                        <div class="card-header bg-primary text-white text-center">
+                                            <h6 class="mb-0">🏃 Movement & Activity</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <ul class="text-muted small mb-0">
+                                                <li><strong>Steps:</strong> Daily step count</li>
+                                                <li><strong>Exercise:</strong> Workouts completed</li>
+                                                <li><strong>NEAT:</strong> Non-exercise activity</li>
+                                                <li><strong>Sedentary time:</strong> Hours sitting/inactive</li>
+                                                <li><strong>Active minutes:</strong> Moderate-vigorous activity</li>
+                                                <li><strong>Movement breaks:</strong> Hourly activity</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="card border-info h-100">
+                                        <div class="card-header bg-info text-white text-center">
+                                            <h6 class="mb-0">😴 Recovery & Wellness</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <ul class="text-muted small mb-0">
+                                                <li><strong>Sleep:</strong> Hours and quality</li>
+                                                <li><strong>Bedtime:</strong> Consistency of sleep schedule</li>
+                                                <li><strong>Energy levels:</strong> Throughout the day</li>
+                                                <li><strong>Mood:</strong> Daily emotional state</li>
+                                                <li><strong>Stress:</strong> Perceived stress levels</li>
+                                                <li><strong>Recovery:</strong> How you feel post-workout</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card border-warning h-100">
+                                        <div class="card-header bg-warning text-white text-center">
+                                            <h6 class="mb-0">📱 Lifestyle Habits</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <ul class="text-muted small mb-0">
+                                                <li><strong>Screen time:</strong> Daily device usage</li>
+                                                <li><strong>Caffeine:</strong> Timing and amount</li>
+                                                <li><strong>Supplements:</strong> Consistency of intake</li>
+                                                <li><strong>Meditation:</strong> Mindfulness practices</li>
+                                                <li><strong>Social time:</strong> Connection with others</li>
+                                                <li><strong>Outdoor time:</strong> Nature exposure</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tracking Tools & Methods -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">🛠️ Tracking Tools & Methods</h5>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="bg-light rounded-3 p-3 border-start border-primary border-3 mb-3">
+                                        <h6 class="fw-bold text-primary mb-2">
+                                            <i class="bi bi-phone me-2"></i>Digital Tracking
+                                        </h6>
+                                        <div class="mb-3">
+                                            <p class="text-muted small mb-1"><strong>All-in-One Apps:</strong></p>
+                                            <ul class="text-muted small mb-0">
+                                                <li>MyFitnessPal (nutrition + exercise)</li>
+                                                <li>Cronometer (detailed nutrition)</li>
+                                                <li>Apple Health / Google Fit (comprehensive)</li>
+                                            </ul>
+                                        </div>
+                                        <div class="mb-3">
+                                            <p class="text-muted small mb-1"><strong>Wearable Devices:</strong></p>
+                                            <ul class="text-muted small mb-0">
+                                                <li>Apple Watch, Fitbit, Garmin</li>
+                                                <li>Oura Ring (sleep + recovery)</li>
+                                                <li>WHOOP (strain + recovery)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="bg-light rounded-3 p-3 border-start border-success border-3 mb-3">
+                                        <h6 class="fw-bold text-success mb-2">
+                                            <i class="bi bi-journal-text me-2"></i>Manual Tracking
+                                        </h6>
+                                        <div class="mb-3">
+                                            <p class="text-muted small mb-1"><strong>Simple Methods:</strong></p>
+                                            <ul class="text-muted small mb-0">
+                                                <li>Daily habit checklist</li>
+                                                <li>Weekly scorecard (rate 1-10)</li>
+                                                <li>Photo food diary</li>
+                                                <li>Notes app on phone</li>
+                                            </ul>
+                                        </div>
+                                        <div class="mb-3">
+                                            <p class="text-muted small mb-1"><strong>Built-in System:</strong></p>
+                                            <ul class="text-muted small mb-0">
+                                                <li>Use the notes section below</li>
+                                                <li>Track daily habits and patterns</li>
+                                                <li>Weekly reflection and review</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Weekly Review Process -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">📅 Weekly Review Process</h5>
+                            
+                            <div class="bg-light rounded-3 p-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="fw-bold text-dark mb-2">📊 Data Analysis</h6>
+                                        <ul class="text-muted small mb-3">
+                                            <li>Review average daily metrics</li>
+                                            <li>Identify patterns and trends</li>
+                                            <li>Note correlations (sleep vs. energy)</li>
+                                            <li>Compare to previous weeks</li>
+                                        </ul>
+                                        
+                                        <h6 class="fw-bold text-dark mb-2">🎯 Goal Assessment</h6>
+                                        <ul class="text-muted small mb-0">
+                                            <li>Did you hit your targets?</li>
+                                            <li>What helped you succeed?</li>
+                                            <li>What barriers did you face?</li>
+                                            <li>Are your goals realistic?</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="fw-bold text-dark mb-2">🔄 Adjustments</h6>
+                                        <ul class="text-muted small mb-3">
+                                            <li>Modify goals based on data</li>
+                                            <li>Address problem areas</li>
+                                            <li>Build on what's working</li>
+                                            <li>Plan for upcoming challenges</li>
+                                        </ul>
+                                        
+                                        <h6 class="fw-bold text-dark mb-2">📝 Action Planning</h6>
+                                        <ul class="text-muted small mb-0">
+                                            <li>Set 1-3 focus areas for next week</li>
+                                            <li>Create specific action steps</li>
+                                            <li>Prepare for potential obstacles</li>
+                                            <li>Schedule review for following week</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tracking Tips -->
+                        <div class="bg-gradient rounded-3 p-4 border border-primary border-2" style="background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);">
+                            <h6 class="fw-bold text-dark mb-3">💡 Smart Tracking Tips</h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="text-muted small mb-0">
+                                        <li><strong>Start simple:</strong> Track 2-3 key metrics first</li>
+                                        <li><strong>Be consistent:</strong> Same time daily</li>
+                                        <li><strong>Focus on trends:</strong> Not daily fluctuations</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="text-muted small mb-0">
+                                        <li><strong>Use automation:</strong> Let technology help</li>
+                                        <li><strong>Review weekly:</strong> Make data-driven decisions</li>
+                                        <li><strong>Adjust as needed:</strong> Tracking should serve you</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: Building Sustainable Habits (Updated) -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3 mb-4">
+                <div class="card-header bg-transparent border-0 p-3">
+                    <button class="btn btn-link text-decoration-none w-100 text-start p-0" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#section-habits" 
+                            aria-expanded="false">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="fw-bold text-dark mb-0">🏆 Building Lifestyle Habits</h3>
+                            <i class="bi bi-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                </div>
+                <div class="collapse" id="section-habits">
+                    <div class="card-body p-4 pt-0">
+                        <p class="text-muted lh-base mb-4">
+                            Sustainable transformation comes from building systems of small, consistent habits rather than relying on motivation
+                            or willpower. Since your health is determined by your entire 24-hour lifestyle, you need to create habits that
+                            support your goals throughout the day. Here's how to build habits that stick and compound over time.
+                        </p>
+                        
+                        <!-- The Habit Loop -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">🔄 The Habit Loop</h5>
+                            
+                            <div class="bg-light rounded-3 p-4 mb-4">
+                                <div class="row text-center">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="bg-primary text-white rounded-3 p-3">
+                                            <i class="bi bi-bell fs-3 mb-2"></i>
+                                            <h6 class="fw-bold mb-1">1. CUE</h6>
+                                            <p class="small mb-0">The trigger that initiates the behavior</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="bg-success text-white rounded-3 p-3">
+                                            <i class="bi bi-play-circle fs-3 mb-2"></i>
+                                            <h6 class="fw-bold mb-1">2. ROUTINE</h6>
+                                            <p class="small mb-0">The behavior or action you perform</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="bg-warning text-white rounded-3 p-3">
+                                            <i class="bi bi-trophy fs-3 mb-2"></i>
+                                            <h6 class="fw-bold mb-1">3. REWARD</h6>
+                                            <p class="small mb-0">The benefit that reinforces the habit</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Habit Examples -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card border-success h-100">
+                                        <div class="card-header bg-success text-white text-center">
+                                            <h6 class="mb-0">✅ Good Habit Example</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <div class="mb-2">
+                                                <strong class="text-primary">CUE:</strong> <span class="text-muted small">Wake up in the morning</span>
+                                            </div>
+                                            <div class="mb-2">
+                                                <strong class="text-success">ROUTINE:</strong> <span class="text-muted small">Drink 16oz of water</span>
+                                            </div>
+                                            <div class="mb-0">
+                                                <strong class="text-warning">REWARD:</strong> <span class="text-muted small">Feel refreshed and energized</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card border-danger h-100">
+                                        <div class="card-header bg-danger text-white text-center">
+                                            <h6 class="mb-0">❌ Bad Habit Example</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <div class="mb-2">
+                                                <strong class="text-primary">CUE:</strong> <span class="text-muted small">Feel stressed at work</span>
+                                            </div>
+                                            <div class="mb-2">
+                                                <strong class="text-success">ROUTINE:</strong> <span class="text-muted small">Eat junk food from vending machine</span>
+                                            </div>
+                                            <div class="mb-0">
+                                                <strong class="text-warning">REWARD:</strong> <span class="text-muted small">Temporary stress relief</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Habit Stacking -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">🔗 Habit Stacking</h5>
+                            
+                            <div class="bg-light rounded-3 p-4 mb-3">
+                                <p class="text-muted mb-3">
+                                    <strong>Habit stacking</strong> is linking a new habit to an existing habit. Use the formula:
+                                    <em>"After I [existing habit], I will [new habit]."</em>
+                                </p>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="fw-bold text-dark mb-2">Morning Stack Examples:</h6>
+                                        <ul class="text-muted small mb-0">
+                                            <li>After I wake up, I will drink 16oz of water</li>
+                                            <li>After I drink water, I will do 10 push-ups</li>
+                                            <li>After I brush my teeth, I will take my vitamins</li>
+                                            <li>After I make coffee, I will write in my journal</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="fw-bold text-dark mb-2">Evening Stack Examples:</h6>
+                                        <ul class="text-muted small mb-0">
+                                            <li>After I finish dinner, I will go for a 10-minute walk</li>
+                                            <li>After I walk, I will prepare tomorrow's meals</li>
+                                            <li>After I set my alarm, I will put my phone in airplane mode</li>
+                                            <li>After I get in bed, I will read for 10 minutes</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- The 2-Minute Rule -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">⏱️ The 2-Minute Rule</h5>
+                            
+                            <div class="bg-gradient rounded-3 p-4 mb-3 border border-info border-2" style="background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);">
+                                <div class="text-center mb-3">
+                                    <i class="bi bi-stopwatch text-info fs-3 mb-2"></i>
+                                    <h6 class="fw-bold text-dark mb-2">Start Ridiculously Small</h6>
+                                    <p class="text-dark mb-0">
+                                        <strong>"When you start a new habit, it should take less than 2 minutes to do."</strong>
+                                    </p>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="fw-bold text-dark mb-2">Instead of:</h6>
+                                        <ul class="text-muted small mb-0">
+                                            <li>"Exercise for 1 hour daily"</li>
+                                            <li>"Meal prep for the week"</li>
+                                            <li>"Meditate for 20 minutes"</li>
+                                            <li>"Read 30 pages per day"</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="fw-bold text-dark mb-2">Start with:</h6>
+                                        <ul class="text-muted small mb-0">
+                                            <li>"Put on workout clothes"</li>
+                                            <li>"Cut up one vegetable"</li>
+                                            <li>"Sit in meditation position"</li>
+                                            <li>"Read one page"</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Environment Design -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">🏠 Environment Design</h5>
+                            
+                            <p class="text-muted lh-base mb-3">
+                                Your environment shapes your behavior more than willpower ever will. Make good choices obvious and easy,
+                                while making bad choices invisible and difficult.
+                            </p>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card border-success h-100">
+                                        <div class="card-header bg-success text-white text-center">
+                                            <h6 class="mb-0">✅ Make Good Habits Obvious</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <ul class="text-muted small mb-0">
+                                                <li><strong>Nutrition:</strong> Keep healthy snacks visible</li>
+                                                <li><strong>Hydration:</strong> Water bottle on your desk</li>
+                                                <li><strong>Exercise:</strong> Workout clothes laid out</li>
+                                                <li><strong>Sleep:</strong> Phone charger outside bedroom</li>
+                                                <li><strong>Movement:</strong> Standing desk setup</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card border-danger h-100">
+                                        <div class="card-header bg-danger text-white text-center">
+                                            <h6 class="mb-0">❌ Make Bad Habits Invisible</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <ul class="text-muted small mb-0">
+                                                <li><strong>Junk food:</strong> Store in hard-to-reach places</li>
+                                                <li><strong>Alcohol:</strong> Don't keep it in the house</li>
+                                                <li><strong>Social media:</strong> Delete apps from phone</li>
+                                                <li><strong>TV:</strong> Unplug and put remote away</li>
+                                                <li><strong>Snacking:</strong> Clear counters of tempting foods</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Common Obstacles & Solutions -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">🚧 Common Obstacles & Solutions</h5>
+                            
+                            <div class="accordion" id="habitObstacles">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#obstacle1">
+                                            <strong>😴 "I don't have time"</strong>
+                                        </button>
+                                    </h2>
+                                    <div id="obstacle1" class="accordion-collapse collapse" data-bs-parent="#habitObstacles">
+                                        <div class="accordion-body">
+                                            <p class="text-muted small mb-2">Time is rarely the real issue — it's usually about priorities and efficiency.</p>
+                                            <p class="text-muted small mb-0"><strong>Solutions:</strong> Start with 2-minute habits, use habit stacking, combine activities (walk while taking calls), wake up 10 minutes earlier, or replace low-value activities with health habits.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#obstacle2">
+                                            <strong>🔥 "I lose motivation quickly"</strong>
+                                        </button>
+                                    </h2>
+                                    <div id="obstacle2" class="accordion-collapse collapse" data-bs-parent="#habitObstacles">
+                                        <div class="accordion-body">
+                                            <p class="text-muted small mb-2">Motivation is unreliable — systems and environment design are what create lasting change.</p>
+                                            <p class="text-muted small mb-0"><strong>Solutions:</strong> Focus on identity-based habits ("I am someone who exercises daily"), track your progress visually, celebrate small wins, and design your environment to make good choices automatic.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#obstacle3">
+                                            <strong>📅 "I keep forgetting"</strong>
+                                        </button>
+                                    </h2>
+                                    <div id="obstacle3" class="accordion-collapse collapse" data-bs-parent="#habitObstacles">
+                                        <div class="accordion-body">
+                                            <p class="text-muted small mb-2">Forgetting is a design problem, not a willpower problem.</p>
+                                            <p class="text-muted small mb-0"><strong>Solutions:</strong> Use habit stacking, set phone reminders, create visual cues, use implementation intentions ("When X happens, I will do Y"), and start with habits that piggyback on existing routines.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#obstacle4">
+                                            <strong>🎢 "I'm inconsistent"</strong>
+                                        </button>
+                                    </h2>
+                                    <div id="obstacle4" class="accordion-collapse collapse" data-bs-parent="#habitObstacles">
+                                        <div class="accordion-body">
+                                            <p class="text-muted small mb-2">Inconsistency usually means you're trying to do too much too soon.</p>
+                                            <p class="text-muted small mb-0"><strong>Solutions:</strong> Lower the bar (2-minute rule), focus on showing up rather than performance, use the "never miss twice" rule, and build one habit at a time before adding another.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Habit Implementation Plan -->
+                        <div class="bg-gradient rounded-3 p-4 border border-success border-2" style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);">
+                            <h6 class="fw-bold text-dark mb-3">🎯 Your 30-Day Habit Implementation Plan</h6>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <h6 class="fw-bold text-dark mb-2">Week 1-2: Foundation</h6>
+                                        <ul class="text-muted small mb-0">
+                                            <li>Choose 1 keystone habit</li>
+                                            <li>Make it ridiculously easy (2-minute rule)</li>
+                                            <li>Stack it with existing routine</li>
+                                            <li>Track completion daily</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <h6 class="fw-bold text-dark mb-2">Week 3-4: Expansion</h6>
+                                        <ul class="text-muted small mb-0">
+                                            <li>Gradually increase habit duration</li>
+                                            <li>Add environmental cues</li>
+                                            <li>Celebrate consistency wins</li>
+                                            <li>Troubleshoot obstacles</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <h6 class="fw-bold text-dark mb-2">Keystone Habit Ideas:</h6>
+                                        <ul class="text-muted small mb-0">
+                                            <li><strong>Morning hydration:</strong> 16oz water upon waking</li>
+                                            <li><strong>Evening walk:</strong> 10 minutes after dinner</li>
+                                            <li><strong>Meal prep:</strong> Wash/cut vegetables Sunday</li>
+                                            <li><strong>Sleep routine:</strong> Phone away 1hr before bed</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="text-center">
+                                        <p class="text-success fw-bold mb-0">
+                                            <i class="bi bi-trophy-fill me-2"></i>
+                                            Small habits, big results! 🌟
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 7: Summary (Updated) -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3 mb-4">
+                <div class="card-header bg-transparent border-0 p-3">
+                    <button class="btn btn-link text-decoration-none w-100 text-start p-0" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#section-summary" 
+                            aria-expanded="false">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="fw-bold text-dark mb-0">📝 Complete Health Summary</h3>
+                            <i class="bi bi-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                </div>
+                <div class="collapse" id="section-summary">
+                    <div class="card-body p-4 pt-0">
+                        <!-- Comprehensive Overview -->
+                        <div class="mb-4">
+                            <p class="text-muted lh-base mb-3">
+                                Congratulations! You've just completed a comprehensive guide to holistic health and fitness. This isn't just about
+                                exercise — it's about understanding how every aspect of your 24-hour day contributes to your overall well-being.
+                                You now have the knowledge and tools to create lasting transformation through sustainable lifestyle changes.
+                            </p>
+                            <p class="text-muted lh-base mb-0">
+                                Let's consolidate the most important insights from each section, so you can focus on what matters most as you begin
+                                implementing your complete health optimization strategy.
+                            </p>
+                        </div>
+                        
+                        <!-- The Big Picture -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">🌟 The Big Picture</h5>
+                            
+                            <div class="bg-gradient rounded-3 p-4 mb-4 border border-primary border-2" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);">
+                                <div class="text-center">
+                                    <i class="bi bi-bullseye text-primary fs-3 mb-3"></i>
+                                    <h6 class="fw-bold text-dark mb-2">Your Health is Your Entire Lifestyle</h6>
+                                    <p class="text-dark mb-3 lh-base">
+                                        <strong>95.8% of your day</strong> is spent outside the gym. Your sleep quality, stress levels, nutrition choices,
+                                        daily movement, hydration, and countless small habits determine your health outcomes far more than your
+                                        structured exercise routine.
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <p class="text-dark small mb-0"><strong>Sleep:</strong> 7-9 hours</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p class="text-dark small mb-0"><strong>Nutrition:</strong> 70-80% of results</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p class="text-dark small mb-0"><strong>NEAT:</strong> 15-30% of calories</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p class="text-dark small mb-0"><strong>Exercise:</strong> 4.2% of your day</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Key Takeaways by Section -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">🔑 Key Takeaways by Section</h5>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card border-primary h-100 mb-3">
+                                        <div class="card-header bg-primary text-white text-center">
+                                            <h6 class="mb-0">🏃 Exercise vs. Activity</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <ul class="text-muted small mb-0">
+                                                <li>NEAT can burn 15-30% of daily calories</li>
+                                                <li>8,000-12,000 steps daily target</li>
+                                                <li>Hourly movement breaks matter</li>
+                                                <li>Every movement counts</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card border-success h-100 mb-3">
+                                        <div class="card-header bg-success text-white text-center">
+                                            <h6 class="mb-0">🍎 Nutrition Foundation</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <ul class="text-muted small mb-0">
+                                                <li>You cannot out-train a bad diet</li>
+                                                <li>Calorie balance determines body composition</li>
+                                                <li>Protein priority for satiety and muscle</li>
+                                                <li>Track intake for awareness</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card border-info h-100 mb-3">
+                                        <div class="card-header bg-info text-white text-center">
+                                            <h6 class="mb-0">📊 Holistic Tracking</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <ul class="text-muted small mb-0">
+                                                <li>Track nutrition, movement, sleep, stress</li>
+                                                <li>Weekly reviews for pattern recognition</li>
+                                                <li>Focus on trends, not daily fluctuations</li>
+                                                <li>Use data to make informed adjustments</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card border-warning h-100 mb-3">
+                                        <div class="card-header bg-warning text-white text-center">
+                                            <h6 class="mb-0">🕐 24-Hour Lifestyle</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <ul class="text-muted small mb-0">
+                                                <li>Sleep quality affects everything</li>
+                                                <li>Stress management is crucial</li>
+                                                <li>Hydration impacts energy and appetite</li>
+                                                <li>Small choices compound over time</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card border-secondary h-100 mb-3">
+                                        <div class="card-header bg-secondary text-white text-center">
+                                            <h6 class="mb-0">🏆 Sustainable Habits</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <ul class="text-muted small mb-0">
+                                                <li>Systems beat motivation every time</li>
+                                                <li>Start ridiculously small (2-minute rule)</li>
+                                                <li>Use habit stacking for consistency</li>
+                                                <li>Design environment for success</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card border-dark h-100 mb-3">
+                                        <div class="card-header bg-dark text-white text-center">
+                                            <h6 class="mb-0">🎯 Daily Movement</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <ul class="text-muted small mb-0">
+                                                <li>Structured exercise is just one piece</li>
+                                                <li>Daily activities burn significant calories</li>
+                                                <li>Combat sedentary lifestyle actively</li>
+                                                <li>Movement throughout the day matters</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Your Action Plan -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">🚀 Your Complete Action Plan</h5>
+                            
+                            <div class="bg-light rounded-3 p-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="fw-bold text-dark mb-2">🎯 Week 1-2: Foundation</h6>
+                                        <ul class="text-muted small mb-3">
+                                            <li>Choose 1 keystone habit to focus on</li>
+                                            <li>Start tracking your daily basics (sleep, water, steps)</li>
+                                            <li>Establish consistent sleep schedule</li>
+                                            <li>Begin food awareness tracking</li>
+                                            <li>Add hourly movement breaks</li>
+                                        </ul>
+                                        
+                                        <h6 class="fw-bold text-dark mb-2">📈 Week 3-4: Building</h6>
+                                        <ul class="text-muted small mb-3">
+                                            <li>Expand your keystone habit</li>
+                                            <li>Add structured exercise 2-3x/week</li>
+                                            <li>Focus on protein at each meal</li>
+                                            <li>Implement stress management practice</li>
+                                            <li>Weekly review and adjustment</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="fw-bold text-dark mb-2">🏆 Month 2: Optimization</h6>
+                                        <ul class="text-muted small mb-3">
+                                            <li>Fine-tune nutrition for your goals</li>
+                                            <li>Increase exercise frequency/intensity</li>
+                                            <li>Add second habit to your routine</li>
+                                            <li>Optimize sleep environment</li>
+                                            <li>Track patterns and correlations</li>
+                                        </ul>
+                                        
+                                        <h6 class="fw-bold text-dark mb-2">🌟 Month 3+: Mastery</h6>
+                                        <ul class="text-muted small mb-0">
+                                            <li>Habits become automatic</li>
+                                            <li>Advanced tracking and optimization</li>
+                                            <li>Help others with their journey</li>
+                                            <li>Continuous improvement mindset</li>
+                                            <li>Celebrate your transformation!</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Success Principles -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-3">💡 Success Principles to Remember</h5>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="bg-gradient rounded-3 p-3 mb-3 border border-success border-2" style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);">
+                                        <h6 class="fw-bold text-dark mb-2">
+                                            <i class="bi bi-check-circle text-success me-2"></i>Do This
+                                        </h6>
+                                        <ul class="text-muted small mb-0">
+                                            <li>Focus on systems, not just goals</li>
+                                            <li>Start small and build consistency</li>
+                                            <li>Track your progress regularly</li>
+                                            <li>Celebrate small wins</li>
+                                            <li>Be patient with the process</li>
+                                            <li>Design your environment for success</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="bg-gradient rounded-3 p-3 mb-3 border border-danger border-2" style="background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);">
+                                        <h6 class="fw-bold text-dark mb-2">
+                                            <i class="bi bi-x-circle text-danger me-2"></i>Avoid This
+                                        </h6>
+                                        <ul class="text-muted small mb-0">
+                                            <li>Don't try to change everything at once</li>
+                                            <li>Don't rely solely on motivation</li>
+                                            <li>Don't ignore the importance of sleep</li>
+                                            <li>Don't underestimate NEAT and daily activity</li>
+                                            <li>Don't expect overnight results</li>
+                                            <li>Don't neglect stress management</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Final Motivation -->
+                        <div class="text-center">
+                            <div class="bg-primary rounded-3 p-4 text-white">
+                                <i class="bi bi-trophy-fill fs-3 mb-3"></i>
+                                <h6 class="fw-bold mb-2">You Have Everything You Need</h6>
+                                <p class="mb-3 opacity-75 lh-base">
+                                    The knowledge is in your hands. The tools are available. The only thing left is consistent action.
+                                    Remember: your health is determined by your entire 24-hour lifestyle, not just your workout time.
+                                    Every choice matters, every habit compounds, and every day is an opportunity to become healthier.
+                                </p>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p class="fw-bold mb-1">🎯 Focus</p>
+                                        <p class="small opacity-75 mb-0">One habit at a time</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="fw-bold mb-1">📊 Track</p>
+                                        <p class="small opacity-75 mb-0">What gets measured gets managed</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="fw-bold mb-1">🏆 Persist</p>
+                                        <p class="small opacity-75 mb-0">Consistency beats perfection</p>
+                                    </div>
+                                </div>
+                                <p class="fw-bold mb-0 mt-3">⬇️ Start tracking your journey below ⬇️</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+            HEALTH NOTES CRUD SECTION
+            ===================================================================
+             
+            Enhanced notes functionality for tracking all aspects of health
+            and lifestyle. Maintains full CRUD functionality with expanded
+            fields for comprehensive health tracking.
+            ================================================================= -->
+
+        <!-- Health Notes Section (Always Visible) -->
+        <div class="dashboard-container">
+            <div class="action-card shadow-sm rounded-3 border-top border-primary border-2">
+                <div class="card-header bg-transparent border-0 p-4 pb-2">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="fw-bold text-dark mb-0">📝 Your Health & Lifestyle Notes</h5>
+                        <a href="{% url 'create_note' 'activity' %}" class="btn btn-primary btn-sm">
+                            <i class="bi bi-plus-circle me-1"></i>Add Health Note
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body p-4 pt-2">
+                    {% for note in notes %}
+                            <div class="card mb-4 border-0 bg-light">
+                                <div class="card-body p-4">
+                                    <!-- Header with title and basic info -->
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <div>
+                                            <h6 class="fw-bold text-dark mb-1">{{ note.title }}</h6>
+                                            <small class="text-muted">{{ note.created_at|date:"M d, Y" }}</small>
+                                        </div>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                                Actions
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="{% url 'edit_note' note.id %}">
+                                                    <i class="bi bi-pencil me-2"></i>Edit
+                                                </a></li>
+                                                <li><a class="dropdown-item text-danger" href="{% url 'delete_note' note.id %}">
+                                                    <i class="bi bi-trash me-2"></i>Delete
+                                                </a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Health-specific tracking info -->
+                                    {% if note.daily_steps or note.water_intake or note.sleep_hours %}
+                                        <div class="row mb-3">
+                                            {% if note.daily_steps %}
+                                                <div class="col-md-4">
+                                                    <div class="bg-white rounded-2 p-2 border">
+                                                        <small class="text-muted d-block">Daily Steps</small>
+                                                        <strong class="text-primary">{{ note.daily_steps|floatformat:0 }} steps</strong>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                            {% if note.water_intake %}
+                                                <div class="col-md-4">
+                                                    <div class="bg-white rounded-2 p-2 border">
+                                                        <small class="text-muted d-block">Water Intake</small>
+                                                        <strong class="text-info">{{ note.water_intake|floatformat:0 }} oz</strong>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                            {% if note.sleep_hours %}
+                                                <div class="col-md-4">
+                                                    <div class="bg-white rounded-2 p-2 border">
+                                                        <small class="text-muted d-block">Sleep Hours</small>
+                                                        <strong class="text-success">{{ note.sleep_hours|floatformat:1 }}h</strong>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+                                    
+                                    <!-- Content -->
+                                    <div class="mb-3">
+                                        <p class="text-dark mb-0">{{ note.content|truncatewords:25 }}</p>
+                                    </div>
+                                    
+                                    <!-- Lifestyle tracking -->
+                                    {% if note.energy_level or note.stress_level or note.mood_rating %}
+                                        <div class="border-top pt-3">
+                                            <h6 class="fw-bold text-dark mb-2">Daily Wellness</h6>
+                                            <div class="row">
+                                                {% if note.energy_level %}
+                                                    <div class="col-md-4 mb-2">
+                                                        <small class="text-muted d-block">Energy Level</small>
+                                                        <div class="text-warning">
+                                                            {% for i in "12345" %}
+                                                                {% if forloop.counter <= note.energy_level %}
+                                                                    <i class="bi bi-lightning-fill"></i>
+                                                                {% else %}
+                                                                    <i class="bi bi-lightning"></i>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                                {% if note.stress_level %}
+                                                    <div class="col-md-4 mb-2">
+                                                        <small class="text-muted d-block">Stress Level</small>
+                                                        <div class="text-danger">
+                                                            {% for i in "12345" %}
+                                                                {% if forloop.counter <= note.stress_level %}
+                                                                    <i class="bi bi-exclamation-triangle-fill"></i>
+                                                                {% else %}
+                                                                    <i class="bi bi-exclamation-triangle"></i>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                                {% if note.mood_rating %}
+                                                    <div class="col-md-4 mb-2">
+                                                        <small class="text-muted d-block">Mood Rating</small>
+                                                        <div class="text-success">
+                                                            {% for i in "12345" %}
+                                                                {% if forloop.counter <= note.mood_rating %}
+                                                                    <i class="bi bi-emoji-smile-fill"></i>
+                                                                {% else %}
+                                                                    <i class="bi bi-emoji-smile"></i>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    
+                                    <!-- Habits tracking -->
+                                    {% if note.habits_completed %}
+                                        <div class="border-top pt-3">
+                                            <h6 class="fw-bold text-dark mb-2">Habits Completed</h6>
+                                            <div class="bg-white rounded-2 p-2 border">
+                                                <small class="text-muted">{{ note.habits_completed|truncatewords:15 }}</small>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
                     {% empty %}
-                        <p class="text-muted">No activity notes yet. <a href="{% url 'create_note' 'activity' %}">Add your first note!</a></p>
+                        <div class="text-center py-5">
+                            <i class="bi bi-heart-pulse text-muted" style="font-size: 3rem;"></i>
+                            <h6 class="text-muted mt-3 mb-3">No health notes yet</h6>
+                            <p class="text-muted mb-4">Start tracking your complete health journey with daily lifestyle logs!</p>
+                            <a href="{% url 'create_note' 'activity' %}" class="btn btn-primary">
+                            <i class="bi bi-plus-circle me-1"></i>Add Your First Health Note
+                            </a>
+                        </div>
                     {% endfor %}
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Custom JavaScript for collapsible sections -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle chevron rotation for collapsible sections
+    const collapseButtons = document.querySelectorAll('[data-bs-toggle="collapse"]');
+    
+    collapseButtons.forEach(button => {
+        const target = button.getAttribute('data-bs-target');
+        const chevron = button.querySelector('.bi-chevron-down');
+        
+        if (target && chevron) {
+            const collapseElement = document.querySelector(target);
+            
+            if (collapseElement) {
+                // Set initial state
+                if (collapseElement.classList.contains('show')) {
+                    chevron.style.transform = 'rotate(180deg)';
+                }
+                
+                // Handle collapse events
+                collapseElement.addEventListener('show.bs.collapse', function() {
+                    chevron.style.transform = 'rotate(180deg)';
+                });
+                
+                collapseElement.addEventListener('hide.bs.collapse', function() {
+                    chevron.style.transform = 'rotate(0deg)';
+                });
+            }
+        }
+    });
+    
+    // Enhanced quick navigation functionality
+    const quickNavButtons = document.querySelectorAll('.quick-nav-btn');
+    
+    quickNavButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Add visual feedback
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+    });
+    
+    // Smooth scrolling for anchor links within collapsible sections
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Auto-expand section if URL contains hash
+    if (window.location.hash) {
+        const targetSection = document.querySelector(window.location.hash);
+        if (targetSection && targetSection.classList.contains('collapse')) {
+            const collapseInstance = new bootstrap.Collapse(targetSection, {
+                show: true
+            });
+        }
+    }
+});
+</script>
+
+<!-- Additional CSS for enhanced interactions -->
+<style>
+/* Enhanced hover effects for quick navigation */
+.quick-nav-btn {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.quick-nav-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.quick-nav-btn:hover::before {
+    left: 100%;
+}
+
+/* Enhanced accordion styling for obstacles section */
+.accordion-button {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    color: #003f88;
+    font-weight: 600;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #e3f2fd;
+    border-color: #89cff0;
+    color: #003f88;
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(137, 207, 240, 0.25);
+    border-color: #89cff0;
+}
+
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23003f88'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+/* Enhanced card hover effects */
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 63, 136, 0.1);
+}
+
+/* Health notes specific styling */
+.health-note-card {
+    transition: all 0.3s ease;
+    border-left: 4px solid #89cff0;
+}
+
+.health-note-card:hover {
+    border-left-color: #003f88;
+    box-shadow: 0 4px 20px rgba(0, 63, 136, 0.15);
+}
+
+/* Wellness rating icons */
+.wellness-rating {
+    font-size: 0.9rem;
+}
+
+.wellness-rating .bi-lightning-fill {
+    color: #ffc107;
+}
+
+.wellness-rating .bi-exclamation-triangle-fill {
+    color: #dc3545;
+}
+
+.wellness-rating .bi-emoji-smile-fill {
+    color: #28a745;
+}
+
+/* Progress indicators */
+.progress-indicator {
+    height: 8px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar-custom {
+    height: 100%;
+    background: linear-gradient(90deg, #89cff0 0%, #003f88 100%);
+    transition: width 0.3s ease;
+}
+
+/* Responsive adjustments for health page */
+@media (max-width: 768px) {
+    .health-metrics {
+        flex-direction: column;
+    }
+    
+    .health-metric-card {
+        margin-bottom: 0.5rem;
+    }
+    
+    .quick-nav-btn {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+    }
+    
+    .wellness-rating {
+        font-size: 0.8rem;
+    }
+}
+
+/* Blue card visibility  */
+.dashboard-container:last-child {
+    margin-top: 3rem !important;
+    position: relative;
+    z-index: 10;
+}
+
+#section-summary {
+    margin-bottom: 2rem;
+}
+
+/* Enhanced visual feedback for interactive elements */
+.btn:active {
+    transform: scale(0.98);
+}
+
+.dropdown-toggle::after {
+    transition: transform 0.2s ease;
+}
+
+.dropdown-toggle[aria-expanded="true"]::after {
+    transform: rotate(180deg);
+}
+
+/* Loading states for dynamic content */
+.loading-placeholder {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Enhanced focus states for accessibility */
+.btn:focus,
+.form-control:focus,
+.dropdown-toggle:focus {
+    outline: 2px solid #89cff0;
+    outline-offset: 2px;
+}
+
+/* Custom scrollbar for better UX */
+.card-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.card-body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.card-body::-webkit-scrollbar-thumb {
+    background: #89cff0;
+    border-radius: 3px;
+}
+
+.card-body::-webkit-scrollbar-thumb:hover {
+    background: #003f88;
+}
+</style>
+
 {% endblock %}
+
