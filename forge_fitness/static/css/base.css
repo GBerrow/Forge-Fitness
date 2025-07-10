@@ -361,3 +361,113 @@
   html {
       scroll-behavior: smooth;
   }
+
+/* ===================================================================
+   11. ENHANCED TRAINING NOTES STYLING
+   ===================================================================
+   
+   Custom styling for the enhanced training notes with better
+   visual hierarchy and interactive elements.
+   ================================================================= */
+
+/* Training note cards */
+.training-note-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #e9ecef;
+}
+
+.training-note-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 63, 136, 0.1);
+}
+
+/* Training info badges */
+.training-info-badge {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 1px solid #dee2e6;
+    transition: all 0.2s ease;
+}
+
+.training-info-badge:hover {
+    background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+}
+
+/* Session rating stars */
+.session-rating {
+    font-size: 0.9rem;
+}
+
+.session-rating .bi-star-fill {
+    color: #ffc107;
+}
+
+.session-rating .bi-star {
+    color: #dee2e6;
+}
+
+/* Training note dropdown */
+.training-note-dropdown {
+    border: none;
+    background: transparent;
+    color: #6c757d;
+}
+
+.training-note-dropdown:hover {
+    background: #f8f9fa;
+    color: #003f88;
+}
+
+/* Training note sections */
+.training-note-section {
+    border-top: 1px solid #e9ecef;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.training-note-section:first-child {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+/* Empty state styling */
+.training-notes-empty {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+    border: 2px dashed #89cff0;
+    border-radius: 1rem;
+    padding: 3rem 2rem;
+}
+
+/* Enhanced form styling for training notes */
+.training-form .form-label {
+    font-weight: 600;
+    color: #003f88;
+    margin-bottom: 0.5rem;
+}
+
+.training-form .form-control {
+    border: 2px solid #e9ecef;
+    border-radius: 0.5rem;
+    transition: border-color 0.2s ease;
+}
+
+.training-form .form-control:focus {
+    border-color: #89cff0;
+    box-shadow: 0 0 0 0.2rem rgba(137, 207, 240, 0.25);
+}
+
+/* Responsive adjustments for training notes */
+@media (max-width: 768px) {
+    .training-note-card {
+        margin-bottom: 1rem;
+    }
+    
+    .training-info-badge {
+        margin-bottom: 0.5rem;
+    }
+    
+    .training-note-section {
+        padding-top: 0.75rem;
+        margin-top: 0.75rem;
+    }
+}
