@@ -1,12 +1,24 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.decorators import login_required
-from django.urls import reverse_lazy
-from django.views.generic import View, DetailView, UpdateView, DeleteView
 from django.contrib import messages
-from .forms import SignupForm, LoginForm, PracticeNoteForm, TrainingNoteForm, UserProfileForm, UserSettingsForm, AccountDeleteForm
+from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
+from .forms import SignupForm, PracticeNoteForm, TrainingNoteForm, UserProfileForm, UserSettingsForm, AccountDeleteForm
 from .models import UserProfile, PracticeNote, UserSettings
+from django.views.decorators.http import require_http_methods
+from django.views.decorators.csrf import csrf_protect
+from django.views import View
+
+@csrf_protect
+@require_http_methods(["GET", "POST"])
+def custom_logout(request):
+    """Custom logout view that properly clears session and redirects"""
+    if request.user.is_authenticated:
+        messages.success(request, 'You have been logged out successfully.')
+        logout(request)
+    return redirect('login')
 
 class SignupView(View):
     def get(self, request):

@@ -94,8 +94,3 @@ def progression(request):
 
 def profile(request):
     return render(request, 'profile.html')
-
-def custom_logout(request):
-    from django.contrib.auth import logout
-    logout(request)
-    return redirect('dashboard')

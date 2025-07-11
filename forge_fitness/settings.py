@@ -17,10 +17,27 @@ if not SECRET_KEY:
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 # Allowed Hosts (force it to be set)
-allowed_hosts_env = os.getenv("ALLOWED_HOSTS")
-if not allowed_hosts_env:
-    raise ValueError("❌ Missing ALLOWED_HOSTS environment variable")
+allowed_hosts_env = os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1,testserver")
 ALLOWED_HOSTS = allowed_hosts_env.split(",")
+
+# Session settings
+SESSION_COOKIE_AGE = 1209600  # 2 weeks
+SESSION_SAVE_EVERY_REQUEST = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+
+# Authentication settings
+LOGIN_URL = '/login/'  
+LOGIN_REDIRECT_URL = '/'  
+LOGOUT_REDIRECT_URL = '/login/'
+
+# Custom authentication backend to allow login with either username or email
+AUTHENTICATION_BACKENDS = [
+    'users.backends.EmailOrUsernameModelBackend',
+    'django.contrib.auth.backends.ModelBackend',  # Keep as fallback
+]
+
+# Session backend
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 # Database configuration - SQLite for local development
 DATABASES = {
