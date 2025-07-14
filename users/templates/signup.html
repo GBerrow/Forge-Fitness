@@ -1,32 +1,271 @@
+<!-- ===================================================================
+    FORGE FITNESS - SIGNUP TEMPLATE
+    ===================================================================
+     
+    This template provides the user registration interface for
+    new users to create their Forge Fitness accounts. Features
+    a comprehensive sign-up form with validation, responsive
+    design, and consistent light blue theme styling.
+     
+    STRUCTURE:
+    1. Template Inheritance & Meta Configuration
+    2. Main Registration Wrapper
+    3. Centered Form Card Container
+    4. Form Header with Title
+    5. Form Body with Input Fields
+    6. Error Message Display
+    7. Registration Form with CSRF Protection
+    8. Personal Information Fields
+    9. Account Credential Fields
+    10. Password Confirmation Fields
+    11. Submit Button
+    12. Footer with Login Link
+    ================================================================= -->
+
+<!-- ===================================================================
+    1. TEMPLATE INHERITANCE & META CONFIGURATION
+    ===================================================================
+     
+    Extends the base template to inherit the core site structure
+    including navigation, footer, and styling. Loads Django's
+    static files framework for accessing CSS and JavaScript assets.
+    ================================================================= -->
+
 {% extends "base.html" %}
+{% load static %}
+
+<!-- Dynamic page title for browser tab and SEO -->
+{% block title %}Sign Up - Forge Fitness{% endblock %}
+
+<!-- ===================================================================
+    2. MAIN REGISTRATION WRAPPER
+    ===================================================================
+     
+    Primary content block that overrides the base template's content
+    section. Contains the complete registration interface with proper
+    centering and responsive design.
+    ================================================================= -->
+
 {% block content %}
-<div class="signup-container">
-    <h1>Sign Up</h1>
-    <p>Welcome to Forge Fitness! Your path to a healthier, stronger, and more confident you begins here.</p>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.non_field_errors }}
 
-        <label for="first_name">First Name</label>
-        <input type="text" name="first_name" placeholder="First Name" required>
+<!-- ===================================================================
+    3. AUTHENTICATION PAGE WRAPPER
+    ===================================================================
+     
+    Full-height container that centers the registration form both
+    horizontally and vertically. Uses flexbox for perfect
+    centering across all screen sizes and maintains consistent
+    light grey background.
+    ================================================================= -->
 
-        <label for="last_name">Last Name</label>
-        <input type="text" name="last_name" placeholder="Last Name" required>
-
-        <!-- ADD THIS USERNAME FIELD -->
-        <label for="username">Username</label>
-        <input type="text" name="username" placeholder="Username" required>
-
-        <label for="email">Email</label>
-        <input type="email" name="email" placeholder="Email" required>
-
-        <label for="password1">Password</label>
-        <input type="password" name="password1" placeholder="Password" required>
-
-        <label for="password2">Confirm Password</label>
-        <input type="password" name="password2" placeholder="Confirm Password" required>
-
-        <button type="submit" class="btn-primary">Create Account</button>
-    </form>
+<div class="auth-page-wrapper">
+    
+    <!-- ===================================================================
+        4. CENTERED FORM CARD CONTAINER
+        ===================================================================
+         
+        Responsive container that houses the registration card. Provides
+        maximum width constraints and centers the form card within
+        the viewport while maintaining proper proportions.
+        ================================================================= -->
+    
+    <div class="auth-container">
+        
+        <!-- ===================================================================
+            5. MAIN REGISTRATION CARD
+            ===================================================================
+             
+            White card container with rounded corners and shadow effects.
+            Houses all registration form elements with proper spacing and
+            visual hierarchy. Uses flexbox for internal layout.
+            ================================================================= -->
+        
+        <div class="auth-card">
+            
+            <!-- ===================================================================
+                6. FORM HEADER WITH TITLE
+                ===================================================================
+                 
+                Top section of the registration card containing the
+                main heading. Uses brand colors and bold typography
+                to establish visual hierarchy and user orientation.
+                ================================================================= -->
+            
+            <div class="auth-header">
+                <h1 class="auth-title">Sign Up</h1>
+            </div>
+            
+            <!-- ===================================================================
+                7. FORM BODY CONTAINER
+                ===================================================================
+                 
+                Main content area of the registration card. Contains
+                error messages, form fields, and form controls. Uses
+                flexible layout to accommodate different content heights.
+                ================================================================= -->
+            
+            <div class="auth-body">
+                
+                <!-- ===================================================================
+                    8. ERROR MESSAGE DISPLAY
+                    ===================================================================
+                     
+                    Conditional error message display that appears when
+                    registration attempts fail. Shows validation errors
+                    with appropriate styling and iconography for user
+                    feedback and accessibility.
+                    ================================================================= -->
+                
+                {% if form.errors %}
+                    <div class="auth-error">
+                        <i class="bi bi-exclamation-triangle"></i>
+                        Please correct the errors below.
+                    </div>
+                {% endif %}
+                
+                <!-- ===================================================================
+                    9. REGISTRATION FORM WITH CSRF PROTECTION
+                    ===================================================================
+                     
+                    Main registration form with Django's CSRF protection enabled.
+                    Processes POST requests to create new user accounts and
+                    redirect them to the appropriate welcome page.
+                    ================================================================= -->
+                
+                <form method="post" class="auth-form">
+                    {% csrf_token %}
+                    
+                    <!-- ===================================================================
+                        10. PERSONAL INFORMATION FIELDS
+                        ===================================================================
+                         
+                        User identification fields for personal information.
+                        Includes first name and last name with consistent
+                        styling and validation requirements.
+                        ================================================================= -->
+                    
+                    <!-- First Name Input Field -->
+                    <div class="form-group">
+                        <input 
+                            type="text" 
+                            name="first_name" 
+                            placeholder="First Name" 
+                            class="form-input"
+                            value="{{ form.first_name.value|default:'' }}"
+                            required
+                        >
+                    </div>
+                    
+                    <!-- Last Name Input Field -->
+                    <div class="form-group">
+                        <input 
+                            type="text" 
+                            name="last_name" 
+                            placeholder="Last Name" 
+                            class="form-input"
+                            value="{{ form.last_name.value|default:'' }}"
+                            required
+                        >
+                    </div>
+                    
+                    <!-- ===================================================================
+                        11. ACCOUNT CREDENTIAL FIELDS
+                        ===================================================================
+                         
+                        Core account identification fields including username
+                        and email address. These fields are used for account
+                        authentication and communication purposes.
+                        ================================================================= -->
+                    
+                    <!-- Username Input Field -->
+                    <div class="form-group">
+                        <input 
+                            type="text" 
+                            name="username" 
+                            placeholder="Username" 
+                            class="form-input"
+                            value="{{ form.username.value|default:'' }}"
+                            required
+                        >
+                    </div>
+                    
+                    <!-- Email Address Input Field -->
+                    <div class="form-group">
+                        <input 
+                            type="email" 
+                            name="email" 
+                            placeholder="Email" 
+                            class="form-input"
+                            value="{{ form.email.value|default:'' }}"
+                            required
+                        >
+                    </div>
+                    
+                    <!-- ===================================================================
+                        12. PASSWORD CONFIRMATION FIELDS
+                        ===================================================================
+                         
+                        Secure password input fields with confirmation
+                        validation. Ensures users enter their intended
+                        password by requiring them to type it twice.
+                        ================================================================= -->
+                    
+                    <!-- Primary Password Input Field -->
+                    <div class="form-group">
+                        <input 
+                            type="password" 
+                            name="password1" 
+                            placeholder="Password" 
+                            class="form-input"
+                            required
+                        >
+                    </div>
+                    
+                    <!-- Password Confirmation Input Field -->
+                    <div class="form-group">
+                        <input 
+                            type="password" 
+                            name="password2" 
+                            placeholder="Confirm Password" 
+                            class="form-input"
+                            required
+                        >
+                    </div>
+                    
+                    <!-- ===================================================================
+                        13. SUBMIT BUTTON
+                        ===================================================================
+                         
+                        Primary action button for form submission. Features
+                        light blue theme coloring, full width design, and
+                        hover effects for enhanced user interaction.
+                        ================================================================= -->
+                    
+                    <button type="submit" class="auth-btn">
+                        Create Account
+                    </button>
+                    
+                </form>
+            </div>
+            
+            <!-- ===================================================================
+                14. FORM FOOTER WITH LOGIN LINK
+                ===================================================================
+                 
+                Bottom section of the registration card containing
+                navigation to existing account login. Provides clear
+                path for existing users to access their accounts.
+                ================================================================= -->
+            
+            <div class="auth-footer">
+                <p class="auth-footer-text">
+                    Already have an account? 
+                    <a href="{% url 'login' %}" class="auth-link">Log in</a>
+                </p>
+            </div>
+            
+        </div>
+    </div>
 </div>
+
 {% endblock %}
