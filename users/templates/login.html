@@ -1,65 +1,225 @@
+<!-- ===================================================================
+    FORGE FITNESS - LOGIN TEMPLATE
+    ===================================================================
+     
+    This template provides the user authentication interface for
+    returning users to access their Forge Fitness accounts.
+    Features a centered, responsive form with light blue theme
+    and consistent styling across all screen sizes.
+     
+    STRUCTURE:
+    1. Template Inheritance & Meta Configuration
+    2. Main Authentication Wrapper
+    3. Centered Form Card Container
+    4. Form Header with Title
+    5. Form Body with Input Fields
+    6. Error Message Display
+    7. Authentication Form with CSRF Protection
+    8. Input Fields for Credentials
+    9. Submit Button & Additional Links
+    10. Footer with Sign-up Link
+    ================================================================= -->
+
+<!-- ===================================================================
+    1. TEMPLATE INHERITANCE & META CONFIGURATION
+    ===================================================================
+     
+    Extends the base template to inherit the core site structure
+    including navigation, footer, and styling. Loads Django's
+    static files framework for accessing CSS and JavaScript assets.
+    ================================================================= -->
+
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Login - Forge Fitness{% endblock %}
+<!-- Dynamic page title for browser tab and SEO -->
+{% block title %}Log in - Forge Fitness{% endblock %}
+
+<!-- ===================================================================
+    2. MAIN AUTHENTICATION WRAPPER
+    ===================================================================
+     
+    Primary content block that overrides the base template's content
+    section. Contains the complete login interface with proper
+    centering and responsive design.
+    ================================================================= -->
 
 {% block content %}
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-4">
-            <div class="card shadow">
-                <div class="card-header text-center bg-primary text-white">
-                    <h4 class="mb-0">
-                        <i class="bi bi-box-arrow-in-right me-2"></i>
-                        Welcome Back
-                    </h4>
-                </div>
-                <div class="card-body">
-                    {% if form.errors %}
-                        <div class="alert alert-danger" role="alert">
-                            <i class="bi bi-exclamation-triangle me-2"></i>
-                            {{ form.errors.username.0|default:form.non_field_errors.0 }}
-                        </div>
-                    {% endif %}
-                    
-                    <form method="post">
-                        {% csrf_token %}
-                        <div class="mb-3">
-                            <label for="{{ form.username.id_for_label }}" class="form-label">
-                                {{ form.username.label }}
-                            </label>
-                            {{ form.username }}
-                            <div class="form-text">
-                                <i class="bi bi-info-circle me-1"></i>
-                                You can use either your username or email address
-                            </div>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label for="{{ form.password.id_for_label }}" class="form-label">
-                                {{ form.password.label }}
-                            </label>
-                            {{ form.password }}
-                        </div>
-                        
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="bi bi-box-arrow-in-right me-2"></i>
-                                Sign In
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <div class="card-footer text-center">
-                    <small class="text-muted">
-                        Don't have an account? 
-                        <a href="{% url 'signup' %}" class="text-decoration-none">
-                            Sign up here
-                        </a>
-                    </small>
-                </div>
+
+<!-- ===================================================================
+    3. AUTHENTICATION PAGE WRAPPER
+    ===================================================================
+     
+    Full-height container that centers the login form both
+    horizontally and vertically. Uses flexbox for perfect
+    centering across all screen sizes and maintains consistent
+    light grey background.
+    ================================================================= -->
+
+<div class="auth-page-wrapper">
+    
+    <!-- ===================================================================
+        4. CENTERED FORM CARD CONTAINER
+        ===================================================================
+         
+        Responsive container that houses the login card. Provides
+        maximum width constraints and centers the form card within
+        the viewport while maintaining proper proportions.
+        ================================================================= -->
+    
+    <div class="auth-container">
+        
+        <!-- ===================================================================
+            5. MAIN AUTHENTICATION CARD
+            ===================================================================
+             
+            White card container with rounded corners and shadow effects.
+            Houses all login form elements with proper spacing and
+            visual hierarchy. Uses flexbox for internal layout.
+            ================================================================= -->
+        
+        <div class="auth-card">
+            
+            <!-- ===================================================================
+                6. FORM HEADER WITH TITLE
+                ===================================================================
+                 
+                Top section of the authentication card containing the
+                main heading. Uses brand colors and bold typography
+                to establish visual hierarchy and user orientation.
+                ================================================================= -->
+            
+            <div class="auth-header">
+                <h1 class="auth-title">Log in</h1>
             </div>
+            
+            <!-- ===================================================================
+                7. FORM BODY CONTAINER
+                ===================================================================
+                 
+                Main content area of the authentication card. Contains
+                error messages, form fields, and form controls. Uses
+                flexible layout to accommodate different content heights.
+                ================================================================= -->
+            
+            <div class="auth-body">
+                
+                <!-- ===================================================================
+                    8. ERROR MESSAGE DISPLAY
+                    ===================================================================
+                     
+                    Conditional error message display that appears when
+                    login attempts fail. Shows specific error messages
+                    with appropriate styling and iconography for user
+                    feedback and accessibility.
+                    ================================================================= -->
+                
+                {% if form.errors %}
+                    <div class="auth-error">
+                        <i class="bi bi-exclamation-triangle"></i>
+                        {{ form.errors.username.0|default:form.non_field_errors.0 }}
+                    </div>
+                {% endif %}
+                
+                <!-- ===================================================================
+                    9. AUTHENTICATION FORM WITH CSRF PROTECTION
+                    ===================================================================
+                     
+                    Main login form with Django's CSRF protection enabled.
+                    Processes POST requests to authenticate users and
+                    redirect them to the appropriate dashboard page.
+                    ================================================================= -->
+                
+                <form method="post" class="auth-form">
+                    {% csrf_token %}
+                    
+                    <!-- ===================================================================
+                        10. USERNAME/EMAIL INPUT FIELD
+                        ===================================================================
+                         
+                        Primary identification field that accepts either
+                        username or email address. Features custom styling
+                        with rounded corners, focus states, and placeholder
+                        text for user guidance.
+                        ================================================================= -->
+                    
+                    <div class="form-group">
+                        <input 
+                            type="text" 
+                            name="username" 
+                            placeholder="Username or Email" 
+                            class="form-input"
+                            value="{{ form.username.value|default:'' }}"
+                            required
+                        >
+                    </div>
+                    
+                    <!-- ===================================================================
+                        11. PASSWORD INPUT FIELD
+                        ===================================================================
+                         
+                        Secure password input field with proper type attribute
+                        for password masking. Includes required validation
+                        and consistent styling with other form elements.
+                        ================================================================= -->
+                    
+                    <div class="form-group">
+                        <input 
+                            type="password" 
+                            name="password" 
+                            placeholder="Password" 
+                            class="form-input"
+                            required
+                        >
+                    </div>
+                    
+                    <!-- ===================================================================
+                        12. SUBMIT BUTTON
+                        ===================================================================
+                         
+                        Primary action button for form submission. Features
+                        light blue theme coloring, full width design, and
+                        hover effects for enhanced user interaction.
+                        ================================================================= -->
+                    
+                    <button type="submit" class="auth-btn">
+                        Log in
+                    </button>
+                    
+                    <!-- ===================================================================
+                        13. ADDITIONAL AUTHENTICATION LINKS
+                        ===================================================================
+                         
+                        Secondary links for password recovery and account
+                        management. Provides users with alternative actions
+                        if they cannot complete the standard login process.
+                        ================================================================= -->
+                    
+                    <div class="auth-links">
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+                    
+                </form>
+            </div>
+            
+            <!-- ===================================================================
+                14. FORM FOOTER WITH SIGN-UP LINK
+                ===================================================================
+                 
+                Bottom section of the authentication card containing
+                navigation to account creation. Provides clear path
+                for new users to register for the platform.
+                ================================================================= -->
+            
+            <div class="auth-footer">
+                <p class="auth-footer-text">
+                    Don't have an account? 
+                    <a href="{% url 'signup' %}" class="auth-link">Create account</a>
+                </p>
+            </div>
+            
         </div>
     </div>
 </div>
+
 {% endblock %}
