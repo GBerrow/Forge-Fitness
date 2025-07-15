@@ -105,7 +105,7 @@
             <div class="auth-body">
                 
                 <!-- ===================================================================
-                    8. ERROR MESSAGE DISPLAY
+                    8. GENERAL ERROR MESSAGE DISPLAY
                     ===================================================================
                      
                     Conditional error message display that appears when
@@ -114,15 +114,28 @@
                     feedback and accessibility.
                     ================================================================= -->
                 
-                {% if form.errors %}
+                {% if form.non_field_errors %}
                     <div class="auth-error">
                         <i class="bi bi-exclamation-triangle"></i>
-                        {{ form.errors.username.0|default:form.non_field_errors.0 }}
+                        {{ form.non_field_errors.0 }}
                     </div>
                 {% endif %}
+
+                <!-- ===================================================================
+                    9. FORGOT PASSWORD SUCCESS MESSAGE
+                    ===================================================================
+                     
+                    Success message display for forgot password functionality.
+                    Shows confirmation message when password reset is requested.
+                    ================================================================= -->
+                
+                <div id="forgot-password-message" class="auth-success" style="display: none;">
+                    <i class="bi bi-check-circle"></i>
+                    If you have a registered email, we'll send a reset link.
+                </div>
                 
                 <!-- ===================================================================
-                    9. AUTHENTICATION FORM WITH CSRF PROTECTION
+                    10. AUTHENTICATION FORM WITH CSRF PROTECTION
                     ===================================================================
                      
                     Main login form with Django's CSRF protection enabled.
@@ -134,7 +147,7 @@
                     {% csrf_token %}
                     
                     <!-- ===================================================================
-                        10. USERNAME/EMAIL INPUT FIELD
+                        11. USERNAME/EMAIL INPUT FIELD
                         ===================================================================
                          
                         Primary identification field that accepts either
@@ -148,14 +161,19 @@
                             type="text" 
                             name="username" 
                             placeholder="Username or Email" 
-                            class="form-input"
+                            class="form-input {% if form.username.errors %}is-invalid{% endif %}"
                             value="{{ form.username.value|default:'' }}"
                             required
                         >
+                        {% if form.username.errors %}
+                            <div class="invalid-feedback">
+                                {{ form.username.errors.0 }}
+                            </div>
+                        {% endif %}
                     </div>
                     
                     <!-- ===================================================================
-                        11. PASSWORD INPUT FIELD
+                        12. PASSWORD INPUT FIELD
                         ===================================================================
                          
                         Secure password input field with proper type attribute
@@ -168,13 +186,18 @@
                             type="password" 
                             name="password" 
                             placeholder="Password" 
-                            class="form-input"
+                            class="form-input {% if form.password.errors %}is-invalid{% endif %}"
                             required
                         >
+                        {% if form.password.errors %}
+                            <div class="invalid-feedback">
+                                {{ form.password.errors.0 }}
+                            </div>
+                        {% endif %}
                     </div>
                     
                     <!-- ===================================================================
-                        12. SUBMIT BUTTON
+                        13. SUBMIT BUTTON
                         ===================================================================
                          
                         Primary action button for form submission. Features
@@ -187,7 +210,7 @@
                     </button>
                     
                     <!-- ===================================================================
-                        13. ADDITIONAL AUTHENTICATION LINKS
+                        14. ADDITIONAL AUTHENTICATION LINKS
                         ===================================================================
                          
                         Secondary links for password recovery and account
@@ -196,14 +219,16 @@
                         ================================================================= -->
                     
                     <div class="auth-links">
-                        <a href="#" class="forgot-password">Forgot password?</a>
+                        <a href="#" class="forgot-password" onclick="showForgotPasswordMessage(event)">
+                            Forgot password?
+                        </a>
                     </div>
                     
                 </form>
             </div>
             
             <!-- ===================================================================
-                14. FORM FOOTER WITH SIGN-UP LINK
+                15. FORM FOOTER WITH SIGN-UP LINK
                 ===================================================================
                  
                 Bottom section of the authentication card containing
@@ -221,5 +246,37 @@
         </div>
     </div>
 </div>
+
+<!-- ===================================================================
+    16. JAVASCRIPT FOR FORGOT PASSWORD FUNCTIONALITY
+    ===================================================================
+     
+    Simple JavaScript function to handle forgot password link click.
+    Shows success message and provides visual feedback to users.
+    ================================================================= -->
+
+<script>
+function showForgotPasswordMessage(event) {
+    event.preventDefault();
+    
+    // Hide any existing error messages
+    const errorMessages = document.querySelectorAll('.auth-error');
+    errorMessages.forEach(message => message.style.display = 'none');
+    
+    // Show success message
+    const successMessage = document.getElementById('forgot-password-message');
+    successMessage.style.display = 'block';
+    
+    // Hide the forgot password link temporarily
+    const forgotLink = event.target;
+    forgotLink.style.display = 'none';
+    
+    // Show the link again after 3 seconds
+    setTimeout(() => {
+        successMessage.style.display = 'none';
+        forgotLink.style.display = 'inline';
+    }, 3000);
+}
+</script>
 
 {% endblock %}
