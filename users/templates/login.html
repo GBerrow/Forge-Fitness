@@ -173,22 +173,33 @@
                     </div>
                     
                     <!-- ===================================================================
-                        12. PASSWORD INPUT FIELD
+                        12. PASSWORD INPUT FIELD WITH TOGGLE VISIBILITY
                         ===================================================================
                          
-                        Secure password input field with proper type attribute
-                        for password masking. Includes required validation
-                        and consistent styling with other form elements.
+                        Secure password input field with show/hide functionality.
+                        Features eye icon toggle for password visibility and
+                        consistent styling with other form elements.
                         ================================================================= -->
                     
                     <div class="form-group">
-                        <input 
-                            type="password" 
-                            name="password" 
-                            placeholder="Password" 
-                            class="form-input {% if form.password.errors %}is-invalid{% endif %}"
-                            required
-                        >
+                        <div class="password-input-wrapper">
+                            <input 
+                                type="password" 
+                                name="password" 
+                                placeholder="Password" 
+                                class="form-input {% if form.password.errors %}is-invalid{% endif %}"
+                                id="login-password"
+                                required
+                            >
+                            <button 
+                                type="button" 
+                                class="password-toggle-btn" 
+                                onclick="togglePasswordVisibility('login-password', this)"
+                                aria-label="Toggle password visibility"
+                            >
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
                         {% if form.password.errors %}
                             <div class="invalid-feedback">
                                 {{ form.password.errors.0 }}
@@ -248,14 +259,16 @@
 </div>
 
 <!-- ===================================================================
-    16. JAVASCRIPT FOR FORGOT PASSWORD FUNCTIONALITY
+    16. JAVASCRIPT FOR ENHANCED FUNCTIONALITY
     ===================================================================
      
-    Simple JavaScript function to handle forgot password link click.
-    Shows success message and provides visual feedback to users.
+    JavaScript functions for forgot password and password visibility
+    toggle functionality. Provides smooth user interactions and
+    visual feedback.
     ================================================================= -->
 
 <script>
+// Forgot password functionality
 function showForgotPasswordMessage(event) {
     event.preventDefault();
     
@@ -276,6 +289,22 @@ function showForgotPasswordMessage(event) {
         successMessage.style.display = 'none';
         forgotLink.style.display = 'inline';
     }, 3000);
+}
+
+// Password visibility toggle functionality
+function togglePasswordVisibility(inputId, button) {
+    const passwordInput = document.getElementById(inputId);
+    const icon = button.querySelector('i');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.className = 'bi bi-eye-slash';
+        button.setAttribute('aria-label', 'Hide password');
+    } else {
+        passwordInput.type = 'password';
+        icon.className = 'bi bi-eye';
+        button.setAttribute('aria-label', 'Show password');
+    }
 }
 </script>
 

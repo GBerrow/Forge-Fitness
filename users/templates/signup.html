@@ -153,7 +153,6 @@
                             type="text" 
                             name="first_name" 
                             placeholder="First Name" 
-
                             class="form-input {% if form.first_name.errors %}is-invalid{% endif %}"
                             value="{{ form.first_name.value|default:'' }}"
                             required
@@ -171,7 +170,6 @@
                             type="text" 
                             name="last_name" 
                             placeholder="Last Name" 
-
                             class="form-input {% if form.last_name.errors %}is-invalid{% endif %}"
                             value="{{ form.last_name.value|default:'' }}"
                             required
@@ -198,7 +196,6 @@
                             type="text" 
                             name="username" 
                             placeholder="Username" 
-
                             class="form-input {% if form.username.errors %}is-invalid{% endif %}"
                             value="{{ form.username.value|default:'' }}"
                             required
@@ -228,23 +225,35 @@
                     </div>
                     
                     <!-- ===================================================================
-                        12. PASSWORD CONFIRMATION FIELDS
+                        12. PASSWORD CONFIRMATION FIELDS WITH TOGGLE VISIBILITY
                         ===================================================================
                          
-                        Secure password input fields with confirmation
-                        validation. Ensures users enter their intended
+                        Secure password input fields with show/hide functionality.
+                        Features eye icon toggles for password visibility and
+                        confirmation validation. Ensures users enter their intended
                         password by requiring them to type it twice.
                         ================================================================= -->
                     
                     <!-- Primary Password Input Field -->
                     <div class="form-group">
-                        <input 
-                            type="password" 
-                            name="password1" 
-                            placeholder="Password" 
-                            class="form-input {% if form.password1.errors %}is-invalid{% endif %}"
-                            required
-                        >
+                        <div class="password-input-wrapper">
+                            <input 
+                                type="password" 
+                                name="password1" 
+                                placeholder="Password" 
+                                class="form-input {% if form.password1.errors %}is-invalid{% endif %}"
+                                id="signup-password1"
+                                required
+                            >
+                            <button 
+                                type="button" 
+                                class="password-toggle-btn" 
+                                onclick="togglePasswordVisibility('signup-password1', this)"
+                                aria-label="Toggle password visibility"
+                            >
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
                         {% if form.password1.errors %}
                             <div class="invalid-feedback">
                                 {{ form.password1.errors.0 }}
@@ -254,13 +263,24 @@
                     
                     <!-- Password Confirmation Input Field -->
                     <div class="form-group">
-                        <input 
-                            type="password" 
-                            name="password2" 
-                            placeholder="Confirm Password" 
-                            class="form-input {% if form.password2.errors %}is-invalid{% endif %}"
-                            required
-                        >
+                        <div class="password-input-wrapper">
+                            <input 
+                                type="password" 
+                                name="password2" 
+                                placeholder="Confirm Password" 
+                                class="form-input {% if form.password2.errors %}is-invalid{% endif %}"
+                                id="signup-password2"
+                                required
+                            >
+                            <button 
+                                type="button" 
+                                class="password-toggle-btn" 
+                                onclick="togglePasswordVisibility('signup-password2', this)"
+                                aria-label="Toggle password confirmation visibility"
+                            >
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
                         {% if form.password2.errors %}
                             <div class="invalid-feedback">
                                 {{ form.password2.errors.0 }}
@@ -303,5 +323,32 @@
         </div>
     </div>
 </div>
+
+<!-- ===================================================================
+    15. JAVASCRIPT FOR PASSWORD VISIBILITY TOGGLE
+    ===================================================================
+     
+    JavaScript function for password visibility toggle functionality.
+    Provides smooth user interactions and enhanced accessibility
+    for both password fields.
+    ================================================================= -->
+
+<script>
+// Password visibility toggle functionality
+function togglePasswordVisibility(inputId, button) {
+    const passwordInput = document.getElementById(inputId);
+    const icon = button.querySelector('i');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.className = 'bi bi-eye-slash';
+        button.setAttribute('aria-label', 'Hide password');
+    } else {
+        passwordInput.type = 'password';
+        icon.className = 'bi bi-eye';
+        button.setAttribute('aria-label', 'Show password');
+    }
+}
+</script>
 
 {% endblock %}
