@@ -1767,6 +1767,7 @@ body {
 @supports (-webkit-appearance: none) {
     .password-toggle-btn {
         -webkit-appearance: none;
+        appearance: none;
         -webkit-tap-highlight-color: transparent;
     }
 }

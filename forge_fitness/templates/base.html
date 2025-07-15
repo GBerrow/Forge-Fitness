@@ -83,7 +83,8 @@
         ===================================================================
          
         Fixed header navigation with natural scrolling behavior.
-        Features centered logo/title and dynamic authentication buttons.
+        Features left-aligned home button, centered logo/title and 
+        right-aligned authentication buttons with proper mobile responsiveness.
         Uses custom CSS classes for brand styling and shadows.
         ================================================================= -->
     
@@ -91,30 +92,36 @@
    <header class="header-custom shadow-sm">
        <div class="container-fluid px-4 py-2">
            <div class="row align-items-center">
-               <!-- Left spacer (hidden on mobile) -->
-               <div class="col-2 d-none d-md-block"></div>
+               <!-- Left side home button -->
+               <div class="col-2 d-flex justify-content-start">
+                   <a href="{% url 'dashboard' %}" class="text-decoration-none text-dark">
+                       <i class="bi bi-house-fill fs-3"></i>
+                   </a>
+               </div>
                
                <!-- Centered title -->
-               <div class="col-12 col-md-8 text-center">
+               <div class="col-8 text-center">
                    <h1 class="text-dark fw-bold mb-0">
                        <a href="{% url 'dashboard' %}" class="text-decoration-none text-dark">
-                           <i class="bi bi-house-fill me-2"></i>Forge Fitness
+                           Forge Fitness
                        </a>
                    </h1>
                </div>
                
                <!-- Right side auth button -->
-               <div class="col-12 col-md-2 text-center text-md-end mt-2 mt-md-0">
+               <div class="col-2 d-flex justify-content-end">
                    {% if user.is_authenticated %}
                        <form method="post" action="{% url 'logout' %}" class="d-inline">
                            {% csrf_token %}
                            <button type="submit" class="btn btn-outline-secondary btn-sm">
-                               <i class="bi bi-box-arrow-right me-1"></i>Log Out
+                               <i class="bi bi-box-arrow-right me-1"></i>
+                               <span class="d-none d-md-inline">Log Out</span>
                            </button>
                        </form>
                    {% else %}
                        <a href="{% url 'login' %}" class="btn btn-outline-secondary btn-sm">
-                           <i class="bi bi-box-arrow-in-right me-1"></i>Log In
+                           <i class="bi bi-box-arrow-in-right me-1"></i>
+                           <span class="d-none d-md-inline">Log In</span>
                        </a>
                    {% endif %}
                </div>
@@ -156,8 +163,8 @@
          
         Application footer with social media icons and copyright notice.
         Features custom gradient background, shadow effects, and
-        responsive layout. Uses Bootstrap Icons for social media links.
-        Now positioned at bottom with flexbox layout.
+        responsive layout with improved spacing. Uses Bootstrap Icons 
+        for social media links positioned at bottom with flexbox layout.
         ================================================================= -->
 
    <!-- Natural scrolling footer with shadow and custom styling -->
@@ -170,13 +177,12 @@
                     ===================================================================
                      
                     Horizontally centered social media icons with copyright
-                    notice. Uses constrained width for better visual balance
-                    and hover effects defined in custom CSS.
+                    notice. Uses responsive width constraints for better visual 
+                    balance and hover effects defined in custom CSS.
                     ================================================================= -->
                 
-               <!-- Social media icons and copyright container -->
-               <!-- Demo version with placeholder behavior -->
-               <div class="d-flex align-items-center justify-content-between w-100" style="max-width: 400px;">
+               <!-- Social media icons and copyright container with responsive spacing -->
+               <div class="d-flex align-items-center justify-content-between w-100" style="max-width: min(1050px, 90vw);">
                     <a href="https://www.facebook.com" target="_blank" class="text-decoration-none">
                         <i class="bi bi-facebook fs-4 text-white social-icon"></i>
                     </a>
