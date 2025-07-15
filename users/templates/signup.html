@@ -107,7 +107,8 @@
             <div class="auth-body">
                 
                 <!-- ===================================================================
-                    8. ERROR MESSAGE DISPLAY
+
+                    8. GENERAL ERROR MESSAGE DISPLAY
                     ===================================================================
                      
                     Conditional error message display that appears when
@@ -116,10 +117,12 @@
                     feedback and accessibility.
                     ================================================================= -->
                 
-                {% if form.errors %}
+
+                {% if form.non_field_errors %}
                     <div class="auth-error">
                         <i class="bi bi-exclamation-triangle"></i>
-                        Please correct the errors below.
+
+                        {{ form.non_field_errors.0 }}
                     </div>
                 {% endif %}
                 
@@ -150,10 +153,16 @@
                             type="text" 
                             name="first_name" 
                             placeholder="First Name" 
-                            class="form-input"
+
+                            class="form-input {% if form.first_name.errors %}is-invalid{% endif %}"
                             value="{{ form.first_name.value|default:'' }}"
                             required
                         >
+                        {% if form.first_name.errors %}
+                            <div class="invalid-feedback">
+                                {{ form.first_name.errors.0 }}
+                            </div>
+                        {% endif %}
                     </div>
                     
                     <!-- Last Name Input Field -->
@@ -162,10 +171,16 @@
                             type="text" 
                             name="last_name" 
                             placeholder="Last Name" 
-                            class="form-input"
+
+                            class="form-input {% if form.last_name.errors %}is-invalid{% endif %}"
                             value="{{ form.last_name.value|default:'' }}"
                             required
                         >
+                        {% if form.last_name.errors %}
+                            <div class="invalid-feedback">
+                                {{ form.last_name.errors.0 }}
+                            </div>
+                        {% endif %}
                     </div>
                     
                     <!-- ===================================================================
@@ -183,10 +198,16 @@
                             type="text" 
                             name="username" 
                             placeholder="Username" 
-                            class="form-input"
+
+                            class="form-input {% if form.username.errors %}is-invalid{% endif %}"
                             value="{{ form.username.value|default:'' }}"
                             required
                         >
+                        {% if form.username.errors %}
+                            <div class="invalid-feedback">
+                                {{ form.username.errors.0 }}
+                            </div>
+                        {% endif %}
                     </div>
                     
                     <!-- Email Address Input Field -->
@@ -195,10 +216,15 @@
                             type="email" 
                             name="email" 
                             placeholder="Email" 
-                            class="form-input"
+                            class="form-input {% if form.email.errors %}is-invalid{% endif %}"
                             value="{{ form.email.value|default:'' }}"
                             required
                         >
+                        {% if form.email.errors %}
+                            <div class="invalid-feedback">
+                                {{ form.email.errors.0 }}
+                            </div>
+                        {% endif %}
                     </div>
                     
                     <!-- ===================================================================
@@ -216,9 +242,14 @@
                             type="password" 
                             name="password1" 
                             placeholder="Password" 
-                            class="form-input"
+                            class="form-input {% if form.password1.errors %}is-invalid{% endif %}"
                             required
                         >
+                        {% if form.password1.errors %}
+                            <div class="invalid-feedback">
+                                {{ form.password1.errors.0 }}
+                            </div>
+                        {% endif %}
                     </div>
                     
                     <!-- Password Confirmation Input Field -->
@@ -227,9 +258,14 @@
                             type="password" 
                             name="password2" 
                             placeholder="Confirm Password" 
-                            class="form-input"
+                            class="form-input {% if form.password2.errors %}is-invalid{% endif %}"
                             required
                         >
+                        {% if form.password2.errors %}
+                            <div class="invalid-feedback">
+                                {{ form.password2.errors.0 }}
+                            </div>
+                        {% endif %}
                     </div>
                     
                     <!-- ===================================================================
