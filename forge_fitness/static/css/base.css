@@ -1961,3 +1961,91 @@ body {
 .password-toggle-btn:focus {
     outline-color: var(--password-toggle-active-color);
 }
+
+/* ===================================================================
+   36. REMEMBER ME CHECKBOX STYLING
+   ===================================================================
+   
+   Simple and clean styling for the remember me checkbox that
+   matches the existing form theme and provides good usability.
+   ================================================================= */
+
+/* Remember me wrapper */
+.remember-me-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Hide default checkbox */
+.remember-me-checkbox {
+    display: none;
+}
+
+/* Custom checkbox styling */
+.remember-me-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    margin: 0;
+}
+
+/* Custom checkbox icon */
+.remember-me-label i {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 4px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: transparent;
+    transition: all 0.3s ease;
+}
+
+/* Checked state */
+.remember-me-checkbox:checked + .remember-me-label i {
+    background: #89cff0;
+    border-color: #89cff0;
+    color: white;
+}
+
+/* Hover state */
+.remember-me-label:hover {
+    color: #003f88;
+}
+
+.remember-me-label:hover i {
+    border-color: #9ccbe2;
+}
+
+/* Focus state */
+.remember-me-checkbox:focus + .remember-me-label i {
+    outline: 2px solid #89cff0;
+    outline-offset: 2px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .remember-me-wrapper {
+        gap: 0.5rem;
+    }
+    
+    .remember-me-label {
+        font-size: 0.85rem;
+    }
+    
+    .remember-me-label i {
+        width: 1.1rem;
+        height: 1.1rem;
+        font-size: 0.7rem;
+    }
+}
