@@ -156,6 +156,7 @@
       position: relative;
       overflow: hidden;
       box-shadow: 0 4px 15px rgba(0, 63, 136, 0.15);
+      margin-bottom: 2rem; /* Increase from default to accommodate hover lift */
   }
 
   /* Slide effect overlay for action cards */
@@ -251,6 +252,7 @@
       width: 90%;
       max-width: 800px;
       margin: 0 auto;
+      margin-bottom: 1.5rem;
   }
 
   /* Enhanced card spacing for dashboard elements */
@@ -261,6 +263,11 @@
 
   /* Consistent spacing for last card */
   .dashboard-card:last-child {
+      margin-bottom: 2rem;
+  }
+
+  /* Ensure last dashboard container has proper spacing */
+  .dashboard-container:last-child {
       margin-bottom: 2rem;
   }
 
