@@ -121,22 +121,26 @@
                         {% endif %}
                         
                         <!-- ===================================================================
-                            4.3. USER INFORMATION DETAILS
+                            4.3. USER INFORMATION DETAILS - MOBILE LAYOUT
                             ===================================================================
                              
                             Additional user details like email and join date with
-                            clean layout and consistent styling.
+                            clean layout and consistent styling. Fixed mobile alignment.
                             ================================================================= -->
                         
-                        <!-- User Details -->
-                        <div class="row justify-content-between text-start">
+                        <!-- User Details - Mobile-Optimized Layout -->
+                        <div class="row justify-content-between">
                             <div class="col-md-6 mb-3">
-                                <h6 class="text-muted mb-1">Email</h6>
-                                <p class="text-dark mb-0">{{ user.email }}</p>
+                                <div class="text-start text-md-start">
+                                    <h6 class="text-muted mb-1">Email</h6>
+                                    <p class="text-dark mb-0">{{ user.email }}</p>
+                                </div>
                             </div>
-                            <div class="col-md-6 mb-3 text-end">
-                                <h6 class="text-muted mb-1">Member Since</h6>
-                                <p class="text-dark mb-0">{{ user.date_joined|date:"F Y" }}</p>
+                            <div class="col-md-6 mb-3">
+                                <div class="text-start text-md-end">
+                                    <h6 class="text-muted mb-1">Member Since</h6>
+                                    <p class="text-dark mb-0">{{ user.date_joined|date:"F Y" }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -149,23 +153,27 @@
                  
                 Professional action buttons for profile editing and settings
                 with consistent styling and hover effects matching dashboard.
+                Fixed button size consistency.
                 ================================================================= -->
 
-            <!-- Action Buttons -->
+            <!-- Action Buttons - Consistent Sizing -->
             <div class="dashboard-container">
                 <div class="action-card shadow-sm rounded-3">
                     <div class="card-body text-center p-4">
                         <h5 class="fw-bold text-dark mb-3">Profile Actions</h5>
                         
-                        <!-- Edit Profile Button -->
-                        <a href="{% url 'profile_edit' %}" class="btn btn-primary btn-lg me-3 mb-2">
-                            <i class="bi bi-pencil-fill me-2"></i>Edit Profile
-                        </a>
-                        
-                        <!-- Settings Button -->
-                        <a href="{% url 'settings' %}" class="btn btn-outline-secondary btn-lg mb-2">
-                            <i class="bi bi-gear-fill me-2"></i>Settings
-                        </a>
+                        <!-- Button Container for Consistent Sizing -->
+                        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+                            <!-- Edit Profile Button -->
+                            <a href="{% url 'profile_edit' %}" class="btn btn-primary btn-lg flex-fill" style="min-width: 150px;">
+                                <i class="bi bi-pencil-fill me-2"></i>Edit Profile
+                            </a>
+                            
+                            <!-- Settings Button -->
+                            <a href="{% url 'settings' %}" class="btn btn-outline-secondary btn-lg flex-fill" style="min-width: 150px;">
+                                <i class="bi bi-gear-fill me-2"></i>Settings
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
