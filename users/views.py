@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-from .forms import SignupForm, PracticeNoteForm, TrainingNoteForm, UserProfileForm, UserSettingsForm, AccountDeleteForm
+from .forms import SignupForm, PracticeNoteForm, TrainingNoteForm, UserProfileForm, UserSettingsForm, AccountDeleteForm, LoginForm
 from .models import UserProfile, PracticeNote, UserSettings
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_protect
@@ -14,22 +14,45 @@ from django.http import HttpResponse
 from django.views.decorators.cache import never_cache
 from django.contrib.auth.views import LoginView
 from django.utils.decorators import method_decorator
-from django.http import Http404
-from django.shortcuts import render
+import logging
 
+# Set up logging
+logger = logging.getLogger(__name__)
 
 @method_decorator(never_cache, name='dispatch')
 class CustomLoginView(LoginView):
     template_name = 'login.html'
+    form_class = LoginForm
     
     def dispatch(self, request, *args, **kwargs):
-        # If user is already logged in, redirect to dashboard
         if request.user.is_authenticated:
             return redirect('dashboard')
         return super().dispatch(request, *args, **kwargs)
     
+    def form_valid(self, form):
+        """Enhanced logging for successful login"""
+        user = form.get_user()
+        logger.info(f"✅ Login successful for user: {user.username} (ID: {user.id})")
+        login(self.request, user)
+        return redirect(self.get_success_url())
+    
+    def form_invalid(self, form):
+        """Enhanced logging for failed login"""
+        logger.warning(f"❌ Login failed. Form errors: {form.errors}")
+        
+        # Check if user exists
+        username = form.cleaned_data.get('username') if form.cleaned_data else None
+        if username:
+            try:
+                user = UserProfile.objects.get(username=username)
+                logger.info(f"🔍 User '{username}' exists in database (ID: {user.id})")
+            except UserProfile.DoesNotExist:
+                logger.warning(f"🔍 User '{username}' does not exist in database")
+        
+        return super().form_invalid(form)
+    
     def get_success_url(self):
-        return self.get_redirect_url() or '/dashboard/'
+        return '/dashboard/'
 
 @never_cache
 @csrf_protect
@@ -38,26 +61,12 @@ def custom_logout(request):
     """Custom logout view that completely clears session and prevents caching"""
     if request.user.is_authenticated:
         messages.success(request, 'You have been logged out successfully.')
-        
-        # Clear session data before logout
-        request.session.flush()
-        
-        # Logout user
         logout(request)
-        
-        # Clear any remaining session data
-        request.session.clear()
-        request.session.cycle_key()
     
-    # Create response with strong cache prevention
     response = redirect('login')
-    
-    # Prevent ALL caching
     response['Cache-Control'] = 'no-cache, no-store, must-revalidate, max-age=0, private'
     response['Pragma'] = 'no-cache'
     response['Expires'] = '0'
-    response['Last-Modified'] = '0'
-    
     return response
 
 class SignupView(View):
@@ -68,12 +77,18 @@ class SignupView(View):
     def post(self, request):
         form = SignupForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            # Create UserSettings for the new user
-            UserSettings.objects.create(user=user)
-            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
-            messages.success(request, 'Welcome! Your account has been created.')
-            return redirect('dashboard')
+            try:
+                user = form.save()
+                logger.info(f"✅ User created successfully: {user.username}")
+                UserSettings.objects.create(user=user)
+                login(request, user)
+                messages.success(request, 'Welcome! Your account has been created.')
+                return redirect('dashboard')
+            except Exception as e:
+                logger.error(f"❌ Error creating user: {str(e)}")
+                messages.error(request, 'Error creating account. Please try again.')
+        else:
+            logger.warning(f"❌ Signup form invalid: {form.errors}")
         return render(request, 'signup.html', {'form': form})
 
 # Practice Notes CRUD
@@ -215,7 +230,7 @@ class SettingsView(LoginRequiredMixin, View):
 # Keep the old AccountDeleteView for backward compatibility
 class AccountDeleteView(LoginRequiredMixin, DeleteView):
     model = UserProfile
-    template_name = 'settings.html'
+    template_name = 'user_settings.html'
     success_url = reverse_lazy('signup')
 
     def get_object(self):
