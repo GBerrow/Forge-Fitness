@@ -71,7 +71,7 @@ class SignupView(View):
             user = form.save()
             # Create UserSettings for the new user
             UserSettings.objects.create(user=user)
-            login(request, user)
+            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             messages.success(request, 'Welcome! Your account has been created.')
             return redirect('dashboard')
         return render(request, 'signup.html', {'form': form})
