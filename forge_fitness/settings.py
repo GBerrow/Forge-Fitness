@@ -17,14 +17,10 @@ if not SECRET_KEY:
 # Debug mode (defaults to False for security)
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-# Allowed Hosts (updated for Render)
-ALLOWED_HOSTS = []
+# FIXED: Allowed Hosts for Render
+ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
 if os.getenv('RENDER_EXTERNAL_HOSTNAME'):
     ALLOWED_HOSTS.append(os.getenv('RENDER_EXTERNAL_HOSTNAME'))
-if os.getenv('ALLOWED_HOSTS'):
-    ALLOWED_HOSTS.extend(os.getenv('ALLOWED_HOSTS').split(','))
-if not ALLOWED_HOSTS:
-    ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'testserver']
 
 # Enhanced Session settings for security
 SESSION_COOKIE_AGE = 1209600  # 2 weeks
@@ -46,7 +42,7 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',  # Keep as fallback
 ]
 
-# Database configuration - Updated for Render
+# FIXED: Database configuration for Render (PostgreSQL)
 DATABASES = {
     'default': dj_database_url.config(
         default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'),
@@ -71,7 +67,7 @@ INSTALLED_APPS = [
 
 AUTH_USER_MODEL = 'users.UserProfile'
 
-# Middleware (Updated for Render)
+# FIXED: Middleware with WhiteNoise
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this for static files
@@ -104,7 +100,7 @@ TEMPLATES = [
     },
 ]
 
-# Static file settings (Updated for Render)
+# FIXED: Static file settings for Render
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'forge_fitness' / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
