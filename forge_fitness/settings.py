@@ -26,10 +26,11 @@ if os.getenv('RENDER_EXTERNAL_HOSTNAME'):
 SESSION_COOKIE_AGE = 1209600  # 2 weeks
 SESSION_SAVE_EVERY_REQUEST = False  # Changed from True - this was causing issues
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
-SESSION_COOKIE_SECURE = not DEBUG  # Only over HTTPS in production
-SESSION_COOKIE_HTTPONLY = True  # Prevent JavaScript access
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # or your preferred backend
+SESSION_COOKIE_SECURE = True if not DEBUG else False
+SESSION_COOKIE_HTTPONLY = True
+CSRF_COOKIE_SECURE = True if not DEBUG else False
 SESSION_COOKIE_SAMESITE = 'Lax'  # CSRF protection
-SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 # Authentication settings
 LOGIN_URL = '/login/'  
