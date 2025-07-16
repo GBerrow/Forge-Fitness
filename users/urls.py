@@ -15,4 +15,10 @@ urlpatterns = [
     path('notes/create/<str:page>/', views.create_note, name='create_note'),
     path('notes/edit/<int:note_id>/', views.edit_note, name='edit_note'),
     path('notes/delete/<int:note_id>/', views.delete_note, name='delete_note'),
+    
+    # Test error pages (REMOVE THESE AFTER TESTING)
+    path('test-404/', views.test_404_error, name='test_404'),
+    path('test-500/', views.test_500_error, name='test_500'),
+    path('preview-404/', views.custom_404_view, name='preview_404'),
+    path('preview-500/', views.custom_500_view, name='preview_500'),
 ]

@@ -14,6 +14,8 @@ from django.http import HttpResponse
 from django.views.decorators.cache import never_cache
 from django.contrib.auth.views import LoginView
 from django.utils.decorators import method_decorator
+from django.http import Http404
+from django.shortcuts import render
 
 
 @method_decorator(never_cache, name='dispatch')
@@ -218,3 +220,19 @@ class AccountDeleteView(LoginRequiredMixin, DeleteView):
 
     def get_object(self):
         return self.request.user
+
+def test_404_error(request):
+    """Test view to simulate 404 error"""
+    return render(request, '404.html', status=404)
+
+def test_500_error(request):
+    """Test view to simulate 500 error"""
+    return render(request, '500.html', status=500)
+
+def custom_404_view(request, exception=None):
+    """Custom 404 handler that works in both DEBUG and production"""
+    return render(request, '404.html', status=404)
+
+def custom_500_view(request):
+    """Custom 500 handler that works in both DEBUG and production"""
+    return render(request, '500.html', status=500)

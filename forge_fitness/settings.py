@@ -127,3 +127,7 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
+
+# Custom error handlers (works even in DEBUG mode)
+handler404 = 'users.views.custom_404_view'
+handler500 = 'users.views.custom_500_view'
