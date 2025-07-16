@@ -119,10 +119,13 @@
                            </button>
                        </form>
                    {% else %}
-                       <a href="{% url 'login' %}" class="btn btn-outline-secondary btn-sm">
-                           <i class="bi bi-box-arrow-in-right me-1"></i>
-                           <span class="d-none d-md-inline">Log In</span>
-                       </a>
+                       <!-- Only show login button if not on login or signup pages -->
+                       {% if request.resolver_match.url_name != 'login' and request.resolver_match.url_name != 'signup' %}
+                           <a href="{% url 'login' %}" class="btn btn-outline-secondary btn-sm">
+                               <i class="bi bi-box-arrow-in-right me-1"></i>
+                               <span class="d-none d-md-inline">Log In</span>
+                           </a>
+                       {% endif %}
                    {% endif %}
                </div>
            </div>

@@ -20,14 +20,18 @@ DEBUG = os.getenv('DEBUG', 'False') == 'True'
 allowed_hosts_env = os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1,testserver")
 ALLOWED_HOSTS = allowed_hosts_env.split(",")
 
-# Session settings
+# Enhanced Session settings for security
 SESSION_COOKIE_AGE = 1209600  # 2 weeks
-SESSION_SAVE_EVERY_REQUEST = True
+SESSION_SAVE_EVERY_REQUEST = False  # Changed from True - this was causing issues
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+SESSION_COOKIE_SECURE = not DEBUG  # Only over HTTPS in production
+SESSION_COOKIE_HTTPONLY = True  # Prevent JavaScript access
+SESSION_COOKIE_SAMESITE = 'Lax'  # CSRF protection
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 # Authentication settings
 LOGIN_URL = '/login/'  
-LOGIN_REDIRECT_URL = '/'  
+LOGIN_REDIRECT_URL = '/dashboard/'  # Changed from '/' to '/dashboard/'
 LOGOUT_REDIRECT_URL = '/login/'
 
 # Custom authentication backend to allow login with either username or email
@@ -35,9 +39,6 @@ AUTHENTICATION_BACKENDS = [
     'users.backends.EmailOrUsernameModelBackend',
     'django.contrib.auth.backends.ModelBackend',  # Keep as fallback
 ]
-
-# Session backend
-SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 # Database configuration - SQLite for local development
 DATABASES = {
@@ -70,6 +71,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'users.middleware.SessionSecurityMiddleware',  # Add this line
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -103,12 +105,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# Authentication settings
-LOGIN_URL = '/login/'  
-LOGIN_REDIRECT_URL = '/'  
-LOGOUT_REDIRECT_URL = '/login/'
-
-# Security settings (disabled for local development)
+# Security settings
 if DEBUG:
     SECURE_SSL_REDIRECT = False
     SESSION_COOKIE_SECURE = False
@@ -117,6 +114,13 @@ else:
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
+    # Additional production security
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SECURE_BROWSER_XSS_FILTER = True
+    X_FRAME_OPTIONS = 'DENY'
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'

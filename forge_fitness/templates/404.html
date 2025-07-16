@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Page Not Found - Forge Fitness{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="dashboard-container">
+                <div class="welcome-card shadow-lg rounded-3 text-center">
+                    <div class="card-body py-5">
+                        <i class="bi bi-exclamation-triangle-fill text-warning" style="font-size: 4rem;"></i>
+                        <h1 class="display-4 fw-bold text-dark mt-3">404</h1>
+                        <h2 class="fs-3 text-dark mb-3">Page Not Found</h2>
+                        <p class="text-muted mb-4">
+                            The page you're looking for doesn't exist or has been moved.
+                            Let's get you back to your fitness journey!
+                        </p>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <a href="{% url 'dashboard' %}" class="btn btn-primary btn-lg me-md-2">
+                                <i class="bi bi-house-fill me-2"></i>Back to Dashboard
+                            </a>
+                            <a href="{% url 'training' %}" class="btn btn-outline-primary btn-lg">
+                                <i class="bi bi-dumbbell me-2"></i>View Training
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
