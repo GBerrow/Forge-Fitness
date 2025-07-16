@@ -6,6 +6,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from users.views import SignupView, CustomLoginView, custom_logout
 from django.views.decorators.cache import never_cache
+from . import views
 
 # Decorator that combines login_required and never_cache
 def protected_view(view_func):
@@ -20,7 +21,7 @@ urlpatterns = [
     
     # Main app pages (protected with cache prevention)
     path('dashboard/', protected_view(TemplateView.as_view(template_name='dashboard.html')), name='dashboard'),
-    path('activity/', protected_view(TemplateView.as_view(template_name='activity.html')), name='activity'),
+    path('activity/', protected_view(views.activity), name='activity'),
     path('training/', protected_view(TemplateView.as_view(template_name='training.html')), name='training'),
     path('progression/', protected_view(TemplateView.as_view(template_name='progression.html')), name='progression'),
     

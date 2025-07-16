@@ -87,7 +87,8 @@ def training(request):
     return render(request, 'training.html')
 
 def activity(request):
-    return render(request, 'activity.html')
+    notes = PracticeNote.objects.filter(user=request.user, page='activity').order_by('-created_at')
+    return render(request, 'activity.html', {'notes': notes})
 
 def progression(request):
     return render(request, 'progression.html')
