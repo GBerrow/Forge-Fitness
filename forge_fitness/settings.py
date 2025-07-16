@@ -1,4 +1,5 @@
 import os
+import dj_database_url
 from dotenv import load_dotenv
 from pathlib import Path
 
@@ -16,9 +17,14 @@ if not SECRET_KEY:
 # Debug mode (defaults to False for security)
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-# Allowed Hosts (force it to be set)
-allowed_hosts_env = os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1,testserver")
-ALLOWED_HOSTS = allowed_hosts_env.split(",")
+# Allowed Hosts (updated for Render)
+ALLOWED_HOSTS = []
+if os.getenv('RENDER_EXTERNAL_HOSTNAME'):
+    ALLOWED_HOSTS.append(os.getenv('RENDER_EXTERNAL_HOSTNAME'))
+if os.getenv('ALLOWED_HOSTS'):
+    ALLOWED_HOSTS.extend(os.getenv('ALLOWED_HOSTS').split(','))
+if not ALLOWED_HOSTS:
+    ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'testserver']
 
 # Enhanced Session settings for security
 SESSION_COOKIE_AGE = 1209600  # 2 weeks
@@ -40,12 +46,13 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',  # Keep as fallback
 ]
 
-# Database configuration - SQLite for local development
+# Database configuration - Updated for Render
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'),
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
 }
 
 ROOT_URLCONF = 'forge_fitness.urls'
@@ -64,9 +71,10 @@ INSTALLED_APPS = [
 
 AUTH_USER_MODEL = 'users.UserProfile'
 
-# Middleware
+# Middleware (Updated for Render)
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this for static files
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -96,10 +104,13 @@ TEMPLATES = [
     },
 ]
 
-# Static file settings
+# Static file settings (Updated for Render)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'forge_fitness' / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Whitenoise settings for static files
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Media files settings
 MEDIA_URL = '/media/'

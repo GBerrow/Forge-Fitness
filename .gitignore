@@ -39,3 +39,8 @@ yarn.lock
 # Ignore System-Specific Files 
 .DS_Store
 Thumbs.db
+
+# Ignore deployment files
+*.sqlite3
+build/
+dist/
