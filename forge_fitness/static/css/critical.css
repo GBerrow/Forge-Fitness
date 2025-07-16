@@ -1,0 +1,53 @@
+/* Only critical above-the-fold styles */
+
+/* Header styling with gradient background */
+.header-custom {
+    background: linear-gradient(135deg, #66A3FD 0%, #8CBCCA 100%);
+    border-bottom: 1px solid #66A3FD;
+}
+
+/* Footer styling with darker gradient background */
+.footer-custom {
+    background: linear-gradient(135deg, #1853AB 0%, #66A3FD 100%);
+    border-top: 1px solid #1853AB;
+}
+
+/* Main dashboard container with responsive width */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Essential Bootstrap classes only */
+/* Full width container with padding */
+.container-fluid { width: 100%; padding: 0 15px; }
+
+/* Flexbox row layout with negative margins */
+.row { display: flex; flex-wrap: wrap; margin: 0 -15px; }
+
+/* Column layouts */
+.col-2 { flex: 0 0 16.666667%; max-width: 16.666667%; padding: 0 15px; }
+.col-8 { flex: 0 0 66.666667%; max-width: 66.666667%; padding: 0 15px; }
+
+/* Flexbox utility classes */
+.d-flex { display: flex; }
+.justify-content-start { justify-content: flex-start; }
+.justify-content-center { justify-content: center; }
+.justify-content-end { justify-content: flex-end; }
+.align-items-center { align-items: center; }
+
+/* Text alignment and decoration utilities */
+.text-center { text-align: center; }
+.text-decoration-none { text-decoration: none; }
+.text-dark { color: #212529; }
+.text-white { color: #fff; }
+
+/* Font and spacing utilities */
+.fw-bold { font-weight: 700; }
+.mb-0 { margin-bottom: 0; }
+
+/* Button styles and variants */
+.btn { padding: 6px 12px; border: 1px solid transparent; border-radius: 4px; text-decoration: none; cursor: pointer; }
+.btn-outline-secondary { color: #6c757d; border-color: #6c757d; }
+.btn-sm { padding: 4px 8px; font-size: 0.875rem; }

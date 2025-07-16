@@ -37,7 +37,21 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
    <!-- Dynamic page title with fallback to site name -->
+   <meta name="description" content="Forge Fitness - Your personal fitness guidance platform for goal setting, workout planning, and progress tracking. Transform your fitness journey with structured guidance and personalized insights.">
    <title>{% block title %}Forge Fitness{% endblock %}</title>
+    
+   <!-- Critical CSS inline -->
+   <style>
+       /* Critical.css contents here */
+   </style>
+    
+   <!-- Load full Bootstrap CSS asynchronously -->
+   <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"></noscript>
+    
+   <!-- Preload critical fonts -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
    <!-- ===================================================================
         2. EXTERNAL DEPENDENCIES (BOOTSTRAP & ICONS)
@@ -94,7 +108,7 @@
            <div class="row align-items-center">
                <!-- Left side home button -->
                <div class="col-2 d-flex justify-content-start">
-                   <a href="{% url 'dashboard' %}" class="text-decoration-none text-dark">
+                   <a href="{% url 'dashboard' %}" class="text-decoration-none text-dark" aria-label="Go to dashboard home">
                        <i class="bi bi-house-fill fs-3"></i>
                    </a>
                </div>
@@ -113,7 +127,7 @@
                    {% if user.is_authenticated %}
                        <form method="post" action="{% url 'logout' %}" class="d-inline">
                            {% csrf_token %}
-                           <button type="submit" class="btn btn-outline-secondary btn-sm">
+                           <button type="submit" class="btn btn-outline-secondary btn-sm" aria-label="Log out of your account">
                                <i class="bi bi-box-arrow-right me-1"></i>
                                <span class="d-none d-md-inline">Log Out</span>
                            </button>
@@ -186,17 +200,17 @@
                 
                <!-- Social media icons and copyright container with responsive spacing -->
                <div class="d-flex align-items-center justify-content-between w-100" style="max-width: min(1050px, 90vw);">
-                    <a href="https://www.facebook.com" target="_blank" class="text-decoration-none">
+                    <a href="https://www.facebook.com" target="_blank" class="text-decoration-none" aria-label="Visit our Facebook page">
                         <i class="bi bi-facebook fs-4 text-white social-icon"></i>
                     </a>
-                    <a href="https://www.instagram.com" target="_blank" class="text-decoration-none">
+                    <a href="https://www.instagram.com" target="_blank" class="text-decoration-none" aria-label="Visit our Instagram page">
                         <i class="bi bi-instagram fs-4 text-white social-icon"></i>
                     </a>
                     <span class="fw-bold text-white">© 2025 Forge Fitness</span>
-                    <a href="https://www.twitter.com" target="_blank" class="text-decoration-none">
+                    <a href="https://www.twitter.com" target="_blank" class="text-decoration-none" aria-label="Visit our Twitter page">
                         <i class="bi bi-twitter fs-4 text-white social-icon"></i>
                     </a>
-                    <a href="https://www.youtube.com" target="_blank" class="text-decoration-none">
+                    <a href="https://www.youtube.com" target="_blank" class="text-decoration-none" aria-label="Visit our YouTube channel">
                         <i class="bi bi-youtube fs-4 text-white social-icon"></i>
                     </a>
                </div>
@@ -214,6 +228,42 @@
         ================================================================= -->
 
    <!-- Bootstrap JavaScript bundle for interactive components -->
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   <script>
+// Minimal Bootstrap functionality - only what you need
+document.addEventListener('DOMContentLoaded', function() {
+    // Dropdown functionality
+    document.querySelectorAll('.dropdown-toggle').forEach(function(dropdown) {
+        dropdown.addEventListener('click', function(e) {
+            e.preventDefault();
+            const menu = this.nextElementSibling;
+            menu.classList.toggle('show');
+        });
+    });
+    
+    // Collapse functionality
+    document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(function(trigger) {
+        trigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('data-bs-target'));
+            target.classList.toggle('show');
+            
+            // Rotate chevron
+            const chevron = this.querySelector('.bi-chevron-down');
+            if (chevron) {
+                chevron.style.transform = target.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)';
+            }
+        });
+    });
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown-menu.show').forEach(function(menu) {
+                menu.classList.remove('show');
+            });
+        }
+    });
+});
+</script>
 </body>
 </html>

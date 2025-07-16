@@ -76,9 +76,12 @@ AUTH_USER_MODEL = 'users.UserProfile'
 # Middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this for static files
+    'django.middleware.gzip.GZipMiddleware', 
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'users.middleware.SessionSecurityMiddleware',
@@ -113,6 +116,16 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Static files for production
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Cache settings for better performance
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
+}
+
+# Static file caching
+WHITENOISE_MAX_AGE = 31536000  # 1 year
 
 # Media files settings
 MEDIA_URL = '/media/'
