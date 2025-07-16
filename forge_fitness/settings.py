@@ -1,7 +1,7 @@
 import os
-import dj_database_url
 from dotenv import load_dotenv
 from pathlib import Path
+import dj_database_url
 
 # Load .env file
 load_dotenv()
@@ -17,40 +17,45 @@ if not SECRET_KEY:
 # Debug mode (defaults to False for security)
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-# FIXED: Allowed Hosts for Render
-ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
-if os.getenv('RENDER_EXTERNAL_HOSTNAME'):
-    ALLOWED_HOSTS.append(os.getenv('RENDER_EXTERNAL_HOSTNAME'))
+# Allowed Hosts (force it to be set)
+allowed_hosts_env = os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1,testserver")
+ALLOWED_HOSTS = allowed_hosts_env.split(",")
 
 # Enhanced Session settings for security
 SESSION_COOKIE_AGE = 1209600  # 2 weeks
-SESSION_SAVE_EVERY_REQUEST = False  # Changed from True - this was causing issues
+SESSION_SAVE_EVERY_REQUEST = False
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
-SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # or your preferred backend
-SESSION_COOKIE_SECURE = True if not DEBUG else False
+SESSION_COOKIE_SECURE = not DEBUG
 SESSION_COOKIE_HTTPONLY = True
-CSRF_COOKIE_SECURE = True if not DEBUG else False
-SESSION_COOKIE_SAMESITE = 'Lax'  # CSRF protection
+SESSION_COOKIE_SAMESITE = 'Lax'
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 # Authentication settings
 LOGIN_URL = '/login/'  
-LOGIN_REDIRECT_URL = '/dashboard/'  # Changed from '/' to '/dashboard/'
+LOGIN_REDIRECT_URL = '/dashboard/'
 LOGOUT_REDIRECT_URL = '/login/'
 
-# Custom authentication backend to allow login with either username or email
+# Custom authentication backend
 AUTHENTICATION_BACKENDS = [
     'users.backends.EmailOrUsernameModelBackend',
-    'django.contrib.auth.backends.ModelBackend',  # Keep as fallback
+    'django.contrib.auth.backends.ModelBackend',
 ]
 
-# FIXED: Database configuration for Render (PostgreSQL)
-DATABASES = {
-    'default': dj_database_url.config(
-        default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'),
-        conn_max_age=600,
-        conn_health_checks=True,
-    )
-}
+# Database configuration
+DATABASE_URL = os.getenv('DATABASE_URL')
+if DATABASE_URL:
+    # Production - use PostgreSQL
+    DATABASES = {
+        'default': dj_database_url.parse(DATABASE_URL)
+    }
+else:
+    # Local development - use SQLite
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 ROOT_URLCONF = 'forge_fitness.urls'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -68,7 +73,7 @@ INSTALLED_APPS = [
 
 AUTH_USER_MODEL = 'users.UserProfile'
 
-# FIXED: Middleware with WhiteNoise
+# Middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this for static files
@@ -76,7 +81,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'users.middleware.SessionSecurityMiddleware',  # Add this line
+    'users.middleware.SessionSecurityMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -101,12 +106,12 @@ TEMPLATES = [
     },
 ]
 
-# FIXED: Static file settings for Render
+# Static file settings
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'forge_fitness' / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# Whitenoise settings for static files
+# Static files for production
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Media files settings
@@ -136,6 +141,33 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# Custom error handlers (works even in DEBUG mode)
+# Custom error handlers
 handler404 = 'users.views.custom_404_view'
 handler500 = 'users.views.custom_500_view'
+
+# Logging configuration
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'INFO',
+    },
+    'loggers': {
+        'users': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'django.contrib.auth': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    },
+}
