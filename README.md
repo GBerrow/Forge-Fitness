@@ -64,28 +64,25 @@ This comprehensive documentation provides a complete overview of the Forge Fitne
 - [Table of Contents](#table-of-contents)
 - [Project Overview](#project-overview)
 - [Target Audience & User Needs](#target-audience--user-needs)
-  - [🔰 Beginners & First-Time Gym-Goers](#beginners--first-time-gym-goers)
-  - [🏋️ Intermediate Users & Returning Lifters](#intermediate-users--returning-lifters)
-  - [🏋️‍♂️ Advanced Gym-Goers](#advanced-gym-goers)
-  - [💻 Digital-First & Time-Conscious Users](#digital-first--time-conscious-users)
-  - [📊 Progress-Focused & Analytical Users](#progress-focused--analytical-users)
+  - [Beginners & First-Time Gym-Goers](#beginners--first-time-gym-goers)
+  - [Intermediate Users & Returning Lifters](#intermediate-users--returning-lifters)
+  - [Advanced Gym-Goers](#advanced-gym-goers)
+  - [Digital-First & Time-Conscious Users](#digital-first--time-conscious-users)
+  - [Progress-Focused & Analytical Users](#progress-focused--analytical-users)
 - [Client Goals](#client-goals)
 - [User Stories](#user-stories)
   - [First-time Users](#first-time-users)
   - [Returning Users](#returning-users)
   - [Regular Gym-goers](#regular-gym-goers)
 - [User Experience (UX) - Final Design](#user-experience--final-design)
+
 - [Statistics](#statistics)
 - [UX Strategy](#ux-strategy)
   - [Colour Palette](#colour-palette)
   - [Typography](#typography)
   - [Wireframes](#wireframes)
 - [Features](#features)
-  - [Authentication & Profiles](#authentication--profiles)
-  - [Training Plan Builder](#training-plan-builder)
-  - [Activity Logs](#activity-logs)
-  - [Dashboard & Progression Visualisation](#dashboard--progression-visualisation)
-  - [Settings & Personalisation](#settings--personalisation)
+ 
 - [Technologies Used](#technologies-used)
 - [Future Enhancements](#future-enhancements)
 - [Local Development Setup](#local-development-setup)
@@ -108,35 +105,35 @@ This comprehensive documentation provides a complete overview of the Forge Fitne
 
 Forge Fitness is designed as a structured, educational platform that empowers users at all levels of fitness by combining intuitive workout planning, progress tracking, and clear instructional guidance. Its core mission is to make fitness feel achievable, understandable, and trackable — whether you're stepping into the gym for the first time or optimizing a long-term program.
 
-### 🔰 Beginners & First-Time Gym-Goers
+### Beginners & First-Time Gym-Goers
 
 - **Step-by-Step Guidance**: Introductory workout plans, simplified UI, and clear instructions help users build confidence from day one.
 - **Educational Focus**: Clear explanations of exercises, muscle groups, and routines foster learning, not just repetition.
 - **Friendly Visuals**: Simple dashboards visualize improvement and reinforce early wins to encourage consistency.
 - **Low Pressure**: No forced public sharing or performance comparison — the focus is on learning and personal growth.
 
-### 🏋️ Intermediate Users & Returning Lifters
+### Intermediate Users & Returning Lifters
 
 - **Structured Progression Tools**: Users can build and modify their training plans with progressive overload principles in mind.
 - **Performance Logging**: Integrated activity logs help users see patterns, plateaus, and progress over time.
 - **Training Phase Awareness**: Learn how to alternate between hypertrophy, strength, and recovery through visual breakdowns and plan suggestions.
 - **Accountability Mechanisms**: Habit tracking and milestone visuals reinforce long-term routine building.
 
-### 🏆 Advanced Gym-Goers & Athletes
+### Advanced Gym-Goers & Athletes
 
 - **Precision Tools**: Plan detailed training splits, log PRs, and monitor weekly or monthly progress with charts and analytics.
 - **Customization**: Adjust plan templates or create routines from scratch using the training plan builder.
 - **Data Insight**: Access personal performance summaries via bar, pie, and line graphs to aid decision-making.
 - **Streamlined Interface**: A clutter-free dashboard allows fast access to training history and upcoming sessions.
 
-### 💻 Digital-First & Time-Conscious Users
+### Digital-First & Time-Conscious Users
 
 - **Fully Responsive Web App**: Works on mobile, tablet, and desktop without requiring downloads or installation.
 - **Instant Access to Tools**: Users can build a plan, track a session, or review data in just a few clicks.
 - **Clean Design**: Prioritizes accessibility, with a consistent layout and intuitive navigation.
 - **Privacy by Design**: Users retain full control over their data, with secure login and account options.
 
-### 📊 Progress-Focused & Analytical Users
+### Progress-Focused & Analytical Users
 
 - **Visual Performance Tracking**: Real-time updates to charts and dashboards based on logged activities.
 - **Milestone System**: Log and visualize achievements such as workout streaks, strength milestones, or completed plans.
@@ -229,78 +226,82 @@ These strategic objectives translate directly into specific user stories and fea
 
 ## User Stories
 
-The following user stories have been developed to guide the implementation of Forge Fitness features, ensuring each component delivers tangible value to users while meeting project requirements. These stories are **directly derived from our target audience research** and **validated by industry statistics**, creating a data-driven foundation for feature development. Each story aligns with specific client goals and technical objectives, demonstrating both user-centered design and full-stack development capabilities.
+The following user stories guided the development of Forge Fitness, ensuring every feature aligns with documented user needs and serves the platform's educational and motivational focus. Stories are organized by functional areas—each mapped to clearly defined user types: **Beginners**, **Intermediate/Advanced Users**, **Progress-Focused Users**, and **Mobile-First Users**.
 
-The stories are organized into core functional areas that map to our **five primary user segments**: Beginners, Intermediate Users, Advanced Athletes, Digital-First Users, and Progress-Focused Users. This strategic alignment ensures that every feature serves documented user needs while supporting measurable business outcomes.
+These stories are grounded in audience research and supported by real-world fitness app statistics, providing a robust, data-driven foundation for both UX and full-stack implementation.
 
 ### Profile Management
-**Goal Alignment: Supports "User-Friendly and Intuitive Navigation" & "Personalization and User Control"**  
-**Target Audience: All User Segments** | **Statistical Support: 72% of users prefer personalized fitness plans**
 
-- As a **new user** (Beginner segment), I want to create an account with clear, step-by-step guidance so that I can confidently start my fitness journey without feeling overwhelmed.
-- As a **returning user** (All segments), I want to log in securely using either my username or email so that I can quickly access my personalized fitness data across devices.
-- As a **registered user** (Intermediate/Advanced segments), I want to edit my profile details, including my preferred name and bio, so that my information reflects my evolving fitness journey.
-- As a **visual user** (Digital-First segment), I want to upload a profile picture with instant preview so that my account feels personalized and engaging.
-- As a **self-motivated user** (Progress-Focused segment), I want to add a comprehensive bio about my fitness goals so that I can document my journey and track my mindset evolution.
+**Goal Alignment**: "User-Friendly Navigation" & "Personalization and Control"  
+**Stat Support**: 72% of users prefer personalized fitness plans
 
-### Training Section
-**Goal Alignment: Supports "Structured Training Guidance" & "Personalization and User Control"**  
-**Target Audience: Beginners → Advanced Users** | **Statistical Support: Structured guidance increases user retention by 75%**
+- As a **new user**, I want guided account creation so I can start my fitness journey without confusion.
+- As a **returning user**, I want to log in securely using email or username across devices.
+- As an **experienced user**, I want to update my name and bio to reflect my fitness evolution.
+- As a **visual user**, I want to upload a profile picture with preview for a more personal experience.
 
-- As a **beginner** (First-Time Gym-Goers), I want a simple, educational introduction to workouts with clear explanations so that I can build confidence before starting my training program.
-- As an **intermediate user** (Returning Lifters), I want to explore different workout plans with progressive overload principles so that I can structure my training for continuous improvement.
-- As an **advanced user** (Athletes), I want detailed information about muscle groups and training phases so that I can optimize my workout efficiency and prevent plateaus.
-- As a **goal-oriented user** (All segments), I want structured training plans tailored to specific objectives (strength, endurance, hypertrophy) so that I can follow a guided program aligned with my goals.
-- As a **data-driven user** (Analytical segment), I want to see comprehensive overviews of training methodologies so that I can make informed decisions about my workout approach.
+### 🏋️ Training Guidance
+
+**Goal Alignment**: "Structured Training" & "Personalization"  
+**Stat Support**: Structured guidance increases retention by 75%
+
+- As a **beginner**, I want clear explanations of workouts so I can train confidently.
+- As an **intermediate user**, I want access to progressive plans that match my goals.
+- As an **advanced user**, I want detailed breakdowns of muscle groups and techniques.
+- As a **goal-setter**, I want training plans tailored to strength, endurance, or hypertrophy.
 
 ### Activity Tracking
-**Goal Alignment: Supports "Motivation through Progress Tracking" & "Feedback and Continuous Engagement"**  
-**Target Audience: All Segments** | **Statistical Support: Daily tracking users are 2x more likely to achieve fitness goals**
 
-- As a **consistency-focused user** (Beginners), I want to track my daily activity with simple, encouraging visuals so that I can build sustainable fitness habits from day one.
-- As a **motivated individual** (Intermediate segment), I want to log my completed workouts with detailed metrics so that I can monitor my consistency and identify improvement patterns.
-- As a **progress-focused user** (All segments), I want to review my activity history with clear trend analysis so that I can see my development over time and stay motivated.
-- As an **achievement-driven user** (Gamification preference), I want to earn milestones and badges for consistency streaks so that I maintain long-term engagement with my fitness routine.
-- As a **self-reflecting user** (Analytical segment), I want to compare my active and inactive periods with visual insights so that I can optimize my schedule and improve consistency.
+**Goal Alignment**: "Motivation through Progress" & "User Engagement"  
+**Stat Support**: Daily tracking users are 2x more likely to hit goals
 
-### Progress and Insights
-**Goal Alignment: Supports "Motivation through Progress Tracking" & "Structured Training Guidance"**  
-**Target Audience: Progress-Focused & Analytical Users** | **Statistical Support: 68% retention rate for users who self-monitor vs 32% for non-monitoring users**
+- As a **consistency-focused user**, I want to track my activity with simple visuals to build habits.
+- As a **motivated user**, I want to log completed workouts and view my activity history.
+- As a **data-driven user**, I want to earn milestones and see trends that keep me engaged.
 
-- As a **goal-oriented user** (All segments), I want to set SMART fitness goals with progress tracking so that I can measure my advancement and stay motivated through structured milestones.
-- As a **self-improving user** (Intermediate/Advanced), I want to track performance trends with visual analytics so that I can identify strengths, weaknesses, and areas for optimization.
-- As an **analytical user** (Data-driven segment), I want detailed feedback and insights based on my activity patterns so that I can make evidence-based training decisions.
-- As a **results-driven user** (Advanced segment), I want comprehensive visual data through charts and graphs so that I can recognize patterns and plan strategic adjustments.
-- As a **self-aware user** (All segments), I want personalized performance insights and recommendations so that I can continuously refine my approach for better results.
+### Progress & Insights
+
+**Goal Alignment**: "Progress Tracking" & "Data-Driven Feedback"  
+**Stat Support**: 68% retention for self-monitoring users (vs. 32% non-tracking)
+
+- As a **goal-oriented user**, I want to set SMART goals with built-in progress tracking.
+- As a **self-improver**, I want visual analytics to review my strengths and weaknesses.
+- As a **strategic user**, I want actionable insights that help refine my routine.
 
 ### Settings & Account Management
-**Goal Alignment: Supports "Secure and Accessible Authentication" & "Privacy by Design"**  
-**Target Audience: Privacy-Conscious & Digital-First Users** | **Statistical Support: 92% of fitness app users access via smartphones**
 
-- As a **privacy-conscious user** (Security-focused segment), I want to permanently delete my account with clear confirmation so that I maintain complete control over my personal data.
-- As a **customization-focused user** (All segments), I want to manage my fitness preferences and app settings so that the platform adapts to my personal workflow and goals.
-- As a **mobile-first user** (Digital-First segment), I want responsive settings management that works seamlessly across devices so that I can adjust preferences anywhere.
-- As a **security-aware user** (All segments), I want robust account security options with clear privacy controls so that I can trust the platform with my personal information.
+**Goal Alignment**: "Privacy by Design" & "Mobile Accessibility"  
+**Stat Support**: 92% of users access fitness platforms via smartphone
 
-### Strategic Impact & Statistical Validation
+- As a **privacy-conscious user**, I want to permanently delete my account with clear confirmation.
+- As a **mobile-first user**, I want a responsive settings page I can manage on the go.
+- As a **customization-focused user**, I want control over personal preferences and app experience.
 
-Each user story directly addresses documented pain points in the fitness app market:
+### Why These Stories Matter
 
-**Retention Focus**: With 25% of fitness app users abandoning apps after a single session, our Profile Management and Training Section stories specifically target onboarding experience and educational guidance to improve first-session success rates.
+Each story targets a documented user need or pain point:
 
-**Personalization Demand**: Our comprehensive personalization features across all sections respond to the 72% of users who prefer customized fitness plans, ensuring higher engagement and goal completion rates.
-
-**Mobile-First Design**: All stories consider the 92% of fitness app users who access platforms via smartphones, ensuring responsive, touch-friendly experiences across all features.
-
-**Market Growth Alignment**: As the fitness app market grows from $14.7 billion to $120.37 billion by 2030, our user stories position Forge Fitness to capture this growth through evidence-based feature development.
-
----
+- **Retention-Driven Onboarding**: 25% of users abandon fitness apps after one session. Our profile and training flows are designed to reduce friction and improve first-use success.
+- **Personalized Fitness**: 72% of users want tailored plans—addressed through editable profiles, goal-oriented plans, and adaptive guidance.
+- **Mobile Optimization**: With 92% of fitness app traffic from mobile, every feature is designed responsively with intuitive navigation.
 
 ### Implementation Framework
 
-Each story maps directly to technical requirements while maintaining focus on user value, creating a balanced approach between development objectives and user needs. This structured foundation provides clear direction for feature implementation, testing phases, and success metrics measurement. The stories serve as the bridge between our target audience research, client goals, and technical implementation, ensuring that every development decision serves documented user needs while supporting measurable business outcomes.
+Each user story maps directly to development tasks and UI logic—bridging the gap between user expectations and technical implementation. These stories inform:
 
-By grounding our user stories in statistical evidence and target audience research, Forge Fitness delivers features that not only meet user expectations but exceed industry standards for engagement, retention, and user satisfaction.
+- Component structure
+- Backend endpoints
+- Validation rules
+- Testing priorities
+- Success metrics
+
+This structured, user-centric approach ensures every feature is purpose-built to solve a real problem or meet a validated goal.
+
+### From Stories to Strategy
+
+These stories aren't hypothetical—they're backed by measurable industry insights and behavioral trends. Each decision was guided by real data to ensure that Forge Fitness not only meets user expectations but competes at the highest standard.
+
+The following section presents key statistics and market validation that shaped the product roadmap—from onboarding to engagement and long-term retention.
 
 ---
 
@@ -536,7 +537,7 @@ The typography system prioritizes **accessibility, performance, and visual consi
 
 ---
 
-## User Experience (UX) and wireframesss
+## Wireframes
 
 To create a top class fitness app, this website is being desinged with a great amount of care and attention to detail. In the Dashboard page, I have included a variety of features to help users create their own workout regimes and track their progress tailored to their fitness goals. Here are the main features down below:
 
@@ -1492,60 +1493,80 @@ Ultimately, the UX of Forge Fitness isn’t just about how the app looks — it�
 ---
 
 ## Database Structure
-Forge Fitness employs a streamlined database structure focused on **user authentication** and **basic account settings**. The architecture ensures **data integrity, security, and efficiency**, supporting key functionalities such as **user profile management and account status tracking**.  
 
-Unlike traditional fitness tracking apps, Forge Fitness does **not** store real-time workout data or structured fitness plans. Instead, it serves as an educational and demonstrative tool, showcasing **how users can manage their fitness journey** through a well-designed UI.  
+Forge Fitness employs a modular, relational database structure centered on user authentication, profile personalization, note tracking, and account settings. The schema is designed to be clean, secure, and scalable, providing a practical demonstration of how to structure data for user-driven web applications.
+
+Unlike traditional fitness apps, Forge Fitness does not track live metrics or workouts. Instead, it functions as an educational platform, showcasing how users can manage their fitness journey through structured UI and modular data flow.
 
 ![Database](assets/wireframes/database-structure.png)
 
----
+### 📘 Database Tables
 
-## Database Tables  
+#### 1. users Table
+**Purpose**: Stores core user credentials and identity data used for authentication.
 
-### 1. **User Table**  
-**Purpose:** Stores user account details required for **authentication and profile personalization**.  
+**Key Fields**:
+- `id` (Primary Key) – Unique user identifier
+- `username` (VARCHAR) – Chosen public-facing name
+- `email` (VARCHAR) – Used for login
+- `password` (TEXT) – Hashed password for security
+- `first_name`, `last_name` (VARCHAR) – Optional personal identifiers
+- `date_joined` (TIMESTAMP) – When the user registered
+- `last_login` (TIMESTAMP) – Most recent login time
 
-#### **Key Fields:**  
-- `user_id` **(Primary Key, Auto-increment)** – Unique identifier for each user.  
-- `first_name` **(VARCHAR)** – Stores the user’s first name.  
-- `last_name` **(VARCHAR)** – Stores the user’s last name.  
-- `email` **(VARCHAR, Unique)** – Used for login authentication.  
-- `password_hash` **(TEXT)** – Securely stored hashed password for authentication.  
-- `profile_picture` **(VARCHAR, Nullable)** – Stores the file path of the user’s uploaded profile picture.  
-- `bio` **(TEXT, Nullable)** – Stores the user’s bio from the profile page.  
-- `created_at` **(TIMESTAMP)** – Tracks when the user account was created.  
+🔗 **Related to**: `user_profiles`, `user_settings`, and `notes` tables via foreign keys
 
-#### **How It Works:**  
-- This table is **central to the application**, storing **all necessary user details** for authentication and profile management.  
-- Ensures **secure login and data retrieval**, linking to the **Settings Table** for additional account controls.  
+#### 2. user_profiles Table
+**Purpose**: Separates extended profile content from core login data.
 
----
+**Key Fields**:
+- `user_id` (Foreign Key) – References `users.id`
+- `bio` (TEXT) – Custom user-written profile bio
+- `profile_picture` (VARCHAR) – Path to uploaded image
+- `created_at`, `updated_at` (TIMESTAMP) – Timestamps for record creation and updates
 
-### 2. **Settings Table**  
-**Purpose:** Stores **basic user account settings** related to **account status management**.  
+💡 **Why separate?** Enhances modularity and keeps profile content isolated from authentication logic.
 
-#### **Key Fields:**  
-- `user_id` **(Foreign Key, References User Table)** – Links settings to the corresponding user.  
-- `account_status` **(ENUM('active', 'deactivated'))** – Indicates whether an account is **active or has been deleted**.  
+#### 3. user_settings Table
+**Purpose**: Stores user preferences and account status controls.
 
-#### **How It Works:**  
-- This table helps manage **account activation and deactivation**, ensuring a simple way to **handle user status** without unnecessary complexity.  
-- Linked to the **User Table** through `user_id`, ensuring **every user has an associated settings entry**.  
+**Key Fields**:
+- `user_id` (Foreign Key) – References `users.id`
+- `account_status` (ENUM: active, deactivated) – Reflects deletion or deactivation
+- `theme_preference` (VARCHAR) – Placeholder for future theming options
+- `created_at`, `updated_at` (TIMESTAMP) – Tracks lifecycle of settings
 
----
+🛡️ **Used to drive** the account deletion workflow and allow for future preference toggles.
 
-## **How It All Works Together**  
+#### 4. notes Table
+**Purpose**: Stores user-generated reflections or logs from various parts of the app.
 
-### **User Authentication & Profile Management**  
-✅ The **User Table** handles **login credentials, profile details, and user registration**.  
-✅ Users can **upload a profile picture and add a bio** to personalize their profile page.  
+**Key Fields**:
+- `id` (Primary Key) – Unique note ID
+- `user_id` (Foreign Key) – References `users.id`
+- `title` (VARCHAR) – Note title or heading
+- `content` (TEXT) – Body of the note
+- `category` (VARCHAR) – Tracks if it's a training, activity, or progression note
+- `created_at`, `updated_at` (TIMESTAMP) – Lifecycle tracking
 
-### **Account Management**  
-✅ The **Settings Table** allows users to **delete or deactivate their account**, ensuring a minimal but effective approach to **user preferences**.  
+📝 **Enables** multi-category tracking for each user's progress and thoughts.
 
----
+### 🔄 How It All Works Together
 
-## **Scalability & Future Enhancements**  
+#### ✅ User Authentication & Profile Management
+- `users` table handles login, identity, and registration
+- `user_profiles` stores profile bios and pictures separately
+- Authentication is secure and modular, enabling separation of concerns
+
+#### ⚙️ Account Settings & Deletion
+- `user_settings` lets users deactivate their account or store UI preferences
+- Ensures user control without complex relational overhead
+
+#### 🗂️ Notes & Progress Tracking
+- `notes` table powers all logging, journaling, and reflection
+- Categorised notes are easily filtered and maintained across the UI 
+
+### **Scalability & Future Enhancements**  
 
 While Forge Fitness currently maintains **a lightweight database structure**, it is **designed for easy expansion** if additional features (e.g., **theme preferences, notification settings**) are needed in the future.  
 
