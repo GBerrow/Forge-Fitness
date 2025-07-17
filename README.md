@@ -62,7 +62,6 @@ This comprehensive documentation provides a complete overview of the Forge Fitne
 
 - [Introduction](#introduction)
 - [Table of Contents](#table-of-contents)
-- [Project Overview](#project-overview)
 - [Target Audience & User Needs](#target-audience--user-needs)
   - [Beginners & First-Time Gym-Goers](#beginners--first-time-gym-goers)
   - [Intermediate Users & Returning Lifters](#intermediate-users--returning-lifters)
@@ -71,33 +70,36 @@ This comprehensive documentation provides a complete overview of the Forge Fitne
   - [Progress-Focused & Analytical Users](#progress-focused--analytical-users)
 - [Client Goals](#client-goals)
 - [User Stories](#user-stories)
-  - [First-time Users](#first-time-users)
-  - [Returning Users](#returning-users)
-  - [Regular Gym-goers](#regular-gym-goers)
-- [User Experience (UX) - Final Design](#user-experience--final-design)
-
 - [Statistics](#statistics)
-- [UX Strategy](#ux-strategy)
-  - [Colour Palette](#colour-palette)
+- [Initial Design](#initial-design)
+  - [Colour Scheme](#colour-scheme)
   - [Typography](#typography)
-  - [Wireframes](#wireframes)
-- [Features](#features)
- 
+- [Wireframes](#wireframes)
+   - [Sign up Page](#sign-up-page)
+   - [Login Page](#login-page)
+   - [Home Page](#home-page)
+   - [Workout Page](#workout-page)
+   - [Progress Page](#progress-page)
+   - [Profile Page](#profile-page)
+   - [Settings Page](#settings-page)
+- [User Experience | Final Design](#user-experience--final-design)
+  - [Dashboard Overview](#dashboard-overview)
+  - [Sign Up Page | Final Design](#sign-up-page--final-design)
+  - [Login Page | Final Design](#login-page--final-design)
+  - [Training Page | Final Design](#training-page--final-design)
+  - [Activity Page | Final Design](#activity-page--final-design)
+  - [Progression Page | Final Design](#progression-page--final-design)
+  - [Settings Page | Final Design](#settings-page--final-design)
+  - [Final Thoughts](#final-thoughts)
+- [Database Structure](#database-structure)
+- [Folder Structure](#folder-structure)
 - [Technologies Used](#technologies-used)
+
+
 - [Future Enhancements](#future-enhancements)
 - [Local Development Setup](#local-development-setup)
 - [Deployment](#deployment)
 - [Credits & Attribution](#credits--attribution)
-
----
-
-**Quick Navigation:**
-- 🚀 [Live Application](https://forge-fitness-production.up.railway.app/)
-- 🔗 [GitHub Repository](https://github.com/GBerrow/Forge-Fitness)
-- 📖 [User Guide](#features)
-- 🛠️ [Setup Instructions](#local-development-setup)
-- 🎨 [Design & UX](#ux-strategy)
-
 
 ---
 
@@ -119,7 +121,7 @@ Forge Fitness is designed as a structured, educational platform that empowers us
 - **Training Phase Awareness**: Learn how to alternate between hypertrophy, strength, and recovery through visual breakdowns and plan suggestions.
 - **Accountability Mechanisms**: Habit tracking and milestone visuals reinforce long-term routine building.
 
-### Advanced Gym-Goers & Athletes
+### Advanced Gym-Goers
 
 - **Precision Tools**: Plan detailed training splits, log PRs, and monitor weekly or monthly progress with charts and analytics.
 - **Customization**: Adjust plan templates or create routines from scratch using the training plan builder.
@@ -921,14 +923,14 @@ By keeping the **Settings Page minimal**, the app maintains a **clean and straig
 
 ---
 
-## User Experience (UX) - Final Design
+## User Experience | Final Design 
  
 The final design of Forge Fitness builds upon the original UX plan and wireframes by refining user flows, improving layout structure, and incorporating meaningful feedback based on real-world user interaction patterns. While the initial concept prioritised clarity and responsiveness, the implemented version elevates this by delivering a more intuitive navigation system, a clean dashboard experience, and clearly segmented modules for training and activity tracking. Key areas—such as the training planner, activity log, and profile editor—have evolved to be more accessible, interactive, and visually distinct, ensuring that users can manage their fitness goals with minimal friction. Compared to the scoped wireframes, the final product introduces stronger contrast, smoother transitions between pages, and a more cohesive visual hierarchy, resulting in a user interface that is not only functional but highly engaging across devices.
 
 To see the final designs on the dashboard, training, activity, progress and settings pages. Please sign up and by here and look 
 at what they have to offer - [Sign up](https://forge-fitness-d9cu.onrender.com/signup/)
 
-### 📌 Dashboard Overview
+## Dashboard Overview
 
 [View Live](https://forge-fitness-d9cu.onrender.com/dashboard/)
 
@@ -986,7 +988,7 @@ The footer remains minimalistic to avoid visual clutter on key landing pages:
 
 ---
 
-## Sign Up Page – Final Design
+## Sign Up Page | Final Design
 
 🔗 [View Live](https://forge-fitness-d9cu.onrender.com/signup/)
 
@@ -1019,7 +1021,7 @@ As the primary entry point for new users, the Sign Up page balances efficiency a
 
 ---
 
-## Login Page – Final Design
+## Login Page | Final Design
 
 🔗 [View Live](https://forge-fitness-d9cu.onrender.com/login/)
 
@@ -1090,7 +1092,7 @@ The Profile Page plays a vital role in creating a sense of ownership for users. 
 
 ---
 
-## Training Page – Final Design
+## Training Page | Final Design
 
 **🔗 [View Live](https://forge-fitness-d9cu.onrender.com/training/)**
 
@@ -1177,7 +1179,7 @@ The Training Page brings together education, structure, and action. By blending 
 
 ---
 
-## Activity Page – Final Design
+## Activity Page | Final Design
 
 **🔗 [View Live](https://forge-fitness-d9cu.onrender.com/activity/)**
 
@@ -1319,7 +1321,7 @@ Whether someone is just starting their journey or refining their lifestyle, this
 
 ---
 
-## Progression & Goals Page – Final Design
+## Progression Page | Final Design
 
 **🔗 [View Live](https://forge-fitness-d9cu.onrender.com/progression/)**
 
@@ -1433,7 +1435,7 @@ Whether a user is starting fresh or breaking through a plateau, the Progression 
 
 ---
 
-## Settings Page – Final Design
+## Settings Page | Final Design
 
 **🔗 [View Live](https://forge-fitness-d9cu.onrender.com/settings/)**
 
