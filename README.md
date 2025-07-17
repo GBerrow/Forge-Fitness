@@ -95,7 +95,7 @@ This comprehensive documentation provides a complete overview of the Forge Fitne
 - [Folder Structure](#folder-structure)
 - [Technologies Used](#technologies-used)
 
-
+- [Security Features](#security-features)
 - [Future Enhancements](#future-enhancements)
 - [Local Development Setup](#local-development-setup)
 - [Deployment](#deployment)
@@ -1649,3 +1649,88 @@ The **folder structure** directly reflects the **database schema**, ensuring a *
 By **maintaining this structured relationship**, the project ensures a **seamless flow of data** between the backend and frontend, making it easier to **scale and manage future enhancements**.  
 
 ---
+
+## Technologies Used
+
+Forge Fitness is built using a comprehensive modern web development stack that prioritizes security, scalability, and user experience. The application leverages Django's robust framework capabilities combined with responsive frontend technologies to deliver a seamless fitness management platform. The technology choices reflect industry best practices for full-stack development, ensuring maintainable code, secure user authentication, and optimal performance across devices.
+
+### Backend Framework & Core Technologies
+
+| Technology | Description |
+|------------|-------------|
+| **Python 3.8+** | Primary programming language powering the application |
+| **Django 4.2+** | Full-stack web framework used for rapid development, including authentication, ORM, forms, admin, security, and modular app structure |
+| **Django Authentication System** | User authentication flows with a custom backend for email or username login (`users/backends.py`) |
+| **Django ORM & Migrations** | Robust object-relational mapping, database migrations, and model relationships (ForeignKey, OneToOne) |
+| **Django Forms & Messages** | Secure form handling, server-side validation, and user feedback notifications |
+| **Django Admin Interface** | Administrative dashboard for managing users and data |
+| **SQLite (Dev) / PostgreSQL (Production)** | Lightweight development database; scalable PostgreSQL support for deployment |
+| **WSGI / ASGI** | Production-ready server interfaces (`wsgi.py`, `asgi.py`) for deployment flexibility |
+
+### Frontend Technologies & Libraries
+
+| Technology | Description |
+|------------|-------------|
+| **HTML5 & CSS3** | Semantic markup and custom CSS for site structure and branding |
+| **Bootstrap 5** | Responsive grid, UI components, and utilities for a mobile-first design |
+| **JavaScript (ES6+) & jQuery** | Client-side interactivity, AJAX requests, and dynamic DOM updates |
+| **Chart.js** | Data visualization—renders interactive bar, line, and pie charts on the dashboard |
+| **Django Template Language** | Server-rendered templates with template inheritance, custom tags, and filters |
+
+### Security & Authentication
+
+| Technology | Description |
+|------------|-------------|
+| **Custom Authentication Backend** | Secure email/username login (see `users/backends.py`) |
+| **Custom Middleware** | Request/response processing, user session management (`users/middleware.py`) |
+| **Django Security Middleware** | Built-in protections: CSRF, XSS, secure headers, password hashing |
+| **Form & File Upload Validation** | Strict server-side input checks, image file validation for profile pictures and uploads |
+
+### Database & Data Models
+
+| Technology | Description |
+|------------|-------------|
+| **Django Models** | Modular models for user profiles, practice notes, personal settings, and activity logs |
+| **Django Migrations** | Schema management and version control |
+| **Relational Data Design** | ForeignKey and OneToOne relationships for scalable data organization |
+
+### Application Architecture & Design Patterns
+
+| Technology | Description |
+|------------|-------------|
+| **Class-Based Views (CBVs)** | Clean, reusable views for efficient logic separation |
+| **Django Apps Architecture** | Modular, scalable app design for maintainability |
+| **Template Inheritance** | DRY (Don't Repeat Yourself) UI with shared base templates |
+| **RESTful URL Routing** | Intuitive and consistent navigation |
+
+### Development Tools & Utilities
+
+| Technology | Description |
+|------------|-------------|
+| **Virtual Environment** | Dependency isolation and environment management |
+| **WhiteNoise** | Efficient static file serving in production environments |
+| **Environment Variables** | Secure configuration for sensitive deployment settings |
+| **Procfile & runtime.txt** | Explicit deployment configuration for Render (or Heroku compatibility) |
+| **Static & Media File Management** | Separation of static assets and user-uploaded media |
+| **Python Logging** | Application error tracking and debugging |
+
+### Features & User Experience
+
+| Technology | Description |
+|------------|-------------|
+| **User Registration & Login** | Custom signup/authentication, including form validation and messaging |
+| **Profile Management** | Customizable user profiles with avatar upload and bio |
+| **Practice Notes System** | Full CRUD operations for user-created notes (create, view, edit, delete) |
+| **Dashboard Analytics** | Real-time progress tracking, statistics, and interactive charts |
+| **Account Settings** | Editable preferences, password management, and account deletion |
+| **Custom Error Pages** | User-friendly 404 and 500 error handling |
+| **Responsive, Mobile-First Design** | Seamless experience across devices |
+| **AJAX Integration** | Asynchronous chart and content updates without page reloads |
+| **File Upload Handling** | Secure image validation and storage |
+
+---
+
+This comprehensive technology stack demonstrates proficiency in modern full-stack development practices while ensuring Forge Fitness delivers a secure, scalable, and user-friendly fitness management platform. The combination of Django's robust backend capabilities with responsive frontend technologies creates an application that meets professional development standards and provides an exceptional user experience across all devices and use cases.
+
+---
+
