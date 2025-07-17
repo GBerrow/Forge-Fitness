@@ -1,22 +1,239 @@
-# Forge Fitness - Fitness Application
+# Forge Fitness
 
+**A comprehensive fitness guidance platform designed to empower users in structuring and managing their personal fitness journeys.**
 
-Forge Fitness is a **fitness guidance platform** designed to help users structure and manage their personal fitness journeys. Unlike traditional fitness tracking applications, Forge Fitness **does not track real-time workout data** but instead serves as an **educational and organizational tool** for users to **learn how to set goals, manage progress, and personalize their fitness experience**.
+![Forge Fitness Banner](assets/images/readme-images/Forge-fitness-intro-image.png)
 
-This application offers a **user-friendly dashboard** where individuals can:
-- **Create and manage their profile** with a preferred name and bio.
-- **Set fitness-related goals** and structure their personal fitness journey.
-- **Access structured guidance on workouts and fitness routines**.
-- **Monitor their progress through milestones and achievements**.
-- **Manage their account settings**, including profile updates and account deletion.
+## Introduction
 
-Whether you’re a **beginner** looking for structured guidance or an **experienced fitness enthusiast** aiming to organize your training, **Forge Fitness provides a simplified and intuitive experience tailored to your fitness aspirations.**
+Forge Fitness is a modern, full-stack Django web application that serves as an **educational and organizational tool** for fitness enthusiasts of all levels. Unlike traditional fitness tracking applications that focus on real-time data collection, Forge Fitness takes a unique approach by **teaching users how to effectively manage their fitness journey** through structured guidance, goal-setting frameworks, and progress visualization techniques.
+
+Built with a **demonstration-first philosophy**, the platform empowers users to understand the fundamental principles of successful fitness management rather than simply recording workout data. Through carefully designed user interfaces and educational workflows, users learn to create sustainable fitness routines, set meaningful milestones, and develop the organizational skills necessary for long-term success.
+
+The application addresses a critical gap in the fitness app market: **the need for structured learning and habit formation**. While most fitness apps overwhelm users with complex tracking features, Forge Fitness focuses on **building foundational knowledge** through intuitive dashboards, guided workout planning, and progressive achievement systems. This approach has been informed by extensive market research showing that **72% of fitness app users prefer personalized guidance** and that **structured goal-setting increases user retention by 75%**.
+
+By combining modern web development practices with proven fitness psychology principles, Forge Fitness creates an environment where users can **practice and internalize effective fitness management strategies** before applying them to their real-world routines. The result is a platform that doesn't just track progress—it teaches users how to create, maintain, and optimize their own fitness success systems.
+
+## What Makes Forge Fitness Different?
+
+🎯 **Education-First Approach**: Rather than simply tracking workouts, Forge Fitness teaches users the **fundamental principles of effective fitness management**. The platform guides users through proven methodologies for goal setting, progress monitoring, and habit formation. Each section includes educational content that helps users understand **why** certain practices work, not just **how** to implement them, creating lasting fitness knowledge that extends beyond the app.
+
+![Education Dashboard](assets/images/readme-images/education-dashboard.png)
+
+🏗️ **Structured Guidance**: Provides comprehensive frameworks for workout planning, activity logging, and milestone tracking that users can apply to their personal fitness routines. The platform breaks down complex fitness concepts into **digestible, actionable steps** with clear progression paths. Users learn to structure their training across different muscle groups, understand periodization principles, and develop sustainable routines that fit their lifestyle and fitness level.
+
+![Structured Guidance](assets/images/readme-images/structured-guidance.png)
+
+📊 **Progress Visualization**: Demonstrates how to effectively monitor fitness progress through intuitive dashboards and achievement systems. The platform showcases **multiple methods of tracking success** beyond just numbers—from consistency streaks and personal records to goal completion rates and performance trends. Users discover how to identify patterns in their fitness journey and make data-driven adjustments to optimize their results.
+
+![Progress Visualization](assets/images/readme-images/progress-note.png)
+
+🔧 **Personalization Tools**: Offers customizable profiles, training plans, and settings that adapt to individual fitness goals and preferences. The platform teaches users how to **tailor their fitness approach** to their unique circumstances, whether they're focused on weight loss, muscle gain, endurance building, or general health improvement. From customizable workout templates to personalized milestone tracking, every feature can be adapted to match individual needs and preferences.
+
+![Custom Profile](assets/images/readme-images/custom-profile.png)
+
+💡 **Holistic Fitness Management**: Goes beyond individual workouts to address the **complete fitness ecosystem**—teaching users how to balance training, recovery, goal setting, and lifestyle factors. The platform demonstrates how to create sustainable fitness habits that integrate seamlessly with daily life, ensuring long-term success rather than short-term gains.
+
+## Key Features at a Glance
+
+- **🔐 User Authentication & Profiles**: Secure account management with comprehensive profile customization, including bio creation, profile picture uploads, and personalized fitness goal setting to create a tailored experience for each user's unique journey.
+
+- **🏋️ Training Plan Builder**: Expertly structured workout guidance spanning all major muscle groups (chest, back, legs, shoulders, arms, core) with progressive training plans designed for beginners through advanced athletes, complete with exercise demonstrations and technique insights.
+
+- **📊 Activity Logging System**: Comprehensive tracking ecosystem for daily movement, structured workouts, and fitness achievements, featuring milestone recognition, streak tracking, and personal record celebrations to maintain long-term motivation and accountability.
+
+- **📈 Dashboard & Analytics**: Intuitive visual progress tracking with real-time performance insights, goal completion percentages, and trend analysis that transforms raw fitness data into actionable intelligence for continuous improvement.
+
+- **⚙️ Settings & Customization**: Complete account control with granular preference management, secure data handling, and flexible customization options that ensure your fitness platform adapts to your evolving needs and privacy requirements.
+
+Whether you're a **fitness newcomer** seeking structured, step-by-step guidance to confidently begin your wellness journey, or a **seasoned athlete** looking to systematically organize, analyze, and optimize your training methodology, Forge Fitness bridges the gap between fitness theory and practical application. Through its clean, intuitive interface and comprehensive educational approach, the platform empowers users to not just track their fitness—but to truly understand and master the art of sustainable, goal-oriented training that delivers lasting results.
+
+---
+
+**Sign up to gain full access of the live application** [👉 Click Here](https://forge-fitness-d9cu.onrender.com/signup/)
+
+**If you want to check the testing documentation** [👉 Click Here]
 
 ---
 
 ## Table of Contents
 
-There is no table of contents for this project yet as it in early developement stage and the focus is on the ux design and creating wireframes.
+This comprehensive documentation provides a complete overview of the Forge Fitness project, from initial concept and user experience design through to technical implementation and deployment. Whether you're interested in understanding the user-centered design approach, exploring the technical architecture, or setting up the application locally, each section contains detailed information to support developers, stakeholders, and users alike. The documentation follows industry best practices and includes visual examples, code snippets, and step-by-step instructions to ensure clarity and accessibility.
+
+- [Introduction](#introduction)
+- [Table of Contents](#table-of-contents)
+- [Project Overview](#project-overview)
+- [Target Audience & User Needs](#target-audience--user-needs)
+  - [🔰 Beginners & First-Time Gym-Goers](#beginners--first-time-gym-goers)
+  - [🏋️ Intermediate Users & Returning Lifters](#intermediate-users--returning-lifters)
+  - [🏋️‍♂️ Advanced Gym-Goers](#advanced-gym-goers)
+  - [💻 Digital-First & Time-Conscious Users](#digital-first--time-conscious-users)
+  - [📊 Progress-Focused & Analytical Users](#progress-focused--analytical-users)
+- [Client Goals](#client-goals)
+- [User Stories](#user-stories)
+  - [First-time Users](#first-time-users)
+  - [Returning Users](#returning-users)
+  - [Regular Gym-goers](#regular-gym-goers)
+- [Statistics](#statistics)
+- [UX Strategy](#ux-strategy)
+  - [Colour Palette](#colour-palette)
+  - [Typography](#typography)
+  - [Wireframes](#wireframes)
+- [Features](#features)
+  - [Authentication & Profiles](#authentication--profiles)
+  - [Training Plan Builder](#training-plan-builder)
+  - [Activity Logs](#activity-logs)
+  - [Dashboard & Progression Visualisation](#dashboard--progression-visualisation)
+  - [Settings & Personalisation](#settings--personalisation)
+- [Technologies Used](#technologies-used)
+- [Future Enhancements](#future-enhancements)
+- [Local Development Setup](#local-development-setup)
+- [Deployment](#deployment)
+- [Credits & Attribution](#credits--attribution)
+
+---
+
+**Quick Navigation:**
+- 🚀 [Live Application](https://forge-fitness-production.up.railway.app/)
+- 🔗 [GitHub Repository](https://github.com/GBerrow/Forge-Fitness)
+- 📖 [User Guide](#features)
+- 🛠️ [Setup Instructions](#local-development-setup)
+- 🎨 [Design & UX](#ux-strategy)
+
+
+---
+
+## Target Audience & User Needs
+
+Forge Fitness is designed as a structured, educational platform that empowers users at all levels of fitness by combining intuitive workout planning, progress tracking, and clear instructional guidance. Its core mission is to make fitness feel achievable, understandable, and trackable — whether you're stepping into the gym for the first time or optimizing a long-term program.
+
+### 🔰 Beginners & First-Time Gym-Goers
+
+- **Step-by-Step Guidance**: Introductory workout plans, simplified UI, and clear instructions help users build confidence from day one.
+- **Educational Focus**: Clear explanations of exercises, muscle groups, and routines foster learning, not just repetition.
+- **Friendly Visuals**: Simple dashboards visualize improvement and reinforce early wins to encourage consistency.
+- **Low Pressure**: No forced public sharing or performance comparison — the focus is on learning and personal growth.
+
+### 🏋️ Intermediate Users & Returning Lifters
+
+- **Structured Progression Tools**: Users can build and modify their training plans with progressive overload principles in mind.
+- **Performance Logging**: Integrated activity logs help users see patterns, plateaus, and progress over time.
+- **Training Phase Awareness**: Learn how to alternate between hypertrophy, strength, and recovery through visual breakdowns and plan suggestions.
+- **Accountability Mechanisms**: Habit tracking and milestone visuals reinforce long-term routine building.
+
+### 🏆 Advanced Gym-Goers & Athletes
+
+- **Precision Tools**: Plan detailed training splits, log PRs, and monitor weekly or monthly progress with charts and analytics.
+- **Customization**: Adjust plan templates or create routines from scratch using the training plan builder.
+- **Data Insight**: Access personal performance summaries via bar, pie, and line graphs to aid decision-making.
+- **Streamlined Interface**: A clutter-free dashboard allows fast access to training history and upcoming sessions.
+
+### 💻 Digital-First & Time-Conscious Users
+
+- **Fully Responsive Web App**: Works on mobile, tablet, and desktop without requiring downloads or installation.
+- **Instant Access to Tools**: Users can build a plan, track a session, or review data in just a few clicks.
+- **Clean Design**: Prioritizes accessibility, with a consistent layout and intuitive navigation.
+- **Privacy by Design**: Users retain full control over their data, with secure login and account options.
+
+### 📊 Progress-Focused & Analytical Users
+
+- **Visual Performance Tracking**: Real-time updates to charts and dashboards based on logged activities.
+- **Milestone System**: Log and visualize achievements such as workout streaks, strength milestones, or completed plans.
+- **Insightful Patterns**: Identify training gaps, plateaus, or areas of strength with easy-to-interpret visuals.
+- **Goal Alignment**: Set personal goals and ensure workouts contribute toward them with tracking and reminders.
+
+Forge Fitness does more than just log workouts — it guides users through educational progression, empowering them to understand, structure, and sustain their training. Each feature is carefully mapped to the real needs of users at different stages in their fitness journey. For a deeper dive into these tools and how they're implemented, see the [Features](#features) section.
+
+The diverse target audience directly supports the **core client objectives** of Forge Fitness. By serving beginners through advanced users, the platform demonstrates **user-friendly navigation** that scales with expertise levels, **comprehensive personalization** that adapts to individual fitness journeys, and **structured guidance** that educates while motivating. This multi-tiered approach ensures that whether users seek simple workout logging or complex training analytics, Forge Fitness delivers an **intuitive, secure, and engaging experience** that grows with their fitness development — ultimately creating a sustainable platform that retains users long-term while meeting diverse fitness management needs.
+
+---
+
+## Client Goals
+
+The Forge Fitness application combines modern development practices with proven design patterns from industry leaders like PureGym, Garmin, and Strava. This milestone project showcases full-stack development capabilities while delivering a comprehensive fitness platform. By implementing features found in successful fitness applications and adding innovative elements, Forge Fitness demonstrates both technical proficiency and user-centered design principles. The following core objectives guide the development process and feature implementation:
+
+### **1. User-Friendly and Intuitive Navigation**
+- The **Dashboard** serves as a central hub, allowing users to quickly access key sections such as **Profile, Training, Activity, Progress, and Settings**.
+- Each section is designed with a minimalistic layout, making navigation effortless while ensuring all features remain accessible.
+- Responsive UI elements ensure an optimal experience across different devices.
+
+### **2. Personalization and User Control**
+- The **Profile Page** allows users to personalize their experience by setting their **preferred name and bio**, as well as uploading a profile picture.
+- The **Settings Page** includes essential options such as **Feedback, Support, and Account Deletion**, ensuring users can manage their preferences effectively.
+- Users can track their fitness progress in the **Progression Page**, which focuses on **Goal Setting, Performance Tracking, and Personalized Feedback**.
+
+### **3. Structured Training Guidance**
+- The **Training Section** provides users with a well-organized framework for fitness improvement.
+  - **Introduction:** Guides users on how to use the training section effectively.
+  - **Workouts:** Covers different muscle groups and recommended exercises.
+  - **Training Plans:** Helps users structure their fitness routine.
+  - **Summary:** Highlights key takeaways to keep users engaged and informed.
+
+### **4. Motivation through Progress Tracking**
+- The **Activity Page** enables users to help monitor their daily activity, ensuring they stay consistent with their fitness goals.
+  - **Daily Activity:** Summarizes movement trends.
+  - **Workout Tracking:** Encourages users to log and analyze their workouts.
+  - **Achievements:** Recognizes and celebrates fitness milestones.
+
+### **5. Secure and Accessible Authentication**
+- The **Login Page** provides a secure authentication system, allowing users to log in effortlessly.
+- The **Sign-Up Page** ensures a smooth onboarding process, with clear input fields and guided registration to enhance user experience.
+
+### **6. Feedback and Continuous Engagement**
+- The **Settings Page** integrates feedback and support options, enabling users to report issues, request assistance, and suggest improvements.
+- The platform encourages ongoing engagement through motivational elements like **progress tracking and achievements**.
+
+The **Forge Fitness** application balances functionality and simplicity, ensuring that users can efficiently **track their workouts, manage their profile, stay motivated, and personalize their experience**.
+
+---
+
+## User Stories
+
+The following user stories have been developed to guide the implementation of Forge Fitness features, ensuring each component delivers tangible value to users while meeting project requirements. Each story aligns with specific client goals and technical objectives, demonstrating both user-centered design and full-stack development capabilities. The stories are organized into core functional areas, with clear goal alignment statements showing how they support the project's primary objectives.
+
+### Profile Management
+**Goal Alignment: Supports "Create a User-Friendly Experience."**
+
+- As a **new user**, I want to create an account so that I can save my fitness data and track my progress.
+- As a **returning user**, I want to log in securely so that I can access my personalized fitness data.
+- As a **registered user**, I want to edit my profile details, including my preferred name and bio, so that my information remains up to date.
+- As a **visual user**, I want to upload a profile picture so that my account feels more personalized.
+- As a **self-motivated user**, I want to add a short bio about myself so that I can document my fitness journey.
+
+### Training Section
+**Goal Alignment: Supports "Support Personalization."**
+
+- As a **user**, I want to explore different workout plans so that I can find a routine that matches my fitness goals.
+- As a **beginner**, I want a simple introduction to workouts so that I can learn the fundamentals before diving into specific plans.
+- As an **advanced user**, I want to understand how different muscle groups work so that I can improve my training efficiency.
+- As a **goal-oriented user**, I want structured training plans so that I can follow a guided fitness program based on my needs.
+- As a **data-driven user**, I want to see an overview of my workout plans so that I can track my fitness routine at a glance.
+
+### Activity Tracking
+**Goal Alignment: Supports "Enhance Motivation and Engagement."**
+
+- As a **user**, I want to track my daily activity, such as steps and movement, so that I can monitor my overall fitness levels.
+- As a **motivated individual**, I want to log my completed workouts so that I can track my consistency over time.
+- As a **progress-focused user**, I want to review my past activities so that I can see how I’m improving.
+- As an **achievement-driven user**, I want to earn milestones and badges so that I stay motivated to reach new fitness goals.
+- As a **self-reflecting user**, I want to compare my active and inactive days so that I can improve my consistency.
+
+### Progress and Insights
+**Goal Alignment: Supports "Offer Comprehensive Fitness Management."**
+
+- As a **goal-oriented user**, I want to set short-term and long-term fitness goals so that I can stay motivated and measure my progress.
+- As a **self-improving user**, I want to track my performance trends over time so that I can see my strengths and areas for improvement.
+- As an **analytical user**, I want to review feedback and insights based on my fitness habits so that I can make better training decisions.
+- As a **results-driven user**, I want to receive clear visual data about my progress so that I can recognize patterns and plan my next steps.
+- As a **self-aware user**, I want to receive performance insights and recommendations so that I can make meaningful adjustments to my fitness routine.
+
+### Settings
+**Goal Alignment: Supports "Prioritize Modern Design Standards."**
+
+- As a **privacy-conscious user**, I want to permanently delete my account so that I have control over my data.
+- As a **user**, I want to manage my fitness preferences and settings so that the app feels tailored to my personal experience.
+
+Each story maps directly to technical requirements while maintaining focus on user value, creating a balanced approach between development objectives and user needs. This structured foundation provides clear direction for feature implementation and testing phases of the project.
 
 ---
 
@@ -196,95 +413,6 @@ This structured **demonstration-based approach** ensures that users understand *
 Market research strongly supports the **mobile-first approach** taken in Forge Fitness. With **fitness apps projected to reach $120.37 billion by 2030**, the importance of **accessible and intuitive mobile interfaces** continues to grow. The statistics confirm that **92% of fitness app users** prefer **smartphone-based platforms**, reinforcing the decision to **prioritize responsive UI/UX principles** in this project.  
 
 By integrating these **data-driven design decisions**, Forge Fitness offers **a structured and user-friendly demonstration of fitness tracking methodologies**, ensuring users **learn how to manage their fitness journey effectively**—without requiring **real-time tracking capabilities**. 🚀  
-
----
-
-## Client Goals
-
-The Forge Fitness application combines modern development practices with proven design patterns from industry leaders like PureGym, Garmin, and Strava. This milestone project showcases full-stack development capabilities while delivering a comprehensive fitness platform. By implementing features found in successful fitness applications and adding innovative elements, Forge Fitness demonstrates both technical proficiency and user-centered design principles. The following core objectives guide the development process and feature implementation:
-
-### **1. User-Friendly and Intuitive Navigation**
-- The **Dashboard** serves as a central hub, allowing users to quickly access key sections such as **Profile, Training, Activity, Progress, and Settings**.
-- Each section is designed with a minimalistic layout, making navigation effortless while ensuring all features remain accessible.
-- Responsive UI elements ensure an optimal experience across different devices.
-
-### **2. Personalization and User Control**
-- The **Profile Page** allows users to personalize their experience by setting their **preferred name and bio**, as well as uploading a profile picture.
-- The **Settings Page** includes essential options such as **Feedback, Support, and Account Deletion**, ensuring users can manage their preferences effectively.
-- Users can track their fitness progress in the **Progression Page**, which focuses on **Goal Setting, Performance Tracking, and Personalized Feedback**.
-
-### **3. Structured Training Guidance**
-- The **Training Section** provides users with a well-organized framework for fitness improvement.
-  - **Introduction:** Guides users on how to use the training section effectively.
-  - **Workouts:** Covers different muscle groups and recommended exercises.
-  - **Training Plans:** Helps users structure their fitness routine.
-  - **Summary:** Highlights key takeaways to keep users engaged and informed.
-
-### **4. Motivation through Progress Tracking**
-- The **Activity Page** enables users to help monitor their daily activity, ensuring they stay consistent with their fitness goals.
-  - **Daily Activity:** Summarizes movement trends.
-  - **Workout Tracking:** Encourages users to log and analyze their workouts.
-  - **Achievements:** Recognizes and celebrates fitness milestones.
-
-### **5. Secure and Accessible Authentication**
-- The **Login Page** provides a secure authentication system, allowing users to log in effortlessly.
-- The **Sign-Up Page** ensures a smooth onboarding process, with clear input fields and guided registration to enhance user experience.
-
-### **6. Feedback and Continuous Engagement**
-- The **Settings Page** integrates feedback and support options, enabling users to report issues, request assistance, and suggest improvements.
-- The platform encourages ongoing engagement through motivational elements like **progress tracking and achievements**.
-
-The **Forge Fitness** application balances functionality and simplicity, ensuring that users can efficiently **track their workouts, manage their profile, stay motivated, and personalize their experience**.
-
----
-
-## User Stories
-
-The following user stories have been developed to guide the implementation of Forge Fitness features, ensuring each component delivers tangible value to users while meeting project requirements. Each story aligns with specific client goals and technical objectives, demonstrating both user-centered design and full-stack development capabilities. The stories are organized into core functional areas, with clear goal alignment statements showing how they support the project's primary objectives.
-
-### Profile Management
-**Goal Alignment: Supports "Create a User-Friendly Experience."**
-
-- As a **new user**, I want to create an account so that I can save my fitness data and track my progress.
-- As a **returning user**, I want to log in securely so that I can access my personalized fitness data.
-- As a **registered user**, I want to edit my profile details, including my preferred name and bio, so that my information remains up to date.
-- As a **visual user**, I want to upload a profile picture so that my account feels more personalized.
-- As a **self-motivated user**, I want to add a short bio about myself so that I can document my fitness journey.
-
-### Training Section
-**Goal Alignment: Supports "Support Personalization."**
-
-- As a **user**, I want to explore different workout plans so that I can find a routine that matches my fitness goals.
-- As a **beginner**, I want a simple introduction to workouts so that I can learn the fundamentals before diving into specific plans.
-- As an **advanced user**, I want to understand how different muscle groups work so that I can improve my training efficiency.
-- As a **goal-oriented user**, I want structured training plans so that I can follow a guided fitness program based on my needs.
-- As a **data-driven user**, I want to see an overview of my workout plans so that I can track my fitness routine at a glance.
-
-### Activity Tracking
-**Goal Alignment: Supports "Enhance Motivation and Engagement."**
-
-- As a **user**, I want to track my daily activity, such as steps and movement, so that I can monitor my overall fitness levels.
-- As a **motivated individual**, I want to log my completed workouts so that I can track my consistency over time.
-- As a **progress-focused user**, I want to review my past activities so that I can see how I’m improving.
-- As an **achievement-driven user**, I want to earn milestones and badges so that I stay motivated to reach new fitness goals.
-- As a **self-reflecting user**, I want to compare my active and inactive days so that I can improve my consistency.
-
-### Progress and Insights
-**Goal Alignment: Supports "Offer Comprehensive Fitness Management."**
-
-- As a **goal-oriented user**, I want to set short-term and long-term fitness goals so that I can stay motivated and measure my progress.
-- As a **self-improving user**, I want to track my performance trends over time so that I can see my strengths and areas for improvement.
-- As an **analytical user**, I want to review feedback and insights based on my fitness habits so that I can make better training decisions.
-- As a **results-driven user**, I want to receive clear visual data about my progress so that I can recognize patterns and plan my next steps.
-- As a **self-aware user**, I want to receive performance insights and recommendations so that I can make meaningful adjustments to my fitness routine.
-
-### Settings
-**Goal Alignment: Supports "Prioritize Modern Design Standards."**
-
-- As a **privacy-conscious user**, I want to permanently delete my account so that I have control over my data.
-- As a **user**, I want to manage my fitness preferences and settings so that the app feels tailored to my personal experience.
-
-Each story maps directly to technical requirements while maintaining focus on user value, creating a balanced approach between development objectives and user needs. This structured foundation provides clear direction for feature implementation and testing phases of the project.
 
 ---
 
