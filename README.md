@@ -74,6 +74,7 @@ This comprehensive documentation provides a complete overview of the Forge Fitne
   - [First-time Users](#first-time-users)
   - [Returning Users](#returning-users)
   - [Regular Gym-goers](#regular-gym-goers)
+- [User Experience (UX) - Final Design](#user-experience--final-design)
 - [Statistics](#statistics)
 - [UX Strategy](#ux-strategy)
   - [Colour Palette](#colour-palette)
@@ -499,7 +500,39 @@ The visual identity of Forge Fitness is built on a carefully selected **color pa
 
 ---
 
-The typography is yet to be decided. But I want the layout of the website to be designed easy to read and visually appealing, with a focus on using a font that is both readable and visually appealing.
+### Typography
+
+The typography system leverages **Bootstrap's native font stack** with custom font weights and sizing for optimal readability and visual hierarchy:
+
+| Element | Font Size | Font Weight | Usage | Responsive Adjustments |
+|---------|-----------|-------------|-------|----------------------|
+| **Header Title** | `1.8rem` | `700` (Bold) | Main navigation branding | `1.4rem` on mobile |
+| **Welcome Card Heading** | `fs-3` class | `600` (Semi-bold) | Hero section titles | `1.5rem` on mobile |
+| **Auth Page Title** | `2rem` | `700` (Bold) | Login/Signup headings | `1.7rem` mobile, `1.5rem` small mobile |
+| **Action Card Icons** | `fs-1` class | Default | Dashboard navigation | `1.8rem` on mobile |
+| **Form Labels** | `0.9rem` | `600` (Semi-bold) | Form field labels | Consistent across devices |
+| **Form Inputs** | `1rem` | `400` (Regular) | Input fields and text areas | `0.95rem` mobile, `0.9rem` small mobile |
+| **Button Text** | `1rem` | `600` (Semi-bold) | Primary action buttons | `0.95rem` mobile, `0.9rem` small mobile |
+| **Footer Text** | `0.95rem` | `500` (Medium) | Footer links and copyright | `0.85rem` mobile, `0.8rem` small mobile |
+| **Badge Text** | `0.75rem` | Default | Status indicators | Consistent across devices |
+| **Help Text** | `0.85rem` | Default | Form assistance text | `0.8rem` mobile, `0.75rem` small mobile |
+
+#### **Typography Features**
+
+| Feature | Implementation | Purpose |
+|---------|---------------|---------|
+| **Text Shadows** | `1px 1px 2px rgba(255, 255, 255, 0.9)` | Enhanced readability on gradient backgrounds |
+| **Letter Spacing** | `-0.5px` on auth titles | Improved visual balance for larger headings |
+| **Line Height** | `1.5` for form elements | Optimal reading comfort and touch targets |
+| **Font Stack** | Bootstrap system fonts | Cross-platform compatibility and performance |
+| **Responsive Scaling** | Media query breakpoints | Optimal sizing across all devices |
+
+#### **Iconography**
+- **Bootstrap Icons**: Comprehensive icon system (`bi-` classes)
+- **Consistent Sizing**: `fs-3`, `fs-4` classes for scalable implementation
+- **Interactive States**: Hover effects with `transform: scale(1.1)` and color transitions
+
+The typography system prioritizes **accessibility, performance, and visual consistency** while maintaining the professional fitness-focused aesthetic that defines the Forge Fitness brand.
 
 ---
 
@@ -887,10 +920,572 @@ By keeping the **Settings Page minimal**, the app maintains a **clean and straig
 
 ---
 
-## User Experience (UX) - Final Desgin
+## User Experience (UX) - Final Design
  
 The final design of Forge Fitness builds upon the original UX plan and wireframes by refining user flows, improving layout structure, and incorporating meaningful feedback based on real-world user interaction patterns. While the initial concept prioritised clarity and responsiveness, the implemented version elevates this by delivering a more intuitive navigation system, a clean dashboard experience, and clearly segmented modules for training and activity tracking. Key areas—such as the training planner, activity log, and profile editor—have evolved to be more accessible, interactive, and visually distinct, ensuring that users can manage their fitness goals with minimal friction. Compared to the scoped wireframes, the final product introduces stronger contrast, smoother transitions between pages, and a more cohesive visual hierarchy, resulting in a user interface that is not only functional but highly engaging across devices.
 
+To see the final designs on the dashboard, training, activity, progress and settings pages. Please sign up and by here and look 
+at what they have to offer - [Sign up](https://forge-fitness-d9cu.onrender.com/signup/)
+
+### 📌 Dashboard Overview
+
+[View Live](https://forge-fitness-d9cu.onrender.com/dashboard/)
+
+The final implementation of the Dashboard Page acts as the launchpad for user interaction across Forge Fitness. It has evolved significantly from the original wireframe to deliver a visually engaging, responsive, and functionally rich experience. The page balances aesthetics with usability, employing a clean card-based grid layout, subtle animations, and consistent iconography to guide the user intuitively across the app's core modules. It places the user at the centre of their fitness journey, offering clear pathways to manage progress, plans, and personalisation without cognitive friction.
+
+## 🏠 Navigation Bar
+
+The navigation bar is fixed at the top of the screen and serves as the primary anchor for user orientation and flow:
+
+- Clearly labelled links to Dashboard, Training, Activity, Profile, and Settings
+- Active state indicator (e.g. underline) for the current page
+- Secure Logout button available on all pages
+- Responsive behaviour ensures the navbar collapses cleanly on mobile devices for optimal readability and access
+
+### 📂 Interactive Dashboard Grid
+
+The main content is composed of five interactive section cards, each styled with consistent hover states, iconography, and spacing to aid recognition and improve scanability. Each card directs the user to a core module:
+
+### 👤 Profile
+- View and update personal details such as display name and bio
+- Reinforces the app's personalised nature and gives the user control over their representation
+
+### 🏋️ Training
+- Gateway to curated training plans and workouts
+- Empowers users to follow structured routines based on their fitness goals
+
+### 🏃‍♂️ Activity
+- Track completed workouts and review logged notes
+- Central to helping users reflect, log improvements, and stay consistent
+
+### 📈 Progression
+- Visual progress insights and performance tracking
+- Though the original wireframe envisioned basic summaries, the final design elevates this with custom chart graphics to better engage users and encourage reflection
+
+### ⚙️ Settings
+- Manage account preferences, including support options and the ability to submit feedback or delete the account
+- Emphasises user autonomy and GDPR-conscious design
+
+### 🎨 Visual & UX Enhancements
+
+Compared to the scoped wireframe, the final version features several key improvements:
+
+- **Stronger visual hierarchy** with bold headers, card spacing, and icon usage for at-a-glance understanding
+- **Consistent colour scheme** drawn from the site's style guide (header/footer/button colours)
+- **Hover animations** provide instant interaction feedback, enhancing responsiveness
+- **Fully mobile-responsive layout**, with each card stacking elegantly for smaller screens
+- **Chart areas** use image placeholders with a consistent visual theme across all chart types, hinting at future dynamic data integration
+
+## 🔻 Footer Area
+
+The footer remains minimalistic to avoid visual clutter on key landing pages:
+
+- Present on all pages for brand consistency
+- Space reserved for future enhancements such as social media links or partner content
+
+---
+
+## Sign Up Page – Final Design
+
+🔗 [View Live](https://forge-fitness-d9cu.onrender.com/signup/)
+
+The Sign Up Page in the final design delivers a frictionless onboarding experience with a focus on clarity, visual appeal, and responsive behaviour. Expanding on the original plan, the implemented version introduces subtle UX enhancements and clean form validation to guide users through the registration process confidently.
+
+### 🎨 Design Elements
+
+- **Sleek, brand-aligned layout** with generous spacing and soft shadow accents to elevate form prominence
+- **Concise, motivational welcome message** reinforces value and encourages conversion
+- **Fully responsive form**, ensuring usability across mobile, tablet, and desktop screens
+- **Clear visual feedback** for input focus and error states enhances user trust and interaction clarity
+- **Brand colour palette** is consistently applied to buttons, links, and headings for a cohesive experience
+
+### 🔐 Core Functionality
+
+- **Collects essential user data**: username, email, password
+- **Real-time password confirmation matching** to avoid errors during submission
+- **Password visibility toggle** ensures users can verify input securely
+- **Call-to-action footer links** offer easy redirection to login for returning users
+
+### 📱 User Experience Highlights
+
+- **Simple, vertically stacked layout** reduces visual complexity and supports thumb-friendly mobile use
+- **Error messages and success states** are styled clearly, ensuring immediate feedback during registration attempts
+- **Auto-focus and tab-order** optimise keyboard navigation for accessibility
+
+### 🧭 Why This Page Matters
+
+As the primary entry point for new users, the Sign Up page balances efficiency and reassurance. By minimising friction, maintaining clean visual flow, and offering clear interaction cues, the page boosts user confidence from the moment they begin their fitness journey with Forge Fitness.
+
+---
+
+## Login Page – Final Design
+
+🔗 [View Live](https://forge-fitness-d9cu.onrender.com/login/)
+
+The Login Page in its final state has been refined to offer users a quick, secure, and intuitive authentication experience. Compared to the wireframe, the final build simplifies layout distractions, sharpens input visibility, and ensures a seamless flow for both desktop and mobile users.
+
+### 🎨 Design Elements
+
+- **Minimalist form structure**, centring user focus on login essentials
+- **Responsively styled** to maintain usability across screen sizes and devices
+- **Input fields provide subtle visual cues** (focus borders, spacing) for ease of interaction
+- **Typography and button styles** follow the app's established visual identity, reinforcing brand trust
+
+### 🔐 Core Functionality
+
+- **Username or Email login support** for user flexibility
+- **Password visibility toggle** improves input accuracy
+- **"Remember Me" checkbox** allows users to persist their session securely
+- **Forgot Password link** positioned logically for immediate recovery access
+- **New user prompt** links directly to the Sign Up page
+
+### 📱 User Experience Highlights
+
+- **Clear call-to-actions** reduce decision fatigue for both new and returning users
+- **Accessible form structure** with proper labels and feedback for keyboard/tab navigation
+- **Secure form handling** ensures passwords and session data are protected
+
+### 🧭 Why This Page Matters
+
+Serving as the entry gate to the entire platform, the Login Page plays a vital role in shaping first impressions. With its clean presentation, fast performance, and user-focused features, it ensures returning users can access their fitness data efficiently while maintaining high standards of usability and trust.
+
+---
+
+## Profile Page – Final Design
+
+**🔗 [View Live Profile Page](https://forge-fitness-d9cu.onrender.com/profile/)**  
+**🔗 [View Live Edit Profile](https://forge-fitness-d9cu.onrender.com/profile/edit/)**
+
+The final Profile Page offers users a personalised and accessible space to manage their fitness identity within Forge Fitness. Evolving from the original design, this section focuses on simplicity, responsiveness, and control, allowing users to update their display name and add a short bio that appears across key user-facing areas. While minimal by design, the profile area sets the foundation for future expansion such as photo uploads or social integration.
+
+### 🎨 Design Elements
+
+- **Clean, centred layout** with clear visual segmentation between Profile Info and Edit Actions
+- **Typography and styling** remain consistent with the site-wide theme — crisp headings, soft card backgrounds, and well-aligned spacing
+- **Subtle padding and box-shadow** enhance the form's visual hierarchy without creating clutter
+- **Full mobile responsiveness** with input fields and buttons scaling appropriately for touch-based interfaces
+
+### ✍️ Core Functionality
+
+#### Profile Customisation
+- **Preferred Name input** allows users to display a personalised identity rather than just their username
+- **Bio/About Me section** lets users share brief personal info or motivational quotes — encouraging ownership over their fitness journey
+- **Upload profile picture** allows users to personalise their profile with a photo
+
+#### Save & Feedback
+- **Clear "Save" button** confirms edits and updates the database in real time
+- **Visual confirmation** ensures the user knows when changes have been successfully applied
+
+### 📱 User Experience Highlights
+
+- The **Edit Profile page** is intuitively structured, reducing user friction during updates
+- **Input fields are auto-focused** and keyboard-accessible for efficient data entry
+- **Error prevention through form validation** (e.g., required fields) ensures clean submissions
+- **Feedback on successful changes** is immediate, with updates reflected directly on the Profile page
+
+### 🧭 Why This Page Matters
+
+The Profile Page plays a vital role in creating a sense of ownership for users. By giving them the ability to tailor how they appear within the app — even in a lightweight form — it supports the app's goal of fostering a personalised, motivating fitness environment. Its simplicity today lays the groundwork for future enhancements like profile photos, achievements, or activity summaries, without compromising the current user experience.
+
+---
+
+## Training Page – Final Design
+
+**🔗 [View Live](https://forge-fitness-d9cu.onrender.com/training/)**
+
+The Training Page is a comprehensive, user-centric resource designed to teach, inspire, and guide users through the fundamentals of effective training. In its final implementation, this page integrates interactive education, expert-led demonstrations, and a practical note-logging system — all aimed at helping users build a consistent, goal-driven fitness routine.
+
+### Introduction Section
+
+The page opens with a welcoming and motivational introduction that:
+
+- Explains the importance of structure, consistency, and form in long-term fitness success
+- Frames training as a skill to be developed, not just workouts to be completed
+- Encourages users to approach fitness with purpose — not guesswork — regardless of experience level
+
+### Workouts Section
+
+This section is where theory meets application. It covers key muscle groups (Chest, Back, Legs, Shoulders, Arms, Core) and outlines recommended exercises — but more importantly, it enhances user learning with expert guidance from **Jeff Nippard**, a leading voice in evidence-based training.
+
+### How Jeff Nippard's Content Enhances the Page:
+
+- Each muscle group links to a dedicated Jeff Nippard YouTube video, curated to match the section's topic
+- Topics include: Glute Training, Back Training, Shoulder Development, Core & Abs, Cardio, and more
+- Each link is styled for accessibility and grouped clearly by training category
+
+### Why Jeff Nippard?
+
+Jeff Nippard's content has been selected as the gold standard for exercise demonstrations due to its strong scientific foundation, clear delivery, and practical focus. His videos offer a trusted, safe, and detailed reference for users looking to learn proper technique, avoid injury, and train efficiently. His influence directly shaped both the instructional tone and the structural flow of the workouts section.
+
+A link to Jeff Nippard's full channel is provided for those who want to explore further beyond the scope of Forge Fitness.
+
+### Training Plans Section
+
+This section guides users in translating exercise knowledge into a sustainable training strategy. It includes:
+
+- **Recommended splits** (e.g. 3, 4, or 5-day training weeks)
+- **Goal-oriented programming:**
+  - **Fat Loss:** High-volume, HIIT-style training
+  - **Muscle Gain:** Hypertrophy, progressive overload
+  - **Endurance:** Full-body circuits, cardio periodisation
+- **Principles** on how to balance intensity, frequency, recovery, and progression
+
+Plans are presented as flexible frameworks, not rigid programs — aligning with the app's goal of user empowerment and long-term adherence.
+
+## Summary Section
+
+This section condenses everything into practical takeaways:
+
+### Key Themes: 
+Structure, knowledge, habit-building
+
+### Action Items:
+- **This Week:** Choose a split, test workouts, start notes
+- **This Month:** Track progression, review plans, adjust routines
+
+Motivational messaging reminds users that "progress over perfection" is the key to momentum. It also transitions users naturally into the note-taking workflow.
+
+### Training Notes – From Learning to Logging
+
+The final component is a powerful, interactive Training Notes system, encouraging users to:
+
+- **Create** custom notes for workouts, weekly plans, or personal reflections
+- **Edit/update** logs as progress is made
+- **Delete** irrelevant or outdated entries for clarity
+
+Each note is tagged under the "Training" category, forming a chronological, user-controlled journal of progression — turning abstract fitness theory into measurable action.
+
+### User Experience Highlights
+
+- Fully responsive design with collapsible sections for ease of reading
+- Colour-coded tabs and headings improve scanability
+- Hover effects, CTA buttons, and layout spacing improve engagement
+- Keyboard/tab navigation and high contrast support accessibility
+
+### Acknowledging Jeff Nippard's Contribution
+
+Much of the educational structure and video content in this section is based on the work of **Jeff Nippard**, whose science-based training resources serve as a foundation for safe, effective fitness guidance throughout this app. His content has been instrumental in shaping not just the instructional voice of the Workouts section, but also in influencing the prioritisation of form, injury prevention, and evidence-backed programming.
+
+Full credit and thanks to Jeff Nippard – his channel remains one of the most trusted and educational platforms for anyone serious about training intelligently.
+
+**🔗 [Visit Jeff Nippard's YouTube Channel](https://www.youtube.com/@JeffNippard)**
+
+## Why This Page Matters
+
+The Training Page brings together education, structure, and action. By blending reliable science (via Jeff Nippard), practical planning frameworks, and an interactive note system, it gives users everything they need to build — and stick to — a meaningful fitness journey. This section moves beyond basic fitness advice and instead empowers users with the knowledge and tools to train with clarity, purpose, and long-term sustainability.
+
+---
+
+## Activity Page – Final Design
+
+**🔗 [View Live](https://forge-fitness-d9cu.onrender.com/activity/)**
+
+The Activity Page brings a fresh, holistic approach to fitness tracking by focusing not only on workouts but on how users live throughout the entire day. Evolved from its original design as a simple tracker, it now serves as a 24-hour lifestyle dashboard, encouraging users to view movement, nutrition, habits, and health behaviours as interconnected elements of their overall fitness journey.
+
+This page supports users in becoming more aware, more accountable, and more consistent — ultimately shifting their mindset from short workouts to long-term wellness.
+
+### 🔄 Page Structure Overview
+
+The page is structured into seven collapsible sections with a clear top navigation bar that allows users to jump between key themes:
+
+- **Introduction**
+- **Daily Activity**
+- **Nutrition**
+- **24-Hour View**
+- **Tracking Methods**
+- **Habit Building**
+- **Summary + Notes**
+
+The bottom of the page includes the **Health & Lifestyle Notes** section, which allows users to actively log their reflections, targets, or habit challenges — building self-awareness into actionable progress.
+
+### 🧠 The 24-Hour Reality
+
+This opening section challenges a common misconception: that gym time alone is enough. It introduces:
+
+- **The "4.2% Trap"** – the reality that even 1 hour in the gym equals just 4.2% of a user's day
+- **The "95.8% Solution"** – where real change happens: sleep, stress, food, hydration, and habits
+- Encourages users to rethink how they measure progress and embrace their full daily routine as the arena for change
+
+**Key takeaway**: "You cannot out-train a bad diet or poor lifestyle."
+
+### 🚶 Daily Activity & Movement
+
+This section explores non-exercise activity thermogenesis (NEAT) and the power of day-to-day movement:
+
+**Tracks**: Steps, NEAT calories, movement patterns
+
+- Differentiates between structured exercise and lifestyle activity (e.g. walking, cleaning, standing)
+- Visual breakdowns encourage users to move more consistently — even outside the gym
+
+**Highlights include**:
+- Morning NEAT strategies
+- Office NEAT (e.g., standing breaks)
+- Evening activity suggestions
+
+**✅ Activity Targets**:
+- 8,000–12,000 steps/day
+- 150+ active minutes/week
+- Hourly movement breaks
+
+### 🍎 Nutrition: The Foundation
+
+This section reframes nutrition not as a diet, but as the core driver of results:
+
+- Explains caloric balance (deficit, surplus, maintenance)
+- Breaks down tracking methods: detailed (e.g. MyFitnessPal) vs. intuitive (e.g. hand portions)
+- Emphasises common nutritional mistakes like:
+  - "I'll just burn it off later"
+  - Drinking your calories
+  - Underestimating portion sizes
+
+Users are provided with **Week-by-Week nutrition goals** to gradually build consistency.
+
+### 🧬 Your 24-Hour Health Profile
+
+This section ties it all together by giving users a complete picture of how sleep, stress, hydration, and habits impact results:
+
+- Visual timeline of how users spend their 24 hours
+- **Key lifestyle factors**:
+  - 💤 Sleep Quality
+  - 💧 Hydration
+  - 💥 Stress Management
+  - 🍎 Nutrition
+  - 🕒 Screen time & recovery
+
+This profile encourages users to see patterns, not just moments, and reinforces the power of small, daily actions.
+
+### 📊 Holistic Tracking Methods
+
+This section offers users a flexible framework to log and reflect on key behaviours:
+
+- Encourages combining qualitative and quantitative tracking
+- Promotes checklist habits, habit stacking, and journaling
+- Explains the value of reflection, not just measurement
+
+### 🔁 Building Lifestyle Habits
+
+One of the most actionable areas of the page — this section empowers users to form habits with intention:
+
+- **Habit Loop** (Cue → Routine → Reward)
+- **Stacking strategies** (linking habits to routines)
+- **2-minute rule** – start small, stay consistent
+- **Environment design** – how to make good habits obvious and bad habits invisible
+
+**It also addresses common blockers like**:
+- "I don't have time"
+- "I forget"
+- "I'm inconsistent"
+
+A **30-Day Habit Implementation Plan** is included to provide structure from Week 1 to Month 3.
+
+### 🧾 Complete Health Summary
+
+This final summary reinforces the most important principles:
+
+**Big Picture View**: Health is determined by everything you do, not just workouts.
+
+**Success Principles**:
+- Focus on systems, not willpower
+- Track small wins
+- Build momentum slowly
+
+**Action Plan**: A step-by-step system that covers:
+- **Foundation** (Week 1–2)
+- **Optimisation** (Month 2)
+- **Mastery** (Month 3)
+
+The closing call-to-action is clear: *"Start tracking your journey below — one note, one habit, one day at a time."*
+
+### 📝 Health & Lifestyle Notes
+
+Users can log lifestyle-specific reflections and goals:
+
+- Add, edit, and delete notes focused on sleep, hydration, stress, nutrition, or habits
+- Encouraged to write after each section for reflection or planning
+- Fully responsive and styled consistently with the rest of the app
+
+This feature transforms the Activity Page into a daily accountability system, not just a source of information.
+
+### 💡 Why This Page Matters
+
+The Activity Page transforms passive awareness into active ownership. It guides users to:
+
+- Shift focus from workouts to total wellness
+- Reflect daily with lifestyle notes
+- Build sustainable health habits, not temporary routines
+
+Whether someone is just starting their journey or refining their lifestyle, this page serves as a blueprint for lasting transformation — beyond the gym.
+
+---
+
+## Progression & Goals Page – Final Design
+
+**🔗 [View Live](https://forge-fitness-d9cu.onrender.com/progression/)**
+
+The Progression Page empowers users to take charge of their long-term fitness journey by tracking measurable goals, celebrating milestones, and reviewing real performance trends. It bridges the gap between daily activity and big-picture transformation by combining goal-setting tools, tracking frameworks, and motivational feedback — all within a structured and intuitive interface.
+
+### 🔁 Page Structure Overview
+
+The page is broken into five functional segments, each accessible through a tabbed navigation interface:
+
+- **Foundation**
+- **Goals**
+- **Tracking**
+- **Milestones**
+- **Progression Notes**
+
+Each section builds on the last, guiding users from understanding progress to acting on it. Collapsible cards enhance focus, while the visual style stays consistent with the wider Forge Fitness aesthetic.
+
+### 💡 Foundation of Progress
+
+This section introduces core training philosophy:
+
+- **Direction Over Speed**: Prioritising consistency over intensity spikes
+- **Measurable Growth**: Encourages tracking metrics that actually reflect improvement
+- **Sustainable Systems**: Builds routines that work beyond motivation
+
+**💬 Key Insight**: Progress is cyclical — users are reassured that plateaus are part of the process, not a sign of failure. The page builds trust by setting realistic expectations and shifting focus to long-term adherence.
+
+### 🎯 Setting Meaningful Goals
+
+This section teaches users to set smart, actionable fitness goals using the SMART framework:
+
+#### Specific & Measurable:
+- e.g. "Increase bench press by 20lbs"
+- "Lose 2lbs/month for 6 months"
+
+#### Achievable & Time-bound:
+- Break large goals into 30, 60, or 90-day milestones
+
+#### Types of goals covered:
+- 💪 **Performance** (strength, endurance)
+- ⚖️ **Body Composition** (weight, fat loss)
+- ❤️ **Health Markers** (blood pressure, heart rate)
+- 🔁 **Habit-Based** (consistency, lifestyle change)
+
+#### ✅ Goal Examples Provided:
+- **30-Day Goals**: "Walk 8,000 steps daily," "Complete 12 workouts this month"
+- **90-Day Goals**: "Run a 5K," "Lose 8–12lbs," "Master 5 new exercises"
+
+This section gives users the clarity and structure needed to turn aspirations into measurable outcomes.
+
+### 📊 Performance Tracking
+
+This section focuses on metrics that matter, helping users assess their actual progress with data:
+
+#### Key Areas Tracked:
+- 🔷 **Strength Progress** (weight lifted, reps/sets)
+- 🟩 **Endurance Gains** (cardio duration, intensity)
+- 🟨 **Consistency** (session frequency, streaks)
+
+#### 📋 Simple Tracking Methods:
+- Workout Logs
+- Weekly Reviews
+- Progress Photos
+- Time Tracking (rest periods, time under tension)
+
+**🚨 Note**: The guidance reminds users not to track everything, but to choose 3–5 key metrics aligned with their goals — making tracking sustainable and insightful rather than overwhelming.
+
+### 🏅 Milestones & Breakthroughs
+
+This section helps users visualise transformation and stay motivated through tangible wins:
+
+#### Milestone Categories:
+- 📆 **30-Day**: Build a habit, establish routine
+- ⏳ **90-Day**: Improve body comp, consistency
+- 🛠️ **1-Year**: Long-term transformation, advanced skill mastery
+
+Users are taught to embrace plateaus, celebrate small wins, and make training adjustments (intensity, rest, variation) when needed.
+
+**A central takeaway is reinforced:**
+> **Consistency + Progressive Overload + Patience = Transformation**
+
+This simple formula keeps users grounded and focused even when external results fluctuate.
+
+### 📝 Progression Notes
+
+Like Training and Activity notes, this section allows users to:
+
+- Log specific fitness milestones
+- Reflect on their goals, challenges, and breakthroughs
+- Document mindset shifts (e.g. "Learned to embrace plateaus this week")
+- Track performance weekly
+
+A motivational prompt encourages users to:
+- Set measurable targets
+- Record small wins
+- Reflect on their emotional and physical progress
+
+This section supports the self-coaching mindset, helping users build ownership of their journey.
+
+### 💡 Why This Page Matters
+
+The Progression Page turns abstract growth into trackable, tangible progress. It combines educational content, tracking strategy, and self-reflection tools to:
+
+- 📌 Help users set meaningful, attainable goals
+- 📈 Teach them to track what matters and avoid burnout
+- 🏆 Celebrate their progress and refine their plans
+
+It's not just about "getting results" — it's about recognising them, adjusting the plan, and pushing forward with purpose.
+
+Whether a user is starting fresh or breaking through a plateau, the Progression Page serves as a structured and supportive guide to sustainable, measurable transformation.
+
+---
+
+## Settings Page – Final Design
+
+**🔗 [View Live](https://forge-fitness-d9cu.onrender.com/settings/)**
+
+The Settings Page gives users essential control over their account with a minimal, purpose-driven layout. Designed with clarity and user autonomy in mind, it offers a secure, frictionless method for users to manage sensitive actions like account deletion — reinforcing transparency, privacy, and user empowerment throughout the Forge Fitness platform.
+
+### ⚙️ Page Overview
+
+Unlike other pages in the app that offer multiple layers of interaction, the Settings Page is intentionally simple and focused. It provides:
+
+- **One clearly defined action**: Account Deletion
+- **A single access point to Edit Profile**, redirecting users to their profile management section
+- **A clean layout**, minimal distraction, and warning-heavy design to reinforce the gravity of the account deletion process
+
+### 🧨 Delete Account – Secure & Deliberate
+
+This section walks users through permanent account removal with a strong emphasis on caution and clarity:
+
+#### 🔒 Safety Features:
+- **Irreversibility Warning**: A high-visibility alert ensures users know that deletion is permanent and non-recoverable
+- **Data Transparency**: Users are informed that all personal data, notes, and progress will be fully erased
+- **Confirmation Field**: Requires manual entry of the word "DELETE" in uppercase to prevent accidental deletions
+
+#### ✅ Email Confirmation:
+An optional checkbox allows users to receive a final confirmation email after deletion — reinforcing user control and providing a closing audit trail.
+
+#### 📌 UX Considerations:
+- The form is centred, focused, and free of clutter to avoid confusion
+- Primary actions (like "Delete Account") are clearly marked in red and separated from other navigation to avoid accidental interaction
+- Redundant safety warnings offer peace of mind and reinforce accountability
+
+### 👤 Profile Management Access
+
+Beneath the deletion section is a redirect to **Edit Profile**, allowing users to:
+
+- Update their display name and bio
+- Maintain full ownership over their identity without needing to access separate forms
+
+This subtle UI cue balances power with accessibility — reminding users that deletion isn't the only form of change available.
+
+### 🔍 Why This Page Matters
+
+While minimalist in design, the Settings Page serves a critical function:
+
+- **🔓 User Autonomy**: Gives users complete control over their data and presence within the app
+- **🧠 Intentional Design**: Prevents accidental deletion with strong safeguards and layered confirmations
+- **🧼 Clean UX**: Removes friction and mental load from managing account settings — a hallmark of user-respecting platforms
+
+Whether a user is stepping away from the app or just exploring their options, the Settings Page ensures that they feel safe, informed, and in control at all times.
+
+## UX Final Thoughts
+The final design of Forge Fitness goes far beyond the initial wireframes and user stories — it delivers a cohesive, accessible, and user-led experience that empowers individuals at every stage of their fitness journey. Each page has been thoughtfully crafted to balance educational content, practical tools, and motivational design — from the intuitive dashboard and expert-guided training section to the reflective lifestyle tracking and goal-setting features. Visual consistency, clear navigation, responsive layouts, and interaction feedback have all been prioritised to ensure users feel confident, motivated, and in control.
+
+Ultimately, the UX of Forge Fitness isn’t just about how the app looks — it’s about how it feels to use: supportive without being overwhelming, structured without being rigid, and personal without sacrificing simplicity. The platform has evolved into a tool that not only guides users through their training, nutrition, and habits but also respects their autonomy and encourages long-term behavioural change. This final design reflects a shift from just using an app to owning a fitness journey — and that’s the experience Forge Fitness was built to deliver.
 
 
 
