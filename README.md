@@ -94,12 +94,12 @@ This comprehensive documentation provides a complete overview of the Forge Fitne
 - [Database Structure](#database-structure)
 - [Folder Structure](#folder-structure)
 - [Technologies Used](#technologies-used)
-
 - [Security Features](#security-features)
+- [Testing](#testing)
 - [Future Enhancements](#future-enhancements)
 - [Local Development Setup](#local-development-setup)
 - [Deployment](#deployment)
-- [Credits & Attribution](#credits--attribution)
+- [Credits](#credits)
 
 ---
 
@@ -1733,4 +1733,619 @@ Forge Fitness is built using a comprehensive modern web development stack that p
 This comprehensive technology stack demonstrates proficiency in modern full-stack development practices while ensuring Forge Fitness delivers a secure, scalable, and user-friendly fitness management platform. The combination of Django's robust backend capabilities with responsive frontend technologies creates an application that meets professional development standards and provides an exceptional user experience across all devices and use cases.
 
 ---
+
+## Security Features
+
+Forge Fitness implements a comprehensive security framework that follows Django best practices and industry standards to protect user data, prevent common web vulnerabilities, and ensure secure authentication flows. The application employs multiple layers of security controls, from secure password handling and input validation to protection against common attack vectors like CSRF, XSS, and SQL injection.
+
+### Authentication & Authorization
+
+| Security Feature | Implementation |
+|------------------|----------------|
+| **Custom Authentication Backend** | Implements a custom backend (`users/backends.py`) allowing secure login via email or username, ensuring authentication logic is isolated and protected from common exploits |
+| **Password Hashing & Storage** | User passwords are never stored in plain text. Django's default PBKDF2 password hasher is used to securely hash and salt all passwords |
+| **User Authorization & Access Control** | Views and templates are protected using Django's built-in `@login_required` decorators and permission checks, so users cannot access or modify data they don't own |
+| **Session Management** | Custom middleware (`users/middleware.py`) ensures that user sessions and sensitive operations are handled securely |
+
+### Input Validation & Data Protection
+
+| Security Feature | Implementation |
+|------------------|----------------|
+| **Form Validation & Sanitization** | All user inputs—across signup, login, note creation, and profile editing—are validated server-side to prevent injection attacks and invalid data from entering the database |
+| **File Upload Validation** | Strict checks on image uploads (type, size) for avatars/profile pictures to block malicious files and prevent abuse |
+| **SQL Injection Protection** | Django ORM provides automatic protection against SQL injection attacks through parameterized queries |
+| **XSS Prevention** | Django's template system automatically escapes user input, and form validation prevents malicious script injection |
+
+### Web Security & Headers
+
+| Security Feature | Implementation |
+|------------------|----------------|
+| **Django Security Middleware** | Leverages Django's built-in middleware for automatic CSRF (Cross-Site Request Forgery) protection, XSS (Cross-Site Scripting) prevention, secure HTTP headers, and session security |
+| **Secure Cookie Settings** | Uses Django's recommended cookie settings for session cookies (HTTPOnly, Secure, SameSite) to protect user authentication tokens from interception or cross-site attacks |
+| **HTTPS Deployment Ready** | The application is ready for deployment behind HTTPS (recommended by both Django and Render), securing all data in transit |
+| **Secure Headers** | Implements security headers including X-Frame-Options, X-Content-Type-Options, and X-XSS-Protection |
+
+### Configuration & Environment Security
+
+| Security Feature | Implementation |
+|------------------|----------------|
+| **Environment Variables for Secrets** | Sensitive settings (like secret keys and database credentials) are managed via environment variables, never hard-coded or exposed in the repository |
+| **Error Handling & Information Disclosure** | Custom 404 and 500 pages prevent leakage of sensitive information, and debug settings are disabled in production |
+| **Production Configuration** | Debug mode is disabled in production, and sensitive configuration is properly secured |
+
+### Additional Security Considerations
+
+While Forge Fitness implements robust security measures, the following enhancements could be considered for future development:
+
+- **Rate Limiting**: Implement request throttling to prevent brute force attacks
+- **Content Security Policy (CSP)**: Add CSP headers to prevent code injection attacks
+- **Security Logging**: Enhanced logging for security events and failed authentication attempts
+- **Two-Factor Authentication (2FA)**: Optional secondary authentication for enhanced account security
+- **Password Strength Requirements**: Enforce stronger password policies during registration
+
+The security implementation in Forge Fitness demonstrates a comprehensive understanding of web application security principles and provides a solid foundation for protecting user data and maintaining application integrity in production environments.
+
+---
+
+## Testing
+
+Forge Fitness has undergone comprehensive testing to ensure functionality, security, and user experience across all features and devices. Testing includes automated unit tests, manual functionality testing, responsive design validation, and security verification.
+
+**📋 For detailed testing documentation, including test cases, validation results, and bug fixes, please refer to:**
+
+**[Testing Documentation](testing/test.md)**
+
+This dedicated testing file contains:
+- Manual testing procedures and results
+- Automated test coverage reports
+- User acceptance testing scenarios
+- Cross-browser and device compatibility testing
+- Security and performance validation
+- Known issues and resolutions
+
+All critical user journeys, authentication flows, CRUD operations, and security features have been thoroughly tested and validated before deployment.
+
+---
+
+## Future Enhancements
+
+Forge Fitness has been designed with scalability and user experience expansion in mind. The following enhancements represent realistic and valuable additions that would further improve the educational and organizational aspects of the platform while maintaining its core mission of fitness guidance and personal development.
+
+### User Experience & Accessibility
+
+| Enhancement | Description | Impact |
+|-------------|-------------|---------|
+| **Dark Mode & Accessibility Improvements** | Implement a dark mode toggle and enhanced accessibility options (font size, color contrast, ARIA labels) to improve usability for all users | Improved accessibility compliance and user comfort during extended use |
+| **Multi-Language Support** | Internationalize the app by supporting multiple languages, making it accessible to a wider audience | Expanded global reach and inclusivity |
+| **Enhanced Chart Customization** | Allow users to customize dashboard charts—selecting timeframes, toggling data categories, or switching chart types for a more personalized analytics view | Increased user engagement with progress visualization |
+
+### Data Management & Export
+
+| Enhancement | Description | Impact |
+|-------------|-------------|---------|
+| **User Progress Export (PDF/CSV)** | Allow users to export their activity statistics, notes, or progress charts as PDF or CSV files for offline tracking, printing, or sharing with coaches | Enhanced data portability and professional sharing capabilities |
+| **Bulk Note Management** | Add multi-select or bulk-delete options for users to more easily manage their practice notes | Improved efficiency for active users with extensive note histories |
+
+### Communication & Engagement
+
+| Enhancement | Description | Impact |
+|-------------|-------------|---------|
+| **Email Notifications & Reminders** | Add automated email reminders for users to log notes, reflect on progress, or receive encouragement based on inactivity or milestones | Increased user retention and consistent platform engagement |
+| **In-App Announcements or Tips** | Admins can post platform updates, health tips, or feature guides to a news feed or announcement banner on the dashboard | Enhanced user education and platform communication |
+
+### Privacy & Administration
+
+| Enhancement | Description | Impact |
+|-------------|-------------|---------|
+| **Profile Privacy Settings** | Enable users to set their profile as public/private and control what profile information or progress data is visible to others (if you ever introduce a social or community feature) | Enhanced user privacy control and foundation for potential social features |
+| **Admin Analytics Dashboard** | Build an admin-only analytics panel to track overall user activity, signups, and platform engagement (good for growth and maintenance) | Improved platform management and data-driven decision making |
+
+---
+
+Each enhancement maintains the platform's focus on education and personal development while adding meaningful value to the user experience without compromising the clean, intuitive design that defines Forge Fitness.
+
+---
+
+## Local Development Setup
+
+Follow these step-by-step instructions to set up Forge Fitness for local development on your machine.
+
+### Prerequisites
+
+Ensure you have the following installed on your system:
+
+| Requirement | Version | Purpose |
+|-------------|---------|---------|
+| **Python** | 3.8+ | Core programming language |
+| **pip** | Latest | Package manager for Python |
+| **Git** | Latest | Version control system |
+| **Virtual Environment** | `venv` or `virtualenv` | Dependency isolation |
+
+### Step-by-Step Setup
+
+#### 1. Clone the Repository
+
+```bash
+git clone https://github.com/GBerrow/Forge-Fitness.git
+cd Forge-Fitness
+```
+
+#### 2. Create and Activate Virtual Environment
+
+**Windows:**
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+**macOS/Linux:**
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+#### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+#### 4. Environment Variables Setup
+
+Create a `.env` file in the project root directory:
+
+```bash
+# Create .env file
+touch .env
+```
+
+Add the following environment variables to your `.env` file:
+
+```env
+# Django Settings
+SECRET_KEY=your-secret-key-here
+DEBUG=True
+ALLOWED_HOSTS=localhost,127.0.0.1
+
+# Database (SQLite for development)
+DATABASE_URL=sqlite:///db.sqlite3
+
+# Optional: Email Configuration (for future features)
+EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
+```
+
+**⚠️ Important**: Never commit your `.env` file to version control. It's already included in `.gitignore`.
+
+#### 5. Database Setup
+
+Run Django migrations to create the database schema:
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+#### 6. Create Superuser Account
+
+Create an admin account for accessing the Django admin interface:
+
+```bash
+python manage.py createsuperuser
+```
+
+Follow the prompts to set up your admin credentials.
+
+#### 7. Collect Static Files
+
+```bash
+python manage.py collectstatic
+```
+
+#### 8. Run the Development Server
+
+```bash
+python manage.py runserver
+```
+
+The application will be available at: **http://127.0.0.1:8000/**
+
+### Accessing the Application
+
+| URL | Purpose | Access |
+|-----|---------|---------|
+| `http://127.0.0.1:8000/` | Main application | Public |
+| `http://127.0.0.1:8000/admin/` | Django admin interface | Superuser only |
+| `http://127.0.0.1:8000/signup/` | User registration | Public |
+| `http://127.0.0.1:8000/login/` | User login | Public |
+
+### Development Workflow
+
+#### Making Changes
+
+1. **Code Changes**: Edit files in your preferred IDE
+2. **Database Changes**: Create and run migrations
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+3. **Static Files**: Collect static files after CSS/JS changes
+   ```bash
+   python manage.py collectstatic
+   ```
+
+#### Running Tests
+
+```bash
+python manage.py test
+```
+
+#### Checking for Issues
+
+```bash
+python manage.py check
+```
+
+### Common Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| **Module not found errors** | Ensure virtual environment is activated and dependencies are installed |
+| **Database errors** | Run `python manage.py migrate` to update database schema |
+| **Static files not loading** | Run `python manage.py collectstatic` and check `STATIC_URL` settings |
+| **Port already in use** | Use a different port: `python manage.py runserver 8001` |
+| **Permission denied** | Check file permissions and virtual environment activation |
+
+### Development Tips
+
+- **Virtual Environment**: Always ensure your virtual environment is activated before running commands
+- **Database Reset**: To start fresh, delete `db.sqlite3` and run migrations again
+- **Admin Access**: Use the superuser account to manage users and data through the admin interface
+- **Debug Mode**: Keep `DEBUG=True` in development for detailed error messages
+- **Hot Reload**: The development server automatically reloads when you make code changes
+
+### Project Structure
+
+```
+Forge-Fitness/
+├── forge_fitness/          # Main Django project
+├── users/                  # User authentication app
+├── static/                 # Static files (CSS, JS, images)
+├── templates/              # HTML templates
+├── assets/                 # Documentation and wireframes
+├── manage.py              # Django management script
+├── requirements.txt       # Python dependencies
+├── .env                   # Environment variables (create this)
+└── README.md             # This file
+```
+
+Once setup is complete, you'll have a fully functional local development environment ready for contributing to Forge Fitness!
+
+---
+
+## Deployment
+
+Forge Fitness is configured for seamless deployment to modern cloud platforms, with Render being the recommended hosting solution. The application uses PostgreSQL for production database management and WhiteNoise for efficient static file serving.
+
+### Production Requirements
+
+| Requirement | Purpose | Configuration |
+|-------------|---------|---------------|
+| **PostgreSQL Database** | Production-grade database | Managed database service |
+| **Python Runtime** | Application execution | Python 3.8+ |
+| **WhiteNoise** | Static file serving | Configured in `settings.py` |
+| **Gunicorn** | WSGI HTTP Server | Production web server |
+| **Environment Variables** | Secure configuration | Platform-specific settings |
+
+### Pre-Deployment Checklist
+
+Before deploying, ensure the following configurations are in place:
+
+#### ✅ Production Settings
+
+- [ ] `DEBUG = False` in production environment
+- [ ] `ALLOWED_HOSTS` configured with your domain
+- [ ] Database URL configured for PostgreSQL
+- [ ] Static files configuration verified
+- [ ] Security middleware enabled
+- [ ] Environment variables properly set
+
+#### ✅ Required Files
+
+- [ ] `requirements.txt` - Python dependencies
+- [ ] `runtime.txt` - Python version specification
+- [ ] `Procfile` - Process configuration
+- [ ] Environment variables configured
+
+### Deployment to Render
+
+#### Step 1: Prepare Repository
+
+Ensure your repository contains these deployment files:
+
+**runtime.txt:**
+```
+python-3.9.18
+```
+
+**Procfile:**
+```
+web: gunicorn forge_fitness.wsgi:application
+```
+
+**requirements.txt** (verify these key dependencies are included):
+```
+Django>=4.2.0
+psycopg2-binary>=2.9.0
+whitenoise>=6.5.0
+gunicorn>=21.2.0
+```
+
+#### Step 2: Create Render Web Service
+
+1. **Connect Repository**
+   - Log in to [Render](https://render.com/)
+   - Click "New +" → "Web Service"
+   - Connect your GitHub repository
+
+2. **Configure Build Settings**
+   
+   | Setting | Value |
+   |---------|-------|
+   | **Name** | `forge-fitness` |
+   | **Environment** | `Python 3` |
+   | **Build Command** | `pip install -r requirements.txt` |
+   | **Start Command** | `gunicorn forge_fitness.wsgi:application` |
+
+#### Step 3: Database Configuration
+
+1. **Create PostgreSQL Database**
+   - In Render dashboard: "New +" → "PostgreSQL"
+   - Choose your preferred plan
+   - Note the connection details
+
+2. **Configure Database Environment Variables**
+
+#### Step 4: Environment Variables
+
+Configure the following environment variables in Render:
+
+| Variable | Value | Purpose |
+|----------|-------|---------|
+| `SECRET_KEY` | `your-production-secret-key` | Django security |
+| `DEBUG` | `False` | Production mode |
+| `DATABASE_URL` | `postgresql://user:pass@host:port/db` | Database connection |
+| `ALLOWED_HOSTS` | `your-app-name.onrender.com` | Allowed domains |
+
+**⚠️ Important**: Generate a new `SECRET_KEY` for production. Never use your development key.
+
+#### Step 5: Static Files Configuration
+
+Ensure `settings.py` includes:
+
+```python
+# Static files configuration
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# WhiteNoise middleware
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # ... other middleware
+]
+```
+
+#### Step 6: Deploy Application
+
+1. **Push to Repository**
+   ```bash
+   git add .
+   git commit -m "Deploy to production"
+   git push origin main
+   ```
+
+2. **Render Auto-Deploy**
+   - Render will automatically detect changes
+   - Monitor build logs for any issues
+   - Deployment typically takes 2-5 minutes
+
+### Post-Deployment Setup
+
+#### Database Migrations
+
+After successful deployment, run migrations:
+
+1. **Access Render Shell**
+   - Go to your web service dashboard
+   - Click "Shell" tab
+   - Run migration commands
+
+2. **Execute Migrations**
+   ```bash
+   python manage.py migrate
+   ```
+
+3. **Create Superuser** (Optional)
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+#### Verify Deployment
+
+| Check | URL | Expected Result |
+|-------|-----|-----------------|
+| **Homepage** | `https://your-app.onrender.com/` | Welcome page loads |
+| **Static Files** | Check CSS/JS loading | Styles applied correctly |
+| **Authentication** | `/signup/` and `/login/` | Forms work properly |
+| **Database** | User registration | Data saves successfully |
+| **Admin Panel** | `/admin/` | Admin interface accessible |
+
+### Production Monitoring
+
+#### Health Checks
+
+Monitor these key metrics:
+
+- **Application Status**: Service running without errors
+- **Database Connectivity**: Successful database connections
+- **Static Files**: CSS/JS loading properly
+- **User Authentication**: Login/signup functionality
+- **Error Rates**: Monitor for 500/404 errors
+
+#### Log Monitoring
+
+Access logs through:
+- **Render Dashboard**: Service logs tab
+- **Django Admin**: For application-level monitoring
+- **Database Logs**: PostgreSQL query performance
+
+### Common Deployment Issues
+
+| Issue | Cause | Solution |
+|-------|-------|----------|
+| **Build Failed** | Missing dependencies | Check `requirements.txt` |
+| **Database Connection Error** | Incorrect DATABASE_URL | Verify PostgreSQL connection string |
+| **Static Files Not Loading** | WhiteNoise misconfiguration | Check `STATIC_ROOT` and middleware |
+| **500 Internal Server Error** | `DEBUG=True` in production | Set `DEBUG=False` |
+| **ALLOWED_HOSTS Error** | Missing domain | Add your Render domain to `ALLOWED_HOSTS` |
+
+### Security Considerations
+
+#### Production Security Settings
+
+Ensure these settings are configured for production:
+
+```python
+# Security settings
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_SECONDS = 3600
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+```
+
+#### Environment Variables Security
+
+- **Never commit secrets** to version control
+- **Use strong SECRET_KEY** (50+ characters)
+- **Rotate credentials** regularly
+- **Monitor access logs** for suspicious activity
+
+### Maintenance & Updates
+
+#### Regular Updates
+
+1. **Dependencies**: Keep packages updated
+2. **Security Patches**: Apply Django security updates
+3. **Database Maintenance**: Monitor performance
+4. **Backup Strategy**: Regular database backups
+
+#### Deployment Workflow
+
+```bash
+# 1. Test locally
+python manage.py test
+
+# 2. Update dependencies
+pip freeze > requirements.txt
+
+# 3. Deploy to production
+git add .
+git commit -m "Update: [description]"
+git push origin main
+```
+
+After following these instructions you will have a production-ready application ! 🚀
+
+---
+
+## Credits
+
+The development of Forge Fitness represents both individual effort and the collective contributions of the broader fitness education and web development communities. This project demonstrates comprehensive full-stack development skills while creating a meaningful platform that empowers users to take control of their fitness journey through education, organization, and personal development.
+
+### Core Development
+
+| Contribution Area | Details |
+|-------------------|---------|
+| **Primary Development** | • Fully designed and implemented by myself<br>• Complete Django application architecture and implementation<br>• User authentication, profile management, and note-taking systems<br>• Educational content organization and user experience design<br>• Testing, security implementation, and performance optimization |
+| **Architecture & Design** | • Original modular Django application structure with separation of concerns<br>• User-centered design with responsive interface implementation<br>• Educational content framework with interactive note-taking capabilities<br>• Database schema design with secure user data management<br>• RESTful URL routing and template inheritance patterns |
+| **Technical Implementation** | • Custom authentication backend supporting email/username login<br>• Comprehensive form validation and security middleware integration<br>• Interactive dashboard with Chart.js data visualization<br>• Cross-browser compatibility and mobile-first responsive design<br>• Production deployment with PostgreSQL and static file optimization |
+
+### External Resources & Tools
+
+#### Fitness Education & Content
+
+| Resource | Contribution to Project |
+|----------|-------------------------|
+| **Jeff Nippard** | • Science-based fitness education and training methodology<br>• YouTube content integration for structured workout guidance<br>• Exercise demonstration videos for all major muscle groups<br>• Evidence-based training principles and progressive overload concepts<br>• Educational approach to fitness that prioritizes form and safety |
+| **Jeff Nippard's YouTube Channel** | • Curated video content for muscle-specific training sections<br>• Expert-led exercise demonstrations and technique instruction<br>• Training plan development and periodization guidance<br>• Nutrition and recovery education supporting holistic fitness |
+| **Fitness Industry Research** | • Market analysis data supporting feature development decisions<br>• User behavior statistics informing UX design and engagement strategies<br>• Retention and motivation research guiding achievement systems<br>• Mobile-first design statistics supporting responsive development |
+
+#### Web Development Framework & Libraries
+
+| Technology | Contribution to Project |
+|------------|-------------------------|
+| **Django 4.2+** | • Full-stack web framework providing robust foundation<br>• Built-in authentication system with custom backend integration<br>• ORM for database management and migrations<br>• Admin interface for content and user management<br>• Security middleware and CSRF protection |
+| **Bootstrap 5** | • Responsive CSS framework for mobile-first design<br>• UI components and utilities for consistent styling<br>• Grid system supporting cross-device compatibility<br>• Form styling and validation feedback integration |
+| **Chart.js** | • Interactive data visualization library for dashboard analytics<br>• Responsive chart rendering for progress tracking<br>• Multiple chart types (bar, line, pie) for diverse data representation<br>• Customizable styling matching application branding |
+| **jQuery** | • JavaScript library for DOM manipulation and AJAX functionality<br>• Enhanced user interactions and dynamic content updates<br>• Form handling and validation feedback<br>• Smooth UI transitions and user experience enhancements |
+
+#### Development & Deployment Tools
+
+| Tool/Platform | Application in Project |
+|---------------|------------------------|
+| **GitHub** | • Version control and repository hosting throughout development<br>• Issue tracking and project management<br>• Collaboration platform for code review and documentation<br>• Integration with deployment pipeline |
+| **Render** | • Cloud hosting platform for production deployment<br>• Managed PostgreSQL database hosting<br>• Automatic deployments from GitHub repository<br>• SSL certificate management and domain configuration |
+| **Visual Studio Code** | • Primary development environment with Django extensions<br>• Integrated terminal for Django management commands<br>• Git integration for version control workflow<br>• Syntax highlighting and code completion for Python/Django |
+| **PostgreSQL** | • Production database providing scalable data storage<br>• Robust relational database for user profiles and notes<br>• Advanced query capabilities for data analytics<br>• Reliable backup and recovery systems |
+| **ChatGPT**  |• AI-powered coding assistant for debugging and code suggestions<br>• Code review and optimization recommendations<br>• Learning resource for Django best practices |
+
+
+#### Design & User Experience Resources
+
+| Resource | Contribution to Project |
+|----------|-------------------------|
+| **Color Palette Development** | • Brand color scheme research and implementation<br>• Accessibility-compliant color contrast ratios<br>• Psychological color theory application for motivation<br>• Consistent visual identity across all interface elements |
+| **Bootstrap Icons** | • Comprehensive icon library for UI elements<br>• Scalable vector icons for responsive design<br>• Semantic iconography supporting user understanding<br>• Consistent visual language throughout application |
+| **Wireframing & Planning** | • Initial design conceptualization and user flow mapping<br>• Responsive layout planning across device sizes<br>• User journey optimization and navigation structure<br>• Feature prioritization based on user needs analysis |
+
+### Technical Acknowledgments
+
+| Organization/Community | Contribution |
+|------------------------|-------------|
+| **Django Software Foundation** | • Development and maintenance of the exceptional Django framework<br>• Comprehensive documentation and tutorials enabling rapid development<br>• Security-focused approach with built-in protections<br>• Active community support and continuous framework improvements |
+| **Python Software Foundation** | • Python language development and maintenance<br>• Extensive standard library supporting web development<br>• Package Index (PyPI) ecosystem enabling third-party integrations<br>• Documentation and learning resources for language mastery |
+| **Web Development Community** | • Modern web development patterns and best practices<br>• Accessibility standards implementation guidance<br>• Performance optimization techniques for web applications<br>• Security best practices for user data protection |
+| **Open Source Community** | • WhiteNoise for static file serving in production<br>• Gunicorn for production WSGI server implementation<br>• Psycopg2 for PostgreSQL database connectivity<br>• Countless other libraries enabling rapid development |
+
+### Special Thanks
+
+| Recipient | Contribution to Project |
+|-----------|-------------------------|
+| **Code Institute** | • Comprehensive full-stack development curriculum providing foundational knowledge<br>• Project assessment framework encouraging industry-standard implementation<br>• Django specialization course covering advanced web development concepts<br>• Community of peers offering feedback and collaborative learning |
+| **Project Mentor** | • Architectural guidance ensuring scalable, maintainable code structure<br>• Code review and optimization recommendations<br>• Best practice advice for Django development and deployment<br>• Testing strategy guidance and quality assurance principles |
+| **Jeff Nippard** | • Exceptional educational content that forms the foundation of training guidance<br>• Evidence-based approach to fitness education<br>• Permission and inspiration for integrating science-based training content<br>• Commitment to accessible, high-quality fitness education |
+| **Fitness Education Community** | • Research and insights into effective fitness motivation and habit formation<br>• User experience patterns from successful fitness applications<br>• Educational content strategies for skill development and retention<br>• Holistic approach to health and wellness beyond just exercise |
+| **Testing Participants** | • Valuable feedback during development iterations and user testing<br>• Bug reporting and edge case identification across devices<br>• Usability insights from various technical skill levels<br>• Performance feedback across diverse devices and browsers |
+
+### Copyright & Educational Use
+
+This project has been developed for educational purposes as part of a portfolio demonstration showcasing full-stack web development capabilities. All external resources, libraries, and educational content have been used in accordance with their respective licenses and terms of use.
+
+- Educational content references and workout guidance are properly attributed to their original creators
+- All code represents original work built upon open-source frameworks and libraries
+- No proprietary fitness content or copyrighted material has been used without permission
+- Fair use principles have been applied to all referenced materials
+
+### Legacy & Future Development
+
+This project stands on the shoulders of those who have advanced web development, fitness education, and user experience design, combining these disciplines to create an accessible yet comprehensive fitness management platform. The foundation laid by these contributors enables future enhancements and continued evolution of the platform.
+
+
+---
+
+**This project represents a synthesis of technical expertise, educational content, and user-centered design, made possible through the collective contributions of the communities and individuals acknowledged above.** 🙏
+
 
