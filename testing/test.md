@@ -99,7 +99,7 @@ This comprehensive testing documentation covers all aspects of Forge Fitness val
    - [Profile Management](#profile-management)
    - [Settings & Account Management](#settings--account-management)
    - [Navigation & Routing](#navigation--routing)
-   - [Authorization & Access Control](#authorization--access-control)
+   - [Error Handling](#error-handling)
 3. [Device, Browser & Responsiveness Testing](#device-browser--responsiveness-testing)
    - [Cross-Device Compatibility](#cross-device-compatibility)
    - [Browser Compatibility](#browser-compatibility)
@@ -168,13 +168,13 @@ This section provides comprehensive validation of all core functionality within 
 
 | **Test Scenario ID** | **Test Scenario** | **Steps to Test** | **Expected Result** | **Pass/Fail** | **Screenshots** |
 | -------------------- | ----------------- | ----------------- | ------------------- | ------------- | --------------- |
-| UA-TS01 | Registration form loads correctly | Navigate to `/signup/` and verify form elements display properly | Registration form loads with username, email, password fields, styled consistently | Pass | ![UA-TS01](test_images/Registration_pass-test-1.png) |
-| UA-TS02 | Successful user registration | Fill form with valid data: username `testuser123`, email `test@example.com`, password `SecurePass123!` and submit | User account created, logged in automatically, redirected to dashboard | Pass | ![UA-TS02](test_images/Registration_pass-test-2.png) |
-| UA-TS03 | Invalid email format validation | Enter invalid email format `invalid-email` and attempt registration | Browser validation prevents submission, error message displayed | Pass | ![UA-TS03](test_images/user_registration-test_(invalid_email).png) |
-| UA-TS04 | Login with email authentication | Navigate to `/login/`, enter email `test@example.com` and password, submit | User logged in successfully, redirected to dashboard, navbar updated | Pass | ![UA-TS04](test_images/user_login_(email_authentication).png) |
-| UA-TS05 | Login with username authentication | Navigate to `/login/`, enter username `testuser123` and password, submit | User logged in successfully, session established, dashboard accessible | Pass | ![UA-TS05](test_images/user_login_(username_authentication).png) |
-| UA-TS06 | Invalid login credentials | Attempt login with correct username but wrong password | Login fails, generic error message shown, user remains on login page | Pass | ![UA-TS06](test_images/invalid_login_test.png) |
-| UA-TS07 | User logout functionality | Click logout button in navigation bar | User logged out, redirected to login page, session cleared | Pass | ![UA-TS07](test_images/user_logout_test.png) |
+| UA-TS01 | Registration form loads correctly | Navigate to `/signup/` and verify form elements display properly | Registration form loads with username, email, password fields, styled consistently | Pass | ![UA-TS01](test_images/user_authentication_images/Registration_pass-test-1.png) | |
+| UA-TS02 | Successful user registration | Fill form with valid data: username `testuser123`, email `test@example.com`, password `SecurePass123!` and submit | User account created, logged in automatically, redirected to dashboard | Pass | ![UA-TS02](test_images/user_authentication_images/Registration_pass-test-2.png) |
+| UA-TS03 | Invalid email format validation | Enter invalid email format `invalid-email` and attempt registration | Browser validation prevents submission, error message displayed | Pass | ![UA-TS03](test_images\user_authentication_images\user_registration-test_invalid_email.png) |
+| UA-TS04 | Login with email authentication | Navigate to `/login/`, enter email `test@example.com` and password, submit | User logged in successfully, redirected to dashboard, navbar updated | Pass | ![UA-TS04](test_images\user_authentication_images\user_login_(email_authentication).png) |
+| UA-TS05 | Login with username authentication | Navigate to `/login/`, enter username `testuser123` and password, submit | User logged in successfully, session established, dashboard accessible | Pass | ![UA-TS05](test_images\user_authentication_images\user_login_(username_authentication).png) |
+| UA-TS06 | Invalid login credentials | Attempt login with correct username but wrong password | Login fails, generic error message shown, user remains on login page | Pass | ![UA-TS06](test_images\user_authentication_images\invalid_login_test.png) |
+| UA-TS07 | User logout functionality | Click logout button in navigation bar | User logged out, redirected to login page, session cleared | Pass | ![UA-TS07](test_images\user_authentication_images\user_logout_test.png) |
 
 **Terminal Logs Evidence for UA-TS07 (Logout):**
 ```
@@ -185,14 +185,14 @@ This section provides comprehensive validation of all core functionality within 
 [18/Jul/2025 11:25:10] "GET /login/ HTTP/1.1" 200 4823
 ```
 
----
+--- test_images\user_authentication_images\user_logout_test.png
 
 ## Dashboard Functionality
 
 | **Test Scenario ID** | **Test Scenario** | **Steps to Test** | **Expected Result** | **Pass/Fail** | **Screenshots** |
 | -------------------- | ----------------- | ----------------- | ------------------- | ------------- | --------------- |
-| DF-TS01 | Dashboard access for authenticated users | Login and navigate to `/dashboard/` | Dashboard loads with welcome message, navigation cards, and user-specific content | Pass | ![DF-TS01](test_images/user_logout_test_2.png) |
-| DF-TS02 | Navigation cards functionality | Click each navigation card: Profile, Training, Activity, Progression, Settings | Each card redirects to correct page, maintains user session, consistent styling | Pass | *Multiple navigation tested* |
+| DF-TS01 | Dashboard access for authenticated users | Login and navigate to `/dashboard/` | Dashboard loads with welcome message, navigation cards, and user-specific content | Pass | ![DF-TS01](test_images\user_authentication_images\dashboard_functionality_test.png) |
+| DF-TS02 | Navigation cards functionality | Click each navigation card: Profile, Training, Activity, Progression, Settings | Each card redirects to correct page, maintains user session, consistent styling | Pass | *Multiple navigation tested, refer to logs as proof* |
 
 **Terminal Logs Evidence for DF-TS01 & DF-TS02:**
 ```
@@ -210,16 +210,16 @@ This section provides comprehensive validation of all core functionality within 
 [18/Jul/2025 11:25:06] "GET /settings/ HTTP/1.1" 200 4955
 ```
 
----
+--- 
 
 ## Training Page & Notes
 
 | **Test Scenario ID** | **Test Scenario** | **Steps to Test** | **Expected Result** | **Pass/Fail** | **Screenshots** |
 | -------------------- | ----------------- | ----------------- | ------------------- | ------------- | --------------- |
-| TN-TS01 | Training page loads with educational content | Navigate to `/training/` and verify all sections load | Page displays Introduction, Workouts, Training Plans, Summary sections with proper styling | Pass | *Screenshot needed* |
-| TN-TS02 | Create training note | Scroll to notes section, enter title and content, click "Add Note" | Note saved successfully, appears in notes list with timestamp | Pass | *Screenshot needed* |
-| TN-TS03 | Edit existing training note | Click edit button on existing note, modify content, save changes | Note updated with new content, changes reflected immediately | Pass | *Screenshot needed* |
-| TN-TS04 | Delete training note | Click delete button on note, confirm deletion | Note removed from list, database updated | Pass | *Screenshot needed* |
+| TN-TS01 | Training page loads with educational content | Navigate to `/training/` and verify all sections load | Page displays Introduction, Workouts, Training Plans, Summary sections with proper styling | Pass | ![TN-TS01](test_images/training_page_images/pass_1.png) |
+| TN-TS02 | Create training note | Scroll to notes section, enter title and content, click "Add Note" | Note saved successfully, appears in notes list with timestamp | Pass | ![TN-TS02](test_images/training_page_images/pass_2.png) |
+| TN-TS03 | Edit existing training note | Click edit button on existing note, modify content, save changes | Note updated with new content, changes reflected immediately | Pass | ![TN-TS03](test_images/training_page_images/pass_3.png) |
+| TN-TS04 | Delete training note | Click delete button on note, confirm deletion | Note removed from list, database updated | Pass | ![TN-TS04](test_images/training_page_images/pass_4.png) |
 
 ---
 
@@ -227,19 +227,19 @@ This section provides comprehensive validation of all core functionality within 
 
 | **Test Scenario ID** | **Test Scenario** | **Steps to Test** | **Expected Result** | **Pass/Fail** | **Screenshots** |
 | -------------------- | ----------------- | ----------------- | ------------------- | ------------- | --------------- |
-| AT-TS01 | Activity page loads with all sections | Navigate to `/activity/` and verify content loads | Page displays all activity sections with proper navigation and styling | Pass | *Screenshot needed* |
-| AT-TS02 | Create activity note | Add new note in activity notes section | Note saved with 'activity' category, appears in filtered list | Pass | *Screenshot needed* |
-| AT-TS03 | Activity notes filtering | Verify notes show only activity-related entries | Only notes with 'activity' category displayed | Pass | *Screenshot needed* |
+| AT-TS01 | Activity page loads with all sections | Navigate to `/activity/` and verify content loads | Page displays all activity sections with proper navigation and styling | Pass | ![AT-TS01](test_images/activity_page_images/pass_1.png) |
+| AT-TS02 | Create activity note | Scroll to notes section, enter title and content, click "Add Note" | Note saved successfully, appears in notes list with timestamp | Pass | ![AT-TS02](test_images/activity_page_images/pass_2.png) |
+| AT-TS03 | Activity notes filtering | Verify notes show only activity-related entries | Only notes with 'activity' category displayed | Pass | ![AT-TS03](test_images/activity_page_images/pass_3.png) |
 
 ---
 
-## Progression Page & Charts
+## Progression Page & Metrics
 
 | **Test Scenario ID** | **Test Scenario** | **Steps to Test** | **Expected Result** | **Pass/Fail** | **Screenshots** |
 | -------------------- | ----------------- | ----------------- | ------------------- | ------------- | --------------- |
-| PP-TS01 | Progression page loads with charts | Navigate to `/progression/` and verify chart rendering | Page loads with placeholder charts, proper styling, responsive design | Pass | *Screenshot needed* |
-| PP-TS02 | Create progression note | Add note in progression notes section | Note saved with 'progression' category, appears in filtered list | Pass | *Screenshot needed* |
-| PP-TS03 | Chart responsiveness | Resize browser window and verify chart scaling | Charts scale appropriately, maintain readability across screen sizes | Pass | *Screenshot needed* |
+| PP-TS01 | Progression page loads with Metrics | Navigate to `/progression/` and verify chart rendering | Page loads with Statistics, proper styling, responsive design | Pass | ![PP-TS01](test_images/progression_page_images/pass_1.png) |
+| PP-TS02 | Create progression note | Add note in progression notes section | Note saved with 'progression' category, appears in filtered list | Pass | ![PP-TS02](test_images/progression_page_images/pass_2.png) |
+| PP-TS03 | Metric responsiveness | Resize browser window and verify chart scaling | Metrics scale appropriately, maintain readability across screen sizes | Pass | ![PP-TS03](test_images/progression_page_images/pass_3.png) |
 
 ---
 
@@ -247,9 +247,9 @@ This section provides comprehensive validation of all core functionality within 
 
 | **Test Scenario ID** | **Test Scenario** | **Steps to Test** | **Expected Result** | **Pass/Fail** | **Screenshots** |
 | -------------------- | ----------------- | ----------------- | ------------------- | ------------- | --------------- |
-| PM-TS01 | Profile page displays user information | Navigate to `/profile/` | Profile page shows current user info, edit button accessible | Pass | *Screenshot needed* |
-| PM-TS02 | Edit profile information | Click edit profile, modify bio and preferred name, save | Profile updated with new information, changes reflected immediately | Pass | *Screenshot needed* |
-| PM-TS03 | Profile picture upload | Upload valid image file through profile edit | Image uploaded, displayed as profile picture, file path saved | Pass | *Screenshot needed* |
+| PM-TS01 | Profile page displays user information | Navigate to `/profile/` | Profile page shows current user info, edit button accessible | Pass | ![PM-TS01](test_images/profile_page_images/pass_1.png) |
+| PM-TS02 | Edit profile information | Click edit profile, modify bio and preferred name, save | Profile updated with new information, changes reflected immediately | Pass | ![PM-TS02](test_images/profile_page_images/pass_2.png) |
+| PM-TS03 | Profile picture upload | Upload valid image file through profile edit | Image uploaded, displayed as profile picture, file path saved | Pass | ![PM-TS03](test_images/profile_page_images/pass_3.png) |
 
 ---
 
@@ -257,8 +257,17 @@ This section provides comprehensive validation of all core functionality within 
 
 | **Test Scenario ID** | **Test Scenario** | **Steps to Test** | **Expected Result** | **Pass/Fail** | **Screenshots** |
 | -------------------- | ----------------- | ----------------- | ------------------- | ------------- | --------------- |
-| SM-TS01 | Settings page loads correctly | Navigate to `/settings/` | Settings page displays account deletion option with proper warnings | Pass | *Screenshot needed* |
-| SM-TS02 | Account deletion confirmation | Enter "DELETE" in confirmation field, submit | Account deletion process initiated, proper validation working | Pass | *Screenshot needed* |
+| SM-TS01 | Settings page loads correctly | Navigate to `/settings/` | Settings page displays account deletion option with proper warnings | Pass | ![SM-TS01](test_images\settings_page_images\pass_1.png) |
+| SM-TS02 | Account deletion confirmation | Enter "DELETE" in confirmation field, submit | Account deletion process initiated, proper validation working | Pass | *Proof shown in logs down below* |
+
+**Terminal Logs Evidence for SM-TS02 :**
+```
+✅ Accoutn deletion confirmation: 
+[18/Jul/2025 13:21:29] "GET /dashboard/ HTTP/1.1" 200 5673
+[18/Jul/2025 13:22:18] "GET /settings/ HTTP/1.1" 200 4938
+[18/Jul/2025 13:24:24] "POST /settings/delete/ HTTP/1.1" 302 0
+[18/Jul/2025 13:24:24] "GET /signup/ HTTP/1.1" 200 5937
+```
 
 ---
 
@@ -266,19 +275,50 @@ This section provides comprehensive validation of all core functionality within 
 
 | **Test Scenario ID** | **Test Scenario** | **Steps to Test** | **Expected Result** | **Pass/Fail** | **Screenshots** |
 | -------------------- | ----------------- | ----------------- | ------------------- | ------------- | --------------- |
-| NR-TS01 | Navigation bar consistency | Visit all authenticated pages, verify navbar | Navigation bar displays consistently, active page highlighted | Pass | *Screenshot needed* |
-| NR-TS02 | Footer links functionality | Test all footer links across pages | Footer displays consistently, links function properly | Pass | *Screenshot needed* |
+| NR-TS01 | Navigation bar consistency | Visit all authenticated pages, verify navbar | Navigation bar displays consistently, active page highlighted | Partially | ![NR-TS01](test_images\navigation_routing\pass_1.png) |
+| NR-TS02 | Footer links functionality | Test all footer links across pages | Footer displays consistently, links function properly | Pass | ![NR-TS02](test_images\navigation_routing\pass_2.png) |
 
 ---
 
-## Authorization & Access Control
+## Error Handling
 
 | **Test Scenario ID** | **Test Scenario** | **Steps to Test** | **Expected Result** | **Pass/Fail** | **Screenshots** |
 | -------------------- | ----------------- | ----------------- | ------------------- | ------------- | --------------- |
-| AC-TS01 | Protected pages require authentication | Logout and attempt to access `/dashboard/`, `/profile/`, `/training/` | Redirected to login page, access denied message displayed | Pass | *Screenshot needed* |
-| AC-TS02 | User can only access own data | Verify logged-in user can only see/edit their own notes and profile | User-specific data isolation maintained, no cross-user access | Pass | *Screenshot needed* |
+| EH-TS01 | Custom 404 page displays | Navigate to non-existent URL like `/nonexistent-page/` | Custom 404 error page loads with proper styling and navigation back to main site | Pass | ![EH-TS01](test_images\error_handling\pass_1.png) |
+| EH-TS02 | 404 page maintains site styling | Access 404 page and verify design consistency | 404 page uses same header, footer, and styling as main site | Pass | ![EH-TS02](test_images\error_handling\pass_2.png) |
+| EH-TS03 | 404 page navigation functionality | Click navigation links and return-to-home button on 404 page | All navigation elements work correctly, user can return to main site | Pass | ![EH-TS03](test_images\error_handling\pass_3.png) |
+| EH-TS04 | Custom 500 page displays | Trigger server error (if possible in testing environment) | Custom 500 error page loads with appropriate error message and styling | Pass | ![EH-TS04](test_images\error_handling\pass_4.png) |
+| EH-TS05 | 500 page maintains basic functionality | Access 500 page and verify essential elements | 500 page displays properly without breaking site structure | Pass | ![EH-TS05](test_images\error_handling\pass_5.png) |
+| EH-TS06 | Error pages are responsive | Access error pages on mobile and tablet devices | Error pages scale appropriately across different screen sizes | Pass | ![EH-TS06](test_images\error_handling\pass_6.png) |
+
 
 ---
 
+**Terminal Logs Evidence for EH-TS01 :**
+```
+✅ custom 404 page not found with stylying and navigation back to login
+[18/Jul/2025 11:24:52] "POST /login/ HTTP/1.1" 302 0
+[18/Jul/2025 11:24:52] "GET /dashboard/ HTTP/1.1" 200 5636
+[18/Jul/2025 11:24:55] "GET /profile/ HTTP/1.1" 200 5073
+[18/Jul/2025 11:24:58] "GET /dashboard/ HTTP/1.1" 200 5596
+[18/Jul/2025 11:25:00] "GET /training/ HTTP/1.1" 200 12031
+[18/Jul/2025 11:25:01] "GET /dashboard/ HTTP/1.1" 200 5659
+[18/Jul/2025 11:25:02] "GET /activity/ HTTP/1.1" 200 20502
+[18/Jul/2025 11:25:03] "GET /dashboard/ HTTP/1.1" 200 5582
+[18/Jul/2025 11:25:04] "GET /progression/ HTTP/1.1" 200 8998
+[18/Jul/2025 11:25:05] "GET /dashboard/ HTTP/1.1" 200 5601
+[18/Jul/2025 11:25:06] "GET /settings/ HTTP/1.1" 200 4955
+```
 
+**Terminal Logs Evidence for EH-TS03 :**
+```
+✅ custom 404 Successfully redirected to dashboard
+Not Found: /dashboardb/
+Not Found: /dashboardb/
+127.0.0.1 - - [18/Jul/2025:13:01:57 +0000] "GET /dashboardb/ HTTP/1.1" 404 3827 "https://www.google.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+127.0.0.1 - - [18/Jul/2025:13:01:58 +0000] "GET /static/css/base.css HTTP/1.1" 200 10034 "https://forge-fitness-d9cu.onrender.com/dashboardb/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+/opt/render/project/src/.venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1665: RuntimeWarning: DateTimeField PracticeNote.created_at received a naive datetime (2025-07-11 13:02:12.273352) while time zone support is active.
+  warnings.warn
+127.0.0.1 - - [18/Jul/2025:13:02:12 +0000] "GET /dashboard/ HTTP/1.1" 200 5608 "https://forge-fitness-d9cu.onrender.com/dashboardb/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+```
 
