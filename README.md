@@ -14,6 +14,14 @@ The application addresses a critical gap in the fitness app market: **the need f
 
 By combining modern web development practices with proven fitness psychology principles, Forge Fitness creates an environment where users can **practice and internalize effective fitness management strategies** before applying them to their real-world routines. The result is a platform that doesn't just track progress—it teaches users how to create, maintain, and optimize their own fitness success systems.
 
+---
+
+### Before Continuing Further:
+
+**Fancy having a look at my testing documentation?** [👉 Click Here!](./testing/test.md)
+
+**Head on over to the deployed site** [👉 Click Here!](https://forge-fitness-d9cu.onrender.com/signup/)
+
 ## What Makes Forge Fitness Different?
 
 🎯 **Education-First Approach**: Rather than simply tracking workouts, Forge Fitness teaches users the **fundamental principles of effective fitness management**. The platform guides users through proven methodologies for goal setting, progress monitoring, and habit formation. Each section includes educational content that helps users understand **why** certain practices work, not just **how** to implement them, creating lasting fitness knowledge that extends beyond the app.
@@ -2348,4 +2356,50 @@ This project stands on the shoulders of those who have advanced web development,
 
 **This project represents a synthesis of technical expertise, educational content, and user-centered design, made possible through the collective contributions of the communities and individuals acknowledged above.** 🙏
 
+---
 
+### Just to save yourself scrolling back to the top:
+
+- [Introduction](#introduction)
+- [Target Audience & User Needs](#target-audience--user-needs)
+  - [Beginners & First-Time Gym-Goers](#beginners--first-time-gym-goers)
+  - [Intermediate Users & Returning Lifters](#intermediate-users--returning-lifters)
+  - [Advanced Gym-Goers](#advanced-gym-goers)
+  - [Digital-First & Time-Conscious Users](#digital-first--time-conscious-users)
+  - [Progress-Focused & Analytical Users](#progress-focused--analytical-users)
+- [Client Goals](#client-goals)
+- [User Stories](#user-stories)
+- [Statistics](#statistics)
+- [Initial Design](#initial-design)
+  - [Colour Scheme](#colour-scheme)
+  - [Typography](#typography)
+- [Wireframes](#wireframes)
+   - [Sign up Page](#sign-up-page)
+   - [Login Page](#login-page)
+   - [Home Page](#home-page)
+   - [Workout Page](#workout-page)
+   - [Progress Page](#progress-page)
+   - [Profile Page](#profile-page)
+   - [Settings Page](#settings-page)
+- [User Experience | Final Design](#user-experience--final-design)
+  - [Dashboard Overview](#dashboard-overview)
+  - [Sign Up Page | Final Design](#sign-up-page--final-design)
+  - [Login Page | Final Design](#login-page--final-design)
+  - [Training Page | Final Design](#training-page--final-design)
+  - [Activity Page | Final Design](#activity-page--final-design)
+  - [Progression Page | Final Design](#progression-page--final-design)
+  - [Settings Page | Final Design](#settings-page--final-design)
+  - [Final Thoughts](#final-thoughts)
+- [Database Structure](#database-structure)
+- [Folder Structure](#folder-structure)
+- [Technologies Used](#technologies-used)
+- [Security Features](#security-features)
+- [Testing](#testing)
+- [Future Enhancements](#future-enhancements)
+- [Local Development Setup](#local-development-setup)
+- [Deployment](#deployment)
+- [Credits](#credits)
+
+**Test documentation on this link** [👉 Click Here!](./testing/test.md)
+
+---

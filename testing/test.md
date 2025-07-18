@@ -4,6 +4,14 @@
 
 This comprehensive testing documentation outlines the systematic approach taken to ensure Forge Fitness meets the highest standards of functionality, security, user experience, and performance. As a full-stack Django web application designed to educate and empower users in their fitness journey, rigorous testing was essential to validate both the technical implementation and the user-centered design philosophy.
 
+### Before Continuing Further:
+
+**Link back to README (If you already have read the test documentation)** [👉 Click Here!](/README.md)
+
+---
+
+## What Makes Forge Fitness Different?
+
 ### Testing Philosophy & Approach
 
 Forge Fitness testing follows a **multi-layered validation strategy** that encompasses:
@@ -1887,3 +1895,53 @@ The foundation is solid, the architecture is scalable, and the roadmap is clear.
 
 ---
 
+### Just to save yourself scrolling back to the top:
+
+1. [Introduction](#introduction)
+2. [Manual Feature Testing](#manual-feature-testing)
+   - [User Authentication](#user-authentication)
+   - [Dashboard Functionality](#dashboard-functionality)
+   - [Training Page & Notes](#training-page--notes)
+   - [Activity Page & Tracking](#activity-page--tracking)
+   - [Progression Page & Metrics](#progression-page--metrics)
+   - [Profile Management](#profile-management)
+   - [Settings & Account Management](#settings--account-management)
+   - [Navigation & Routing](#navigation--routing)
+   - [Error Handling](#error-handling)
+3. [Device, Browser & Responsiveness Testing](#device-browser--responsiveness-testing)
+   - [Cross-Device Compatibility](#cross-device-compatibility)
+   - [Browser Compatibility](#browser-compatibility)
+   - [Responsive Design Validation](#responsive-design-validation)
+4. [Performance Testing](#performance-testing)
+   - [Page Load Times](#page-load-times)
+   - [Resource Optimization](#resource-optimization)
+   - [Database Query Performance](#database-query-performance)
+5. [Accessibility Testing](#accessibility-testing)
+   - [Keyboard Navigation](#keyboard-navigation)
+   - [Screen Reader Compatibility](#screen-reader-compatibility)
+   - [Color Contrast & Visual Accessibility](#color-contrast--visual-accessibility)
+   - [Semantic HTML Structure](#semantic-html-structure)
+6. [Security Testing](#security-testing)
+   - [Authentication Security](#authentication-security)
+   - [Authorization Controls](#authorization-controls)
+   - [Data Protection](#data-protection)
+   - [Session Security](#session-security)
+   - [File Upload Security](#file-upload-security)
+7. [Code Quality & Standards](#code-quality--standards)
+   - [HTML Validation](#html-validation)
+   - [CSS Validation](#css-validation)
+   - [Python Code Standards](#python-code-standards)
+   - [Django Best Practices](#django-best-practices)
+8. [Bugs and Fixes](#bugs-and-fixes)
+   - [Resolved Issues](#resolved-issues)
+   - [Known Limitations](#known-limitations)
+   - [Potential Future Improvements](#potential-future-improvements)
+   - [Developer Notes](#developer-notes)
+9. [Final Implementation Summary](#final-implementation-summary)
+    - [Testing Outcomes](#testing-outcomes)
+    - [Quality Assessment](#quality-assessment)
+    - [Recommendations](#recommendations)
+
+**Link back to README (If you already have read the test documentation)** [👉 Click Here!](/README.md)
+
+---
