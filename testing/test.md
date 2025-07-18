@@ -172,13 +172,13 @@ This section provides comprehensive validation of all core functionality within 
 
 | **Test Scenario ID** | **Test Scenario** | **Steps to Test** | **Expected Result** | **Pass/Fail** | **Screenshots** |
 | -------------------- | ----------------- | ----------------- | ------------------- | ------------- | --------------- |
-| UA-TS01 | Registration form loads correctly | Navigate to `/signup/` and verify form elements display properly | Registration form loads with username, email, password fields, styled consistently | Pass | ![UA-TS01](test_images/user_authentication_images/Registration_pass-test-1.png) | |
+| UA-TS01 | Registration form loads correctly | Navigate to `/signup/` and verify form elements display properly | Registration form loads with username, email, password fields, styled consistently | Pass | ![UA-TS01](test_images/user_authentication_images/Registration_pass-test-1.png) |
 | UA-TS02 | Successful user registration | Fill form with valid data: username `testuser123`, email `test@example.com`, password `SecurePass123!` and submit | User account created, logged in automatically, redirected to dashboard | Pass | ![UA-TS02](test_images/user_authentication_images/Registration_pass-test-2.png) |
-| UA-TS03 | Invalid email format validation | Enter invalid email format `invalid-email` and attempt registration | Browser validation prevents submission, error message displayed | Pass | ![UA-TS03](test_images\user_authentication_images\user_registration-test_invalid_email.png) |
-| UA-TS04 | Login with email authentication | Navigate to `/login/`, enter email `test@example.com` and password, submit | User logged in successfully, redirected to dashboard, navbar updated | Pass | ![UA-TS04](test_images\user_authentication_images\user_login_(email_authentication).png) |
-| UA-TS05 | Login with username authentication | Navigate to `/login/`, enter username `testuser123` and password, submit | User logged in successfully, session established, dashboard accessible | Pass | ![UA-TS05](test_images\user_authentication_images\user_login_(username_authentication).png) |
-| UA-TS06 | Invalid login credentials | Attempt login with correct username but wrong password | Login fails, generic error message shown, user remains on login page | Pass | ![UA-TS06](test_images\user_authentication_images\invalid_login_test.png) |
-| UA-TS07 | User logout functionality | Click logout button in navigation bar | User logged out, redirected to login page, session cleared | Pass | ![UA-TS07](test_images\user_authentication_images\user_logout_test.png) |
+| UA-TS03 | Invalid email format validation | Enter invalid email format `invalid-email` and attempt registration | Browser validation prevents submission, error message displayed | Pass | ![UA-TS03](test_images/user_authentication_images/user_registration-test_invalid_email.png) |
+| UA-TS04 | Login with email authentication | Navigate to `/login/`, enter email `test@example.com` and password, submit | User logged in successfully, redirected to dashboard, navbar updated | Pass | ![UA-TS04](test_images//user_authentication_images/user_login_(email_authentication).png) |
+| UA-TS05 | Login with username authentication | Navigate to `/login/`, enter username `testuser123` and password, submit | User logged in successfully, session established, dashboard accessible | Pass | ![UA-TS05](test_images/user_authentication_images/user_login_(username_authentication).png) |
+| UA-TS06 | Invalid login credentials | Attempt login with correct username but wrong password | Login fails, generic error message shown, user remains on login page | Pass | ![UA-TS06](test_images/user_authentication_images/invalid_login_test.png) |
+| UA-TS07 | User logout functionality | Click logout button in navigation bar | User logged out, redirected to login page, session cleared | Pass | ![UA-TS07](test_images/user_authentication_images/user_logout_test.png) |
 
 **Terminal Logs Evidence for UA-TS07 (Logout):**
 ```
@@ -195,7 +195,7 @@ This section provides comprehensive validation of all core functionality within 
 
 | **Test Scenario ID** | **Test Scenario** | **Steps to Test** | **Expected Result** | **Pass/Fail** | **Screenshots** |
 | -------------------- | ----------------- | ----------------- | ------------------- | ------------- | --------------- |
-| DF-TS01 | Dashboard access for authenticated users | Login and navigate to `/dashboard/` | Dashboard loads with welcome message, navigation cards, and user-specific content | Pass | ![DF-TS01](test_images\user_authentication_images\dashboard_functionality_test.png) |
+| DF-TS01 | Dashboard access for authenticated users | Login and navigate to `/dashboard/` | Dashboard loads with welcome message, navigation cards, and user-specific content | Pass | ![DF-TS01](test_images/user_authentication_images/dashboard_functionality_test.png) |
 | DF-TS02 | Navigation cards functionality | Click each navigation card: Profile, Training, Activity, Progression, Settings | Each card redirects to correct page, maintains user session, consistent styling | Pass | *Multiple navigation tested, refer to logs as proof* |
 
 **Terminal Logs Evidence for DF-TS01 & DF-TS02:**
@@ -261,7 +261,7 @@ This section provides comprehensive validation of all core functionality within 
 
 | **Test Scenario ID** | **Test Scenario** | **Steps to Test** | **Expected Result** | **Pass/Fail** | **Screenshots** |
 | -------------------- | ----------------- | ----------------- | ------------------- | ------------- | --------------- |
-| SM-TS01 | Settings page loads correctly | Navigate to `/settings/` | Settings page displays account deletion option with proper warnings | Pass | ![SM-TS01](test_images\settings_page_images\pass_1.png) |
+| SM-TS01 | Settings page loads correctly | Navigate to `/settings/` | Settings page displays account deletion option with proper warnings | Pass | ![SM-TS01](test_images/settings_page_images/pass_1.png) |
 | SM-TS02 | Account deletion confirmation | Enter "DELETE" in confirmation field, submit | Account deletion process initiated, proper validation working | Pass | *Proof shown in logs down below* |
 
 **Terminal Logs Evidence for SM-TS02 :**
@@ -279,8 +279,8 @@ This section provides comprehensive validation of all core functionality within 
 
 | **Test Scenario ID** | **Test Scenario** | **Steps to Test** | **Expected Result** | **Pass/Fail** | **Screenshots** |
 | -------------------- | ----------------- | ----------------- | ------------------- | ------------- | --------------- |
-| NR-TS01 | Navigation bar consistency | Visit all authenticated pages, verify navbar | Navigation bar displays consistently, active page highlighted | Partially | ![NR-TS01](test_images\navigation_routing\pass_1.png) |
-| NR-TS02 | Footer links functionality | Test all footer links across pages | Footer displays consistently, links function properly | Pass | ![NR-TS02](test_images\navigation_routing\pass_2.png) |
+| NR-TS01 | Navigation bar consistency | Visit all authenticated pages, verify navbar | Navigation bar displays consistently, active page highlighted | Partially | ![NR-TS01](test_images/navigation_routing/pass_1.png) |
+| NR-TS02 | Footer links functionality | Test all footer links across pages | Footer displays consistently, links function properly | Pass | ![NR-TS02](test_images/navigation_routing/pass_2.png) |
 
 ---
 
@@ -288,12 +288,12 @@ This section provides comprehensive validation of all core functionality within 
 
 | **Test Scenario ID** | **Test Scenario** | **Steps to Test** | **Expected Result** | **Pass/Fail** | **Screenshots** |
 | -------------------- | ----------------- | ----------------- | ------------------- | ------------- | --------------- |
-| EH-TS01 | Custom 404 page displays | Navigate to non-existent URL like `/nonexistent-page/` | Custom 404 error page loads with proper styling and navigation back to main site | Pass | ![EH-TS01](test_images\error_handling\pass_1.png) |
-| EH-TS02 | 404 page maintains site styling | Access 404 page and verify design consistency | 404 page uses same header, footer, and styling as main site | Pass | ![EH-TS02](test_images\error_handling\pass_2.png) |
-| EH-TS03 | 404 page navigation functionality | Click navigation links and return-to-home button on 404 page | All navigation elements work correctly, user can return to main site | Pass | ![EH-TS03](test_images\error_handling\pass_3.png) |
-| EH-TS04 | Custom 500 page displays | Trigger server error (if possible in testing environment) | Custom 500 error page loads with appropriate error message and styling | Pass | ![EH-TS04](test_images\error_handling\pass_4.png) |
-| EH-TS05 | 500 page maintains basic functionality | Access 500 page and verify essential elements | 500 page displays properly without breaking site structure | Pass | ![EH-TS05](test_images\error_handling\pass_5.png) |
-| EH-TS06 | Error pages are responsive | Access error pages on mobile and tablet devices | Error pages scale appropriately across different screen sizes | Pass | ![EH-TS06](test_images\error_handling\pass_6.png) |
+| EH-TS01 | Custom 404 page displays | Navigate to non-existent URL like `/nonexistent-page/` | Custom 404 error page loads with proper styling and navigation back to main site | Pass | ![EH-TS01](test_images/error_handling/pass_1.png) |
+| EH-TS02 | 404 page maintains site styling | Access 404 page and verify design consistency | 404 page uses same header, footer, and styling as main site | Pass | ![EH-TS02](test_images/error_handling/pass_2.png) |
+| EH-TS03 | 404 page navigation functionality | Click navigation links and return-to-home button on 404 page | All navigation elements work correctly, user can return to main site | Pass | ![EH-TS03](test_images/error_handling/pass_3.png) |
+| EH-TS04 | Custom 500 page displays | Trigger server error (if possible in testing environment) | Custom 500 error page loads with appropriate error message and styling | Pass | ![EH-TS04](test_images/error_handling/pass_4.png) |
+| EH-TS05 | 500 page maintains basic functionality | Access 500 page and verify essential elements | 500 page displays properly without breaking site structure | Pass | ![EH-TS05](test_images/error_handling/pass_5.png) |
+| EH-TS06 | Error pages are responsive | Access error pages on mobile and tablet devices | Error pages scale appropriately across different screen sizes | Pass | ![EH-TS06](test_images/error_handling/pass_6.png) |
 
 
 ---
@@ -402,7 +402,7 @@ This section validates Forge Fitness performance across multiple devices, browse
 
 **Test Focus:** Layout responsiveness, navigation card spacing, header/footer alignment
 
-![Dashboard Page](test_images\cross-device\1920x1080\dashboard_page.png)
+![Dashboard Page](test_images/cross-device/1920x1080/dashboard_page.png)
 
 **Results:**
 - ✅ Navigation cards display in proper grid layout
@@ -417,7 +417,7 @@ This section validates Forge Fitness performance across multiple devices, browse
 
 **Test Focus:** Content sections, collapsible elements, video embed responsiveness
 
-![Training Page](test_images\cross-device\1920x1080\training_page.png)
+![Training Page](test_images/cross-device/1920x1080/training_page.png)
 
 **Results:**
 - ✅ All training sections display with proper spacing
@@ -432,7 +432,7 @@ This section validates Forge Fitness performance across multiple devices, browse
 
 **Test Focus:** Multi-section layout, tab navigation, content organization
 
-![Activity Page](test_images\cross-device\1920x1080\activity_page.png)
+![Activity Page](test_images/cross-device/1920x1080/activity_page.png)
 
 **Results:**
 - ✅ All activity sections display properly
@@ -447,7 +447,7 @@ This section validates Forge Fitness performance across multiple devices, browse
 
 **Test Focus:** Chart displays, metrics layout, responsive data visualization
 
-![Progression Page](test_images\cross-device\1920x1080\progression_page.png)
+![Progression Page](test_images/cross-device/1920x1080/progression_page.png)
 
 **Results:**
 - ✅ Statistics and metrics display in organized grid
@@ -462,7 +462,7 @@ This section validates Forge Fitness performance across multiple devices, browse
 
 **Test Focus:** Form layout, warning messages, button positioning
 
-![Settings Page](test_images\cross-device\1920x1080\settings_page.png)
+![Settings Page](test_images/cross-device/1920x1080/settings_page.png)
 
 **Results:**
 - ✅ Account deletion form properly centered
@@ -481,7 +481,7 @@ This section validates Forge Fitness performance across multiple devices, browse
 
 **Test Focus:** Navigation card stacking, touch targets, mobile navigation
 
-![Mobile Dashboard](test_images\cross-device\390x844\dashboard_page.png)
+![Mobile Dashboard](test_images/cross-device/390x844/dashboard_page.png)
 
 **Results:**
 - ✅ Navigation cards stack vertically on mobile
@@ -496,7 +496,7 @@ This section validates Forge Fitness performance across multiple devices, browse
 
 **Test Focus:** Content readability, video responsiveness, mobile navigation
 
-![Mobile Training](test_images\cross-device\390x844\training_page.png)
+![Mobile Training](test_images/cross-device/390x844/training_page.png)
 
 **Results:**
 - ✅ All content sections remain readable
@@ -511,7 +511,7 @@ This section validates Forge Fitness performance across multiple devices, browse
 
 **Test Focus:** Tab navigation on mobile, content stacking, touch interaction
 
-![Mobile Activity](test_images\cross-device\390x844\activity_page.png)
+![Mobile Activity](test_images/cross-device/390x844/activity_page.png)
 
 **Results:**
 - ✅ Tab navigation adapts to mobile layout
@@ -526,7 +526,7 @@ This section validates Forge Fitness performance across multiple devices, browse
 
 **Test Focus:** Mobile chart display, metrics stacking, touch interaction
 
-![Mobile Progression](test_images\cross-device\390x844\progression_page.png)
+![Mobile Progression](test_images/cross-device/390x844/progression_page.png)
 
 **Results:**
 - ✅ Statistics stack vertically on mobile
@@ -541,7 +541,7 @@ This section validates Forge Fitness performance across multiple devices, browse
 
 **Test Focus:** Mobile form layout, button accessibility, warning visibility
 
-![Mobile Settings](test_images\cross-device\390x844\settings_page.png)
+![Mobile Settings](test_images/cross-device/390x844/settings_page.png)
 
 **Results:**
 - ✅ Form elements scale appropriately
@@ -560,7 +560,7 @@ This section validates Forge Fitness performance across multiple devices, browse
 
 **Test Focus:** Grid layout adaptation, navigation spacing, content organization
 
-![Tablet Dashboard](test_images\cross-device\820x1180\dashboard_page.png)
+![Tablet Dashboard](test_images/cross-device/820x1180/dashboard_page.png)
 
 **Results:**
 - ✅ Navigation cards adapt to tablet grid layout
@@ -575,7 +575,7 @@ This section validates Forge Fitness performance across multiple devices, browse
 
 **Test Focus:** Content sections, video scaling, tablet navigation
 
-![Tablet Training](test_images\cross-device\820x1180\training_page.png)
+![Tablet Training](test_images/cross-device/820x1180/training_page.png)
 
 **Results:**
 - ✅ Training sections display optimally
@@ -590,7 +590,7 @@ This section validates Forge Fitness performance across multiple devices, browse
 
 **Test Focus:** Tab layout, content organization, tablet touch interaction
 
-![Tablet Activity](test_images\cross-device\820x1180\activity_page.png)
+![Tablet Activity](test_images/cross-device/820x1180/activity_page.png)
 
 **Results:**
 - ✅ Tab navigation works well on tablet
@@ -605,7 +605,7 @@ This section validates Forge Fitness performance across multiple devices, browse
 
 **Test Focus:** Chart displays, metrics layout, tablet interaction
 
-![Tablet Progression](test_images\cross-device\820x1180\progression_page.png)
+![Tablet Progression](test_images/cross-device/820x1180/progression_page.png)
 
 **Results:**
 - ✅ Statistics display in tablet-optimized layout
@@ -620,7 +620,7 @@ This section validates Forge Fitness performance across multiple devices, browse
 
 **Test Focus:** Form layout, button positioning, warning display
 
-![Tablet Settings](test_images\cross-device\820x1180\settings_page.png)
+![Tablet Settings](test_images/cross-device/820x1180/settings_page.png)
 
 **Results:**
 - ✅ Form elements display properly
